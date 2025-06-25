@@ -2,7 +2,7 @@
     Chứa các hàm dùng cho xử lí dữ liệu hoặc validation
 """
 import logging
-from config import NORMALIZE_NUMBER, DECIMAL_PLACES
+from core.config import NORMALIZE_NUMBER, DECIMAL_PLACES
 
 def normalize_data(values):
     """
