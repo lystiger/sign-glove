@@ -2,8 +2,8 @@
 Main application file
 """
 import logging
-from config import RAW_DATA, CLEAN_DATA, DEFAULT_NOISE_CONFIG
-from data_processor import read_data, write_data, initialize_csv
+from backend.core.config import RAW_DATA, CLEAN_DATA, DEFAULT_NOISE_CONFIG
+from backend.processors.data_processor import read_data, write_data, initialize_csv
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)

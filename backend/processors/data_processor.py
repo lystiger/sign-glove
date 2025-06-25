@@ -4,9 +4,9 @@ Data processing functions for reading and writing CSV files
 import csv
 import os
 import logging
-from config import FLEX_SENSORS
-from utils import normalize_data, row_validation
-from noise_reducer import NoiseReducer
+from core.config import FLEX_SENSORS
+from backend.processors.utils import normalize_data, row_validation
+from backend.processors.noise_reducer import NoiseReducer
 
 def read_data(file_path, use_noise_reduction=True, noise_config=None):
     """
