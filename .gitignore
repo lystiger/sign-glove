@@ -1,13 +1,23 @@
-# Node modules
-/frontend/node_modules/
+# Node modules (for React)
+frontend/node_modules/
 
-# Python
+# Python bytecode
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# Virtual environments
+venv/          
 env/
 .venv/
 
-# Environment
+# Environment variable files
 *.env
+
+# VSCode settings (optional but common)
+.vscode/
+
+# OS junk files (optional but recommended)
+.DS_Store
+Thumbs.db

@@ -1,10 +1,21 @@
 """
 Configuration file chứa các constants và settings
 """
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # points to backend/core/
+DATA_DIR = os.path.join(BASE_DIR, '..', 'data')
+
+RAW_DATA = os.path.join(DATA_DIR, 'raw_data.csv')
+CLEAN_DATA = os.path.join(DATA_DIR, 'clean_data.csv')
 
 # File paths
-RAW_DATA = 'raw_data.csv' # Nhớ chỉnh đường dẫn nếu cần thiết
-CLEAN_DATA = 'clean_data.csv'
+# Hardcoded so i changed for more portability
+
+"""
+RAW_DATA = 'backend/data/raw_data.csv' # Nhớ chỉnh đường dẫn nếu cần thiết
+CLEAN_DATA = 'backend/data/clean_data.csv'
+"""
 
 NORMALIZE_NUMBER = 4095.0  # Chỉnh sửa tùy vào cảm biến sử dụng (ESP, Arduino)
 DECIMAL_PLACES = 4  # Số chữ số thập phân cần làm tròn
