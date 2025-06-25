@@ -3,3 +3,7 @@ uvicorn[standard]
 pymongo
 python-multipart
 python-dotenv
+numpy
+pandas
+scikit-learn
+serial

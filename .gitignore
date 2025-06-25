@@ -21,3 +21,6 @@ env/
 # OS junk files (optional but recommended)
 .DS_Store
 Thumbs.db
+
+# Test/experimental folders
+backend/sandbox/
