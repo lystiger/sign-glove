@@ -1,14 +1,13 @@
-from pymongo import MongoClient
+from motor.motor_asyncio import AsyncIOMotorClient
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
-MONGO_URL = os.getenv("MONGO_URL")
-DATABASE_NAME = os.getenv("DATABASE_NAME")
+MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
+client = AsyncIOMotorClient(MONGO_URI)
 
-client = MongoClient(MONGO_URL)
-db = client[DATABASE_NAME]
+db = client["sign_glove_db"]
 
-def get_gesture_collection():
-    return db["gestures"]
+sensor_collection = db["sensor_data"]
+model_collection = db["model_results"]

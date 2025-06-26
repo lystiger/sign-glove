@@ -1,6 +1,6 @@
 from fastapi import APIRouter, UploadFile, File
-from processors.data_processor import read_data, write_data, initialize_csv
-from core.config import RAW_DATA, CLEAN_DATA, DEFAULT_NOISE_CONFIG
+from backend.processors.data_processor import read_data, write_data, initialize_csv
+from backend.core.config import RAW_DATA, CLEAN_DATA, DEFAULT_NOISE_CONFIG
 
 router = APIRouter()
 

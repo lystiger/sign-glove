@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routes import gestures, training
+from backend.routes import gestures, training
 
 app = FastAPI(title="Sign Glove API")
 
