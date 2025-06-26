@@ -26,6 +26,6 @@ Thumbs.db
 backend/sandbox/
 
 # Ignore CSVs in backend
-backend/data/*.csv
-backend/sandbox/*.csv
+backend/data/*
+!backend/data/.gitkeep
 
