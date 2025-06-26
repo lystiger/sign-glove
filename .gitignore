@@ -24,3 +24,8 @@ Thumbs.db
 
 # Test/experimental folders
 backend/sandbox/
+
+# Ignore CSVs in backend
+backend/data/*.csv
+backend/sandbox/*.csv
+

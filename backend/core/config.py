@@ -20,6 +20,10 @@ CLEAN_DATA = 'backend/data/clean_data.csv'
 NORMALIZE_NUMBER = 4095.0  # Chỉnh sửa tùy vào cảm biến sử dụng (ESP, Arduino)
 DECIMAL_PLACES = 4  # Số chữ số thập phân cần làm tròn
 FLEX_SENSORS = 5
+IMU_SENSORS = 6
+TOTAL_SENSORS = FLEX_SENSORS + IMU_SENSORS #11
+
+EXPECTED_FEATURES = TOTAL_SENSORS
 
 # Noise reduction settings
 WINDOW_SIZE = 3

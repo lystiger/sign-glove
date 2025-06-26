@@ -4,7 +4,7 @@ Noise reduction algorithms và filters
 import logging
 import statistics
 from collections import deque
-from core.config import WINDOW_SIZE, THRESHOLD
+from backend.core.config import WINDOW_SIZE, THRESHOLD
 
 class NoiseReducer:
     """

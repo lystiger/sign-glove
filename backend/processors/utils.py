@@ -2,7 +2,7 @@
     Chứa các hàm dùng cho xử lí dữ liệu hoặc validation
 """
 import logging
-from core.config import NORMALIZE_NUMBER, DECIMAL_PLACES
+from backend.core.config import *
 
 def normalize_data(values):
     """
@@ -39,8 +39,8 @@ def row_validation(row, expected_col, row_num):
         return False, f"Row {row_num} is empty."
     
     # Kiểm tra số lượng cột
-    if len(row) != expected_col:
-        return False, f"Row {row_num} has {len(row)} columns, expected {expected_col}!"
+    if len(row) != EXPECTED_FEATURES + 1:
+        return False, f"Expected {EXPECTED_FEATURES + 1} columns, got {len(row)}"
     
     # Kiểm tra nếu label trống
     if not row[-1].strip():
