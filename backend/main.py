@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from routes import sensor_data
 from contextlib import asynccontextmanager
 from backend.routes import gestures, training
 from backend.core.indexes import create_indexes 
@@ -19,6 +20,7 @@ app = FastAPI(title="Sign Glove API", lifespan=lifespan)
 
 app.include_router(gestures.router, prefix="/gestures", tags=["Gestures"])
 #app.include_router(training.router, prefix="/training", tags=["Training"])
+app.include_router(sensor_data.router, prefix="/api")
 
 @app.get("/")
 def root():

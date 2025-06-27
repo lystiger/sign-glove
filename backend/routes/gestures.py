@@ -9,7 +9,6 @@ router = APIRouter()
 async def create_sensor_data(data: SensorData):
     result = await sensor_collection.insert_one(data.dict())
     return {"inserted_id": str(result.inserted_id)}
-
 # 🔹 GET /gestures/{session_id} → Fetch data by session_id
 @router.get("/{session_id}")
 async def get_sensor_data(session_id: str):
