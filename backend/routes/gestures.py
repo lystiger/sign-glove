@@ -1,20 +1,39 @@
-from fastapi import APIRouter, UploadFile, File
-from backend.processors.data_processor import read_data, write_data, initialize_csv
-from backend.core.config import RAW_DATA, CLEAN_DATA, DEFAULT_NOISE_CONFIG
+from fastapi import APIRouter, HTTPException
+from backend.models.sensor_data import SensorData
+from backend.core.database import sensor_collection
 
 router = APIRouter()
 
-@router.post("/upload")
-async def upload_data(file: UploadFile = File(...)):
-    raw_path = "backend/data/raw_data.csv"
-    clean_path = "backend/data/clean_data.csv"
+# 🔹 POST /gestures → Insert new sensor data
+@router.post("/")
+async def create_sensor_data(data: SensorData):
+    result = await sensor_collection.insert_one(data.dict())
+    return {"inserted_id": str(result.inserted_id)}
 
-    contents = await file.read()
-    with open(raw_path, 'wb') as f:
-        f.write(contents)
+# 🔹 GET /gestures/{session_id} → Fetch data by session_id
+@router.get("/{session_id}")
+async def get_sensor_data(session_id: str):
+    data = await sensor_collection.find_one({"session_id": session_id})
+    if not data:
+        raise HTTPException(status_code=404, detail="Session not found")
+    data["_id"] = str(data["_id"])  # ObjectId → str
+    return data
 
-    initialize_csv(clean_path)
-    new_data, header = read_data(raw_path, use_noise_reduction=True)
-    write_data(clean_path, new_data, header)
+# 🔹 PUT /gestures/{session_id}?label=X → Update label
+@router.put("/{session_id}")
+async def update_label(session_id: str, label: str):
+    result = await sensor_collection.update_one(
+        {"session_id": session_id},
+        {"$set": {"gesture_label": label}}
+    )
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Session not found")
+    return {"updated": result.modified_count}
 
-    return {"message": "Data uploaded and processed", "rows": len(new_data)}
+# 🔹 DELETE /gestures/{session_id} → Delete session
+@router.delete("/{session_id}")
+async def delete_sensor_data(session_id: str):
+    result = await sensor_collection.delete_one({"session_id": session_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Session not found")
+    return {"deleted": result.deleted_count}

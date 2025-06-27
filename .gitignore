@@ -29,3 +29,6 @@ backend/sandbox/
 backend/data/*
 !backend/data/.gitkeep
 
+#Ignore .bat file
+start_sign_glove.bat
+
