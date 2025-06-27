@@ -7,7 +7,7 @@ load_dotenv()
 MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
 client = AsyncIOMotorClient(MONGO_URI)
 
-db = client["sign_glove_db"]
+db = client["sign_glove_"]
 
 sensor_collection = db["sensor_data"]
 model_collection = db["model_results"]
