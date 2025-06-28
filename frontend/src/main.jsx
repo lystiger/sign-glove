@@ -6,7 +6,7 @@ import './index.css'
 import App from './App'
 import SensorUpload from './pages/SensorUpload'
 import GestureManager from './pages/GestureManager'
-import Training from './pages/Training'
+import TrainingResults from './pages/TrainingResults'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/" element={<App />} />
       <Route path="/sensor" element={<SensorUpload />} />
       <Route path="/gestures" element={<GestureManager />} />
-      <Route path="/training" element={<Training />} />
+      <Route path="/training" element={<TrainingResults />} />
     </Routes>
   </BrowserRouter>
 )
