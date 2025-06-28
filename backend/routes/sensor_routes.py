@@ -18,6 +18,14 @@ class UploadResponse(BaseModel):
     session_id: str
     samples: int
 
+class SensorData(BaseModel):
+    sensor_id: str
+    values: list[float]
+
+@router.post("/")
+async def add_sensor_data(data: SensorData):
+    return {"message": "Data received", "data": data}
+
 def parse_sensor_csv(content: str, session_id: str, glove_id: str) -> List[dict]:
     csv_reader = csv.reader(StringIO(content))
     documents = []
