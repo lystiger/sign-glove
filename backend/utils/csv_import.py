@@ -1,5 +1,5 @@
 import csv
-from datetime import datetime
+from datetime import datetime, timezone
 from bson import ObjectId
 from pymongo import MongoClient
 import os
@@ -26,7 +26,7 @@ def import_csv(file_path: str, session_id: str, label: str = None, source="csv")
     document = {
         "_id": ObjectId(),
         "session_id": session_id,
-        "timestamp": datetime.utcnow(),
+        "timestamp": datetime.now(timezone.utc),
         "sensor_values": sensor_rows,
         "gesture_label": label,
         "device_info": {

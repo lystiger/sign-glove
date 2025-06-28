@@ -1,27 +1,46 @@
 from fastapi import FastAPI
-from routes import sensor_data
-from contextlib import asynccontextmanager
-from backend.routes import gestures, training
+from fastapi.middleware.cors import CORSMiddleware
+from backend.routes import sensor_routes, training_routes
+from backend.routes import gestures
 from backend.core.indexes import create_indexes 
 from backend.core.database import client
+from contextlib import asynccontextmanager
+import logging
 
+#  Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(name)s - %(message)s"
+)
+
+#  Lifecycle event
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Run on startup
-    create_indexes()
-    print("✅ Indexes created. App is starting...")
-
-    yield  
-
+    await create_indexes()
+    logging.info("✅ Indexes created. App is starting...")
+    yield
     client.close()
-    print("🛑 MongoDB connection closed. App is shutting down...")
+    logging.info("🛑 MongoDB connection closed. App is shutting down...")
 
+#  App instance with lifespan
 app = FastAPI(title="Sign Glove API", lifespan=lifespan)
 
-app.include_router(gestures.router, prefix="/gestures", tags=["Gestures"])
-#app.include_router(training.router, prefix="/training", tags=["Training"])
-app.include_router(sensor_data.router, prefix="/api")
+#  CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all for now; restrict in prod
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
+#  Mount routers
+app.include_router(gestures.router, prefix="/gestures", tags=["Gestures"])
+app.include_router(training_routes.router, prefix="/training", tags=["Training"])
+app.include_router(sensor_routes.router, prefix="/api")
+
+
+#  Root route
 @app.get("/")
 def root():
     return {"message": "Backend is running 🚀"}

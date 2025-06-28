@@ -1,0 +1,3 @@
+2025-06-27 18:35:37,425 - INFO - File raw_data.csv created with header.
+2025-06-27 18:35:37,426 - ERROR - Failed to connect to serial port: module 'serial' has no attribute 'Serial'
+2025-06-27 18:35:37,426 - ERROR - Failed to connect to Arduino.
