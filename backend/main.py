@@ -39,9 +39,9 @@ app.add_middleware(
 )
 
 #  Mount routers
-app.include_router(gestures.router, prefix="/gestures", tags=["Gestures"])
-app.include_router(training_routes.router, prefix="/training", tags=["Training"])
-app.include_router(sensor_routes.router, prefix="/sensor", tags=["Sensor"])
+app.include_router(gestures.router)
+app.include_router(training_routes.router)
+app.include_router(sensor_routes.router)
 
 
 #  Root route
