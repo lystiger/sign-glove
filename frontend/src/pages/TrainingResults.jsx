@@ -1,49 +1,53 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function TrainingResults() {
+const TrainingResults = () => {
   const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchTrainingResults = async () => {
-      try {
-        const res = await axios.get('http://localhost:8000/training/');
-        setResults(res.data);
-      } catch (err) {
-        console.error("Failed to fetch training results:", err);
-        setError("Failed to load training results. Please try again later.");
-      }
-    };
+  // Fetch training results from FastAPI
+  const fetchTrainingResults = async () => {
+    try {
+      const res = await axios.get("http://localhost:8000/training/");
+      setResults(res.data.data); // Extract `data` from response
+    } catch (err) {
+      console.error("Failed to fetch training results:", err);
+      setError("Failed to load training results.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchTrainingResults();
   }, []);
 
+  if (loading) return <div className="p-4 text-gray-500">Loading training results...</div>;
+  if (error) return <div className="p-4 text-red-600">{error}</div>;
+
   return (
-    <div className="p-6 max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Model Training Results</h1>
-
-      {error && <p className="text-red-500 mb-4">{error}</p>}
-
-      {results.length === 0 && !error ? (
-        <p className="text-gray-500">No training sessions found.</p>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Training Results</h1>
+      {results.length === 0 ? (
+        <div className="text-gray-600">No training results found.</div>
       ) : (
-        <ul className="space-y-4">
-          {results.map((r, i) => (
-            <li
-              key={i}
-              className="bg-white border rounded-lg p-4 shadow-sm hover:shadow transition"
+        <div className="grid gap-4">
+          {results.map((result) => (
+            <div
+              key={result.session_id}
+              className="border border-gray-200 rounded-xl p-4 shadow-sm bg-white hover:shadow-md transition"
             >
-              <div className="text-sm text-gray-500">Session ID</div>
-              <div className="text-lg font-mono mb-2">{r.session_id}</div>
-              <div className="text-sm text-gray-500">Accuracy</div>
-              <div className="text-xl font-semibold text-green-600">
-                {r.accuracy}%
-              </div>
-            </li>
+              <p><span className="font-medium">Session ID:</span> {result.session_id}</p>
+              <p><span className="font-medium">Accuracy:</span> {result.accuracy}</p>
+              <p><span className="font-medium">Model Name:</span> {result.model_name || "N/A"}</p>
+              <p><span className="font-medium">Created At:</span> {result.created_at || "N/A"}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
-}
+};
+
+export default TrainingResults;

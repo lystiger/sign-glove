@@ -5,8 +5,12 @@ export default function GestureManager() {
   const [gestures, setGestures] = useState([])
 
   const fetchGestures = async () => {
-    const res = await axios.get('http://localhost:8000/gestures')
-    setGestures(res.data)
+    try {
+      const res = await axios.get('http://localhost:8000/gestures/')
+      setGestures(res.data.data) // ✅ Use .data.data to extract gesture list
+    } catch (err) {
+      console.error('Failed to fetch gestures:', err)
+    }
   }
 
   useEffect(() => {
@@ -18,8 +22,8 @@ export default function GestureManager() {
       <h1 className="text-xl font-bold mb-4">Gestures</h1>
       <ul className="space-y-2">
         {gestures.map((g) => (
-          <li key={g.name} className="border p-2 rounded">
-            <strong>{g.name}</strong>: {g.description}
+          <li key={g.session_id} className="border p-2 rounded">
+            <strong>{g.gesture_label || 'No label'}</strong> (Session: {g.session_id})
           </li>
         ))}
       </ul>
