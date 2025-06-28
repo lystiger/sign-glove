@@ -8,7 +8,7 @@ class DeviceInfo(BaseModel):
 
 class SensorData(BaseModel):
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "session_id": "abc123",
                 "timestamp": "2025-06-27T12:00:00Z",
