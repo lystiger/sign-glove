@@ -25,10 +25,14 @@ async def lifespan(app: FastAPI):
 #  App instance with lifespan
 app = FastAPI(title="Sign Glove API", lifespan=lifespan)
 
+origins = [
+    "http://localhost:5173",  # React frontend
+    # Add more if deployed
+]
 #  CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all for now; restrict in prod
+    allow_origins= origins,  # Allow all for now; restrict in prod
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

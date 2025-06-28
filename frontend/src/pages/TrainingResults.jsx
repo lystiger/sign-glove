@@ -8,7 +8,7 @@ export default function TrainingResults() {
   useEffect(() => {
     const fetchTrainingResults = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/training');
+        const res = await axios.get('http://localhost:8000/training/');
         setResults(res.data);
       } catch (err) {
         console.error("Failed to fetch training results:", err);
