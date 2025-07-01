@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routes import sensor_routes, training_routes
+from backend.routes import training_routes, sensor_routes
 from backend.routes import gestures
 from backend.core.indexes import create_indexes 
 from backend.core.database import client
