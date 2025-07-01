@@ -1,16 +1,21 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, UploadFile, File
 from backend.models.model_result import ModelResult
 from backend.core.database import model_collection
 from fastapi.responses import JSONResponse
+from datetime import datetime, timezone
+from uuid import uuid4
 import logging
+import subprocess
+import shutil
+import os
 
 router = APIRouter(prefix="/training", tags=["Training"])
 
-# POST /training → Save training result
+# --- POST /training → Save training result manually ---
 @router.post("/")
 async def save_model_result(result: ModelResult):
     try:
-        res = await model_collection.insert_one(result.dict())
+        res = await model_collection.insert_one(result.model_dump())
         logging.info(f"Inserted training result: {res.inserted_id}")
         return JSONResponse(status_code=201, content={
             "status": "success",
@@ -20,7 +25,8 @@ async def save_model_result(result: ModelResult):
         logging.error(f"Error saving model result: {e}")
         raise HTTPException(status_code=500, detail="Failed to save model result")
 
-# GET /training → Get all model results
+
+# --- GET /training → List all training results ---
 @router.get("/")
 async def list_model_results():
     try:
@@ -35,7 +41,8 @@ async def list_model_results():
         logging.error(f"Error fetching model results: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch model results")
 
-# GET /training/{session_id} → Get one by session_id
+
+# --- GET /training/{session_id} → Fetch one by session ID ---
 @router.get("/{session_id}")
 async def get_model_result(session_id: str):
     try:
@@ -47,3 +54,66 @@ async def get_model_result(session_id: str):
     except Exception as e:
         logging.error(f"Error getting model result: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch model result")
+
+
+# --- POST /training/run → Upload CSV, run training, log result ---
+@router.post("/run")
+async def run_training(file: UploadFile = File(...)):
+    try:
+        # Save uploaded CSV as gesture_data.csv in backend/data/
+        os.makedirs("backend/AI", exist_ok=True)
+        file_path = "backend/data/gesture_data.csv"
+        with open(file_path, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+
+        # Run the model.py script (unchanged)
+        result = subprocess.run(
+            ["python", "backend/AI/model.py"],
+            capture_output=True,
+            text=True
+        )
+
+        if result.returncode != 0:
+            logging.error(f"Training script error: {result.stderr}")
+            raise HTTPException(status_code=500, detail="Training script error")
+
+        logging.info("Training completed successfully")
+        stdout = result.stdout
+
+        # Parse test accuracy from stdout
+        acc = None
+        for line in stdout.splitlines():
+            if "Test accuracy" in line:
+                try:
+                    acc = float(line.split(":")[-1].strip())
+                    break
+                except ValueError:
+                    continue
+
+        if acc is None:
+            raise HTTPException(status_code=500, detail="Failed to parse accuracy from output")
+
+        # Save result using your full schema
+        session_id = str(uuid4())
+        training_result = ModelResult(
+            session_id=session_id,
+            timestamp=datetime.now(timezone.utc),
+            accuracy=acc,
+            model_name="gesture_model.tflite",
+            notes="Auto-trained via /training/run"
+        )
+        res = await model_collection.insert_one(training_result.model_dump())
+        logging.info(f"Logged training result with ID {res.inserted_id}")
+
+        return {
+            "status": "success",
+            "data": {
+                "inserted_id": str(res.inserted_id),
+                "session_id": session_id,
+                "accuracy": acc
+            }
+        }
+
+    except Exception as e:
+        logging.error(f"Training run failed: {e}")
+        raise HTTPException(status_code=500, detail="Failed to run training")

@@ -1,8 +1,39 @@
-export default function SensorUpload() {
-  console.log("✅ SensorUpload component rendered!");
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+import UploadCSV from './components/UploadCSV';
+import ManageGestures from './components/ManageGestures';
+import TrainingResults from './components/TrainingResults';
+
+const App = () => {
   return (
-    <div className="p-4 text-green-600 text-2xl">
-      Sensor Upload is working.
-    </div>
+    <Router>
+      <div className="min-h-screen bg-gray-50">
+        <header className="bg-blue-600 text-white p-4">
+          <h1 className="text-2xl font-bold">Sign Glove</h1>
+          <nav className="mt-2 space-x-4">
+            <Link to="/" className="hover:underline">Dashboard</Link>
+            <Link to="/upload" className="hover:underline">Upload CSV</Link>
+            <Link to="/gestures" className="hover:underline">Manage Gestures</Link>
+            <Link to="/training" className="hover:underline">Training Results</Link>
+          </nav>
+        </header>
+
+        <main className="p-4">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/upload" element={<UploadCSV />} />
+            <Route path="/gestures" element={<ManageGestures />} />
+            <Route path="/training" element={<TrainingResults />} />
+          </Routes>
+        </main>
+
+        <footer className="text-center text-sm text-gray-500 py-4">
+          &copy; 2025 Sign Glove AI
+        </footer>
+      </div>
+    </Router>
   );
-}
+};
+
+export default App;

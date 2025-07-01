@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from backend.routes import sensor_routes, training_routes
 from backend.routes import gestures
@@ -42,6 +43,7 @@ app.add_middleware(
 app.include_router(gestures.router)
 app.include_router(training_routes.router)
 app.include_router(sensor_routes.router)
+app.mount("/models", StaticFiles(directory="backend/data"), name="models")
 
 
 #  Root route

@@ -1,3 +1,4 @@
+"""
 # --- Convert sang TensorFlow Lite (quantization float16 hoặc int8) ---
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
 converter.optimizations = [tf.lite.Optimize.DEFAULT]  # enable quantization
@@ -10,3 +11,4 @@ with open("gesture_model.tflite", "wb") as f:
     f.write(tflite_model)
 
 print(" Đã lưu model thành gesture_model.tflite")
+"""
