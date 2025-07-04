@@ -1,13 +1,23 @@
-from pymongo import ASCENDING, DESCENDING
-from backend.core.database import sensor_collection, model_collection
+from backend.core.database import (
+    sensor_collection,
+    model_collection,
+    gesture_collection,
+    training_collection
+)
 
 async def create_indexes():
-    # Sensor Data
-    await sensor_collection.create_index([("session_id", ASCENDING)])
-    await sensor_collection.create_index([("timestamp", DESCENDING)])
-    await sensor_collection.create_index([("session_id", ASCENDING), ("timestamp", DESCENDING)])
+    # Sensor data
+    await sensor_collection.create_index("session_id")
+    await sensor_collection.create_index("gesture_label")
+    await sensor_collection.create_index("timestamp")
 
-    # Model Results
-    await model_collection.create_index([("model_name", ASCENDING)])
-    await model_collection.create_index([("created_at", DESCENDING)])
-    await model_collection.create_index([("session_id", ASCENDING), ("model_name", ASCENDING)])
+    # Model results
+    await model_collection.create_index("model_name")
+
+    # Training sessions
+    await training_collection.create_index("model_name")
+    await training_collection.create_index("started_at")
+
+    # Gestures (optional — only if needed)
+    await gesture_collection.create_index("session_id")
+    await gesture_collection.create_index("label")

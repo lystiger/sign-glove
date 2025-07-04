@@ -4,6 +4,9 @@ import Dashboard from './components/Dashboard';
 import UploadCSV from './components/UploadCSV';
 import ManageGestures from './components/ManageGestures';
 import TrainingResults from './components/TrainingResults';
+import Predict from './components/Predict';
+import LivePredict from './components/LivePredict';
+import AdminTools from './components/AdminTools';
 
 const App = () => {
   return (
@@ -16,6 +19,9 @@ const App = () => {
             <Link to="/upload" className="hover:underline">Upload CSV</Link>
             <Link to="/gestures" className="hover:underline">Manage Gestures</Link>
             <Link to="/training" className="hover:underline">Training Results</Link>
+            <Link to="/predict" className="hover:underline">Predict</Link>
+            <Link to="/predict/live" className="hover:underline">Live Predict</Link>
+            <Link to="/admin" className="hover:underline">Admin</Link>
           </nav>
         </header>
 
@@ -25,6 +31,9 @@ const App = () => {
             <Route path="/upload" element={<UploadCSV />} />
             <Route path="/gestures" element={<ManageGestures />} />
             <Route path="/training" element={<TrainingResults />} />
+            <Route path="/predict" element={<Predict />} />
+            <Route path="/predict/live" element={<LivePredict />} />
+            <Route path="/admin" element={<AdminTools />} />
           </Routes>
         </main>
 

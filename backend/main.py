@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routes import training_routes, sensor_routes
+from backend.routes import training_routes, sensor_routes, predict_routes, admin_routes,dashboard_routes
 from backend.routes import gestures
 from backend.core.indexes import create_indexes 
-from backend.core.database import client
+from backend.core.database import client, test_connection
 from contextlib import asynccontextmanager
 import logging
 
@@ -17,6 +17,7 @@ logging.basicConfig(
 #  Lifecycle event
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    await test_connection() 
     await create_indexes()
     logging.info("✅ Indexes created. App is starting...")
     yield
@@ -43,6 +44,9 @@ app.add_middleware(
 app.include_router(gestures.router)
 app.include_router(training_routes.router)
 app.include_router(sensor_routes.router)
+app.include_router(predict_routes.router)
+app.include_router(admin_routes.router)
+app.include_router(dashboard_routes.router)
 app.mount("/models", StaticFiles(directory="backend/data"), name="models")
 
 
@@ -50,3 +54,4 @@ app.mount("/models", StaticFiles(directory="backend/data"), name="models")
 @app.get("/")
 def root():
     return {"message": "Backend is running 🚀"}
+
