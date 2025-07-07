@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from backend.models.sensor_models import SensorData
-from backend.core.database import sensor_collection
+from models.sensor_models import SensorData
+from core.database import sensor_collection
 from datetime import datetime, timezone
 import logging
 

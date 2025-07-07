@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Query
-from backend.models.sensor_models import SensorData
-from backend.core.database import sensor_collection
+from models.sensor_models import SensorData
+from core.database import sensor_collection
 from bson import ObjectId
 from typing import List
 from fastapi.encoders import jsonable_encoder

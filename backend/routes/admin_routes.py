@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from backend.core.database import sensor_collection, model_collection
+from core.database import sensor_collection, model_collection
 import logging
 
 router = APIRouter(prefix="/admin", tags=["Admin"])

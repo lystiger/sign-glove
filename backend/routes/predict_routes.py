@@ -1,12 +1,24 @@
-from fastapi import APIRouter, HTTPException
+import datetime
+from fastapi import APIRouter, HTTPException, WebSocket, WebSocketDisconnect, Query
 from pydantic import BaseModel
 from typing import List
-from backend.core.database import sensor_collection 
+from core.database import sensor_collection, prediction_collection
+from core.model import predict_from_dual_hand_data
 import numpy as np
 import logging
 import tensorflow as tf  # or tflite_runtime.interpreter
+import requests
+import asyncio
+
 
 router = APIRouter(prefix="/predict", tags=["Prediction"])
+prediction_counts = {}
+try:
+    LAST_TRAIN_COUNT = asyncio.get_event_loop().run_until_complete(
+        sensor_collection.count_documents({})
+    )
+except:
+    LAST_TRAIN_COUNT = 0
 
 class SensorInput(BaseModel):
     values: List[float]  # length should be 11 for your glove
@@ -83,3 +95,60 @@ async def predict_latest():
     except Exception as e:
         logging.error(f"Live prediction failed: {e}")
         raise HTTPException(status_code=500, detail="Live prediction error")
+    
+@router.websocket("/ws/predict")
+async def websocket_predict(websocket: WebSocket):
+    await websocket.accept()
+    try:
+        while True:
+            data = await websocket.receive_json()
+            prediction = predict_from_dual_hand_data(data)
+
+            # Save to predictions collection
+            await prediction_collection.insert_one({
+                "left": data.get("left"),
+                "right": data.get("right"),
+                "imu": data.get("imu"),
+                "timestamp": datetime.utcnow(),
+                "prediction": prediction["prediction"],
+                "confidence": prediction.get("confidence", None)
+            })
+
+            label = prediction["prediction"]
+            prediction_counts[label] = prediction_counts.get(label, 0) + 1
+
+            if prediction_counts[label] >= 10:  # Seen 10x, reinforce it
+                await sensor_collection.insert_one({
+                    "values": data["left"] + data["right"] + [data.get("imu", 0)],
+                    "label": label,
+                    "source": "auto",
+                    "timestamp": datetime.utcnow()
+                })
+                    # === Auto-training trigger ===
+                current_count = await sensor_collection.count_documents({})
+                global LAST_TRAIN_COUNT
+                if current_count - LAST_TRAIN_COUNT >= 50:
+                    try:
+                        response = requests.post("http://localhost:8080/training")
+                        if response.status_code == 200:
+                            print("✅ Auto-training triggered after 50 new samples.")
+                            LAST_TRAIN_COUNT = current_count
+                        else:
+                            print("❌ Training failed:", response.status_code, response.text)
+                    except Exception as e:
+                        print("🚨 Error triggering auto-training:", e)
+
+                prediction_counts[label] = 0  # Reset count
+
+            await websocket.send_json(prediction)
+    except WebSocketDisconnect:
+        print("Client disconnected")
+
+@router.get("/predictions")
+async def get_predictions(limit: int = Query(100, ge=1, le=1000)):
+    cursor = prediction_collection.find().sort("timestamp", -1).limit(limit)
+    results = []
+    async for doc in cursor:
+        doc["_id"] = str(doc["_id"])  # Convert ObjectId to string for frontend
+        results.append(doc)
+    return results

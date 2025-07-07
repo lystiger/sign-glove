@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from backend.core.database import sensor_collection, model_collection
+from core.database import sensor_collection, model_collection
 from pymongo import DESCENDING
 import logging
 

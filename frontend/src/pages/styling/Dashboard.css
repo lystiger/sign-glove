@@ -1,0 +1,42 @@
+.dashboard-container {
+    padding: 24px;
+    font-family: sans-serif;
+    color: #333;
+  }
+  
+  .dashboard-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+  }
+  
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    margin-bottom: 24px;
+    border: 1px solid #ddd;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  
+  .mt {
+    margin-top: 12px;
+  }
+  
+  .stats-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .stats-list li {
+    margin-bottom: 6px;
+    font-size: 15px;
+  }
+  

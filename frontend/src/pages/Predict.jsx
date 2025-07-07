@@ -1,5 +1,7 @@
+// src/pages/Predict.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
+import './styling/Predict.css';
 
 const Predict = () => {
   const [values, setValues] = useState(Array(11).fill(0));
@@ -13,7 +15,7 @@ const Predict = () => {
 
   const handlePredict = async () => {
     try {
-      const res = await axios.post('http://localhost:8000/predict', { values });
+      const res = await axios.post('http://localhost:8080/predict', { values });
       setResult(res.data);
     } catch (err) {
       console.error(err);
@@ -22,31 +24,28 @@ const Predict = () => {
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Predict Gesture</h2>
+    <div className="predict-wrapper">
+      <h2 className="predict-title">Predict Gesture</h2>
 
-      <div className="grid grid-cols-3 gap-2 mb-4">
+      <div className="predict-grid">
         {values.map((val, i) => (
           <input
             key={i}
             type="number"
             value={val}
             onChange={(e) => handleChange(i, e.target.value)}
-            className="border px-2 py-1 rounded"
+            className="predict-input"
             placeholder={`Sensor ${i + 1}`}
           />
         ))}
       </div>
 
-      <button
-        onClick={handlePredict}
-        className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-      >
+      <button onClick={handlePredict} className="btn btn-green">
         Predict
       </button>
 
       {result && (
-        <div className="mt-4 p-4 bg-gray-100 rounded shadow">
+        <div className="predict-result">
           <p><strong>Prediction:</strong> {result.prediction}</p>
           <p><strong>Confidence:</strong> {(result.confidence * 100).toFixed(2)}%</p>
         </div>

@@ -1,4 +1,4 @@
-from backend.core.database import sensor_collection
+from core.database import sensor_collection
 from datetime import datetime, timezone
 
 def save_sensor_data(values: list, label: str, session_id: str):

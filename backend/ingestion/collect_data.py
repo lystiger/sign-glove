@@ -1,6 +1,6 @@
 '''
 ------------------IMPORT NOTES------------------
- - nhớ pip install -r requirements.txt(nó sẽ tải full thư viện cho ae)
+ - nhớ pip install -r requirements.txt (nó sẽ tải full thư viện cho ae)
  - khi chạy code nhớ kết nối Arduino với máy tính và mở cổng serial
 '''
 # Thêm các thư viện cần thiết
@@ -11,17 +11,21 @@ import os
 import logging
 import sys
 import uuid
+import asyncio
+import threading
+import websockets
+import json
+import requests
 
 # Backend imports
 sys.path.append('.')  
-from backend.core.database import sensor_collection
-
+from core.database import sensor_collection
 
 # Thông số cấu hình 
-SERIAL_PORT = 'COM3' # Nhớ đổi tùy vào máy nhưng thường là COM3 
-BAUD_RATE = 115200 # Baud rate cho ESP32
+SERIAL_PORT = 'COM3'  # Nhớ đổi tùy vào máy nhưng thường là COM3 
+BAUD_RATE = 115200  # Baud rate cho ESP32
 FILE_PATH = 'raw_data.csv'
-LABEL = '' # Thêm label sau, hiện tại để trống
+LABEL = ''  # Thêm label sau, hiện tại để trống
 FLEX_SENSORS = 11
 LOG_FILE = 'data_collection.log'
 
@@ -43,19 +47,19 @@ def connect_arduino():
     '''
     try:
         ser = serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1)
-        time.sleep(2)  # Wait for Arduino to reset
+        time.sleep(2)  # Đợi Arduino reset
         logger.info(f"Connected to {SERIAL_PORT} successfully!") 
         ser.flushInput()
         return ser
     except Exception as e:
         logger.error(f"Failed to connect to serial port: {e}")  
         return None
-    
+
 def read_data(ser):
     '''
-    @effect: đọc dữ liệu từ Arduino và trả về giá trị dưới dạng list
+    @effect: Đọc dữ liệu từ Arduino và trả về giá trị dưới dạng list
     - nếu không đọc được dữ liệu thì trả về None
-    - hàm sẽ có 1 preprocess nhỏ là đảm bảo đủ 5 giá trị dữ liệu từ Arduino nếu không sẽ bỏ qua
+    - hàm sẽ có 1 preprocess nhỏ là đảm bảo đủ 11 giá trị dữ liệu từ Arduino nếu không sẽ bỏ qua
     @parameter ser: Serial object
     @return: list dữ liệu đọc được từ Arduino hoặc None nếu không đọc được
     '''
@@ -63,7 +67,7 @@ def read_data(ser):
         line = ser.readline().decode('utf-8').strip()  
         if line:
             val = line.split(',')
-            if len(val) != FLEX_SENSORS: #Kiểm tra số lượng cột 
+            if len(val) != FLEX_SENSORS:
                 return None
             try:
                 val = list(map(int, val)) 
@@ -78,18 +82,15 @@ def read_data(ser):
 def initialize_csv():
     '''
     @effect: Khởi tạo file CSV với header nếu file chưa tồn tại bỏ qua nếu đã có
-    @return: True nếu thành công, False nếu có lỗi  # FIX: Added return type documentation
+    @return: True nếu thành công, False nếu có lỗi
     '''
     file_exists = os.path.exists(FILE_PATH)
     
     if not file_exists:
         try:
-            # Check thư mục nếu chưa tồn tại thì tạo
             os.makedirs(os.path.dirname(FILE_PATH) if os.path.dirname(FILE_PATH) else '.', exist_ok=True)
-            
             with open(FILE_PATH, 'w', newline='') as csvfile:        
                 writer = csv.writer(csvfile)
-                # Ghi header
                 header = [f'flexSensor{i + 1}' for i in range(FLEX_SENSORS)] + ['label']
                 writer.writerow(header)
             logger.info(f"File {FILE_PATH} created with header.")  
@@ -101,13 +102,30 @@ def initialize_csv():
         logger.info(f"File {FILE_PATH} already exists.")  
         return True
 
+async def send_to_backend(data_queue):
+    '''
+    @effect: Gửi dữ liệu từ hàng đợi lên WebSocket của backend để dự đoán real-time
+    @note: chỉ gửi nếu có dữ liệu trong hàng đợi
+    '''
+    try:
+        async with websockets.connect("ws://localhost:8080/ws/predict") as ws:
+            logger.info("WebSocket connection to backend established.")
+            while True:
+                if not data_queue:
+                    await asyncio.sleep(0.05)
+                    continue
+                data = data_queue.pop(0)
+                await ws.send(json.dumps(data))
+    except Exception as e:
+        logger.error(f"WebSocket error: {e}")
+
 def main():
     '''
-    @effect: Hàm chính để kết nối với cổng serial và ghi dữ liệu vào file CSV
+    @effect: Hàm chính để kết nối với cổng serial, ghi dữ liệu vào CSV, và gửi WebSocket
     @note: Nhớ check kết nối Arduino trước khi chạy
-    - ghi 5 giá trị dữ liệu và nhãn vào file CSV (hiện tại nhãn để trống)
+    - ghi 11 giá trị dữ liệu và nhãn vào file CSV
+    - gửi dữ liệu realtime đến backend WebSocket
     - ấn Ctrl + C để dừng chương trình
-    - sẽ báo lỗi nếu không thể mở cổng serial hoặc không có file để ghi dữ liệu, sửa lại FILE_PATH 
     '''
     print("===============Starting data collection process===============")  
     
@@ -115,12 +133,17 @@ def main():
         logger.error("Failed to initialize CSV file")  
         return
     
-    # Kết nối với Arduino
     ser = connect_arduino()
     if ser is None:
         logger.error("Failed to connect to Arduino.")  
         return
-    
+
+    data_queue = []
+
+    # Chạy thread gửi dữ liệu song song với ghi CSV
+    loop = asyncio.get_event_loop()
+    threading.Thread(target=loop.run_until_complete, args=(send_to_backend(data_queue),), daemon=True).start()
+
     try:
         with open(FILE_PATH, 'a', newline='') as csvfile:
             writer = csv.writer(csvfile)
@@ -130,16 +153,34 @@ def main():
                 if data:
                     row = data + [LABEL]
                     writer.writerow(row)
-                    csvfile.flush() # Đảm bảo ghi dữ liệu ngay lập tức thay vì đợi buffer đầy
+                    csvfile.flush()
+
+                    # Chuẩn bị dữ liệu gửi qua WebSocket
+                    ws_payload = {
+                        "left": data[:5],
+                        "right": data[5:10],
+                        "imu": data[10],
+                        "timestamp": time.time()
+                    }
+                    data_queue.append(ws_payload)
+
                     log += 1
                     if log % 10 == 0:
-                        logger.info(f"Logged {log} rows of data has been written to {FILE_PATH}.")  
+                        logger.info(f"Logged {log} rows and streamed to backend.")  
                 time.sleep(0.01)    
     except PermissionError:
         logger.error(f"Permission denied: Cannot write to {FILE_PATH}") 
-    #Chương trình sẽ dừng khi ấn Ctrl+C hoặc stop từ terminal
     except KeyboardInterrupt:
-        logger.info("Stopped by user.")  
+        logger.info("Stopped by user.")
+        try:
+            logger.info("Triggering model training via backend...")
+            response = requests.post("http://localhost:8080/training")
+            if response.status_code == 200:
+                logger.info("Training triggered successfully.")
+            else:
+                logger.error(f"Training trigger failed: {response.status_code} - {response.text}")
+        except Exception as e:
+            logger.error(f"Error triggering training: {e}")  
     except FileNotFoundError:
         logger.error(f"Could not open file {FILE_PATH} for writing.")  
     finally:

@@ -1,0 +1,30 @@
+.prediction-history {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    font-family: sans-serif;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .history-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .history-table th,
+  .history-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  .history-table th {
+    background-color: #f0f4f8;
+  }
+  

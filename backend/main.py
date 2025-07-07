@@ -1,12 +1,16 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routes import training_routes, sensor_routes, predict_routes, admin_routes,dashboard_routes
-from backend.routes import gestures
-from backend.core.indexes import create_indexes 
-from backend.core.database import client, test_connection
+from routes import training_routes, sensor_routes, predict_routes, admin_routes,dashboard_routes
+from routes import gestures
+from core.indexes import create_indexes 
+from core.database import client, test_connection
 from contextlib import asynccontextmanager
 import logging
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+models_path = os.path.join(BASE_DIR, "data")
 
 #  Configure logging
 logging.basicConfig(
@@ -47,7 +51,7 @@ app.include_router(sensor_routes.router)
 app.include_router(predict_routes.router)
 app.include_router(admin_routes.router)
 app.include_router(dashboard_routes.router)
-app.mount("/models", StaticFiles(directory="backend/data"), name="models")
+app.mount("/models", StaticFiles(directory=models_path), name="models")
 
 
 #  Root route

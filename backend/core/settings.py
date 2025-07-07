@@ -1,4 +1,4 @@
-#For MongoDB
+#For MongoDB offline
 
 from pydantic import BaseSettings
 

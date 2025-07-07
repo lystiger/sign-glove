@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, UploadFile, File
-from backend.models.model_result import ModelResult
-from backend.core.database import model_collection
+from models.model_result import ModelResult
+from core.database import model_collection
 from fastapi.responses import JSONResponse
 from datetime import datetime, timezone
 from uuid import uuid4

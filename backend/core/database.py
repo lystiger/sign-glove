@@ -9,6 +9,7 @@ logger = logging.getLogger(__name__)
 MONGO_URI = os.getenv("MONGO_URI")
 client = AsyncIOMotorClient(MONGO_URI)
 db = client["sign_glove"]
+prediction_collection = db["predictions"]
 
 sensor_collection = db["sensor_data"]
 model_collection = db["model_results"]

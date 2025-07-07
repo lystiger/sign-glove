@@ -1,8 +1,8 @@
 # routes/data.py
 
 from fastapi import APIRouter, HTTPException
-from backend.db.mongo import get_sensor_collection
-from backend.models.sensor_models import SensorData
+from db.mongo import get_sensor_collection
+from models.sensor_models import SensorData
 from datetime import datetime, timezone
 
 router = APIRouter()

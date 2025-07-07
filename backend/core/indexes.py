@@ -1,4 +1,4 @@
-from backend.core.database import (
+from core.database import (
     sensor_collection,
     model_collection,
     gesture_collection,
