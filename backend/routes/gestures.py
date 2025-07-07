@@ -1,10 +1,38 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, StreamingResponse
 from models.sensor_models import SensorData
 from core.database import sensor_collection
 from datetime import datetime, timezone
 import logging
+import csv
+import io
+
 
 router = APIRouter()
+
+@router.get("/export")
+async def export_gestures():
+    cursor = sensor_collection.find({}, {"_id": 0})
+    rows = [doc async for doc in cursor]
+
+    if not rows:
+        raise HTTPException(status_code=404, detail="No gesture data found")
+
+    # Prepare CSV in memory
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow([f"flexSensor{i+1}" for i in range(11)] + ["label", "source", "timestamp"])
+
+    for row in rows:
+        values = row.get("values", [])
+        label = row.get("label", "")
+        source = row.get("source", "")
+        ts = row.get("timestamp", "")
+        writer.writerow(values + [label, source, ts])
+
+    output.seek(0)
+    return StreamingResponse(output, media_type="text/csv", headers={
+        "Content-Disposition": "attachment; filename=gesture_data.csv"
+    })
 
 # 🔹 GET /gestures → List all gestures
 @router.get("/gestures")

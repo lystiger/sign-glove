@@ -34,6 +34,11 @@ const AdminTools = () => {
         <button onClick={clearTrainingResults} className="btn btn-danger">
           Clear Training Results
         </button>
+        <button onClick={() => window.open("http://localhost:8080/gestures/export")}
+        className="btn btn-danger"
+        >
+          Export Gestures CSV
+        </button>
       </div>
     </div>
   );
