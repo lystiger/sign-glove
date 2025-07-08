@@ -1,3 +1,9 @@
+"""
+WebSocket API for real-time gesture prediction and text-to-speech feedback in the sign glove system.
+
+Endpoint:
+- WebSocket /ws/predict: Receives dual-hand sensor data, returns predictions, and speaks the result.
+"""
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 from core.model import predict_from_dual_hand_data
 import numpy as np
@@ -9,6 +15,10 @@ tts_engine = pyttsx3.init()
 
 @router.websocket("/predict")
 async def websocket_predict(websocket: WebSocket):
+    """
+    WebSocket endpoint for real-time gesture prediction and TTS feedback.
+    Receives left/right hand data, returns prediction, and speaks the result.
+    """
     await websocket.accept()
     try:
         while True:
@@ -17,10 +27,10 @@ async def websocket_predict(websocket: WebSocket):
             # Combine left and right into a single feature vector
             left = np.array(data["left"])
             right = np.array(data["right"])
-            combined = np.concatenate((left, right)).reshape(1, -1)
+            # combined = np.concatenate((left, right)).reshape(1, -1)
 
             # Predict full word or letter
-            prediction = predict_from_dual_hand_data(combined)  # returns a string, e.g. "Care"
+            prediction = predict_from_dual_hand_data({"left": left.tolist(), "right": right.tolist(), "timestamp": data.get("timestamp")})  # returns a string, e.g. "Care"
 
             # Send to frontend
             await websocket.send_json({"prediction": prediction})

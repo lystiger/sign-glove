@@ -1,3 +1,14 @@
+"""
+API routes for managing gesture sensor data in the sign glove system.
+
+Endpoints:
+- GET /export: Export all gesture data as CSV.
+- GET /gestures: List all gesture sessions.
+- GET /gestures/{session_id}: Get data for a specific session.
+- POST /: Insert new sensor data.
+- PUT /{session_id}: Update gesture label for a session.
+- DELETE /{session_id}: Delete session data.
+"""
 from fastapi import APIRouter, HTTPException, StreamingResponse
 from models.sensor_models import SensorData
 from core.database import sensor_collection
@@ -11,6 +22,9 @@ router = APIRouter()
 
 @router.get("/export")
 async def export_gestures():
+    """
+    Export all gesture data as a CSV file for download.
+    """
     cursor = sensor_collection.find({}, {"_id": 0})
     rows = [doc async for doc in cursor]
 
@@ -34,9 +48,11 @@ async def export_gestures():
         "Content-Disposition": "attachment; filename=gesture_data.csv"
     })
 
-# 🔹 GET /gestures → List all gestures
 @router.get("/gestures")
 async def list_gestures():
+    """
+    List all gesture sessions with session_id and gesture_label.
+    """
     cursor = sensor_collection.find({}, {"_id": 0, "session_id": 1, "gesture_label": 1})
     gestures = await cursor.to_list(length=1000)
     return {
@@ -45,9 +61,11 @@ async def list_gestures():
         "message": "All gestures retrieved"
     }
 
-# 🔹 GET /gestures/{session_id} → Get data for a specific session
 @router.get("/{session_id}")
 async def get_sensor_data(session_id: str):
+    """
+    Get sensor data for a specific session by session_id.
+    """
     data = await sensor_collection.find_one({"session_id": session_id})
     if not data:
         raise HTTPException(status_code=404, detail="Session not found")
@@ -58,9 +76,11 @@ async def get_sensor_data(session_id: str):
         "message": "Session data retrieved"
     }
 
-# 🔹 POST /gestures → Insert new sensor data
 @router.post("/")
 async def create_sensor_data(data: SensorData):
+    """
+    Insert new sensor data into the database.
+    """
     doc = data.dict()
     doc["_timestamp"] = datetime.now(timezone.utc)
     result = await sensor_collection.insert_one(doc)
@@ -71,9 +91,11 @@ async def create_sensor_data(data: SensorData):
         "message": "Sensor data inserted"
     }
 
-# 🔹 PUT /gestures/{session_id}?label=X → Update gesture label
 @router.put("/{session_id}")
 async def update_label(session_id: str, label: str):
+    """
+    Update the gesture label for a specific session.
+    """
     result = await sensor_collection.update_one(
         {"session_id": session_id},
         {"$set": {"gesture_label": label}}
@@ -87,9 +109,11 @@ async def update_label(session_id: str, label: str):
         "message": "Gesture label updated"
     }
 
-# 🔹 DELETE /gestures/{session_id} → Delete session data
 @router.delete("/{session_id}")
 async def delete_sensor_data(session_id: str):
+    """
+    Delete sensor data for a specific session by session_id.
+    """
     result = await sensor_collection.delete_one({"session_id": session_id})
     if result.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Session not found")

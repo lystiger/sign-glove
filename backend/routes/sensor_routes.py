@@ -1,3 +1,12 @@
+"""
+API routes for managing sensor data in the sign glove system.
+
+Endpoints:
+- POST /sensor-data: Insert new sensor data.
+- GET /sensor-data: List all sensor data (optionally filter by label).
+- PUT /sensor-data/{session_id}: Update label for a session.
+- DELETE /sensor-data/{session_id}: Delete sensor data by session ID.
+"""
 from fastapi import APIRouter, HTTPException, Query
 from models.sensor_models import SensorData
 from core.database import sensor_collection
@@ -9,21 +18,28 @@ router = APIRouter()
 
 # Helper to convert Mongo _id to str
 def convert_id(doc):
+    """
+    Convert MongoDB ObjectId to string for frontend compatibility.
+    """
     doc["_id"] = str(doc["_id"])
     return doc
 
-# Create sensor data
 @router.post("/sensor-data")
 async def create_sensor_data(data: SensorData):
+    """
+    Insert new sensor data into the database.
+    """
     try:
         result = await sensor_collection.insert_one(data.model_dump())
         return {"inserted_id": str(result.inserted_id)}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Read all sensor data (optionally by label)
 @router.get("/sensor-data", response_model=List[SensorData])
 async def get_sensor_data(label: str = Query(None)):
+    """
+    List all sensor data, optionally filtered by label.
+    """
     try:
         query = {"label": label} if label else {}
         cursor = sensor_collection.find(query)
@@ -32,9 +48,11 @@ async def get_sensor_data(label: str = Query(None)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Update label for a session_id
 @router.put("/sensor-data/{session_id}")
 async def update_sensor_label(session_id: str, label: str = Query(...)):
+    """
+    Update the label for a specific sensor data session.
+    """
     try:
         result = await sensor_collection.update_one(
             {"session_id": session_id},
@@ -46,9 +64,11 @@ async def update_sensor_label(session_id: str, label: str = Query(...)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Delete sensor data by session_id
 @router.delete("/sensor-data/{session_id}")
 async def delete_sensor_data(session_id: str):
+    """
+    Delete sensor data for a specific session by session ID.
+    """
     try:
         result = await sensor_collection.delete_one({"session_id": session_id})
         if result.deleted_count == 0:

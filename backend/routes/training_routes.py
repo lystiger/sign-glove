@@ -1,3 +1,12 @@
+"""
+API routes for managing model training and results in the sign glove system.
+
+Endpoints:
+- POST /training/: Save a training result manually.
+- GET /training/: List all training results.
+- GET /training/{session_id}: Fetch a training result by session ID.
+- POST /training/run: Upload CSV, run training, and log result.
+"""
 from fastapi import APIRouter, HTTPException, UploadFile, File
 from models.model_result import ModelResult
 from core.database import model_collection
@@ -11,9 +20,11 @@ import os
 
 router = APIRouter(prefix="/training", tags=["Training"])
 
-# --- POST /training → Save training result manually ---
 @router.post("/")
 async def save_model_result(result: ModelResult):
+    """
+    Save a training result to the database.
+    """
     try:
         res = await model_collection.insert_one(result.model_dump())
         logging.info(f"Inserted training result: {res.inserted_id}")
@@ -25,10 +36,11 @@ async def save_model_result(result: ModelResult):
         logging.error(f"Error saving model result: {e}")
         raise HTTPException(status_code=500, detail="Failed to save model result")
 
-
-# --- GET /training → List all training results ---
 @router.get("/")
 async def list_model_results():
+    """
+    List all training results from the database.
+    """
     try:
         cursor = model_collection.find()
         results = []
@@ -41,10 +53,11 @@ async def list_model_results():
         logging.error(f"Error fetching model results: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch model results")
 
-
-# --- GET /training/{session_id} → Fetch one by session ID ---
 @router.get("/{session_id}")
 async def get_model_result(session_id: str):
+    """
+    Fetch a training result by session ID.
+    """
     try:
         result = await model_collection.find_one({"session_id": session_id})
         if not result:
@@ -55,10 +68,11 @@ async def get_model_result(session_id: str):
         logging.error(f"Error getting model result: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch model result")
 
-
-# --- POST /training/run → Upload CSV, run training, log result ---
 @router.post("/run")
 async def run_training(file: UploadFile = File(...)):
+    """
+    Upload a CSV file, run the training script, and log the result.
+    """
     try:
         # Save uploaded CSV as gesture_data.csv in backend/data/
         os.makedirs("backend/AI", exist_ok=True)

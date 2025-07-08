@@ -1,3 +1,8 @@
+"""
+Indexes setup for MongoDB collections in the sign glove system.
+
+- create_indexes: Ensures indexes exist for efficient queries on sensor, model, training, and gesture collections.
+"""
 from core.database import (
     sensor_collection,
     model_collection,
@@ -6,6 +11,9 @@ from core.database import (
 )
 
 async def create_indexes():
+    """
+    Create indexes on key fields for all main collections to optimize query performance.
+    """
     # Sensor data
     await sensor_collection.create_index("session_id")
     await sensor_collection.create_index("gesture_label")

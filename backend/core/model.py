@@ -1,9 +1,21 @@
+"""
+Model inference logic for dual-hand gesture prediction in the sign glove system.
+
+- predict_from_dual_hand_data: Loads a TFLite model and predicts gesture from left and right hand sensor data.
+"""
 # core/model.py
 
 import numpy as np
 import tensorflow as tf  # or tflite_runtime.interpreter if used on embedded
 
 def predict_from_dual_hand_data(data: dict) -> dict:
+    """
+    Predicts gesture from dual-hand sensor data using a TFLite model.
+    Args:
+        data (dict): Dictionary with 'left', 'right', and 'timestamp' keys.
+    Returns:
+        dict: Prediction result with status, predictions, confidence, and timestamp.
+    """
     try:
         left = data.get("left", [])
         right = data.get("right", [])

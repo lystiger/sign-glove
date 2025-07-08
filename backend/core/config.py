@@ -1,5 +1,7 @@
 """
-Configuration file chứa các constants và settings
+Configuration constants and file paths for the sign glove system.
+
+- Defines data directories, normalization settings, sensor counts, and noise reduction defaults.
 """
 import os
 
@@ -17,7 +19,7 @@ RAW_DATA = 'backend/data/raw_data.csv' # Nhớ chỉnh đường dẫn nếu c�
 CLEAN_DATA = 'backend/data/clean_data.csv'
 """
 
-NORMALIZE_NUMBER = 4095.0  # Chỉnh sửa tùy vào cảm biến sử dụng (ESP, Arduino)
+NORMALIZE_NUMBER = 4095.0  # Chỉnh sửa tuỳ vào cảm biến sử dụng (ESP, Arduino)
 DECIMAL_PLACES = 4  # Số chữ số thập phân cần làm tròn
 FLEX_SENSORS = 5
 IMU_SENSORS = 6

@@ -1,3 +1,9 @@
+"""
+API route for dashboard statistics in the sign glove system.
+
+Endpoint:
+- GET /dashboard/: Get summary statistics for sessions, models, accuracy, and last activity.
+"""
 from fastapi import APIRouter, HTTPException
 from core.database import sensor_collection, model_collection
 from pymongo import DESCENDING
@@ -7,6 +13,9 @@ router = APIRouter(prefix="/dashboard", tags=["Dashboard"])
 
 @router.get("/")
 async def get_dashboard_stats():
+    """
+    Get summary statistics for gesture sessions, training results, average accuracy, and last activity.
+    """
     try:
         # Count total gesture sessions
         total_sessions = await sensor_collection.count_documents({})

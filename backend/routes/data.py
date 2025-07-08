@@ -1,3 +1,9 @@
+"""
+API route for receiving and storing sensor data from the glove device (offline/local mode).
+
+Endpoint:
+- POST /data: Receive and store sensor data with a server-side timestamp.
+"""
 # routes/data.py
 
 from fastapi import APIRouter, HTTPException
@@ -10,6 +16,9 @@ collection = get_sensor_collection()
 
 @router.post("/data")
 async def receive_data(data: SensorData):
+    """
+    Receive sensor data and store it in the local database with a server-side timestamp.
+    """
     try:
         # Add server-side timestamp (optional, to override or ensure consistency)
         doc = data.dict()

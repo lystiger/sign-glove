@@ -1,3 +1,12 @@
+"""
+API routes for gesture prediction and live inference in the sign glove system.
+
+Endpoints:
+- POST /predict/: Predict gesture label from sensor input.
+- GET /predict/live: Predict gesture from the latest sensor data.
+- WebSocket /predict/ws/predict: Real-time prediction and auto-training trigger.
+- GET /predict/predictions: List recent predictions.
+"""
 import datetime
 from fastapi import APIRouter, HTTPException, WebSocket, WebSocketDisconnect, Query
 from pydantic import BaseModel
@@ -25,6 +34,9 @@ class SensorInput(BaseModel):
 
 @router.post("/")
 async def predict_label(input: SensorInput):
+    """
+    Predict gesture label from a single sensor input using a TFLite model.
+    """
     try:
         # Load TFLite model
         interpreter = tf.lite.Interpreter(model_path="backend/AI/gesture_model.tflite")
@@ -59,6 +71,9 @@ async def predict_label(input: SensorInput):
 
 @router.get("/live")
 async def predict_latest():
+    """
+    Predict gesture from the most recent sensor data in the database.
+    """
     try:
         # Get the most recent document from sensor_data
         doc = await sensor_collection.find_one(sort=[("timestamp", -1)])
@@ -98,6 +113,10 @@ async def predict_latest():
     
 @router.websocket("/ws/predict")
 async def websocket_predict(websocket: WebSocket):
+    """
+    WebSocket endpoint for real-time gesture prediction and auto-training trigger.
+    Receives sensor data, returns predictions, and triggers training after enough samples.
+    """
     await websocket.accept()
     try:
         while True:
@@ -146,6 +165,9 @@ async def websocket_predict(websocket: WebSocket):
 
 @router.get("/predictions")
 async def get_predictions(limit: int = Query(100, ge=1, le=1000)):
+    """
+    List recent predictions from the predictions collection.
+    """
     cursor = prediction_collection.find().sort("timestamp", -1).limit(limit)
     results = []
     async for doc in cursor:
