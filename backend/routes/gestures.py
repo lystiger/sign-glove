@@ -9,7 +9,8 @@ Endpoints:
 - PUT /{session_id}: Update gesture label for a session.
 - DELETE /{session_id}: Delete session data.
 """
-from fastapi import APIRouter, HTTPException, StreamingResponse
+from fastapi import APIRouter, HTTPException
+from fastapi.responses import StreamingResponse
 from models.sensor_models import SensorData
 from core.database import sensor_collection
 from datetime import datetime, timezone

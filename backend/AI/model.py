@@ -8,7 +8,7 @@ from tensorflow.keras.utils import to_categorical
 import tensorflow as tf
 
 # Load CSV
-df = pd.read_csv('gesture_data.csv')  # đường dẫn đến file CSV
+df = pd.read_csv('../data/gesture_data.csv')  # đường dẫn đến file CSV
 
 # Tách input và label để phân loại cử chỉ, giả dụ 11 giá trị khác nhau = 1 label khác nhau
 X = df.iloc[:, :-1].values     # 11 features

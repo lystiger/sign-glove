@@ -48,3 +48,7 @@ async def get_dashboard_stats():
     except Exception as e:
         logging.error(f"Dashboard stats error: {e}")
         raise HTTPException(status_code=500, detail="Failed to get dashboard stats")
+
+@router.get("")
+async def get_dashboard_stats_alias():
+    return await get_dashboard_stats()

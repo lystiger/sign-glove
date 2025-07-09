@@ -131,3 +131,57 @@ async def run_training(file: UploadFile = File(...)):
     except Exception as e:
         logging.error(f"Training run failed: {e}")
         raise HTTPException(status_code=500, detail="Failed to run training")
+
+@router.post("/trigger")
+async def trigger_training_run():
+    """
+    Trigger the model training job (same as POST /training/run but without upload).
+    """
+    try:
+        # Assumes gesture_data.csv already exists
+        result = subprocess.run(
+            ["python", "backend/AI/model.py"],
+            capture_output=True,
+            text=True
+        )
+
+        if result.returncode != 0:
+            logging.error(f"Training script error: {result.stderr}")
+            raise HTTPException(status_code=500, detail="Training script error")
+
+        # Parse accuracy
+        acc = None
+        for line in result.stdout.splitlines():
+            if "Test accuracy" in line:
+                try:
+                    acc = float(line.split(":")[-1].strip())
+                    break
+                except ValueError:
+                    continue
+
+        if acc is None:
+            raise HTTPException(status_code=500, detail="Failed to parse accuracy")
+
+        session_id = str(uuid4())
+        training_result = ModelResult(
+            session_id=session_id,
+            timestamp=datetime.now(timezone.utc),
+            accuracy=acc,
+            model_name="gesture_model.tflite",
+            notes="Triggered via POST /training/trigger"
+        )
+        res = await model_collection.insert_one(training_result.model_dump())
+        logging.info(f"Logged training result with ID {res.inserted_id}")
+
+        return {
+            "status": "success",
+            "data": {
+                "inserted_id": str(res.inserted_id),
+                "session_id": session_id,
+                "accuracy": acc
+            }
+        }
+
+    except Exception as e:
+        logging.error(f"Triggered training failed: {e}")
+        raise HTTPException(status_code=500, detail="Training failed")

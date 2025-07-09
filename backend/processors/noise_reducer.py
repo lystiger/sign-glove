@@ -120,3 +120,35 @@ class NoiseReducer:
         """
         self.sensor_buffers.clear()
         logging.info("NoiseReducer buffers reset")
+
+if __name__ == "__main__":
+    import csv
+    import os
+
+    RAW_DATA_PATH = os.path.join(os.path.dirname(__file__), '../data/raw_data.csv')
+    GESTURE_DATA_PATH = os.path.join(os.path.dirname(__file__), '../data/gesture_data.csv')
+
+    reducer = NoiseReducer()
+    reducer.reset_buffers()
+
+    if not os.path.exists(RAW_DATA_PATH):
+        print(f"Input file not found: {RAW_DATA_PATH}")
+        exit(1)
+
+    with open(RAW_DATA_PATH, 'r', newline='') as infile, open(GESTURE_DATA_PATH, 'w', newline='') as outfile:
+        reader = csv.reader(infile)
+        writer = csv.writer(outfile)
+        try:
+            header = next(reader)
+        except StopIteration:
+            print("Input file is empty. Skipping noise reduction.")
+            exit(0)
+        # Overwrite header to enforce correct order and names
+        header = ['session_id', 'label', 'flex1', 'flex2', 'flex3', 'flex4', 'flex5', 'accel_x', 'accel_y', 'accel_z', 'gyro_x', 'gyro_y', 'gyro_z']
+        writer.writerow(header)
+        for row in reader:
+            session_id, label, *sensor_values = row
+            sensor_values = list(map(float, sensor_values[:11]))
+            filtered = reducer.apply_filters(sensor_values)
+            writer.writerow([session_id, label] + [round(val, 3) for val in filtered])
+    print(f"Noise-reduced data written to {GESTURE_DATA_PATH}")

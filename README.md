@@ -55,6 +55,44 @@ This project enables real-time sign language translation using a smart glove equ
 
 ---
 
+## Frontend Buttons: Functions and Use Cases
+
+### 1. Manual Training Features
+
+- **Manual Training Button**
+  - **Function:** Triggers model training on demand using the current cleaned data (`gesture_data.csv`).
+  - **Use Case:** Use after collecting new data, cleaning up, or experimenting with different datasets.
+
+- **Upload CSV Button**
+  - **Function:** Uploads a CSV file containing gesture data to the backend.
+  - **Use Case:** Import data from other devices, collaborators, or re-upload previous data for retraining or analysis. Can be raw or cleaned data.
+
+- **Upload Gesture Training Button**
+  - **Function:** Uploads a pre-trained model file (e.g., `.tflite`) for live prediction.
+  - **Use Case:** Deploy a model trained offline, revert to a previous model, or test different models for accuracy/performance.
+
+### 2. Automatic Training Features
+
+- **Automated Training (No Button)**
+  - **Function:** The backend automatically monitors for new data, runs noise reduction, and triggers training at regular intervals or when new data is detected.
+  - **Use Case:** Keeps the model up-to-date as new data is collected, requiring no manual intervention.
+
+- **Live Prediction and TTS**
+  - **Function:** The frontend displays live predictions and can convert them to speech automatically or with a button.
+  - **Use Case:** See and/or hear the AI’s predictions in real time as gestures are performed.
+
+#### Summary Table
+
+| Button/Feature             | Type         | Function/Use Case                                                                 |
+|----------------------------|--------------|-----------------------------------------------------------------------------------|
+| **Manual Training**        | Manual       | User triggers model training on demand                                            |
+| **Upload CSV**             | Manual       | User uploads gesture data for training or analysis                                |
+| **Upload Gesture Training**| Manual       | User uploads a pre-trained model for live prediction                              |
+| **Automated Training**     | Automatic    | Backend retrains model automatically when new data is detected                    |
+| **Live Prediction & TTS**  | Both         | Shows predictions and speaks them, either automatically or on user request        |
+
+---
+
 ## 🗂️ Project Structure
 
 /backend/

@@ -1,0 +1,55 @@
+
+#include <Wire.h>
+#include <MPU6050.h>
+
+MPU6050 mpu;
+
+// Flex sensor pins (ESP32 ADC pins)
+const int FLEX_PIN_1 = 36;
+const int FLEX_PIN_2 = 39;
+const int FLEX_PIN_3 = 34;
+const int FLEX_PIN_4 = 35;
+const int FLEX_PIN_5 = 32;
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin();
+
+  mpu.initialize();
+  if (!mpu.testConnection()) {
+    Serial.println("MPU6050 connection failed");
+    while (1);
+  }
+  Serial.println("MPU6050 connected");
+
+  // Optional: print CSV header
+  Serial.println("flex1,flex2,flex3,flex4,flex5,accX,accY,accZ,gyroX,gyroY,gyroZ");
+}
+
+void loop() {
+  // Read flex sensors
+  int flex1 = analogRead(FLEX_PIN_1);
+  int flex2 = analogRead(FLEX_PIN_2);
+  int flex3 = analogRead(FLEX_PIN_3);
+  int flex4 = analogRead(FLEX_PIN_4);
+  int flex5 = analogRead(FLEX_PIN_5);
+
+  // Read MPU6050 data
+  int16_t ax, ay, az, gx, gy, gz;
+  mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+
+  // Print all data in CSV format
+  Serial.print(flex1); Serial.print(",");
+  Serial.print(flex2); Serial.print(",");
+  Serial.print(flex3); Serial.print(",");
+  Serial.print(flex4); Serial.print(",");
+  Serial.print(flex5); Serial.print(",");
+  Serial.print(ax); Serial.print(",");
+  Serial.print(ay); Serial.print(",");
+  Serial.print(az); Serial.print(",");
+  Serial.print(gx); Serial.print(",");
+  Serial.print(gy); Serial.print(",");
+  Serial.println(gz);
+
+  delay(100);  // 10 Hz sampling rate
+}
