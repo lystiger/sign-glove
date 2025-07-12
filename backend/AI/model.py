@@ -6,41 +6,66 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense   
 from tensorflow.keras.utils import to_categorical
 import tensorflow as tf
+import os
+
+# Get absolute paths
+current_dir = os.path.dirname(os.path.abspath(__file__))
+data_dir = os.path.join(os.path.dirname(current_dir), 'data')
+gesture_data_path = os.path.join(data_dir, 'gesture_data.csv')
+model_output_path = os.path.join(current_dir, 'gesture_model.tflite')
 
 # Load CSV
-df = pd.read_csv('../data/gesture_data.csv')  # đường dẫn đến file CSV
+df = pd.read_csv(gesture_data_path)  # absolute path to CSV file
 
-# Tách input và label để phân loại cử chỉ, giả dụ 11 giá trị khác nhau = 1 label khác nhau
-X = df.iloc[:, :-1].values     # 11 features
-y = df.iloc[:, -1].values      # label (int)
+# Remove session_id column if it exists (it contains string values)
+if 'session_id' in df.columns:
+    df = df.drop('session_id', axis=1)
+    print(f"Removed session_id column from features")
+
+# Separate features and labels properly
+# Features: all columns except 'label'
+# Label: only the 'label' column
+feature_columns = [col for col in df.columns if col != 'label']
+X = df[feature_columns].values  # features (excluding label column)
+y = df['label'].values          # label column
+
+print(f"Feature columns: {feature_columns}")
+print(f"Label values: {np.unique(y)}")
+
+# Convert string labels to numeric for training
+from sklearn.preprocessing import LabelEncoder
+label_encoder = LabelEncoder()
+y_encoded = label_encoder.fit_transform(y)
+print(f"Encoded labels: {label_encoder.classes_} -> {np.unique(y_encoded)}")
 
 # Chuẩn hóa dữ liệu -> cause neural network works best with normalized data
 scaler = StandardScaler()
 X = scaler.fit_transform(X)
 
 # One-hot encode label 
-num_classes = len(np.unique(y))
-y_cat = to_categorical(y, num_classes=num_classes)
+num_classes = len(np.unique(y_encoded))
+y_cat = to_categorical(y_encoded, num_classes=num_classes)
+
+# Get number of features dynamically
+num_features = X.shape[1]
+print(f"Number of features: {num_features}")
+print(f"Number of classes: {num_classes}")
 
 #Chia dữ liệu train/test : 80% train 20% test
 X_train, X_test, y_train, y_test = train_test_split(X, y_cat, test_size=0.2, random_state=42)
 
-# Xây mô hình MLP 
+# Xây mô hình MLP phức tạp hơn
+# Tăng số lượng layer và số lượng neuron để model học tốt hơn các đặc trưng phức tạp
 model = Sequential([
-    Dense(32, activation='relu', input_shape=(11,)),
-    Dense(32, activation='relu'),
-    Dense(num_classes, activation='softmax')
+    Dense(256, activation='relu', input_shape=(num_features,)),  # Layer ẩn lớn đầu tiên
+    Dense(128, activation='relu'),  # Layer ẩn thứ hai
+    Dense(64, activation='relu'),   # Layer ẩn thứ ba
+    Dense(num_classes, activation='softmax')  # Output layer
 ])
-# ae có thể băn khoăn activation ở đây là gì thì...
-# mỗi layers of neuron cần 1 active function để bảo layer đó làm gì, giống não người chia thành nhiều vùng í
-# mỗi vùng 1 chức năng riêng biệt
-# active function thì đa dạng lắm nên chọn cái nào tốt nhất thui
-# Dense ở đây là layer nhé ae, do mình không dùng ảnh nên shape của nó sẽ là linear 11 giá trị
-# relu ở đây hiểu đơn giản là if x > 0 return x else return 0 hay nghĩa là x phải > o thì pass tiếp value cho layer tiếp theo
-# softmax hiểu đơn giản là ae sẽ có 1 list values, xong ae scale nó sao cho tổng các values = 1
-# xong với từng scaled values thì ae hiểu nó như là probability của output 
-# ví dụ như là ở các output layers đi thì ở index = 4 nó có giá trị prob cao nhất -> nó dự đoán input là cử chỉ A
-# nếu ở index = 5 có giá trị prob cao nhất -> nó dự đoán input là cử chỉ B
+# Giải thích:
+# - 256, 128, 64 là số lượng neuron ở mỗi layer, càng nhiều thì model càng "mạnh" (nhưng cũng dễ overfit nếu data ít)
+# - relu vẫn là active function phổ biến cho hidden layer
+# - softmax cho output layer để dự đoán xác suất từng class
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 model.summary()
@@ -68,7 +93,7 @@ converter.optimizations = [tf.lite.Optimize.DEFAULT]  # enable quantization
 tflite_model = converter.convert()
 
 # Lưu file .tflite 
-with open("gesture_model.tflite", "wb") as f:
+with open(model_output_path, "wb") as f:
     f.write(tflite_model)
 
-print(" Đã lưu model thành gesture_model.tflite")
+print(f" Đã lưu model thành {model_output_path}")

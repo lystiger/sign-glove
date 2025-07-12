@@ -21,14 +21,14 @@ sys.path.append('.')
 from core.database import sensor_collection  # MongoDB collection
 
 # ========= CONFIG =========
-SERIAL_PORT = 'COM8'  # 👈 Change to your port (e.g., /dev/ttyUSB0)
+SERIAL_PORT = 'COM6'  # 👈 Change to your port (e.g., /dev/ttyUSB0)
 BAUD_RATE = 115200
 FLEX_SENSORS = 5
 ACCEL_SENSORS = 3
 GYRO_SENSORS = 3
 TOTAL_SENSORS = FLEX_SENSORS + ACCEL_SENSORS + GYRO_SENSORS
-LABEL = 'A'  # 👈 Set this before collecting
-SESSION_ID = str(uuid.uuid4())
+LABEL = 'U'  # 👈 Set this before collecting (rest gesture)
+SESSION_ID = 'l21'  # Use a simple, human-readable session id for this data collection
 CSV_DIR = 'data'
 RAW_DATA_PATH = f"{CSV_DIR}/raw_data.csv"
 FILE_PATH = f"{CSV_DIR}/{LABEL}_{SESSION_ID}.csv"
@@ -123,6 +123,9 @@ def main():
         with open(RAW_DATA_PATH, 'a', newline='') as csvfile:
             writer = csv.writer(csvfile)
             log = 0
+            row_count = 0
+            milestones = {10, 50, 100, 1000, 2000}
+            printed_milestones = set()
 
             while True:
                 data = read_data(ser)
@@ -142,18 +145,23 @@ def main():
 
                     # Send to WebSocket
                     ws_payload = {
-                        "flex": data[:5],                 # 5 flex values
-                        "accel": data[5:8],               # accelX, Y, Z
-                        "gyro": data[8:11],
+                        "left": data[:5],
+                        "right": data[5:8],
+                        "imu": data[8:11],
                         "timestamp": time.time()
                     }
                     data_queue.append(ws_payload)
 
                     log += 1
-                    if log % 10 == 0:
-                        logger.info(f"Logged {log} rows to CSV and MongoDB.")
+                    row_count += 1
+                    if row_count in milestones and row_count not in printed_milestones:
+                        print(f"Live row count: {row_count}")
+                        printed_milestones.add(row_count)
+                    if row_count == 2000:
+                        print("You have reached 2000 rows. Please stop data collection and proceed to noise reduction.")
+                        milestones.clear()
 
-                time.sleep(0.01)
+                time.sleep(0.001)
 
     except PermissionError:
         logger.error(f"Permission denied for {RAW_DATA_PATH}")
@@ -172,6 +180,44 @@ def main():
         if ser and ser.is_open:
             ser.close()
             logger.info("Serial connection closed.")
+        # Print number of rows in raw_data.csv
+        try:
+            with open(RAW_DATA_PATH, 'r', newline='') as f:
+                row_count = sum(1 for _ in f) - 1  # exclude header
+            print(f"Total rows in raw_data.csv: {row_count}")
+        except Exception as e:
+            print(f"Could not count rows in raw_data.csv: {e}")
+
+        # Count and print label distribution for raw_data.csv
+        try:
+            from collections import Counter
+            label_counts = Counter()
+            with open(RAW_DATA_PATH, 'r', newline='') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    label = row["label"]
+                    label_counts[label] += 1
+            print("Label distribution in raw_data.csv:")
+            for label, count in label_counts.items():
+                print(f"  {label}: {count}")
+        except Exception as e:
+            print(f"Could not count label distribution: {e}")
+
+        # Count and print label distribution for gesture_data.csv if it exists
+        GESTURE_DATA_PATH = f"{CSV_DIR}/gesture_data.csv"
+        if os.path.exists(GESTURE_DATA_PATH):
+            try:
+                label_counts = Counter()
+                with open(GESTURE_DATA_PATH, 'r', newline='') as f:
+                    reader = csv.DictReader(f)
+                    for row in reader:
+                        label = row["label"]
+                        label_counts[label] += 1
+                print("Label distribution in gesture_data.csv:")
+                for label, count in label_counts.items():
+                    print(f"  {label}: {count}")
+            except Exception as e:
+                print(f"Could not count label distribution in gesture_data.csv: {e}")
 
 
 if __name__ == "__main__":

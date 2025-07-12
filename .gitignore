@@ -23,11 +23,8 @@ env/
 Thumbs.db
 
 # Test/experimental folders
-backend/sandbox/
-backend/AI/
 
 # Ignore CSVs in backend
-backend/data/*
 !backend/data/.gitkeep
 
 #Ignore .bat file

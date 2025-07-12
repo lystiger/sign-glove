@@ -3,8 +3,12 @@ Noise reduction algorithms và filters
 """
 import logging
 import statistics
+import os
 from collections import deque
-from core.config import WINDOW_SIZE, THRESHOLD
+
+# Define constants locally instead of importing from core
+WINDOW_SIZE = 5
+THRESHOLD = 2.0
 
 class NoiseReducer:
     """
@@ -121,9 +125,27 @@ class NoiseReducer:
         self.sensor_buffers.clear()
         logging.info("NoiseReducer buffers reset")
 
+EXPECTED_HEADER = [
+    'session_id','label','flex1','flex2','flex3','flex4','flex5',
+    'accel_x','accel_y','accel_z','gyro_x','gyro_y','gyro_z'
+]
+EXPECTED_HEADER_LINE = ','.join(EXPECTED_HEADER)
+
+def fix_raw_csv_header(raw_data_path):
+    with open(raw_data_path, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+    if not lines:
+        return  # Empty file, nothing to fix
+    header = lines[0].strip()
+    # If header is not exactly as expected, replace it
+    if header != EXPECTED_HEADER_LINE:
+        # Remove any extra columns from the header
+        lines[0] = EXPECTED_HEADER_LINE + '\n'
+        with open(raw_data_path, 'w', encoding='utf-8') as f:
+            f.writelines(lines)
+
 if __name__ == "__main__":
     import csv
-    import os
 
     RAW_DATA_PATH = os.path.join(os.path.dirname(__file__), '../data/raw_data.csv')
     GESTURE_DATA_PATH = os.path.join(os.path.dirname(__file__), '../data/gesture_data.csv')
@@ -134,6 +156,8 @@ if __name__ == "__main__":
     if not os.path.exists(RAW_DATA_PATH):
         print(f"Input file not found: {RAW_DATA_PATH}")
         exit(1)
+
+    fix_raw_csv_header(RAW_DATA_PATH)
 
     with open(RAW_DATA_PATH, 'r', newline='') as infile, open(GESTURE_DATA_PATH, 'w', newline='') as outfile:
         reader = csv.reader(infile)
@@ -146,9 +170,12 @@ if __name__ == "__main__":
         # Overwrite header to enforce correct order and names
         header = ['session_id', 'label', 'flex1', 'flex2', 'flex3', 'flex4', 'flex5', 'accel_x', 'accel_y', 'accel_z', 'gyro_x', 'gyro_y', 'gyro_z']
         writer.writerow(header)
+        row_count = 0
         for row in reader:
             session_id, label, *sensor_values = row
             sensor_values = list(map(float, sensor_values[:11]))
             filtered = reducer.apply_filters(sensor_values)
             writer.writerow([session_id, label] + [round(val, 3) for val in filtered])
+            row_count += 1
     print(f"Noise-reduced data written to {GESTURE_DATA_PATH}")
+    print(f"Total rows in gesture_data.csv: {row_count}")

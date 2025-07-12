@@ -23,10 +23,26 @@ logging.basicConfig(
 async def automated_pipeline_loop():
     """
     Background task: runs noise reduction and triggers training in a loop, only if new data is present.
+    Persists last processed mtime in a file to avoid reprocessing on restart.
     """
     import time
     RAW_DATA_PATH = os.path.join(BASE_DIR, 'data/raw_data.csv')
-    last_mtime = None
+    LAST_PROCESSED_PATH = os.path.join(BASE_DIR, 'data/last_processed.txt')
+
+    def get_last_processed_time():
+        if os.path.exists(LAST_PROCESSED_PATH):
+            try:
+                with open(LAST_PROCESSED_PATH, 'r') as f:
+                    return float(f.read().strip())
+            except Exception:
+                return None
+        return None
+
+    def set_last_processed_time(mtime):
+        with open(LAST_PROCESSED_PATH, 'w') as f:
+            f.write(str(mtime))
+
+    last_mtime = get_last_processed_time()
     while True:
         try:
             if not os.path.exists(RAW_DATA_PATH):
@@ -35,6 +51,7 @@ async def automated_pipeline_loop():
                 mtime = os.path.getmtime(RAW_DATA_PATH)
                 if last_mtime is None or mtime > last_mtime:
                     last_mtime = mtime
+                    set_last_processed_time(mtime)
                     logging.info("[AUTO] New data detected in raw_data.csv. Running noise reduction and training...")
                     # Run noise_reducer.py as a module
                     result = subprocess.run([

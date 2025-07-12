@@ -80,9 +80,10 @@ async def run_training(file: UploadFile = File(...)):
         with open(file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
 
-        # Run the model.py script (unchanged)
+        # Run the model.py script with absolute path
+        script_path = os.path.join(os.path.dirname(__file__), '..', 'AI', 'model.py')
         result = subprocess.run(
-            ["python", "backend/AI/model.py"],
+            ["python", script_path],
             capture_output=True,
             text=True
         )
@@ -139,8 +140,9 @@ async def trigger_training_run():
     """
     try:
         # Assumes gesture_data.csv already exists
+        script_path = os.path.join(os.path.dirname(__file__), '..', 'AI', 'model.py')
         result = subprocess.run(
-            ["python", "backend/AI/model.py"],
+            ["python", script_path],
             capture_output=True,
             text=True
         )

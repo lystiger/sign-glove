@@ -7,12 +7,30 @@ import './styling/TrainingResult.css'; // Create this for custom styles
 
 const TrainingResults = () => {
   const [result, setResult] = useState(null);
+  const [training, setTraining] = useState(false);
+  const [trainStatus, setTrainStatus] = useState('');
 
   useEffect(() => {
     axios.get('http://localhost:8080/training/latest')
       .then((res) => setResult(res.data))
       .catch((err) => console.error('Failed to fetch training result:', err));
   }, []);
+
+  const handleManualTrain = async () => {
+    setTraining(true);
+    setTrainStatus('Training in progress...');
+    try {
+      const res = await axios.post('http://localhost:8000/training/trigger');
+      setTrainStatus('✅ Training complete!');
+      // Optionally refresh results
+      axios.get('http://localhost:8080/training/latest')
+        .then((res) => setResult(res.data));
+    } catch (err) {
+      setTrainStatus('❌ Training failed. See logs.');
+    } finally {
+      setTraining(false);
+    }
+  };
 
   if (!result) {
     return <p>Loading training results...</p>;
@@ -29,6 +47,15 @@ const TrainingResults = () => {
   return (
     <div className="training-container">
       <h2 className="title">📊 Training Results</h2>
+      <button
+        onClick={handleManualTrain}
+        disabled={training}
+        className="manual-train-btn"
+        style={{ marginBottom: '1rem' }}
+      >
+        {training ? 'Training...' : 'Manual Training'}
+      </button>
+      {trainStatus && <p style={{ marginBottom: '1rem' }}>{trainStatus}</p>}
       <p><strong>Final Accuracy:</strong> {Math.round(result.accuracy * 100)}%</p>
       <p><strong>Session:</strong> {result.session_id}</p>
       <p><strong>Date:</strong> {new Date(result.timestamp).toLocaleString()}</p>
