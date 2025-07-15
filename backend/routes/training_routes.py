@@ -6,17 +6,19 @@ Endpoints:
 - GET /training/: List all training results.
 - GET /training/{session_id}: Fetch a training result by session ID.
 - POST /training/run: Upload CSV, run training, and log result.
+- GET /training/metrics: Fetch detailed training metrics and visualizations.
 """
 from fastapi import APIRouter, HTTPException, UploadFile, File
 from models.model_result import ModelResult
 from core.database import model_collection
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
 from datetime import datetime, timezone
 from uuid import uuid4
 import logging
 import subprocess
 import shutil
 import os
+import json
 
 router = APIRouter(prefix="/training", tags=["Training"])
 
@@ -67,6 +69,71 @@ async def get_model_result(session_id: str):
     except Exception as e:
         logging.error(f"Error getting model result: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch model result")
+
+@router.get("/latest")
+async def get_latest_training_result():
+    """
+    Fetch the most recent training result.
+    """
+    try:
+        result = await model_collection.find_one(sort=[("timestamp", -1)])
+        if not result:
+            raise HTTPException(status_code=404, detail="No training results found")
+        result["_id"] = str(result["_id"])
+        return {"status": "success", "data": result}
+    except Exception as e:
+        logging.error(f"Error getting latest training result: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch latest training result")
+
+@router.get("/metrics/latest")
+async def get_latest_training_metrics():
+    """
+    Fetch the latest training metrics including confusion matrix, ROC curves, and performance data.
+    """
+    try:
+        metrics_path = os.path.join(os.path.dirname(__file__), '..', 'AI', 'training_metrics.json')
+        
+        if not os.path.exists(metrics_path):
+            raise HTTPException(status_code=404, detail="No training metrics found. Please run training first.")
+        
+        with open(metrics_path, 'r') as f:
+            metrics = json.load(f)
+        
+        return {
+            "status": "success",
+            "data": metrics
+        }
+    except Exception as e:
+        logging.error(f"Error fetching training metrics: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch training metrics")
+
+@router.get("/visualizations/{plot_type}")
+async def get_training_visualization(plot_type: str):
+    """
+    Fetch training visualization plots.
+    plot_type: 'confusion_matrix', 'roc_curves', 'training_history'
+    """
+    try:
+        ai_dir = os.path.join(os.path.dirname(__file__), '..', 'AI')
+        
+        plot_files = {
+            'confusion_matrix': 'confusion_matrix.png',
+            'roc_curves': 'roc_curves.png', 
+            'training_history': 'training_history.png'
+        }
+        
+        if plot_type not in plot_files:
+            raise HTTPException(status_code=400, detail=f"Invalid plot type. Must be one of: {list(plot_files.keys())}")
+        
+        plot_path = os.path.join(ai_dir, plot_files[plot_type])
+        
+        if not os.path.exists(plot_path):
+            raise HTTPException(status_code=404, detail=f"Plot {plot_type} not found. Please run training first.")
+        
+        return FileResponse(plot_path, media_type="image/png")
+    except Exception as e:
+        logging.error(f"Error fetching visualization {plot_type}: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to fetch {plot_type} visualization")
 
 @router.post("/run")
 async def run_training(file: UploadFile = File(...)):

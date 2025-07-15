@@ -109,7 +109,6 @@ Machine learning approaches for gesture recognition include:
 
 **Model Optimization**:
 - TensorFlow Lite for edge deployment
-- Quantization for reduced model size
 - Pruning for improved inference speed
 
 ### 2.4 Real-time Systems

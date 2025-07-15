@@ -21,7 +21,7 @@ sys.path.append('.')
 from core.database import sensor_collection  # MongoDB collection
 
 # ========= CONFIG =========
-SERIAL_PORT = 'COM6'  # 👈 Change to your port (e.g., /dev/ttyUSB0)
+SERIAL_PORT = 'COM5'  # 👈 Change to your port (e.g., /dev/ttyUSB0)
 BAUD_RATE = 115200
 FLEX_SENSORS = 5
 ACCEL_SENSORS = 3

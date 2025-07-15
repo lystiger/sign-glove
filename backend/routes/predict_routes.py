@@ -39,7 +39,7 @@ async def predict_label(input: SensorInput):
     Predict gesture label from a single sensor input using a TFLite model.
     """
     try:
-        interpreter = tf.lite.Interpreter(model_path="backend/AI/gesture_model.tflite")
+        interpreter = tf.lite.Interpreter(model_path="AI/gesture_model.tflite")
         interpreter.allocate_tensors()
         input_details = interpreter.get_input_details()
         output_details = interpreter.get_output_details()
@@ -75,7 +75,7 @@ async def predict_latest():
 
         values = doc["values"]
 
-        interpreter = tf.lite.Interpreter(model_path="backend/AI/gesture_model.tflite")
+        interpreter = tf.lite.Interpreter(model_path="AI/gesture_model.tflite")
         interpreter.allocate_tensors()
         input_details = interpreter.get_input_details()
         output_details = interpreter.get_output_details()
