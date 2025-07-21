@@ -65,7 +65,7 @@ async def automated_pipeline_loop():
                     logging.info("[AUTO] Triggering model training...")
                     import requests
                     try:
-                        resp = requests.post("http://localhost:8000/training/trigger")
+                        resp = requests.post("http://localhost:8080/training/trigger")
                         if resp.status_code == 200:
                             logging.info(f"[AUTO] Training triggered successfully: {resp.json()}")
                         else:
