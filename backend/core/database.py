@@ -5,18 +5,14 @@ Database connection and collection setup for the sign glove system.
 - Provides async test_connection function to verify MongoDB connectivity.
 """
 from motor.motor_asyncio import AsyncIOMotorClient
-from dotenv import load_dotenv
-import os
+from core.settings import settings
 import logging
 
-load_dotenv()
 logger = logging.getLogger(__name__)
 
-MONGO_URI = os.getenv("MONGO_URI")
-client = AsyncIOMotorClient(MONGO_URI)
-db = client["sign_glove"]
+client = AsyncIOMotorClient(settings.MONGO_URI)
+db = client[settings.DB_NAME]
 prediction_collection = db["predictions"]
-
 sensor_collection = db["sensor_data"]
 model_collection = db["model_results"]
 gesture_collection = db["gestures"]
@@ -29,6 +25,6 @@ async def test_connection():
     """
     try:
         await client.admin.command("ping")
-        logger.info("✅ Connected to MongoDB Atlas!")
+        logger.info("✅ Connected to MongoDB!")
     except Exception as e:
         logger.error("❌ MongoDB connection failed:", exc_info=e)

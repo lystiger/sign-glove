@@ -7,6 +7,7 @@ Model inference logic for dual-hand gesture prediction in the sign glove system.
 
 import numpy as np
 import tensorflow as tf  # or tflite_runtime.interpreter if used on embedded
+from core.settings import settings
 
 def predict_from_dual_hand_data(data: dict) -> dict:
     """
@@ -31,7 +32,7 @@ def predict_from_dual_hand_data(data: dict) -> dict:
         combined = np.array([left + right], dtype=np.float32)  # shape: [1, 22]
 
         # Load TFLite model (dual-hand version, trained on 22 inputs)
-        interpreter = tf.lite.Interpreter(model_path="backend/AI/gesture_model_dual.tflite")
+        interpreter = tf.lite.Interpreter(model_path=settings.MODEL_DUAL_PATH)
         interpreter.allocate_tensors()
 
         input_details = interpreter.get_input_details()

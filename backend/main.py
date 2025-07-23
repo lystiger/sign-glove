@@ -5,14 +5,12 @@ from routes import training_trigger, training_routes, sensor_routes, predict_rou
 from routes import gestures, liveWS
 from core.indexes import create_indexes 
 from core.database import client, test_connection
+from core.settings import settings
 from contextlib import asynccontextmanager
 import logging
 import os
 import asyncio
 import subprocess
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-models_path = os.path.join(BASE_DIR, "data")
 
 #  Configure logging
 logging.basicConfig(
@@ -21,13 +19,9 @@ logging.basicConfig(
 )
 
 async def automated_pipeline_loop():
-    """
-    Background task: runs noise reduction and triggers training in a loop, only if new data is present.
-    Persists last processed mtime in a file to avoid reprocessing on restart.
-    """
     import time
-    RAW_DATA_PATH = os.path.join(BASE_DIR, 'data/raw_data.csv')
-    LAST_PROCESSED_PATH = os.path.join(BASE_DIR, 'data/last_processed.txt')
+    RAW_DATA_PATH = settings.RAW_DATA_PATH
+    LAST_PROCESSED_PATH = os.path.join(os.path.dirname(RAW_DATA_PATH), 'last_processed.txt')
 
     def get_last_processed_time():
         if os.path.exists(LAST_PROCESSED_PATH):
@@ -53,7 +47,6 @@ async def automated_pipeline_loop():
                     last_mtime = mtime
                     set_last_processed_time(mtime)
                     logging.info("[AUTO] New data detected in raw_data.csv. Running noise reduction and training...")
-                    # Run noise_reducer.py as a module
                     result = subprocess.run([
                         "python", "-m", "processors.noise_reducer"
                     ], capture_output=True, text=True)
@@ -76,39 +69,31 @@ async def automated_pipeline_loop():
                     logging.info("[AUTO] No new data in raw_data.csv. Skipping noise reduction and training.")
         except Exception as e:
             logging.error(f"[AUTO] Pipeline error: {e}")
-        # Wait 5 minutes before next run
         await asyncio.sleep(300)
 
-#  Lifecycle event
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await test_connection() 
     await create_indexes()
     logging.info("✅ Indexes created. App is starting...")
-    # Start the automated pipeline loop
     loop = asyncio.get_event_loop()
     loop.create_task(automated_pipeline_loop())
     yield
     client.close()
     logging.info("🛑 MongoDB connection closed. App is shutting down...")
 
-#  App instance with lifespan
 app = FastAPI(title="Sign Glove API", lifespan=lifespan)
 
-origins = [
-    "http://localhost:5173",  # React frontend
-    # Add more if deployed
-]
-#  CORS middleware
+# Use CORS origins from settings
 app.add_middleware(
     CORSMiddleware,
-    allow_origins= origins,  # Allow all for now; restrict in prod
+    allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-#  Mount routers
+# Mount routers
 app.include_router(gestures.router)
 app.include_router(training_trigger.router)
 app.include_router(training_routes.router)
@@ -117,10 +102,10 @@ app.include_router(predict_routes.router)
 app.include_router(admin_routes.router)
 app.include_router(dashboard_routes.router)
 app.include_router(liveWS.router)
-app.mount("/models", StaticFiles(directory=models_path), name="models")
 
+# Mount models directory for static files if needed
+app.mount("/models", StaticFiles(directory=settings.DATA_DIR), name="models")
 
-#  Root route
 @app.get("/")
 def root():
     return {"message": "Backend is running 🚀"}

@@ -30,3 +30,5 @@ Thumbs.db
 #Ignore .bat file
 start_sign_glove.bat
 
+#Ignore tts_cache
+!backend/tts_cache/.gitkeep

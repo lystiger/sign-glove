@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 from models.training_models import TrainingRequest, TrainingResponse
 from models.model_result import ModelResult
 from core.database import model_collection
+from core.settings import settings
 from uuid import uuid4
 import subprocess
 import logging
@@ -50,17 +51,17 @@ async def start_training(request: TrainingRequest):
             session_id=session_id,
             timestamp=datetime.now(timezone.utc),
             accuracy=acc,
-            model_name="gesture_model.tflite",
+            model_name=settings.MODEL_PATH,
             notes="Triggered via POST /training/"
         )
         res = await model_collection.insert_one(training_result.model_dump())
         logging.info(f"Logged training result with ID {res.inserted_id}")
 
         return TrainingResponse(
-            status="training_completed",
-            started_at=datetime.now(timezone.utc)
+            status="success",
+            timestamp=datetime.now(timezone.utc)
         )
 
     except Exception as e:
-        logging.error(f"Training failed: {e}")
-        raise HTTPException(status_code=500, detail="Training failed")
+        logging.error(f"Training trigger error: {e}")
+        raise HTTPException(status_code=500, detail="Training trigger error")

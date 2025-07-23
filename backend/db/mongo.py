@@ -6,12 +6,11 @@ MongoDB connection setup for local/offline development in the sign glove system.
 - Includes utility to create indexes for efficient queries.
 """
 from motor.motor_asyncio import AsyncIOMotorClient
+from core.settings import settings
 import logging
 
-# MongoDB URI and client
-MONGO_URI = "mongodb://localhost:27017"
-client = AsyncIOMotorClient(MONGO_URI)
-db = client["sign_glove_db"]
+client = AsyncIOMotorClient(settings.MONGO_URI)
+db = client[settings.DB_NAME]
 sensor_collection = db["sensor_data"]
 
 def get_sensor_collection():

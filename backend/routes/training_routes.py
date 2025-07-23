@@ -14,6 +14,7 @@ from core.database import model_collection
 from fastapi.responses import JSONResponse, FileResponse
 from datetime import datetime, timezone
 from uuid import uuid4
+from core.settings import settings
 import logging
 import subprocess
 import shutil
@@ -91,7 +92,7 @@ async def get_latest_training_metrics():
     Fetch the latest training metrics including confusion matrix, ROC curves, and performance data.
     """
     try:
-        metrics_path = os.path.join(os.path.dirname(__file__), '..', 'AI', 'training_metrics.json')
+        metrics_path = settings.METRICS_PATH
         
         if not os.path.exists(metrics_path):
             raise HTTPException(status_code=404, detail="No training metrics found. Please run training first.")
@@ -114,7 +115,7 @@ async def get_training_visualization(plot_type: str):
     plot_type: 'confusion_matrix', 'roc_curves', 'training_history'
     """
     try:
-        ai_dir = os.path.join(os.path.dirname(__file__), '..', 'AI')
+        ai_dir = settings.AI_DIR
         
         plot_files = {
             'confusion_matrix': 'confusion_matrix.png',
@@ -141,9 +142,8 @@ async def run_training(file: UploadFile = File(...)):
     Upload a CSV file, run the training script, and log the result.
     """
     try:
-        # Save uploaded CSV as gesture_data.csv in backend/data/
-        os.makedirs("backend/AI", exist_ok=True)
-        file_path = "backend/data/gesture_data.csv"
+        os.makedirs(settings.AI_DIR, exist_ok=True)
+        file_path = settings.GESTURE_DATA_PATH
         with open(file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
 
@@ -181,7 +181,7 @@ async def run_training(file: UploadFile = File(...)):
             session_id=session_id,
             timestamp=datetime.now(timezone.utc),
             accuracy=acc,
-            model_name="gesture_model.tflite",
+            model_name=settings.MODEL_PATH,
             notes="Auto-trained via /training/run"
         )
         res = await model_collection.insert_one(training_result.model_dump())
@@ -236,7 +236,7 @@ async def trigger_training_run():
             session_id=session_id,
             timestamp=datetime.now(timezone.utc),
             accuracy=acc,
-            model_name="gesture_model.tflite",
+            model_name=settings.MODEL_PATH,
             notes="Triggered via POST /training/trigger"
         )
         res = await model_collection.insert_one(training_result.model_dump())
