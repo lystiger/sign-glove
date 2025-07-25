@@ -1,8 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from fastapi.exception_handlers import RequestValidationError
 from routes import training_trigger, training_routes, sensor_routes, predict_routes, admin_routes, dashboard_routes
-from routes import gestures, liveWS
+from routes import gestures, liveWS, utils_routes
 from core.indexes import create_indexes 
 from core.database import client, test_connection
 from core.settings import settings
@@ -11,12 +13,14 @@ import logging
 import os
 import asyncio
 import subprocess
+import uuid
 
-#  Configure logging
+# Improved logging configuration
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(name)s - %(message)s"
 )
+logger = logging.getLogger("signglove")
 
 async def automated_pipeline_loop():
     import time
@@ -84,6 +88,49 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Sign Glove API", lifespan=lifespan)
 
+# Global error handlers
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request: Request, exc: HTTPException):
+    trace_id = str(uuid.uuid4())
+    logger.error(f"HTTPException {exc.status_code} at {request.url.path} | Trace: {trace_id} | Detail: {exc.detail}")
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={
+            "status": "error",
+            "detail": exc.detail,
+            "code": exc.status_code,
+            "trace_id": trace_id
+        },
+    )
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    trace_id = str(uuid.uuid4())
+    logger.error(f"ValidationError at {request.url.path} | Trace: {trace_id} | Detail: {exc.errors()}")
+    return JSONResponse(
+        status_code=422,
+        content={
+            "status": "error",
+            "detail": exc.errors(),
+            "code": 422,
+            "trace_id": trace_id
+        },
+    )
+
+@app.exception_handler(Exception)
+async def generic_exception_handler(request: Request, exc: Exception):
+    trace_id = str(uuid.uuid4())
+    logger.error(f"Unhandled Exception at {request.url.path} | Trace: {trace_id} | {exc}")
+    return JSONResponse(
+        status_code=500,
+        content={
+            "status": "error",
+            "detail": "Internal server error.",
+            "code": 500,
+            "trace_id": trace_id
+        },
+    )
+
 # Use CORS origins from settings
 app.add_middleware(
     CORSMiddleware,
@@ -102,6 +149,7 @@ app.include_router(predict_routes.router)
 app.include_router(admin_routes.router)
 app.include_router(dashboard_routes.router)
 app.include_router(liveWS.router)
+app.include_router(utils_routes.router)
 
 # Mount models directory for static files if needed
 app.mount("/models", StaticFiles(directory=settings.DATA_DIR), name="models")

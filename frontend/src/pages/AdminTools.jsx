@@ -1,44 +1,51 @@
 // src/pages/AdminTools.jsx
-import React from 'react';
-import axios from 'axios';
-import './styling/Admin.css';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { apiRequest } from '../api';
+import { MdDeleteForever } from 'react-icons/md';
 
 const AdminTools = () => {
-  const clearSensorData = async () => {
+  const [showCheckmark, setShowCheckmark] = useState({ sensor: false, training: false });
+
+  const handleClearSensorData = async () => {
     try {
-      const res = await axios.delete('http://localhost:8080/admin/sensor-data');
-      alert(`Deleted ${res.data.deleted} sensor entries`);
+      await apiRequest('delete', '/admin/sensor-data');
+      toast.success('Sensor data cleared!');
     } catch (err) {
-      console.error(err);
-      alert("Failed to clear sensor data");
+      toast.error(`Failed to clear sensor data: ${err.detail}${err.traceId ? ` (trace: ${err.traceId})` : ''}`);
     }
+    setShowCheckmark(s => ({ ...s, sensor: true }));
+    setTimeout(() => setShowCheckmark(s => ({ ...s, sensor: false })), 1200);
   };
 
-  const clearTrainingResults = async () => {
+  const handleClearTrainingResults = async () => {
     try {
-      const res = await axios.delete('http://localhost:8080/admin/training-results');
-      alert(`Deleted ${res.data.deleted} training results`);
+      await apiRequest('delete', '/admin/training-results');
+      toast.success('Training results cleared!');
     } catch (err) {
-      console.error(err);
-      alert("Failed to clear training results");
+      toast.error(`Failed to clear training results: ${err.detail}${err.traceId ? ` (trace: ${err.traceId})` : ''}`);
     }
+    setShowCheckmark(s => ({ ...s, training: true }));
+    setTimeout(() => setShowCheckmark(s => ({ ...s, training: false })), 1200);
   };
 
   return (
-    <div className="admin-container">
-      <h2 className="admin-title">Admin Tools</h2>
-      <div className="admin-buttons">
-        <button onClick={clearSensorData} className="btn btn-danger">
-          Clear Sensor Data
+    <div role="main" aria-label="Admin Tools Page" className="fade-in">
+      <h2 id="admin-tools-title" tabIndex={0}>Admin Tools</h2>
+      <div style={{ marginTop: 24, display: 'flex', gap: '1.5rem' }}>
+        <button className="btn btn-danger" onClick={handleClearSensorData} aria-label="Clear sensor data">
+          <MdDeleteForever style={{ verticalAlign: 'middle', marginRight: 4 }} /> Clear Sensor Data
         </button>
-        <button onClick={clearTrainingResults} className="btn btn-danger">
-          Clear Training Results
+        {showCheckmark.sensor && (
+          <span className="checkmark-success" aria-label="Success" style={{ marginLeft: 12, verticalAlign: 'middle' }}></span>
+        )}
+        <button className="btn btn-danger" onClick={handleClearTrainingResults} aria-label="Clear training results">
+          <MdDeleteForever style={{ verticalAlign: 'middle', marginRight: 4 }} /> Clear Training Results
         </button>
-        <button onClick={() => window.open("http://localhost:8080/gestures/export")}
-        className="btn btn-danger"
-        >
-          Export Gestures CSV
-        </button>
+        {showCheckmark.training && (
+          <span className="checkmark-success" aria-label="Success" style={{ marginLeft: 12, verticalAlign: 'middle' }}></span>
+        )}
       </div>
     </div>
   );

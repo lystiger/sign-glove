@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './pages/Dashboard';
 import UploadCSV from './pages/UploadCSV';
 import ManageGestures from './pages/ManageGestures';
@@ -9,27 +11,59 @@ import LivePredict from './pages/LivePredict';
 import AdminTools from './pages/AdminTools';
 import UploadTrainingCSV from './pages/UploadTrainingCSV';
 import PredictionHistory from './pages/PredictionHistory';
+import { MdDarkMode } from 'react-icons/md';
+
+function useDarkMode() {
+  const [dark, setDark] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return document.body.classList.contains('dark');
+    }
+    return false;
+  });
+  useEffect(() => {
+    if (dark) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [dark]);
+  return [dark, setDark];
+}
 
 const App = () => {
+  const [dark, setDark] = useDarkMode();
+
   return (
     <Router>
       <div className="min-h-screen bg-gray-50">
-        <header className="bg-blue-600 text-white p-4">
-          <h1 className="text-2xl font-bold">Sign Glove</h1>
-          <nav className="mt-2 space-x-4">
-            <Link to="/" className="hover:underline">Dashboard</Link>
-            <Link to="/upload" className="hover:underline">Upload CSV</Link>
-            <Link to="/training/upload" className="hover:underline"> Upload Training Data</Link>
-            <Link to="/gestures" className="hover:underline">Manage Gestures</Link>
-            <Link to="/training" className="hover:underline">Training Results</Link>
-            <Link to="/predict" className="hover:underline">Predict</Link>
-            <Link to="/predict/live" className="hover:underline">Live Predict</Link>
-            <Link to="/history" className="hover:underline">Data History</Link>   
-            <Link to="/admin" className="hover:underline">Admin</Link>           
-          </nav>
+        <header className="bg-blue-600 text-white p-4" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative', zIndex: 1 }}>
+          <div style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
+            <h1 className="text-2xl font-bold" style={{ marginRight: 32, whiteSpace: 'nowrap' }}>Sign Glove</h1>
+            <nav style={{ display: 'flex', gap: '1.5rem', flex: 1, justifyContent: 'center' }}>
+              <Link to="/" className="hover:underline">Dashboard</Link>
+              <Link to="/gestures" className="hover:underline">Manage Gestures</Link>
+              <Link to="/training-results" className="hover:underline">Training Results</Link>
+              <Link to="/predict" className="hover:underline">Manual Prediction</Link>
+              <Link to="/live-predict" className="hover:underline">Live Predict</Link>
+              <Link to="/upload-csv" className="hover:underline">Upload CSV</Link>
+              <Link to="/upload-training-csv" className="hover:underline">Upload Training CSV</Link>
+              <Link to="/admin" className="hover:underline">Admin Tools</Link>
+            </nav>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', marginLeft: 32 }}>
+            <button
+              className="btn btn-secondary"
+              aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+              onClick={() => setDark(d => !d)}
+              style={{ display: 'flex', alignItems: 'center' }}
+            >
+              <MdDarkMode style={{ fontSize: 22, marginRight: 6 }} />
+              {dark ? 'Light' : 'Dark'} Mode
+            </button>
+          </div>
         </header>
 
-        <main className="p-4">
+        <main className="p-4" style={{ position: 'relative', zIndex: 1 }}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/upload" element={<UploadCSV />} />
@@ -42,6 +76,8 @@ const App = () => {
             <Route path="/admin" element={<AdminTools />} />
           </Routes>
         </main>
+
+        <ToastContainer />
 
         <footer className="text-center text-sm text-gray-500 py-4">
           &copy; 2025 Sign Glove AI

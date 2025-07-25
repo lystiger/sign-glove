@@ -11,7 +11,7 @@ Endpoints:
 import datetime
 from fastapi import APIRouter, HTTPException, WebSocket, WebSocketDisconnect, Query
 from pydantic import BaseModel
-from typing import List
+from typing import List, Dict, Any
 from core.database import sensor_collection, prediction_collection
 from core.model import predict_from_dual_hand_data
 from core.settings import settings
@@ -20,6 +20,7 @@ import logging
 import tensorflow as tf
 import requests
 import asyncio
+from utils.cache import cacheable
 
 router = APIRouter(prefix="/predict", tags=["Prediction"])
 prediction_counts = {}
@@ -172,10 +173,19 @@ async def websocket_predict(websocket: WebSocket):
     except WebSocketDisconnect:
         print("Client disconnected")
 
-@router.get("/predictions")
-async def get_predictions(limit: int = Query(100, ge=1, le=1000)):
+@router.get(
+    "/predictions",
+    summary="List recent predictions",
+    description="Returns a list of recent predictions from the predictions collection, sorted by timestamp."
+)
+@cacheable(ttl=30)
+async def get_predictions(limit: int = Query(100, ge=1, le=1000)) -> List[Dict[str, Any]]:
     """
-    List recent predictions from the predictions collection.
+    Example response:
+    [
+        {"_id": "...", "prediction": "hello", "timestamp": "...", ...},
+        ...
+    ]
     """
     cursor = prediction_collection.find().sort("timestamp", -1).limit(limit)
     results = []

@@ -15,29 +15,46 @@ from services.tts_service import tts_service
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 import os
+from utils.cache import cacheable
+from typing import Dict, Any
 
 router = APIRouter(prefix="/utils", tags=["Utilities"])
 
 class TTSRequest(BaseModel):
     text: str
 
-@router.get("/health")
-async def health_check():
+@router.get(
+    "/health",
+    summary="Health check",
+    description="Health check endpoint to verify the API is running."
+)
+async def health_check() -> Dict[str, Any]:
     """
-    Health check endpoint to verify the API is running.
+    Example response:
+    {"status": "ok", "message": "Sign Glove API is running"}
     """
     return {"status": "ok", "message": "Sign Glove API is running"}
 
-@router.get("/db/stats")
-async def db_stats():
+@router.get(
+    "/db/stats",
+    summary="Database statistics",
+    description="Get statistics for all main collections in the database."
+)
+@cacheable(ttl=30)
+async def db_stats() -> Dict[str, Any]:
     """
-    Get statistics for all main collections in the database.
+    Example response:
+    {
+        "sensor_data_count": 123,
+        "gesture_count": 45,
+        "model_results_count": 10,
+        "training_sessions_count": 8
+    }
     """
     sensor_count = await db["sensor_data"].count_documents({})
     gesture_count = await db["gestures"].count_documents({})
     model_count = await db["model_results"].count_documents({})
     training_sessions = await db["training_sessions"].count_documents({})
-
     return {
         "sensor_data_count": sensor_count,
         "gesture_count": gesture_count,

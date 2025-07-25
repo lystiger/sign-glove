@@ -1,46 +1,55 @@
 // src/pages/Dashboard.jsx
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './styling/Dashboard.css'; // Add this
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { apiRequest } from '../api';
 
 const Dashboard = () => {
   const [stats, setStats] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const fetchStats = async () => {
+    setLoading(true);
+    try {
+      const res = await apiRequest('get', '/dashboard/');
+      setStats(res.data);
+    } catch (err) {
+      toast.error(`Failed to fetch dashboard stats: ${err.detail}${err.traceId ? ` (trace: ${err.traceId})` : ''}`);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    axios.get('http://localhost:8080/dashboard')
-      .then(res => setStats(res.data.data))
-      .catch(err => {
-        console.error("Dashboard fetch failed", err);
-        setStats(null);
-      });
+    fetchStats();
   }, []);
 
   return (
-    <div className="dashboard-container">
-      <h2 className="dashboard-title">Welcome to the Sign Glove AI Dashboard</h2>
-
-      <div className="card">
-        <p className="card-title">Project Overview</p>
-        <p>
-          This project enables real-time sign language translation using a smart glove
-          equipped with flex sensors and an IMU. The system collects gesture data,
-          trains machine learning models, and allows uploading, managing, and testing gesture datasets.
-        </p>
-        <p className="mt">
-          Use the navigation above to upload training data, manage gestures, and view AI training results.
+    <div role="main" aria-label="Dashboard Page">
+      <div className="card" style={{ marginBottom: '2rem' }}>
+        <h2 id="dashboard-title" tabIndex={0}>Sign Glove Project Dashboard</h2>
+        <p style={{ marginTop: 8, color: '#555' }}>
+          <strong>Sign Glove</strong> is a smart wearable system for translating hand gestures into text and speech using flex sensors, IMU, machine learning, and a web interface. This dashboard provides a quick overview and access to key utilities.
         </p>
       </div>
 
-      <div className="card">
-        <p className="card-title">System Stats</p>
-        {!stats ? (
-          <p>Loading stats...</p>
-        ) : (
-          <ul className="stats-list">
-            <li>Total Gesture Sessions: <strong>{stats.total_sessions}</strong></li>
-            <li>Total Training Models: <strong>{stats.total_models}</strong></li>
-            <li>Average Accuracy: <strong>{(stats.average_accuracy * 100).toFixed(2)}%</strong></li>
-            <li>Last Activity: <strong>{new Date(stats.last_activity).toLocaleString()}</strong></li>
+      <div className="card" style={{ marginBottom: '2rem' }}>
+        <h3>Project Statistics</h3>
+        {loading ? (
+          <ul aria-busy="true" aria-live="polite">
+            <li><Skeleton width={200} /></li>
+            <li><Skeleton width={200} /></li>
+            <li><Skeleton width={200} /></li>
+            <li><Skeleton width={200} /></li>
+          </ul>
+        ) : stats && (
+          <ul aria-label="Dashboard statistics">
+            <li>Total Sessions: {stats.total_sessions || stats.totalSessions}</li>
+            <li>Total Models: {stats.total_models || stats.totalModels}</li>
+            <li>Average Accuracy: {stats.average_accuracy || stats.averageAccuracy}</li>
+            <li>Last Activity: {stats.last_activity || stats.lastActivity}</li>
           </ul>
         )}
       </div>

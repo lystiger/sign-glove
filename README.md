@@ -44,6 +44,62 @@ This project enables real-time sign language translation using a smart glove equ
 
 ---
 
+## 📚 API Usage
+
+- Interactive API docs: [http://localhost:8080/docs](http://localhost:8080/docs)
+- Redoc docs: [http://localhost:8080/redoc](http://localhost:8080/redoc)
+
+### Example: Create a Gesture Session
+
+```bash
+curl -X POST "http://localhost:8080/gestures/" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "session_id": "abc123",
+    "timestamp": "2025-07-23T12:00:00Z",
+    "sensor_values": [[0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1]],
+    "gesture_label": "hello",
+    "device_info": {"source": "USB", "device_id": "glove-01"}
+  }'
+```
+
+### Example: Get Dashboard Stats
+
+```bash
+curl http://localhost:8080/dashboard/
+```
+
+---
+
+## 🧪 Running Tests
+
+From the `backend` directory:
+
+```bash
+pip install -r requirements.txt
+pip install pytest pytest-asyncio httpx
+pytest
+```
+
+- Some async DB tests may be skipped or xfail due to Motor event loop issues on Windows.
+
+---
+
+## 🐞 Error Handling & Trace IDs
+
+- All error responses include a `trace_id` field.
+- If you encounter an error, provide the `trace_id` to the development team for fast debugging.
+
+---
+
+## 🤝 Contributing
+
+- Pull requests are welcome!
+- Please follow PEP8 for Python code and use descriptive commit messages.
+- Run tests before submitting a PR.
+
+---
+
 ## 📈 Training Visualizations & Metrics
 
 The system now provides comprehensive training analytics:
@@ -145,6 +201,4 @@ Key configuration files:
 
 ---
 
-## 📝 License
 
-MIT License - see LICENSE file for details.

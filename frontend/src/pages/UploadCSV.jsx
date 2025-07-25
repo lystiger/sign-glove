@@ -1,77 +1,69 @@
 // src/pages/UploadCSV.jsx
 import React, { useState } from 'react';
-import axios from 'axios';
-import './styling/UploadCSV.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { apiRequest } from '../api';
+import { MdUpload } from 'react-icons/md';
 
 const UploadCSV = () => {
   const [file, setFile] = useState(null);
-  const [label, setLabel] = useState('');
-  const [status, setStatus] = useState('');
-  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showCheckmark, setShowCheckmark] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
 
+  const handleUpload = async () => {
     if (!file) {
-      setError('Please select a CSV file.');
+      toast.error('Please select a CSV file to upload.');
       return;
     }
-    if (!label.trim()) {
-      setError('Please enter a label.');
-      return;
-    }
-
-    setError('');
-    setStatus('Uploading...');
     setLoading(true);
-
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('label', label);
-
     try {
-      const response = await axios.post('http://localhost:8080/gestures/upload-csv', formData);
-      setStatus(`Upload successful: ${response.data.message}`);
+      await apiRequest('post', '/training/run', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      toast.success('CSV uploaded and training started!');
+      setShowCheckmark(true);
+      setTimeout(() => setShowCheckmark(false), 1200);
     } catch (err) {
-      console.error(err);
-      setStatus('');
-      setError('Upload failed. Please try again.');
+      toast.error(`Upload failed: ${err.detail}${err.traceId ? ` (trace: ${err.traceId})` : ''}`);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="upload-form">
-      <h2 className="form-title">Upload Gesture CSV</h2>
-
-      <input
-        type="file"
-        accept=".csv"
-        onChange={(e) => setFile(e.target.files[0])}
-        className="form-input"
-      />
-
-      <input
-        type="text"
-        placeholder="Gesture Label"
-        value={label}
-        onChange={(e) => setLabel(e.target.value)}
-        className="form-input"
-      />
-
-      {error && <p className="form-error">{error}</p>}
-      {status && <p className="form-success">{status}</p>}
-
-      <button
-        type="submit"
-        disabled={loading}
-        className={`btn ${loading ? 'btn-disabled' : 'btn-blue'}`}
-      >
-        {loading ? 'Uploading...' : 'Upload'}
-      </button>
-    </form>
+    <div role="main" aria-label="Upload Training CSV Page">
+      <div className="card fade-in">
+        <h2 id="upload-csv-title" tabIndex={0}>Upload Training CSV</h2>
+        {loading ? (
+          <>
+            <Skeleton width={200} height={32} style={{ marginBottom: 8 }} />
+            <Skeleton width={100} height={32} />
+          </>
+        ) : (
+          <form aria-label="Upload CSV form" onSubmit={e => { e.preventDefault(); handleUpload(); }}>
+            <label htmlFor="csv-file-input" style={{ display: 'block', marginBottom: 8 }}>Select CSV file</label>
+            <input id="csv-file-input" type="file" accept=".csv" onChange={handleFileChange} aria-required="true" style={{ marginBottom: 16 }} />
+            <div style={{ marginTop: 20 }}>
+              <button type="submit" className="btn btn-primary" onClick={handleUpload} disabled={loading} aria-busy={loading} aria-label="Upload CSV">
+                <MdUpload style={{ verticalAlign: 'middle', marginRight: 4 }} /> Upload
+              </button>
+              {showCheckmark && (
+                <span className="checkmark-success" aria-label="Success" style={{ marginLeft: 12, verticalAlign: 'middle' }}></span>
+              )}
+            </div>
+          </form>
+        )}
+        {loading && <div aria-live="polite">Uploading...</div>}
+      </div>
+    </div>
   );
 };
 

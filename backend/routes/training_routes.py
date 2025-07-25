@@ -20,6 +20,8 @@ import subprocess
 import shutil
 import os
 import json
+from utils.cache import cacheable
+from typing import Dict, Any, List
 
 router = APIRouter(prefix="/training", tags=["Training"])
 
@@ -39,13 +41,25 @@ async def save_model_result(result: ModelResult):
         logging.error(f"Error saving model result: {e}")
         raise HTTPException(status_code=500, detail="Failed to save model result")
 
-@router.get("/")
-async def list_model_results():
+@router.get(
+    "/",
+    summary="List all training results",
+    description="Returns a list of all training results, sorted by timestamp (most recent first)."
+)
+@cacheable(ttl=30)
+async def list_training_results() -> Dict[str, Any]:
     """
-    List all training results from the database.
+    Example response:
+    {
+        "status": "success",
+        "data": [
+            {"session_id": "abc123", "accuracy": 0.98, ...},
+            ...
+        ]
+    }
     """
     try:
-        cursor = model_collection.find()
+        cursor = model_collection.find().sort("timestamp", -1)
         results = []
         async for doc in cursor:
             doc["_id"] = str(doc["_id"])
@@ -53,23 +67,32 @@ async def list_model_results():
         logging.info(f"Fetched {len(results)} training results")
         return {"status": "success", "data": results}
     except Exception as e:
-        logging.error(f"Error fetching model results: {e}")
-        raise HTTPException(status_code=500, detail="Failed to fetch model results")
+        logging.error(f"Error listing training results: {e}")
+        raise HTTPException(status_code=500, detail="Failed to list training results")
 
-@router.get("/{session_id}")
-async def get_model_result(session_id: str):
+@router.get(
+    "/{session_id}",
+    summary="Get a training result by session ID",
+    description="Fetch a specific training result by its session_id."
+)
+@cacheable(ttl=30)
+async def get_training_result(session_id: str) -> Dict[str, Any]:
     """
-    Fetch a training result by session ID.
+    Example response:
+    {
+        "status": "success",
+        "data": { ... }
+    }
     """
     try:
-        result = await model_collection.find_one({"session_id": session_id})
-        if not result:
-            raise HTTPException(status_code=404, detail="Result not found")
-        result["_id"] = str(result["_id"])
-        return {"status": "success", "data": result}
+        doc = await model_collection.find_one({"session_id": session_id})
+        if not doc:
+            raise HTTPException(status_code=404, detail="Training result not found")
+        doc["_id"] = str(doc["_id"])
+        return {"status": "success", "data": doc}
     except Exception as e:
-        logging.error(f"Error getting model result: {e}")
-        raise HTTPException(status_code=500, detail="Failed to fetch model result")
+        logging.error(f"Error fetching training result: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch training result")
 
 @router.get("/latest")
 async def get_latest_training_result():

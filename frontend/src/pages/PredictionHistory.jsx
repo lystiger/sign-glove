@@ -1,51 +1,48 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './styling/PredictionHistory.css'; // optional styling
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { apiRequest } from '../api';
+import { ToastContainer } from 'react-toastify';
 
 const PredictionHistory = () => {
-  const [predictions, setPredictions] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [history, setHistory] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const fetchHistory = async () => {
+    setLoading(true);
+    try {
+      const res = await apiRequest('get', '/predict/predictions');
+      setHistory(res);
+    } catch (err) {
+      toast.error(`Failed to fetch prediction history: ${err.detail}${err.traceId ? ` (trace: ${err.traceId})` : ''}`);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    axios.get('http://localhost:8080/predict/predictions')
-      .then(res => setPredictions(res.data))
-      .catch(err => console.error('Failed to load predictions:', err))
-      .finally(() => setLoading(false));
+    fetchHistory();
   }, []);
 
   return (
-    <div className="prediction-history">
-      <h2 className="title">🕒 Prediction History</h2>
+    <div role="main" aria-label="Prediction History Page">
+      <h2 id="prediction-history-title" tabIndex={0}>Prediction History</h2>
       {loading ? (
-        <p>Loading...</p>
-      ) : predictions.length === 0 ? (
-        <p>No predictions found.</p>
+        <ul aria-busy="true" aria-live="polite">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <li key={i}><Skeleton width={300} /></li>
+          ))}
+        </ul>
       ) : (
-        <table className="history-table">
-          <thead>
-            <tr>
-              <th>Time</th>
-              <th>Prediction</th>
-              <th>Confidence</th>
-              <th>Left</th>
-              <th>Right</th>
-              <th>IMU</th>
-            </tr>
-          </thead>
-          <tbody>
-            {predictions.map((pred, idx) => (
-              <tr key={idx}>
-                <td>{new Date(pred.timestamp).toLocaleTimeString()}</td>
-                <td>{pred.prediction}</td>
-                <td>{pred.confidence ? (pred.confidence * 100).toFixed(1) + '%' : '–'}</td>
-                <td><code>{pred.left?.map(v => v.toFixed(2)).join(', ')}</code></td>
-                <td><code>{pred.right?.map(v => v.toFixed(2)).join(', ')}</code></td>
-                <td>{pred.imu?.toFixed(2)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <ul aria-label="Prediction history list">
+          {history.map((h) => (
+            <li key={h._id}>{h.timestamp} - {h.prediction}</li>
+          ))}
+        </ul>
       )}
+      <ToastContainer aria-live="polite" />
     </div>
   );
 };
