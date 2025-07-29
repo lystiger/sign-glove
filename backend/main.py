@@ -5,6 +5,7 @@ from fastapi.responses import JSONResponse
 from fastapi.exception_handlers import RequestValidationError
 from routes import training_trigger, training_routes, sensor_routes, predict_routes, admin_routes, dashboard_routes
 from routes import gestures, liveWS, utils_routes
+from routes import audio_files_routes
 from core.indexes import create_indexes 
 from core.database import client, test_connection
 from core.settings import settings
@@ -150,6 +151,7 @@ app.include_router(admin_routes.router)
 app.include_router(dashboard_routes.router)
 app.include_router(liveWS.router)
 app.include_router(utils_routes.router)
+app.include_router(audio_files_routes.router)
 
 # Mount models directory for static files if needed
 app.mount("/models", StaticFiles(directory=settings.DATA_DIR), name="models")
@@ -157,4 +159,19 @@ app.mount("/models", StaticFiles(directory=settings.DATA_DIR), name="models")
 @app.get("/")
 def root():
     return {"message": "Backend is running 🚀"}
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint for Docker containers"""
+    try:
+        # Test database connection
+        await test_connection()
+        return {
+            "status": "healthy",
+            "database": "connected",
+            "timestamp": "2024-01-01T00:00:00Z"
+        }
+    except Exception as e:
+        logger.error(f"Health check failed: {e}")
+        raise HTTPException(status_code=503, detail="Service unhealthy")
 

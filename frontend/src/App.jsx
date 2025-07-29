@@ -11,7 +11,8 @@ import LivePredict from './pages/LivePredict';
 import AdminTools from './pages/AdminTools';
 import UploadTrainingCSV from './pages/UploadTrainingCSV';
 import PredictionHistory from './pages/PredictionHistory';
-import { MdDarkMode } from 'react-icons/md';
+import AudioManager from './pages/AudioManager';
+import { MdDarkMode, MdMenu, MdClose } from 'react-icons/md';
 
 function useDarkMode() {
   const [dark, setDark] = useState(() => {
@@ -32,48 +33,74 @@ function useDarkMode() {
 
 const App = () => {
   const [dark, setDark] = useDarkMode();
+  const [navOpen, setNavOpen] = useState(false);
+
+  // Navigation links
+  const navLinks = [
+    { to: '/', label: 'Dashboard' },
+    { to: '/gestures', label: 'Manage Gestures' },
+    { to: '/training-results', label: 'Training Results' },
+    { to: '/predict', label: 'Manual Prediction' },
+    { to: '/live-predict', label: 'Live Predict' },
+    { to: '/upload-csv', label: 'Upload CSV' },
+    { to: '/upload-training-csv', label: 'Upload Training CSV' },
+    { to: '/admin', label: 'Admin Tools' },
+    { to: '/audio-manager', label: 'Audio Manager' },
+  ];
 
   return (
     <Router>
       <div className="min-h-screen bg-gray-50">
-        <header className="bg-blue-600 text-white p-4" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
-            <h1 className="text-2xl font-bold" style={{ marginRight: 32, whiteSpace: 'nowrap' }}>Sign Glove</h1>
-            <nav style={{ display: 'flex', gap: '1.5rem', flex: 1, justifyContent: 'center' }}>
-              <Link to="/" className="hover:underline">Dashboard</Link>
-              <Link to="/gestures" className="hover:underline">Manage Gestures</Link>
-              <Link to="/training-results" className="hover:underline">Training Results</Link>
-              <Link to="/predict" className="hover:underline">Manual Prediction</Link>
-              <Link to="/live-predict" className="hover:underline">Live Predict</Link>
-              <Link to="/upload-csv" className="hover:underline">Upload CSV</Link>
-              <Link to="/upload-training-csv" className="hover:underline">Upload Training CSV</Link>
-              <Link to="/admin" className="hover:underline">Admin Tools</Link>
-            </nav>
+        <header className="main-header">
+          <div className="header-row header-top">
+            <div className="header-title">Sign Glove</div>
+            <div className="header-actions">
+              {/* Hamburger menu for mobile */}
+              <button
+                className="header-hamburger"
+                aria-label={navOpen ? 'Close menu' : 'Open menu'}
+                onClick={() => setNavOpen(o => !o)}
+              >
+                {navOpen ? <MdClose size={28} /> : <MdMenu size={28} />}
+              </button>
+              <button
+                className="btn btn-secondary header-darkmode-btn"
+                aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+                onClick={() => setDark(d => !d)}
+                style={{ display: 'flex', alignItems: 'center' }}
+              >
+                <MdDarkMode style={{ fontSize: 22, marginRight: 6 }} />
+                {dark ? 'Light' : 'Dark'} Mode
+              </button>
+            </div>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', marginLeft: 32 }}>
-            <button
-              className="btn btn-secondary"
-              aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
-              onClick={() => setDark(d => !d)}
-              style={{ display: 'flex', alignItems: 'center' }}
-            >
-              <MdDarkMode style={{ fontSize: 22, marginRight: 6 }} />
-              {dark ? 'Light' : 'Dark'} Mode
-            </button>
-          </div>
+          {/* Nav links: show row on desktop, vertical menu on mobile if open */}
+          <nav className={`header-nav${navOpen ? ' nav-open' : ''}`}>
+            {navLinks.map(link => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="hover:underline"
+                onClick={() => setNavOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </header>
 
         <main className="p-4" style={{ position: 'relative', zIndex: 1 }}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/upload" element={<UploadCSV />} />
-            <Route path="/training/upload" element={<UploadTrainingCSV />} />
+            <Route path="/upload-csv" element={<UploadCSV />} />
+            <Route path="/upload-training-csv" element={<UploadTrainingCSV />} />
             <Route path="/gestures" element={<ManageGestures />} />
-            <Route path="/training" element={<TrainingResults />} />
+            <Route path="/training-results" element={<TrainingResults />} />
             <Route path="/predict" element={<Predict />} />
-            <Route path="/predict/live" element={<LivePredict />} />
+            <Route path="/live-predict" element={<LivePredict />} />
             <Route path="/history" element={<PredictionHistory />} />
             <Route path="/admin" element={<AdminTools />} />
+            <Route path="/audio-manager" element={<AudioManager />} />
           </Routes>
         </main>
 

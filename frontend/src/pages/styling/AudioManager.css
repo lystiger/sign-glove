@@ -1,0 +1,89 @@
+/* AudioManager Page Styles */
+
+.audio-manager-card {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 24px;
+  background: var(--card-bg, #fff);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.audio-manager-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+.audio-manager-table th, .audio-manager-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+}
+.audio-manager-table th {
+  background: #f7f7f7;
+  font-weight: 600;
+}
+.audio-manager-table tr:hover {
+  background: #f0f4fa;
+}
+
+.audio-manager-btn {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.audio-manager-btn-primary {
+  background: #2563eb;
+  color: #fff;
+}
+.audio-manager-btn-primary:hover {
+  background: #1741a6;
+}
+.audio-manager-btn-secondary {
+  background: #e0e7ef;
+  color: #222;
+}
+.audio-manager-btn-secondary:hover {
+  background: #bfc9d9;
+}
+.audio-manager-btn-danger {
+  background: #ef4444;
+  color: #fff;
+}
+.audio-manager-btn-danger:hover {
+  background: #b91c1c;
+}
+
+.audio-manager-file-input {
+  margin-right: 12px;
+}
+
+.audio-manager-log {
+  background: #222;
+  color: #eee;
+  padding: 12px;
+  min-height: 80px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.98rem;
+  white-space: pre-wrap;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 600px) {
+  .audio-manager-card {
+    padding: 10px;
+  }
+  .audio-manager-table th, .audio-manager-table td {
+    padding: 6px 4px;
+    font-size: 0.95rem;
+  }
+  .audio-manager-btn {
+    font-size: 0.95rem;
+    padding: 5px 10px;
+  }
+} 

@@ -13,7 +13,22 @@ import json
 import matplotlib.pyplot as plt
 import seaborn as sns
 from itertools import cycle
-from core.settings import settings
+import sys
+
+# Add the parent directory to Python path so we can import core
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+try:
+    from core.settings import settings
+except ImportError:
+    # Fallback if core.settings is not available
+    class Settings:
+        GESTURE_DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'gesture_data.csv')
+        MODEL_PATH = os.path.join(os.path.dirname(__file__), 'gesture_model.tflite')
+        METRICS_PATH = os.path.join(os.path.dirname(__file__), 'training_metrics.json')
+        RESULTS_DIR = os.path.join(os.path.dirname(__file__), 'results')
+    
+    settings = Settings()
 
 # Use centralized settings for all paths
 gesture_data_path = settings.GESTURE_DATA_PATH

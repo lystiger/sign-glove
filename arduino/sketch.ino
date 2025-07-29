@@ -13,7 +13,6 @@
   The serial output is captured by a Python script for further processing and AI training.
 */
 
-/*
 #include <Wire.h>
 #include <MPU6050.h>
 
@@ -68,4 +67,3 @@ void loop() {
 
   delay(100);  // 10 Hz sampling rate
 }
-*/

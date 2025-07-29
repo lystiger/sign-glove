@@ -1,0 +1,46 @@
+# Lightweight Docker Compose for Sign Glove
+services:
+  # MongoDB (only if you need it)
+  mongodb:
+    image: mongo:7.0-alpine
+    container_name: signglove-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: signglove123
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - signnet
+
+  # Backend (development mode - no build)
+  backend:
+    image: python:3.11.6-slim
+    container_name: signglove-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URI=mongodb://admin:signglove123@mongodb:27017/signglove?authSource=admin
+      - DB_NAME=signglove
+      - ESP32_IP=192.168.1.100
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    command: >
+      sh -c "pip install -r requirements.txt &&
+             uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+    depends_on:
+      - mongodb
+    networks:
+      - signnet
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  signnet:
+    driver: bridge 

@@ -201,4 +201,43 @@ Key configuration files:
 
 ---
 
+## ESP32 TTS Audio Playback (Arduino)
+
+`t t s.ino` enables the ESP32 to receive and play TTS audio files from the backend. It no longer includes LCD display functionality.
+
+### Required Libraries
+- ESPAsyncWebServer
+- ESPAsyncTCP
+- ESP32-audioI2S
+- FS and SPIFFS (included with ESP32 core)
+
+### Installation Steps
+1. Install ESP32 board support (see previous instructions).
+2. Install the above libraries via Library Manager or GitHub.
+3. Configure WiFi credentials in `arduino/tts.ino`.
+4. Upload the code to your ESP32.
+5. The ESP32 will start a server at `http://<ESP32_IP>/play_audio` to receive and play audio files from the backend.
+
+---
+
+## ESP32 LCD Display (Arduino)
+
+`lcd_display.ino` enables the ESP32 to act as a networked LCD display, showing text sent via HTTP POST to `/display_text`.
+
+### Required Libraries
+- ESPAsyncWebServer
+- ESPAsyncTCP
+- LiquidCrystal_I2C
+
+### Installation Steps
+1. Install ESP32 board support (see previous instructions).
+2. Install the above libraries via Library Manager or GitHub.
+3. Configure WiFi credentials in `arduino/lcd_display.ino`.
+4. Upload the code to your ESP32.
+5. The ESP32 will start a server at `http://<ESP32_IP>/display_text` to receive and display text on the LCD.
+
+---
+
+You can run `tts.ino` and `lcd_display.ino` on separate ESP32 devices for audio and LCD display, or use only the one you need for your application.
+
 

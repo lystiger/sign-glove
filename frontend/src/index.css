@@ -210,4 +210,106 @@ footer {
   color: var(--color-footer);
 }
 
+/* Main header two-row layout */
+.main-header {
+  background: var(--primary, #2563eb);
+  color: #fff;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: relative;
+  z-index: 1;
+}
+.header-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.header-top {
+  justify-content: space-between;
+  padding: 0.75rem 2rem 0.25rem 2rem;
+}
+.header-title {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.header-darkmode-btn {
+  margin-left: 0.5rem;
+}
+.header-hamburger {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.7rem;
+  margin-right: 0.5rem;
+}
+.header-nav {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 0.98rem;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: var(--primary, #2563eb);
+  border-bottom: 1px solid #e0e7ef;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  z-index: 10;
+  transition: max-height 0.3s, opacity 0.3s;
+}
+.header-nav.nav-open {
+  max-height: 400px;
+  opacity: 1;
+  pointer-events: auto;
+}
+.header-nav a {
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+  padding: 8px 8px;
+  border-radius: 4px;
+  width: 100%;
+  display: block;
+}
+.header-nav a:hover, .header-nav a.active {
+  background: rgba(255,255,255,0.12);
+  color: #e0e7ef;
+}
+
+/* Remove row nav on desktop, always use hamburger */
+@media (max-width: 700px) {
+  .header-top, .header-nav {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .header-title {
+    font-size: 1.3rem;
+  }
+  .header-actions {
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-nav {
+    gap: 0.4rem;
+    font-size: 0.93rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
 
