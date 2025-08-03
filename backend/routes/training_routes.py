@@ -105,6 +105,9 @@ async def get_latest_training_result():
             raise HTTPException(status_code=404, detail="No training results found")
         result["_id"] = str(result["_id"])
         return {"status": "success", "data": result}
+    except HTTPException as e:
+        # Pass through 404 and other HTTPExceptions
+        raise
     except Exception as e:
         logging.error(f"Error getting latest training result: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch latest training result")

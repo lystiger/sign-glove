@@ -19,9 +19,27 @@ const TrainingResults = () => {
   const [loading, setLoading] = useState(false);
   const [actionLoading, setActionLoading] = useState(false);
   const [showCheckmark, setShowCheckmark] = useState(false);
+  const [error, setError] = useState(null);
+  const [noResults, setNoResults] = useState(false);
 
   useEffect(() => {
-    fetchLatestResults();
+    setLoading(true);
+    apiRequest('get', '/training/latest')
+      .then((res) => {
+        setResult(res.data);
+        setNoResults(false);
+        setError(null);
+      })
+      .catch((err) => {
+        if (err.status === 404) {
+          setNoResults(true);
+          setError(null);
+        } else {
+          setError('Failed to load training results.');
+          setNoResults(false);
+        }
+      })
+      .finally(() => setLoading(false));
   }, []);
 
   const fetchLatestResults = async () => {
@@ -301,6 +319,16 @@ const TrainingResults = () => {
           </div>
         )}
       </div>
+      {noResults && (
+        <div className="alert alert-info" role="alert">
+          No training results found. Please train a model first.
+        </div>
+      )}
+      {error && (
+        <div className="alert alert-danger" role="alert">
+          {error}
+        </div>
+      )}
     </div>
   );
 };
