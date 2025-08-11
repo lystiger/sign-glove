@@ -3,7 +3,11 @@ Centralized settings for the sign glove system.
 Loads all configuration from environment variables or defaults.
 """
 from pydantic_settings import BaseSettings
+<<<<<<< HEAD
 from pydantic import Field, validator
+=======
+from pydantic import Field
+>>>>>>> 9de1e983acf572c97ba2cb123b7d2f0bd6cc1985
 from typing import List, Dict, Any, Optional
 import os
 from pathlib import Path
@@ -101,6 +105,7 @@ class Settings(BaseSettings):
             raise ValueError("JWT_SECRET_KEY must be set in production")
         return v
 
+<<<<<<< HEAD
     @validator("DB_NAME", pre=True)
     def pick_db_name(cls, v):
         # Support both DB_NAME and DATABASE_NAME
@@ -128,6 +133,21 @@ class Settings(BaseSettings):
         case_sensitive=True,
         extra='ignore',  # ignore unknown env keys like DATABASE_NAME
     )
+=======
+    # Auth/JWT settings
+    SECRET_KEY: str = Field("change-me-in-prod", env="SECRET_KEY")
+    JWT_ALGORITHM: str = Field("HS256", env="JWT_ALGORITHM")
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = Field(60, env="ACCESS_TOKEN_EXPIRE_MINUTES")
+    COOKIE_SECURE: bool = Field(False, env="COOKIE_SECURE")
+
+    # Optional default editor seed
+    DEFAULT_EDITOR_EMAIL: Optional[str] = Field(None, env="DEFAULT_EDITOR_EMAIL")
+    DEFAULT_EDITOR_PASSWORD: Optional[str] = Field(None, env="DEFAULT_EDITOR_PASSWORD")
+
+    class Config:
+        env_file = ".env"
+        env_file_encoding = "utf-8"
+>>>>>>> 9de1e983acf572c97ba2cb123b7d2f0bd6cc1985
 
 # Create settings instance
 settings = Settings()

@@ -17,6 +17,7 @@ sensor_collection = db["sensor_data"]
 model_collection = db["model_results"]
 gesture_collection = db["gestures"]
 training_collection = db["training_sessions"]
+users_collection = db["users"]
 
 async def test_connection():
     """

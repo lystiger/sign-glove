@@ -1,6 +1,11 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'http://localhost:8080';
+
+function authHeaders() {
+  const token = typeof window !== 'undefined' ? localStorage.getItem('access_token') : null;
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
 
 export async function apiRequest(method, url, data = null, config = {}) {
   try {
@@ -8,6 +13,8 @@ export async function apiRequest(method, url, data = null, config = {}) {
       method,
       url: BASE_URL + url,
       data,
+      withCredentials: true,
+      headers: { ...(config.headers || {}), ...authHeaders() },
       ...config,
     });
     return res.data;

@@ -11,7 +11,7 @@ import sys
 import os
 import pytest
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = "http://localhost:8080"
 
 def test_health():
     """Test if the backend is running"""

@@ -24,7 +24,7 @@ cp ../env.example .env
 ```bash
 python main.py
 # Or with uvicorn
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+uvicorn main:app --host 0.0.0.0 --port 8080 --reload
 ```
 
 ## 2. Frontend Setup
@@ -140,7 +140,7 @@ docker-compose up -d
    - Check data format in CSV files
 
 4. **Frontend Can't Connect**
-   - Verify backend is running on port 8000
+   - Verify backend is running on port 8080
    - Check CORS settings in `.env`
 
 ### Logs
@@ -148,8 +148,8 @@ docker-compose up -d
 - Data collection logs: `backend/data_collection.log`
 
 ## API Documentation
-- Interactive docs: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc
+- Interactive docs: http://localhost:8080/docs
+- ReDoc: http://localhost:8080/redoc
 
 ## Next Steps
 

@@ -87,7 +87,7 @@ const AudioManager = () => {
   // Download audio file
   const handleDownload = (filename) => {
     // Use the same BASE_URL as in api.js
-    const BASE_URL = 'http://localhost:8000';
+    const BASE_URL = 'http://localhost:8080';
     window.open(`${BASE_URL}${API_BASE}/${filename}`, '_blank');
   };
 

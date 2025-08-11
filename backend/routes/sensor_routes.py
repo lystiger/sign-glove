@@ -7,12 +7,13 @@ Endpoints:
 - PUT /sensor-data/{session_id}: Update label for a session.
 - DELETE /sensor-data/{session_id}: Delete sensor data by session ID.
 """
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Depends
 from models.sensor_models import SensorData
 from core.database import sensor_collection
 from bson import ObjectId
 from typing import List
 from fastapi.encoders import jsonable_encoder
+from routes.auth_routes import role_required_dep
 
 router = APIRouter()
 
@@ -25,8 +26,12 @@ def convert_id(doc):
     return doc
 
 @router.post("/sensor-data")
+<<<<<<< HEAD
 @router.post("/sensor-data/")
 async def create_sensor_data(data: SensorData):
+=======
+async def create_sensor_data(data: SensorData, _user=Depends(role_required_dep("editor"))):
+>>>>>>> 9de1e983acf572c97ba2cb123b7d2f0bd6cc1985
     """
     Insert new sensor data into the database.
     """
@@ -51,7 +56,7 @@ async def get_sensor_data(label: str = Query(None)):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.put("/sensor-data/{session_id}")
-async def update_sensor_label(session_id: str, label: str = Query(...)):
+async def update_sensor_label(session_id: str, label: str = Query(...), _user=Depends(role_required_dep("editor"))):
     """
     Update the label for a specific sensor data session.
     """
@@ -67,7 +72,7 @@ async def update_sensor_label(session_id: str, label: str = Query(...)):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.delete("/sensor-data/{session_id}")
-async def delete_sensor_data(session_id: str):
+async def delete_sensor_data(session_id: str, _user=Depends(role_required_dep("editor"))):
     """
     Delete sensor data for a specific session by session ID.
     """

@@ -1269,7 +1269,7 @@ async def automated_pipeline_loop():
                     ], capture_output=True, text=True)
                     
                     # Trigger model training
-                    resp = requests.post("http://localhost:8000/training/trigger")
+                    resp = requests.post("http://localhost:8080/training/trigger")
                     
         except Exception as e:
             logging.error(f"[AUTO] Pipeline error: {e}")

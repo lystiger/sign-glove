@@ -176,7 +176,10 @@ async def websocket_predict(websocket: WebSocket):
                     LAST_TRAIN_COUNT = 0
                 if current_count - LAST_TRAIN_COUNT >= 50:
                     try:
-                        response = requests.post("http://localhost:8080/training")
+                        response = requests.post(
+                            "http://localhost:8080/training",
+                            headers={"X-API-KEY": settings.SECRET_KEY}
+                        )
                         if response.status_code == 200:
                             print("Auto-training triggered after 50 new samples.")
                             LAST_TRAIN_COUNT = current_count
