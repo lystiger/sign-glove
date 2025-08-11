@@ -169,7 +169,12 @@ def main():
         logger.info("Stopped by user.")
         try:
             logger.info("Triggering model training...")
-            response = requests.post("http://localhost:8080/training/trigger")
+            # Include internal API key to bypass auth
+            from core.settings import settings as app_settings
+            response = requests.post(
+                "http://localhost:8080/training/trigger",
+                headers={"X-API-KEY": app_settings.SECRET_KEY}
+            )
             if response.status_code == 200:
                 logger.info("Training triggered successfully.")
             else:

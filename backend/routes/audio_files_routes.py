@@ -1,4 +1,4 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException, status, Response
+from fastapi import APIRouter, UploadFile, File, HTTPException, status, Response, Depends
 from fastapi.responses import FileResponse
 from core.settings import settings
 from core.database import db
@@ -7,6 +7,7 @@ from datetime import datetime
 from typing import List
 import shutil
 import requests
+from routes.auth_routes import role_required_dep
 
 router = APIRouter(prefix="/audio-files", tags=["Audio Files"])
 AUDIO_DIR = os.path.join(os.path.dirname(__file__), '..', 'audio_files')
@@ -29,7 +30,11 @@ async def list_audio_files():
     return [AudioFileMeta(**f) for f in files]
 
 @router.post("/", status_code=201)
-async def upload_audio_file(file: UploadFile = File(...), uploader: str = "unknown"):
+async def upload_audio_file(
+    file: UploadFile = File(...),
+    uploader: str = "unknown",
+    _user=Depends(role_required_dep("editor"))
+):
     """
     Upload a new audio file. Reject if file size exceeds MAX_AUDIO_FILE_SIZE_MB.
     """
@@ -52,7 +57,7 @@ async def upload_audio_file(file: UploadFile = File(...), uploader: str = "unkno
     return {"status": "uploaded", "filename": filename}
 
 @router.delete("/{filename}")
-async def delete_audio_file(filename: str):
+async def delete_audio_file(filename: str, _user=Depends(role_required_dep("editor"))):
     save_path = os.path.join(AUDIO_DIR, filename)
     if not os.path.exists(save_path):
         raise HTTPException(status_code=404, detail="File not found")

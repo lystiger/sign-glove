@@ -8,7 +8,7 @@ Endpoints:
 - POST /training/run: Upload CSV, run training, and log result.
 - GET /training/metrics: Fetch detailed training metrics and visualizations.
 """
-from fastapi import APIRouter, HTTPException, UploadFile, File
+from fastapi import APIRouter, HTTPException, UploadFile, File, Depends
 from models.model_result import ModelResult
 from core.database import model_collection
 from fastapi.responses import JSONResponse, FileResponse
@@ -22,11 +22,12 @@ import os
 import json
 from utils.cache import cacheable
 from typing import Dict, Any, List
+from routes.auth_routes import role_required_dep, role_or_internal_dep
 
 router = APIRouter(prefix="/training", tags=["Training"])
 
 @router.post("/")
-async def save_model_result(result: ModelResult):
+async def save_model_result(result: ModelResult, _user=Depends(role_or_internal_dep("editor"))):
     """
     Save a training result to the database.
     """
@@ -163,7 +164,7 @@ async def get_training_visualization(plot_type: str):
         raise HTTPException(status_code=500, detail=f"Failed to fetch {plot_type} visualization")
 
 @router.post("/run")
-async def run_training(file: UploadFile = File(...)):
+async def run_training(file: UploadFile = File(...), _user=Depends(role_or_internal_dep("editor"))):
     """
     Upload a CSV file, run the training script, and log the result.
     """
@@ -227,7 +228,7 @@ async def run_training(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail="Failed to run training")
 
 @router.post("/trigger")
-async def trigger_training_run():
+async def trigger_training_run(_user=Depends(role_or_internal_dep("editor"))):
     """
     Trigger the model training job (same as POST /training/run but without upload).
     """
