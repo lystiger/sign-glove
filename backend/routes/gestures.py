@@ -76,6 +76,11 @@ async def export_gestures(request: Request):
     summary="List all gesture sessions",
     description="Returns a list of all gesture sessions with session_id and gesture_label."
 )
+@router.get(
+    "/",
+    summary="List all gesture sessions (alias with trailing slash)",
+    description="Returns a list of all gesture sessions with session_id and gesture_label."
+)
 @cacheable(ttl=30)
 async def list_gestures(request: Request) -> Dict[str, Any]:
     """
@@ -132,6 +137,11 @@ async def get_sensor_data(session_id: str, request: Request) -> Dict[str, Any]:
     summary="Insert new sensor data",
     description="Insert a new batch of sensor data into the database."
 )
+@router.post(
+    "/",
+    summary="Insert new sensor data (alias with trailing slash)",
+    description="Insert a new batch of sensor data into the database."
+)
 async def create_sensor_data(data: SensorData, request: Request) -> Dict[str, Any]:
     """
     Example response:
@@ -149,6 +159,7 @@ async def create_sensor_data(data: SensorData, request: Request) -> Dict[str, An
     logger.info(f"[trace={trace_id}] Sensor data inserted: session={data.session_id}")
     return {
         "status": "success",
+        "session_id": data.session_id,
         "data": {"inserted_id": str(result.inserted_id)},
         "message": "Sensor data inserted",
         "trace_id": trace_id

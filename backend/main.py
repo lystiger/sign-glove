@@ -85,7 +85,9 @@ async def lifespan(app: FastAPI):
     await create_indexes()
     logging.info("Indexes created. App is starting...")
     loop = asyncio.get_event_loop()
-    loop.create_task(automated_pipeline_loop())
+    # Disable automated pipeline during testing to avoid event loop issues
+    if not settings.is_testing():
+        loop.create_task(automated_pipeline_loop())
     yield
     client.close()
     logging.info("MongoDB connection closed. App is shutting down...")

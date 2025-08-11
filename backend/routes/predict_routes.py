@@ -10,36 +10,39 @@ Endpoints:
 
 import datetime
 from fastapi import APIRouter, HTTPException, WebSocket, WebSocketDisconnect, Query
-from pydantic import BaseModel
-from typing import List, Dict, Any
+from pydantic import BaseModel, Field
+from typing import List, Dict, Any, Optional
 from core.database import sensor_collection, prediction_collection
 from core.model import predict_from_dual_hand_data
 from core.settings import settings
 import numpy as np
 import logging
-import tensorflow as tf
+try:
+    import tensorflow as tf  # type: ignore
+except Exception as _tf_exc:  # pragma: no cover
+    tf = None  # type: ignore
 import requests
 import asyncio
 from utils.cache import cacheable
 
 router = APIRouter(prefix="/predict", tags=["Prediction"])
-prediction_counts = {}
-
-try:
-    LAST_TRAIN_COUNT = asyncio.get_event_loop().run_until_complete(
-        sensor_collection.count_documents({})
-    )
-except:
-    LAST_TRAIN_COUNT = 0
+prediction_counts: Dict[str, int] = {}
+LAST_TRAIN_COUNT: Optional[int] = None
 
 class SensorInput(BaseModel):
-    values: List[float]  # Expecting 11 values total
+    values: List[float] = Field(..., description="List of 11 sensor values")  # Expecting 11 values total
 
 @router.post("/")
 async def predict_label(input: SensorInput):
     """
     Predict gesture label from a single sensor input using a TFLite model.
     """
+    # Validate input length
+    if len(input.values) != 11:
+        raise HTTPException(status_code=422, detail="'values' must contain exactly 11 numbers")
+    
+    if tf is None:
+        raise HTTPException(status_code=500, detail="TensorFlow not available for prediction")
     try:
         interpreter = tf.lite.Interpreter(model_path=settings.MODEL_PATH)
         interpreter.allocate_tensors()
@@ -62,6 +65,8 @@ async def predict_label(input: SensorInput):
             "confidence": confidence
         }
 
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -70,12 +75,16 @@ async def predict_latest():
     """
     Predict gesture from the most recent sensor data in the database.
     """
+    if tf is None:
+        raise HTTPException(status_code=500, detail="TensorFlow not available for prediction")
     try:
         doc = await sensor_collection.find_one(sort=[("timestamp", -1)])
         if not doc or "values" not in doc:
             raise HTTPException(status_code=404, detail="No recent sensor data found")
 
         values = doc["values"]
+        if not isinstance(values, list) or len(values) != 11:
+            raise HTTPException(status_code=422, detail="Stored 'values' must contain exactly 11 numbers")
 
         interpreter = tf.lite.Interpreter(model_path=settings.MODEL_PATH)
         interpreter.allocate_tensors()
@@ -100,6 +109,8 @@ async def predict_latest():
             "timestamp": doc.get("timestamp")
         }
 
+    except HTTPException:
+        raise
     except Exception as e:
         logging.error(f"Live prediction failed: {e}")
         raise HTTPException(status_code=500, detail="Live prediction error")
@@ -118,6 +129,12 @@ async def websocket_predict(websocket: WebSocket):
     """
     await websocket.accept()
     try:
+        global LAST_TRAIN_COUNT
+        if LAST_TRAIN_COUNT is None:
+            try:
+                LAST_TRAIN_COUNT = await sensor_collection.count_documents({})
+            except Exception:
+                LAST_TRAIN_COUNT = 0
         while True:
             data = await websocket.receive_json()
 
@@ -155,7 +172,8 @@ async def websocket_predict(websocket: WebSocket):
                 })
 
                 current_count = await sensor_collection.count_documents({})
-                global LAST_TRAIN_COUNT
+                if LAST_TRAIN_COUNT is None:
+                    LAST_TRAIN_COUNT = 0
                 if current_count - LAST_TRAIN_COUNT >= 50:
                     try:
                         response = requests.post("http://localhost:8080/training")

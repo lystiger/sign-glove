@@ -2,6 +2,7 @@
 API routes for admin operations in the sign glove system.
 
 Endpoints:
+- GET /admin/: Admin API root/status
 - DELETE /admin/sensor-data: Delete all sensor data.
 - DELETE /admin/training-results: Delete all training results.
 """
@@ -10,6 +11,11 @@ from core.database import sensor_collection, model_collection
 import logging
 
 router = APIRouter(prefix="/admin", tags=["Admin"])
+
+@router.get("/")
+async def admin_root():
+    """Admin API root endpoint for quick status checks."""
+    return {"status": "ok", "service": "admin"}
 
 @router.delete("/sensor-data")
 async def clear_sensor_data():

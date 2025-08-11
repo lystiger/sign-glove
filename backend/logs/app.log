@@ -1,0 +1,1087 @@
+2025-08-03 22:47:20,284 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-03 22:48:01,672 - signglove - INFO - Request: POST /auth/login
+2025-08-03 22:48:02,091 - routes.auth_routes - INFO - User admin logged in successfully
+2025-08-03 22:48:02,100 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-03 22:49:54,391 - signglove - INFO - Request: GET /health
+2025-08-03 22:49:54,420 - signglove - INFO - Response: GET /health - 200
+2025-08-03 22:50:02,357 - signglove - INFO - Request: GET /metrics
+2025-08-03 22:50:02,363 - signglove - INFO - Response: GET /metrics - 200
+2025-08-03 22:50:15,437 - signglove - INFO - Request: GET /dashboard/
+2025-08-03 22:50:15,447 - signglove - ERROR - Error a81e9a3b-2e8c-49cc-87e9-f1893f97b70c: HTTPException - 
+2025-08-03 22:50:15,451 - signglove - INFO - Response: GET /dashboard/ - 401
+2025-08-03 22:51:07,763 - signglove - INFO - Request: GET /dashboard/
+2025-08-03 22:51:07,944 - root - WARNING - Error getting latest timestamps: '>' not supported between instances of 'str' and 'datetime.datetime'
+2025-08-03 22:51:07,953 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-03 22:51:40,170 - signglove - INFO - Request: GET /dashboard/
+2025-08-03 22:51:40,181 - root - WARNING - Error getting latest timestamps: '>' not supported between instances of 'str' and 'datetime.datetime'
+2025-08-03 22:51:40,185 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-03 22:51:48,852 - signglove - INFO - Request: GET /admin/
+2025-08-03 22:51:48,857 - signglove - INFO - Response: GET /admin/ - 404
+2025-08-03 22:52:02,100 - signglove - INFO - Request: GET /metrics
+2025-08-03 22:52:02,105 - signglove - INFO - Response: GET /metrics - 200
+2025-08-03 22:52:20,285 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-03 22:57:20,286 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-03 23:04:02,273 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-03 23:04:31,990 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-03 23:09:31,983 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-03 23:10:52,744 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-03 23:11:17,183 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-03 23:17:21,289 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-03 23:17:56,671 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-03 23:22:56,684 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 12:10:53,994 - signglove - INFO - Request: GET /gestures/
+2025-08-11 12:10:54,030 - signglove - INFO - Response: GET /gestures/ - 307
+2025-08-11 12:10:54,074 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 12:10:54,109 - signglove - INFO - Request: POST /gestures/
+2025-08-11 12:10:54,145 - signglove - INFO - Response: POST /gestures/ - 307
+2025-08-11 12:10:54,197 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 12:10:54,224 - signglove - INFO - Request: DELETE /gestures/test_session
+2025-08-11 12:10:54,820 - signglove - ERROR - Error d591114d-93d3-4edb-9a6a-c02a08252450: HTTPException - 
+2025-08-11 12:10:54,831 - signglove - INFO - Response: DELETE /gestures/test_session - 403
+2025-08-11 12:10:54,865 - httpx - INFO - HTTP Request: DELETE http://test/gestures/test_session "HTTP/1.1 403 Forbidden"
+2025-08-11 12:12:44,691 - signglove - INFO - Request: GET /gestures/
+2025-08-11 12:12:44,709 - signglove - INFO - Response: GET /gestures/ - 307
+2025-08-11 12:12:44,727 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 12:12:44,742 - signglove - INFO - Request: POST /gestures/
+2025-08-11 12:12:44,759 - signglove - INFO - Response: POST /gestures/ - 307
+2025-08-11 12:12:44,790 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 12:12:44,806 - signglove - INFO - Request: DELETE /gestures/test_session
+2025-08-11 12:12:44,818 - signglove - ERROR - Error 583df448-7bff-479b-b706-4c489e1361da: HTTPException - 
+2025-08-11 12:12:44,826 - signglove - INFO - Response: DELETE /gestures/test_session - 403
+2025-08-11 12:12:44,844 - httpx - INFO - HTTP Request: DELETE http://test/gestures/test_session "HTTP/1.1 403 Forbidden"
+2025-08-11 12:29:53,821 - signglove - INFO - Request: GET /gestures/
+2025-08-11 12:29:53,835 - signglove - INFO - Response: GET /gestures/ - 307
+2025-08-11 12:29:53,850 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 12:29:53,859 - signglove - INFO - Request: POST /gestures/
+2025-08-11 12:29:53,869 - signglove - INFO - Response: POST /gestures/ - 307
+2025-08-11 12:29:53,887 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 12:29:53,896 - signglove - INFO - Request: DELETE /gestures/test_session
+2025-08-11 12:29:54,125 - signglove - ERROR - Error 2ff6a9c1-3fd4-45ff-ab85-a13485ac3a10: HTTPException - 
+2025-08-11 12:29:54,130 - signglove - INFO - Response: DELETE /gestures/test_session - 403
+2025-08-11 12:29:54,143 - httpx - INFO - HTTP Request: DELETE http://test/gestures/test_session "HTTP/1.1 403 Forbidden"
+2025-08-11 12:38:28,649 - signglove - INFO - Request: GET /gestures/
+2025-08-11 12:38:28,680 - signglove - INFO - Response: GET /gestures/ - 307
+2025-08-11 12:38:28,711 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 12:38:28,729 - signglove - INFO - Request: POST /gestures/
+2025-08-11 12:38:28,743 - signglove - INFO - Response: POST /gestures/ - 307
+2025-08-11 12:38:28,777 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 12:38:28,795 - signglove - INFO - Request: DELETE /gestures/test_session
+2025-08-11 12:38:28,816 - signglove - ERROR - Error 3705923d-4522-4f41-bce9-c1292f3b4dd2: HTTPException - 
+2025-08-11 12:38:28,829 - signglove - INFO - Response: DELETE /gestures/test_session - 403
+2025-08-11 12:38:28,866 - httpx - INFO - HTTP Request: DELETE http://test/gestures/test_session "HTTP/1.1 403 Forbidden"
+2025-08-11 13:00:11,698 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=ServerSelectionTimeoutError("localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 689986c0c7946f4b2cc5d221, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>")>
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\collection.py", line 2154, in count_documents
+    return self._retryable_non_cursor_read(_cmd, session, _Op.COUNT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\collection.py", line 2168, in _retryable_non_cursor_read
+    return client._retryable_read(func, self._read_preference_for(s), s, operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2026, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1993, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2730, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2875, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2823, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1812, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 409, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 387, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 294, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 344, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 689986c0c7946f4b2cc5d221, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-11 13:03:45,697 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=ServerSelectionTimeoutError("localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 689987961bf5bcd1ad37e0d5, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>")>
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\collection.py", line 2154, in count_documents
+    return self._retryable_non_cursor_read(_cmd, session, _Op.COUNT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\collection.py", line 2168, in _retryable_non_cursor_read
+    return client._retryable_read(func, self._read_preference_for(s), s, operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2026, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1993, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2730, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2875, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2823, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1812, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 409, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 387, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 294, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 344, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 689987961bf5bcd1ad37e0d5, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-11 13:06:45,538 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=ServerSelectionTimeoutError("localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 6899884906f5f1a82fd008cf, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>")>
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\collection.py", line 2154, in count_documents
+    return self._retryable_non_cursor_read(_cmd, session, _Op.COUNT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\collection.py", line 2168, in _retryable_non_cursor_read
+    return client._retryable_read(func, self._read_preference_for(s), s, operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2026, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1993, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2730, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2875, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2823, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1812, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 409, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 387, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 294, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 344, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 6899884906f5f1a82fd008cf, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-11 13:08:50,748 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=ServerSelectionTimeoutError("localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 689988c93a8f040b07f9c8ee, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>")>
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\collection.py", line 2154, in count_documents
+    return self._retryable_non_cursor_read(_cmd, session, _Op.COUNT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\collection.py", line 2168, in _retryable_non_cursor_read
+    return client._retryable_read(func, self._read_preference_for(s), s, operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2026, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1993, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2730, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2875, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2823, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1812, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 409, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 387, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 294, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 344, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 689988c93a8f040b07f9c8ee, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-11 13:53:07,375 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=ServerSelectionTimeoutError("localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 689992f480337e4321f079b2, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>")>
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\collection.py", line 2154, in count_documents
+    return self._retryable_non_cursor_read(_cmd, session, _Op.COUNT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\collection.py", line 2168, in _retryable_non_cursor_read
+    return client._retryable_read(func, self._read_preference_for(s), s, operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2026, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1993, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2730, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2875, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2823, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1812, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 409, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 387, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 294, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 344, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 689992f480337e4321f079b2, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-11 13:55:12,080 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=ServerSelectionTimeoutError("localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 6899939abc473566e5509732, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>")>
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\collection.py", line 2154, in count_documents
+    return self._retryable_non_cursor_read(_cmd, session, _Op.COUNT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\collection.py", line 2168, in _retryable_non_cursor_read
+    return client._retryable_read(func, self._read_preference_for(s), s, operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2026, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1993, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2730, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2875, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2823, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1812, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 409, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 387, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 294, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 344, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 6899939abc473566e5509732, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-11 14:51:06,843 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 14:53:00,345 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 14:55:25,357 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 14:58:04,305 - root - INFO - Indexes created. App is starting...
+2025-08-11 14:58:04,308 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 14:58:55,333 - core.database - INFO - Connected to MongoDB!
+2025-08-11 14:58:55,987 - root - INFO - Indexes created. App is starting...
+2025-08-11 14:58:55,989 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:03:55,973 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:05:19,463 - signglove - INFO - Request: GET /health
+2025-08-11 15:05:19,527 - core.database - INFO - Connected to MongoDB!
+2025-08-11 15:05:19,532 - signglove - INFO - Response: GET /health - 200
+2025-08-11 15:05:21,597 - signglove - INFO - Request: POST /predict/
+2025-08-11 15:05:21,769 - signglove - ERROR - Error 435c721b-94f7-44b4-b553-ee43cae68456: HTTPException - 
+2025-08-11 15:05:21,774 - signglove - INFO - Response: POST /predict/ - 403
+2025-08-11 15:05:25,735 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:05:25,738 - signglove - INFO - Response: POST /gestures/ - 307
+2025-08-11 15:05:25,754 - signglove - INFO - Request: POST /gestures
+2025-08-11 15:05:25,760 - signglove - ERROR - Error 71765fa5-f60d-4c04-a988-e5c47c2f983d: HTTPException - 
+2025-08-11 15:05:25,764 - signglove - INFO - Response: POST /gestures - 403
+2025-08-11 15:05:27,838 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 15:05:27,841 - signglove - ERROR - Error 7d0db1e2-13d4-4bd1-b548-f122795d6110: HTTPException - 
+2025-08-11 15:05:27,844 - signglove - INFO - Response: GET /dashboard/ - 403
+2025-08-11 15:05:29,959 - signglove - INFO - Request: POST /training/trigger
+2025-08-11 15:05:29,962 - signglove - ERROR - Error b8257d69-7a34-47e0-89de-611edeb58dad: HTTPException - 
+2025-08-11 15:05:29,967 - signglove - INFO - Response: POST /training/trigger - 403
+2025-08-11 15:07:31,439 - signglove - INFO - Request: GET /gestures/
+2025-08-11 15:07:31,447 - signglove - INFO - Response: GET /gestures/ - 307
+2025-08-11 15:07:31,462 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:07:31,472 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:07:31,482 - signglove - INFO - Response: POST /gestures/ - 307
+2025-08-11 15:07:31,500 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:07:31,508 - signglove - INFO - Request: DELETE /gestures/test_session
+2025-08-11 15:07:31,518 - signglove - ERROR - Error 349e6311-3241-41e0-8cce-ab974b209c6a: HTTPException - 
+2025-08-11 15:07:31,524 - signglove - INFO - Response: DELETE /gestures/test_session - 403
+2025-08-11 15:07:31,540 - httpx - INFO - HTTP Request: DELETE http://test/gestures/test_session "HTTP/1.1 403 Forbidden"
+2025-08-11 15:08:55,971 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:12:37,990 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-11 15:13:20,260 - core.database - INFO - Connected to MongoDB!
+2025-08-11 15:13:20,878 - root - INFO - Indexes created. App is starting...
+2025-08-11 15:13:20,881 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:16:13,698 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-11 15:16:48,543 - core.database - INFO - Connected to MongoDB!
+2025-08-11 15:16:49,181 - root - INFO - Indexes created. App is starting...
+2025-08-11 15:16:49,184 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:17:10,423 - signglove - INFO - Request: GET /admin/
+2025-08-11 15:17:10,440 - signglove - INFO - Response: GET /admin/ - 404
+2025-08-11 15:17:10,452 - httpx - INFO - HTTP Request: GET http://test/admin/ "HTTP/1.1 404 Not Found"
+2025-08-11 15:18:37,379 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-11 15:19:21,103 - core.database - INFO - Connected to MongoDB!
+2025-08-11 15:19:21,661 - root - INFO - Indexes created. App is starting...
+2025-08-11 15:19:21,664 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:19:26,434 - signglove - INFO - Request: GET /admin/
+2025-08-11 15:19:26,448 - signglove - INFO - Response: GET /admin/ - 200
+2025-08-11 15:19:26,455 - httpx - INFO - HTTP Request: GET http://test/admin/ "HTTP/1.1 200 OK"
+2025-08-11 15:23:18,861 - signglove - INFO - Request: GET /health
+2025-08-11 15:23:18,916 - core.database - INFO - Connected to MongoDB!
+2025-08-11 15:23:18,925 - signglove - INFO - Response: GET /health - 200
+2025-08-11 15:23:21,001 - signglove - INFO - Request: POST /predict/
+2025-08-11 15:23:21,017 - signglove - ERROR - Error 5986d392-1f07-414c-ba22-3b73f3dc1d45: HTTPException - 
+2025-08-11 15:23:21,020 - signglove - INFO - Response: POST /predict/ - 403
+2025-08-11 15:23:30,691 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:23:30,701 - signglove - INFO - Response: POST /gestures/ - 307
+2025-08-11 15:23:30,721 - signglove - INFO - Request: POST /gestures
+2025-08-11 15:23:30,736 - signglove - ERROR - Error d0075f1a-2034-4d06-b9cc-840677b3a93c: HTTPException - 
+2025-08-11 15:23:30,750 - signglove - INFO - Response: POST /gestures - 403
+2025-08-11 15:23:33,130 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 15:23:33,137 - signglove - ERROR - Error 5e0fb0bb-8055-4bdc-aa8b-83a4ad3f2b09: HTTPException - 
+2025-08-11 15:23:33,146 - signglove - INFO - Response: GET /dashboard/ - 403
+2025-08-11 15:23:35,413 - signglove - INFO - Request: POST /training/trigger
+2025-08-11 15:23:35,436 - signglove - ERROR - Error 46dc9f41-c957-4769-89f4-a219421c5190: HTTPException - 
+2025-08-11 15:23:35,450 - signglove - INFO - Response: POST /training/trigger - 403
+2025-08-11 15:23:35,912 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:23:35,943 - signglove - INFO - Response: POST /gestures/ - 307
+2025-08-11 15:23:35,991 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:23:36,066 - signglove - INFO - Request: GET /gestures/
+2025-08-11 15:23:36,083 - signglove - INFO - Response: GET /gestures/ - 307
+2025-08-11 15:23:36,101 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:23:36,154 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:23:36,169 - signglove - INFO - Response: POST /gestures/ - 307
+2025-08-11 15:23:36,204 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:23:36,259 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:23:36,269 - signglove - INFO - Response: POST /gestures/ - 307
+2025-08-11 15:23:36,294 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:23:36,352 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:23:36,367 - signglove - INFO - Response: POST /gestures/ - 307
+2025-08-11 15:23:36,385 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:23:36,433 - signglove - INFO - Request: POST /predict/
+2025-08-11 15:23:36,534 - signglove - INFO - Response: POST /predict/ - 200
+2025-08-11 15:23:36,552 - httpx - INFO - HTTP Request: POST http://test/predict/ "HTTP/1.1 200 OK"
+2025-08-11 15:23:36,616 - signglove - INFO - Request: POST /predict/
+2025-08-11 15:23:36,670 - signglove - ERROR - Error 045fc0fa-08ad-4d71-b308-a0d1cb9440b1: HTTPException - 
+2025-08-11 15:23:36,683 - signglove - INFO - Response: POST /predict/ - 500
+2025-08-11 15:23:36,718 - httpx - INFO - HTTP Request: POST http://test/predict/ "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:23:36,816 - signglove - INFO - Request: GET /predict/live
+2025-08-11 15:23:36,830 - root - ERROR - Live prediction failed: Event loop is closed
+2025-08-11 15:23:36,925 - signglove - ERROR - Error 36d6c112-d03e-4065-bd92-18f1aa5dd6f8: HTTPException - 
+2025-08-11 15:23:36,941 - signglove - INFO - Response: GET /predict/live - 500
+2025-08-11 15:23:36,976 - httpx - INFO - HTTP Request: GET http://test/predict/live "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:23:37,066 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 15:23:37,085 - root - WARNING - Error counting sensor documents: Event loop is closed
+2025-08-11 15:23:37,086 - root - WARNING - Error counting model documents: Event loop is closed
+2025-08-11 15:23:37,088 - root - WARNING - Error getting accuracy data: Event loop is closed
+2025-08-11 15:23:37,089 - root - WARNING - Error getting latest timestamps: Event loop is closed
+2025-08-11 15:23:37,112 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-11 15:23:37,150 - httpx - INFO - HTTP Request: GET http://test/dashboard/ "HTTP/1.1 200 OK"
+2025-08-11 15:23:37,175 - signglove - INFO - Request: GET /training/
+2025-08-11 15:23:37,186 - root - ERROR - Error listing training results: Event loop is closed
+2025-08-11 15:23:37,195 - signglove - ERROR - Error 0851eae1-cddd-4e3f-bceb-9a7032ac0878: HTTPException - 
+2025-08-11 15:23:37,206 - signglove - INFO - Response: GET /training/ - 500
+2025-08-11 15:23:37,234 - httpx - INFO - HTTP Request: GET http://test/training/ "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:23:37,284 - signglove - INFO - Request: GET /training/latest
+2025-08-11 15:23:37,296 - root - ERROR - Error fetching training result: Event loop is closed
+2025-08-11 15:23:37,300 - signglove - ERROR - Error b8e26b5a-dc13-4910-9358-c10f94153eb4: HTTPException - 
+2025-08-11 15:23:37,309 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-11 15:23:37,332 - httpx - INFO - HTTP Request: GET http://test/training/latest "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:23:37,387 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-11 15:23:37,654 - signglove - ERROR - Error 278ee681-3bc8-4589-a16b-2b2f6428ad63: ValueError - Out of range float values are not JSON compliant
+2025-08-11 15:23:37,665 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-11 15:23:37,683 - httpx - INFO - HTTP Request: GET http://test/training/metrics/latest "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:23:37,736 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-11 15:23:37,749 - root - ERROR - Failed to clear sensor data: Event loop is closed
+2025-08-11 15:23:37,753 - signglove - ERROR - Error 4de03fd1-2ff2-48de-80c5-4d70ec57d507: HTTPException - 
+2025-08-11 15:23:37,765 - signglove - INFO - Response: DELETE /admin/sensor-data - 500
+2025-08-11 15:23:37,785 - httpx - INFO - HTTP Request: DELETE http://test/admin/sensor-data "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:23:37,835 - signglove - INFO - Request: DELETE /admin/training-results
+2025-08-11 15:23:37,846 - root - ERROR - Failed to clear training results: Event loop is closed
+2025-08-11 15:23:37,851 - signglove - ERROR - Error 115641b5-d7fe-41ac-92f7-aa500ec5c4e9: HTTPException - 
+2025-08-11 15:23:37,865 - signglove - INFO - Response: DELETE /admin/training-results - 500
+2025-08-11 15:23:37,885 - httpx - INFO - HTTP Request: DELETE http://test/admin/training-results "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:23:37,948 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-11 15:23:38,058 - signglove - ERROR - Error 6c8278eb-eabe-4916-8eff-b399f929f04d: HTTPException - 
+2025-08-11 15:23:38,066 - signglove - INFO - Response: DELETE /admin/sensor-data - 403
+2025-08-11 15:23:38,131 - httpx - INFO - HTTP Request: DELETE http://test/admin/sensor-data "HTTP/1.1 403 Forbidden"
+2025-08-11 15:23:38,158 - signglove - INFO - Request: POST /sensor-data/
+2025-08-11 15:23:38,285 - signglove - INFO - Response: POST /sensor-data/ - 307
+2025-08-11 15:23:38,631 - httpx - INFO - HTTP Request: POST http://test/sensor-data/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:23:38,853 - signglove - INFO - Request: GET /sensor-data/
+2025-08-11 15:23:38,902 - signglove - INFO - Response: GET /sensor-data/ - 307
+2025-08-11 15:23:38,969 - httpx - INFO - HTTP Request: GET http://test/sensor-data/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:23:39,143 - signglove - INFO - Request: GET /nonexistent-endpoint
+2025-08-11 15:23:39,175 - signglove - INFO - Response: GET /nonexistent-endpoint - 404
+2025-08-11 15:23:39,228 - httpx - INFO - HTTP Request: GET http://test/nonexistent-endpoint "HTTP/1.1 404 Not Found"
+2025-08-11 15:23:39,261 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:23:39,284 - signglove - INFO - Response: POST /gestures/ - 307
+2025-08-11 15:23:39,334 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:23:39,385 - signglove - INFO - Request: POST /auth/login
+2025-08-11 15:23:40,216 - routes.auth_routes - INFO - User admin logged in successfully
+2025-08-11 15:23:40,236 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-11 15:23:40,294 - httpx - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 200 OK"
+2025-08-11 15:23:40,319 - signglove - INFO - Request: POST /auth/login
+2025-08-11 15:23:41,219 - routes.auth_routes - ERROR - Login error: 
+2025-08-11 15:23:41,269 - signglove - ERROR - Error 08f9b7d8-e512-433d-996a-f74fd19a6b90: HTTPException - 
+2025-08-11 15:23:41,329 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-11 15:23:41,416 - httpx - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:23:41,594 - signglove - INFO - Request: POST /auth/login
+2025-08-11 15:23:41,649 - routes.auth_routes - ERROR - Login error: 
+2025-08-11 15:23:41,664 - signglove - ERROR - Error 961e36cd-39b0-4c67-9e8c-ba8e068979da: HTTPException - 
+2025-08-11 15:23:41,693 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-11 15:23:41,801 - httpx - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:23:41,868 - signglove - INFO - Request: POST /auth/login
+2025-08-11 15:23:42,443 - routes.auth_routes - INFO - User user logged in successfully
+2025-08-11 15:23:42,451 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-11 15:23:42,496 - httpx - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 200 OK"
+2025-08-11 15:23:42,502 - signglove - INFO - Request: POST /auth/refresh
+2025-08-11 15:23:42,527 - routes.auth_routes - INFO - Token refreshed for user user
+2025-08-11 15:23:42,537 - signglove - INFO - Response: POST /auth/refresh - 200
+2025-08-11 15:23:42,565 - httpx - INFO - HTTP Request: POST http://test/auth/refresh "HTTP/1.1 200 OK"
+2025-08-11 15:23:42,581 - signglove - INFO - Request: POST /auth/refresh
+2025-08-11 15:23:42,748 - signglove - ERROR - Error 49b5bf38-936a-4633-80a6-703a51683b28: HTTPException - 
+2025-08-11 15:23:42,760 - signglove - INFO - Response: POST /auth/refresh - 401
+2025-08-11 15:23:42,784 - httpx - INFO - HTTP Request: POST http://test/auth/refresh "HTTP/1.1 401 Unauthorized"
+2025-08-11 15:23:42,801 - signglove - INFO - Request: GET /auth/me
+2025-08-11 15:23:42,817 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-11 15:23:42,844 - httpx - INFO - HTTP Request: GET http://test/auth/me "HTTP/1.1 200 OK"
+2025-08-11 15:23:42,860 - signglove - INFO - Request: POST /auth/logout
+2025-08-11 15:23:42,866 - routes.auth_routes - INFO - User user logged out
+2025-08-11 15:23:42,878 - signglove - INFO - Response: POST /auth/logout - 200
+2025-08-11 15:23:42,900 - httpx - INFO - HTTP Request: POST http://test/auth/logout "HTTP/1.1 200 OK"
+2025-08-11 15:23:42,915 - signglove - INFO - Request: GET /auth/health
+2025-08-11 15:23:42,929 - signglove - INFO - Response: GET /auth/health - 200
+2025-08-11 15:23:42,958 - httpx - INFO - HTTP Request: GET http://test/auth/health "HTTP/1.1 200 OK"
+2025-08-11 15:23:42,976 - signglove - INFO - Request: GET /admin/
+2025-08-11 15:23:42,995 - signglove - INFO - Response: GET /admin/ - 200
+2025-08-11 15:23:43,016 - httpx - INFO - HTTP Request: GET http://test/admin/ "HTTP/1.1 200 OK"
+2025-08-11 15:23:43,033 - signglove - INFO - Request: GET /gestures/
+2025-08-11 15:23:43,050 - signglove - INFO - Response: GET /gestures/ - 307
+2025-08-11 15:23:43,069 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:23:43,126 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 15:23:43,144 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-11 15:23:43,176 - httpx - INFO - HTTP Request: GET http://test/dashboard/ "HTTP/1.1 200 OK"
+2025-08-11 15:23:43,191 - signglove - INFO - Request: GET /admin/
+2025-08-11 15:23:43,206 - signglove - ERROR - Error c31628d5-cc57-4758-b41a-a33091ed0e38: HTTPException - 
+2025-08-11 15:23:43,217 - signglove - INFO - Response: GET /admin/ - 403
+2025-08-11 15:23:43,244 - httpx - INFO - HTTP Request: GET http://test/admin/ "HTTP/1.1 403 Forbidden"
+2025-08-11 15:23:43,265 - signglove - INFO - Request: GET /gestures/
+2025-08-11 15:23:43,279 - signglove - INFO - Response: GET /gestures/ - 307
+2025-08-11 15:23:43,303 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:23:43,368 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 15:23:43,381 - signglove - ERROR - Error 8836ba47-8f5a-4ef6-bc55-d5d4307868de: HTTPException - 
+2025-08-11 15:23:43,392 - signglove - INFO - Response: GET /dashboard/ - 403
+2025-08-11 15:23:43,412 - httpx - INFO - HTTP Request: GET http://test/dashboard/ "HTTP/1.1 403 Forbidden"
+2025-08-11 15:23:46,068 - signglove - INFO - Request: GET /gestures/
+2025-08-11 15:23:46,099 - signglove - INFO - Response: GET /gestures/ - 307
+2025-08-11 15:23:46,118 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:23:46,135 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:23:46,149 - signglove - INFO - Response: POST /gestures/ - 307
+2025-08-11 15:23:46,182 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:23:46,197 - signglove - INFO - Request: DELETE /gestures/test_session
+2025-08-11 15:23:46,207 - signglove - ERROR - Error da2c8b52-3ed1-4ad1-ba0b-7732f036af84: HTTPException - 
+2025-08-11 15:23:46,219 - signglove - INFO - Response: DELETE /gestures/test_session - 403
+2025-08-11 15:23:46,246 - httpx - INFO - HTTP Request: DELETE http://test/gestures/test_session "HTTP/1.1 403 Forbidden"
+2025-08-11 15:24:21,671 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:29:21,676 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:34:21,665 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:39:21,668 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:39:48,215 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-11 15:40:15,816 - core.database - INFO - Connected to MongoDB!
+2025-08-11 15:40:16,392 - root - INFO - Indexes created. App is starting...
+2025-08-11 15:40:16,394 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:40:44,483 - core.database - INFO - Connected to MongoDB!
+2025-08-11 15:40:45,098 - root - INFO - Indexes created. App is starting...
+2025-08-11 15:40:45,101 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:40:50,363 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-11 15:41:17,886 - core.database - INFO - Connected to MongoDB!
+2025-08-11 15:41:18,639 - root - INFO - Indexes created. App is starting...
+2025-08-11 15:41:18,640 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:41:37,694 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-11 15:42:17,637 - core.database - INFO - Connected to MongoDB!
+2025-08-11 15:42:18,410 - root - INFO - Indexes created. App is starting...
+2025-08-11 15:42:18,413 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:43:18,477 - core.database - INFO - Connected to MongoDB!
+2025-08-11 15:43:19,573 - root - INFO - Indexes created. App is starting...
+2025-08-11 15:43:19,576 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:45:04,093 - signglove - INFO - Request: GET /gestures/
+2025-08-11 15:45:04,108 - signglove - INFO - Response: GET /gestures/ - 307
+2025-08-11 15:45:04,122 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 307 Temporary Redirect"
+2025-08-11 15:45:06,919 - signglove - INFO - Request: POST /predict/
+2025-08-11 15:45:06,935 - signglove - ERROR - Error f88edf6e-f093-4cd1-be37-d149350dbbc6: HTTPException - 
+2025-08-11 15:45:06,938 - signglove - INFO - Response: POST /predict/ - 422
+2025-08-11 15:45:06,954 - httpx - INFO - HTTP Request: POST http://test/predict/ "HTTP/1.1 422 Unprocessable Entity"
+2025-08-11 15:45:06,969 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 15:45:06,977 - signglove - ERROR - Error f884aa9d-3356-4329-85e9-89ef4878fc1d: HTTPException - 
+2025-08-11 15:45:06,989 - signglove - INFO - Response: GET /dashboard/ - 401
+2025-08-11 15:45:07,007 - httpx - INFO - HTTP Request: GET http://test/dashboard/ "HTTP/1.1 401 Unauthorized"
+2025-08-11 15:46:54,176 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-11 15:47:22,727 - core.database - INFO - Connected to MongoDB!
+2025-08-11 15:47:23,352 - root - INFO - Indexes created. App is starting...
+2025-08-11 15:47:23,355 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:48:44,167 - signglove - INFO - Request: GET /gestures/
+2025-08-11 15:48:45,912 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-11 15:48:45,918 - signglove - WARNING - Slow request: GET /gestures/ took 1.74s
+2025-08-11 15:48:45,921 - signglove - INFO - Response: GET /gestures/ - 200
+2025-08-11 15:48:45,929 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 15:49:40,205 - signglove - INFO - Request: GET /health
+2025-08-11 15:49:40,269 - core.database - INFO - Connected to MongoDB!
+2025-08-11 15:49:40,275 - signglove - INFO - Response: GET /health - 200
+2025-08-11 15:49:42,356 - signglove - INFO - Request: POST /predict/
+2025-08-11 15:49:42,365 - signglove - ERROR - Error 4986b932-cbd7-406f-9021-b962df0cae2f: HTTPException - 
+2025-08-11 15:49:42,368 - signglove - INFO - Response: POST /predict/ - 401
+2025-08-11 15:49:46,349 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:49:46,354 - signglove - ERROR - Error 1d3e21a3-7724-45fe-be2d-6f3d3f2cfedc: HTTPException - 
+2025-08-11 15:49:46,357 - signglove - INFO - Response: POST /gestures/ - 401
+2025-08-11 15:49:48,442 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 15:49:48,447 - signglove - ERROR - Error 69822cbf-8d2c-4803-9b4d-23bbb58116d8: HTTPException - 
+2025-08-11 15:49:48,451 - signglove - INFO - Response: GET /dashboard/ - 401
+2025-08-11 15:49:50,544 - signglove - INFO - Request: POST /training/trigger
+2025-08-11 15:49:50,548 - signglove - ERROR - Error 64978eee-5a21-43b2-9337-8181d00efb95: HTTPException - 
+2025-08-11 15:49:50,552 - signglove - INFO - Response: POST /training/trigger - 401
+2025-08-11 15:49:50,622 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:49:52,536 - signglove - INFO - [trace=none] Sensor data inserted: session=test_session_123
+2025-08-11 15:49:52,539 - signglove - WARNING - Slow request: POST /gestures/ took 1.92s
+2025-08-11 15:49:52,542 - signglove - INFO - Response: POST /gestures/ - 200
+2025-08-11 15:49:52,556 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 15:49:52,567 - signglove - INFO - Request: GET /gestures/
+2025-08-11 15:49:52,648 - signglove - INFO - [trace=none] Listed 1 gestures.
+2025-08-11 15:49:52,655 - signglove - INFO - Response: GET /gestures/ - 200
+2025-08-11 15:49:52,673 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 15:49:52,682 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:49:52,771 - signglove - INFO - [trace=none] Sensor data inserted: session=test_session_123
+2025-08-11 15:49:52,776 - signglove - INFO - Response: POST /gestures/ - 200
+2025-08-11 15:49:52,789 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 15:49:52,792 - signglove - INFO - Request: GET /gestures/test_session_123
+2025-08-11 15:49:52,868 - signglove - INFO - [trace=none] Retrieved session: test_session_123
+2025-08-11 15:49:52,878 - signglove - INFO - Response: GET /gestures/test_session_123 - 200
+2025-08-11 15:49:52,892 - httpx - INFO - HTTP Request: GET http://test/gestures/test_session_123 "HTTP/1.1 200 OK"
+2025-08-11 15:49:52,904 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:49:52,994 - signglove - INFO - [trace=none] Sensor data inserted: session=test_session_123
+2025-08-11 15:49:52,999 - signglove - INFO - Response: POST /gestures/ - 200
+2025-08-11 15:49:53,010 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 15:49:53,013 - signglove - INFO - Request: PUT /gestures/test_session_123
+2025-08-11 15:49:53,026 - signglove - ERROR - Error 6fd91d8d-8264-4360-a43e-660a6f22baa7: RequestValidationError - [{'type': 'missing', 'loc': ('query', 'label'), 'msg': 'Field required', 'input': None, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}]
+2025-08-11 15:49:53,034 - signglove - INFO - Response: PUT /gestures/test_session_123 - 500
+2025-08-11 15:49:53,046 - httpx - INFO - HTTP Request: PUT http://test/gestures/test_session_123 "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:49:53,080 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:49:53,172 - signglove - INFO - [trace=none] Sensor data inserted: session=test_session_123
+2025-08-11 15:49:53,179 - signglove - INFO - Response: POST /gestures/ - 200
+2025-08-11 15:49:53,191 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 15:49:53,194 - signglove - INFO - Request: DELETE /gestures/test_session_123
+2025-08-11 15:49:53,274 - signglove - INFO - [trace=none] Deleted session: test_session_123
+2025-08-11 15:49:53,283 - signglove - INFO - Response: DELETE /gestures/test_session_123 - 200
+2025-08-11 15:49:53,299 - httpx - INFO - HTTP Request: DELETE http://test/gestures/test_session_123 "HTTP/1.1 200 OK"
+2025-08-11 15:49:53,315 - signglove - INFO - Request: POST /predict/
+2025-08-11 15:49:53,351 - signglove - INFO - Response: POST /predict/ - 200
+2025-08-11 15:49:53,369 - httpx - INFO - HTTP Request: POST http://test/predict/ "HTTP/1.1 200 OK"
+2025-08-11 15:49:53,388 - signglove - INFO - Request: POST /predict/
+2025-08-11 15:49:53,422 - signglove - ERROR - Error 51cd491a-a677-4a82-928b-37f747a43f9a: HTTPException - 
+2025-08-11 15:49:53,432 - signglove - INFO - Response: POST /predict/ - 422
+2025-08-11 15:49:53,456 - httpx - INFO - HTTP Request: POST http://test/predict/ "HTTP/1.1 422 Unprocessable Entity"
+2025-08-11 15:49:53,480 - signglove - INFO - Request: GET /predict/live
+2025-08-11 15:49:53,576 - signglove - ERROR - Error cf873402-5a35-4e74-ae4b-5feb16246f9f: HTTPException - 
+2025-08-11 15:49:53,588 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-11 15:49:53,612 - httpx - INFO - HTTP Request: GET http://test/predict/live "HTTP/1.1 404 Not Found"
+2025-08-11 15:49:53,665 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 15:49:54,141 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-11 15:49:54,154 - httpx - INFO - HTTP Request: GET http://test/dashboard/ "HTTP/1.1 200 OK"
+2025-08-11 15:49:54,163 - signglove - INFO - Request: GET /training/
+2025-08-11 15:49:54,244 - root - INFO - Fetched 0 training results
+2025-08-11 15:49:54,250 - signglove - INFO - Response: GET /training/ - 200
+2025-08-11 15:49:54,263 - httpx - INFO - HTTP Request: GET http://test/training/ "HTTP/1.1 200 OK"
+2025-08-11 15:49:54,271 - signglove - INFO - Request: GET /training/latest
+2025-08-11 15:49:54,352 - root - ERROR - Error fetching training result: 
+2025-08-11 15:49:54,356 - signglove - ERROR - Error ef3c045b-e05a-4370-8e5a-3dcbfa79a3ad: HTTPException - 
+2025-08-11 15:49:54,362 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-11 15:49:54,374 - httpx - INFO - HTTP Request: GET http://test/training/latest "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:49:54,404 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-11 15:49:54,425 - signglove - ERROR - Error 934b549c-b31a-44a2-b185-4a97b119db4c: ValueError - Out of range float values are not JSON compliant
+2025-08-11 15:49:54,430 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-11 15:49:54,442 - httpx - INFO - HTTP Request: GET http://test/training/metrics/latest "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:49:54,473 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-11 15:49:54,554 - root - INFO - Deleted 3 sensor documents
+2025-08-11 15:49:54,559 - signglove - INFO - Response: DELETE /admin/sensor-data - 200
+2025-08-11 15:49:54,572 - httpx - INFO - HTTP Request: DELETE http://test/admin/sensor-data "HTTP/1.1 200 OK"
+2025-08-11 15:49:54,582 - signglove - INFO - Request: DELETE /admin/training-results
+2025-08-11 15:49:54,661 - root - INFO - Deleted 0 training results
+2025-08-11 15:49:54,668 - signglove - INFO - Response: DELETE /admin/training-results - 200
+2025-08-11 15:49:54,686 - httpx - INFO - HTTP Request: DELETE http://test/admin/training-results "HTTP/1.1 200 OK"
+2025-08-11 15:49:54,697 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-11 15:49:54,714 - signglove - ERROR - Error 950de148-106c-4ffa-b78f-3d09bcb85af5: HTTPException - 
+2025-08-11 15:49:54,721 - signglove - INFO - Response: DELETE /admin/sensor-data - 403
+2025-08-11 15:49:54,734 - httpx - INFO - HTTP Request: DELETE http://test/admin/sensor-data "HTTP/1.1 403 Forbidden"
+2025-08-11 15:49:54,742 - signglove - INFO - Request: POST /sensor-data/
+2025-08-11 15:49:54,756 - signglove - ERROR - Error 3223dd23-2e75-4245-91d3-0e4fcc41e348: RequestValidationError - [{'type': 'missing', 'loc': ('body', 'timestamp'), 'msg': 'Field required', 'input': {'flex_sensors': [0.1, 0.2, 0.3, 0.4, 0.5], 'imu_data': [0.6, 0.7, 0.8, 0.9, 1.0, 1.1], 'gesture_label': 'hello', 'session_id': 'test_session_123'}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('body', 'sensor_values'), 'msg': 'Field required', 'input': {'flex_sensors': [0.1, 0.2, 0.3, 0.4, 0.5], 'imu_data': [0.6, 0.7, 0.8, 0.9, 1.0, 1.1], 'gesture_label': 'hello', 'session_id': 'test_session_123'}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('body', 'device_info'), 'msg': 'Field required', 'input': {'flex_sensors': [0.1, 0.2, 0.3, 0.4, 0.5], 'imu_data': [0.6, 0.7, 0.8, 0.9, 1.0, 1.1], 'gesture_label': 'hello', 'session_id': 'test_session_123'}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}]
+2025-08-11 15:49:54,762 - signglove - INFO - Response: POST /sensor-data/ - 500
+2025-08-11 15:49:54,774 - httpx - INFO - HTTP Request: POST http://test/sensor-data/ "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:49:54,806 - signglove - INFO - Request: GET /sensor-data/
+2025-08-11 15:49:54,914 - signglove - INFO - Response: GET /sensor-data/ - 200
+2025-08-11 15:49:54,932 - httpx - INFO - HTTP Request: GET http://test/sensor-data/ "HTTP/1.1 200 OK"
+2025-08-11 15:49:54,942 - signglove - INFO - Request: GET /nonexistent-endpoint
+2025-08-11 15:49:54,951 - signglove - INFO - Response: GET /nonexistent-endpoint - 404
+2025-08-11 15:49:54,963 - httpx - INFO - HTTP Request: GET http://test/nonexistent-endpoint "HTTP/1.1 404 Not Found"
+2025-08-11 15:49:54,972 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:49:54,986 - signglove - ERROR - Error 4e9f84ff-9287-424f-9377-30d6d35ba0a8: RequestValidationError - [{'type': 'missing', 'loc': ('body', 'session_id'), 'msg': 'Field required', 'input': {'invalid': 'data'}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('body', 'timestamp'), 'msg': 'Field required', 'input': {'invalid': 'data'}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('body', 'sensor_values'), 'msg': 'Field required', 'input': {'invalid': 'data'}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('body', 'device_info'), 'msg': 'Field required', 'input': {'invalid': 'data'}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}]
+2025-08-11 15:49:54,990 - signglove - INFO - Response: POST /gestures/ - 500
+2025-08-11 15:49:55,003 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:49:55,033 - signglove - INFO - Request: POST /auth/login
+2025-08-11 15:49:55,436 - routes.auth_routes - INFO - User admin logged in successfully
+2025-08-11 15:49:55,441 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-11 15:49:55,453 - httpx - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 200 OK"
+2025-08-11 15:49:55,462 - signglove - INFO - Request: POST /auth/login
+2025-08-11 15:49:55,855 - routes.auth_routes - ERROR - Login error: 
+2025-08-11 15:49:55,859 - signglove - ERROR - Error 0e22ad04-f31c-4c05-b3ec-4fe7eccc0ae5: HTTPException - 
+2025-08-11 15:49:55,866 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-11 15:49:55,878 - httpx - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:49:55,907 - signglove - INFO - Request: POST /auth/login
+2025-08-11 15:49:55,917 - routes.auth_routes - ERROR - Login error: 
+2025-08-11 15:49:55,920 - signglove - ERROR - Error 98e7c501-1e0a-4091-ba67-bac28cf832b3: HTTPException - 
+2025-08-11 15:49:55,925 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-11 15:49:55,941 - httpx - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-11 15:49:55,968 - signglove - INFO - Request: POST /auth/login
+2025-08-11 15:49:56,363 - routes.auth_routes - INFO - User user logged in successfully
+2025-08-11 15:49:56,367 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-11 15:49:56,380 - httpx - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 200 OK"
+2025-08-11 15:49:56,383 - signglove - INFO - Request: POST /auth/refresh
+2025-08-11 15:49:56,389 - routes.auth_routes - INFO - Token refreshed for user user
+2025-08-11 15:49:56,394 - signglove - INFO - Response: POST /auth/refresh - 200
+2025-08-11 15:49:56,406 - httpx - INFO - HTTP Request: POST http://test/auth/refresh "HTTP/1.1 200 OK"
+2025-08-11 15:49:56,415 - signglove - INFO - Request: POST /auth/refresh
+2025-08-11 15:49:56,430 - signglove - ERROR - Error 3933f5df-436e-4c5b-a3fa-63011ff6a20e: HTTPException - 
+2025-08-11 15:49:56,436 - signglove - INFO - Response: POST /auth/refresh - 401
+2025-08-11 15:49:56,450 - httpx - INFO - HTTP Request: POST http://test/auth/refresh "HTTP/1.1 401 Unauthorized"
+2025-08-11 15:49:56,459 - signglove - INFO - Request: GET /auth/me
+2025-08-11 15:49:56,469 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-11 15:49:56,481 - httpx - INFO - HTTP Request: GET http://test/auth/me "HTTP/1.1 200 OK"
+2025-08-11 15:49:56,488 - signglove - INFO - Request: POST /auth/logout
+2025-08-11 15:49:56,492 - routes.auth_routes - INFO - User user logged out
+2025-08-11 15:49:56,498 - signglove - INFO - Response: POST /auth/logout - 200
+2025-08-11 15:49:56,509 - httpx - INFO - HTTP Request: POST http://test/auth/logout "HTTP/1.1 200 OK"
+2025-08-11 15:49:56,518 - signglove - INFO - Request: GET /auth/health
+2025-08-11 15:49:56,525 - signglove - INFO - Response: GET /auth/health - 200
+2025-08-11 15:49:56,538 - httpx - INFO - HTTP Request: GET http://test/auth/health "HTTP/1.1 200 OK"
+2025-08-11 15:49:56,548 - signglove - INFO - Request: GET /admin/
+2025-08-11 15:49:56,561 - signglove - INFO - Response: GET /admin/ - 200
+2025-08-11 15:49:56,572 - httpx - INFO - HTTP Request: GET http://test/admin/ "HTTP/1.1 200 OK"
+2025-08-11 15:49:56,582 - signglove - INFO - Request: GET /gestures/
+2025-08-11 15:49:56,663 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-11 15:49:56,669 - signglove - INFO - Response: GET /gestures/ - 200
+2025-08-11 15:49:56,681 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 15:49:56,691 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 15:49:56,703 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-11 15:49:56,716 - httpx - INFO - HTTP Request: GET http://test/dashboard/ "HTTP/1.1 200 OK"
+2025-08-11 15:49:56,724 - signglove - INFO - Request: GET /admin/
+2025-08-11 15:49:56,733 - signglove - ERROR - Error 1a5845a4-8214-480c-bd15-580c0aa6e561: HTTPException - 
+2025-08-11 15:49:56,738 - signglove - INFO - Response: GET /admin/ - 403
+2025-08-11 15:49:56,753 - httpx - INFO - HTTP Request: GET http://test/admin/ "HTTP/1.1 403 Forbidden"
+2025-08-11 15:49:56,764 - signglove - INFO - Request: GET /gestures/
+2025-08-11 15:49:56,845 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-11 15:49:56,852 - signglove - INFO - Response: GET /gestures/ - 200
+2025-08-11 15:49:56,868 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 15:49:56,906 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 15:49:56,914 - signglove - ERROR - Error 5d29b583-67ca-490b-a5fd-d968724b9e33: HTTPException - 
+2025-08-11 15:49:56,933 - signglove - INFO - Response: GET /dashboard/ - 401
+2025-08-11 15:49:56,956 - httpx - INFO - HTTP Request: GET http://test/dashboard/ "HTTP/1.1 401 Unauthorized"
+2025-08-11 15:49:58,673 - signglove - INFO - Request: GET /gestures/
+2025-08-11 15:49:58,678 - signglove - ERROR - Error 3fcfcbb0-b40a-4bfd-a5f8-e3ced5579f45: HTTPException - 
+2025-08-11 15:49:58,684 - signglove - INFO - Response: GET /gestures/ - 401
+2025-08-11 15:49:58,697 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 401 Unauthorized"
+2025-08-11 15:49:58,717 - signglove - INFO - Request: POST /gestures/
+2025-08-11 15:49:58,729 - signglove - ERROR - Error b7f3142f-89a0-494b-992e-d9e48b174f81: HTTPException - 
+2025-08-11 15:49:58,734 - signglove - INFO - Response: POST /gestures/ - 401
+2025-08-11 15:49:58,747 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 401 Unauthorized"
+2025-08-11 15:49:58,765 - signglove - INFO - Request: DELETE /gestures/test_session
+2025-08-11 15:49:58,771 - signglove - ERROR - Error ec9a19c7-7de4-43eb-8188-6e79c6f083dd: HTTPException - 
+2025-08-11 15:49:58,777 - signglove - INFO - Response: DELETE /gestures/test_session - 401
+2025-08-11 15:49:58,789 - httpx - INFO - HTTP Request: DELETE http://test/gestures/test_session "HTTP/1.1 401 Unauthorized"
+2025-08-11 15:52:23,363 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 15:57:23,340 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:02:24,986 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:07:24,977 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:12:25,015 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:17:25,043 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:22:25,040 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:27:25,171 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:32:25,251 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:37:25,251 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:39:00,510 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-11 16:39:29,293 - core.database - INFO - Connected to MongoDB!
+2025-08-11 16:39:29,929 - root - INFO - Indexes created. App is starting...
+2025-08-11 16:39:29,931 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:44:11,280 - core.database - INFO - Connected to MongoDB!
+2025-08-11 16:44:11,904 - root - INFO - Indexes created. App is starting...
+2025-08-11 16:44:11,908 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:44:29,924 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:47:09,893 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-11 16:47:10,180 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-11 16:48:14,598 - core.database - INFO - Connected to MongoDB!
+2025-08-11 16:48:14,749 - core.database - INFO - Connected to MongoDB!
+2025-08-11 16:48:15,243 - root - INFO - Indexes created. App is starting...
+2025-08-11 16:48:15,257 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:48:15,492 - root - INFO - Indexes created. App is starting...
+2025-08-11 16:48:15,494 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:48:53,097 - signglove - INFO - Request: GET /health
+2025-08-11 16:48:53,162 - core.database - INFO - Connected to MongoDB!
+2025-08-11 16:48:53,173 - signglove - INFO - Response: GET /health - 200
+2025-08-11 16:48:55,266 - signglove - INFO - Request: POST /auth/login
+2025-08-11 16:48:55,681 - routes.auth_routes - INFO - User user logged in successfully
+2025-08-11 16:48:55,687 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-11 16:48:57,763 - signglove - INFO - Request: GET /gestures/
+2025-08-11 16:48:58,067 - signglove - INFO - [trace=none] Listed 1000 gestures.
+2025-08-11 16:48:58,074 - signglove - INFO - Response: GET /gestures/ - 200
+2025-08-11 16:49:00,422 - signglove - INFO - Request: POST /gestures/
+2025-08-11 16:49:00,500 - signglove - INFO - [trace=none] Sensor data inserted: session=test_session_123
+2025-08-11 16:49:00,503 - signglove - INFO - Response: POST /gestures/ - 200
+2025-08-11 16:49:02,555 - signglove - INFO - Request: POST /auth/login
+2025-08-11 16:49:02,927 - routes.auth_routes - INFO - User viewer logged in successfully
+2025-08-11 16:49:02,930 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-11 16:49:04,990 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 16:49:05,295 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-11 16:49:07,358 - signglove - INFO - Request: POST /auth/login
+2025-08-11 16:49:07,733 - routes.auth_routes - INFO - User admin logged in successfully
+2025-08-11 16:49:07,735 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-11 16:49:09,808 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-11 16:49:09,920 - root - INFO - Deleted 1552 sensor documents
+2025-08-11 16:49:09,923 - signglove - INFO - Response: DELETE /admin/sensor-data - 200
+2025-08-11 16:49:11,989 - signglove - INFO - Request: POST /predict/
+2025-08-11 16:49:12,041 - signglove - INFO - Response: POST /predict/ - 200
+2025-08-11 16:52:27,534 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 16:52:27,547 - signglove - ERROR - Error 955d06ea-af5c-4ef2-83d5-8326650b25aa: HTTPException - 
+2025-08-11 16:52:27,552 - signglove - INFO - Response: GET /dashboard/ - 401
+2025-08-11 16:52:27,563 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 16:52:27,569 - signglove - ERROR - Error 9d5dde59-e4da-420a-be77-5144c22b0829: HTTPException - 
+2025-08-11 16:52:27,576 - signglove - INFO - Response: GET /dashboard/ - 401
+2025-08-11 16:52:37,057 - signglove - INFO - Request: GET /gestures
+2025-08-11 16:52:37,063 - signglove - ERROR - Error cb674c5b-8734-4e02-8855-f40cc1513a63: HTTPException - 
+2025-08-11 16:52:37,070 - signglove - INFO - Response: GET /gestures - 401
+2025-08-11 16:52:37,084 - signglove - INFO - Request: GET /gestures
+2025-08-11 16:52:37,091 - signglove - ERROR - Error de48a780-35cf-43b7-9a19-2af73183e52b: HTTPException - 
+2025-08-11 16:52:37,096 - signglove - INFO - Response: GET /gestures - 401
+2025-08-11 16:52:44,174 - signglove - INFO - Request: GET /audio-files/
+2025-08-11 16:52:44,178 - signglove - ERROR - Error 61e17f6b-2a60-454c-a603-cdc2b49785fb: HTTPException - 
+2025-08-11 16:52:44,181 - signglove - INFO - Response: GET /audio-files/ - 401
+2025-08-11 16:52:44,195 - signglove - INFO - Request: GET /audio-files/
+2025-08-11 16:52:44,199 - signglove - ERROR - Error 4854e0f4-ba41-4277-b7c0-efb3c1f9645f: HTTPException - 
+2025-08-11 16:52:44,207 - signglove - INFO - Response: GET /audio-files/ - 401
+2025-08-11 16:53:15,296 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:53:15,484 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:54:53,899 - signglove - INFO - Request: GET /
+2025-08-11 16:54:53,927 - signglove - INFO - Response: GET / - 200
+2025-08-11 16:54:54,193 - signglove - INFO - Request: GET /favicon.ico
+2025-08-11 16:54:54,206 - signglove - INFO - Response: GET /favicon.ico - 404
+2025-08-11 16:55:02,113 - signglove - INFO - Request: GET /
+2025-08-11 16:55:02,121 - signglove - INFO - Response: GET / - 200
+2025-08-11 16:55:02,212 - signglove - INFO - Request: GET /favicon.ico
+2025-08-11 16:55:02,226 - signglove - INFO - Response: GET /favicon.ico - 404
+2025-08-11 16:55:14,898 - signglove - INFO - Request: GET /
+2025-08-11 16:55:14,910 - signglove - INFO - Response: GET / - 200
+2025-08-11 16:55:15,556 - signglove - INFO - Request: GET /
+2025-08-11 16:55:15,565 - signglove - INFO - Response: GET / - 200
+2025-08-11 16:56:47,131 - signglove - INFO - Request: GET /.well-known/appspecific/com.chrome.devtools.json
+2025-08-11 16:56:47,136 - signglove - INFO - Response: GET /.well-known/appspecific/com.chrome.devtools.json - 404
+2025-08-11 16:56:52,109 - signglove - INFO - Request: GET /
+2025-08-11 16:56:52,117 - signglove - INFO - Response: GET / - 200
+2025-08-11 16:58:15,288 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 16:58:15,505 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:02:46,168 - signglove - INFO - Request: GET /health
+2025-08-11 17:02:46,249 - core.database - INFO - Connected to MongoDB!
+2025-08-11 17:02:46,252 - signglove - INFO - Response: GET /health - 200
+2025-08-11 17:02:48,305 - signglove - INFO - Request: POST /predict/
+2025-08-11 17:02:48,319 - signglove - ERROR - Error 1ff034dd-b722-42bd-ac61-cef49447cc3a: HTTPException - 
+2025-08-11 17:02:48,324 - signglove - INFO - Response: POST /predict/ - 401
+2025-08-11 17:02:53,391 - signglove - INFO - Request: POST /gestures/
+2025-08-11 17:02:53,400 - signglove - ERROR - Error aef3d460-fa60-4fbb-8042-e4efd557bcb8: HTTPException - 
+2025-08-11 17:02:53,406 - signglove - INFO - Response: POST /gestures/ - 401
+2025-08-11 17:02:55,489 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 17:02:55,493 - signglove - ERROR - Error 4f1b6a71-8960-456e-ba1e-87f5be4b9d69: HTTPException - 
+2025-08-11 17:02:55,497 - signglove - INFO - Response: GET /dashboard/ - 401
+2025-08-11 17:02:57,553 - signglove - INFO - Request: POST /training/trigger
+2025-08-11 17:02:57,557 - signglove - ERROR - Error fe14c370-7423-4040-bb22-a0ff1242d8ce: HTTPException - 
+2025-08-11 17:02:57,561 - signglove - INFO - Response: POST /training/trigger - 401
+2025-08-11 17:02:57,648 - signglove - INFO - Request: POST /gestures/
+2025-08-11 17:02:59,282 - signglove - INFO - [trace=none] Sensor data inserted: session=test_session_123
+2025-08-11 17:02:59,285 - signglove - WARNING - Slow request: POST /gestures/ took 1.63s
+2025-08-11 17:02:59,288 - signglove - INFO - Response: POST /gestures/ - 200
+2025-08-11 17:02:59,306 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 17:02:59,401 - signglove - INFO - Request: GET /gestures/
+2025-08-11 17:02:59,459 - signglove - INFO - [trace=none] Listed 1 gestures.
+2025-08-11 17:02:59,467 - signglove - INFO - Response: GET /gestures/ - 200
+2025-08-11 17:02:59,495 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 17:02:59,519 - signglove - INFO - Request: POST /gestures/
+2025-08-11 17:02:59,587 - signglove - INFO - [trace=none] Sensor data inserted: session=test_session_123
+2025-08-11 17:02:59,591 - signglove - INFO - Response: POST /gestures/ - 200
+2025-08-11 17:02:59,606 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 17:02:59,609 - signglove - INFO - Request: GET /gestures/test_session_123
+2025-08-11 17:02:59,662 - signglove - INFO - [trace=none] Retrieved session: test_session_123
+2025-08-11 17:02:59,672 - signglove - INFO - Response: GET /gestures/test_session_123 - 200
+2025-08-11 17:02:59,687 - httpx - INFO - HTTP Request: GET http://test/gestures/test_session_123 "HTTP/1.1 200 OK"
+2025-08-11 17:02:59,697 - signglove - INFO - Request: POST /gestures/
+2025-08-11 17:02:59,759 - signglove - INFO - [trace=none] Sensor data inserted: session=test_session_123
+2025-08-11 17:02:59,764 - signglove - INFO - Response: POST /gestures/ - 200
+2025-08-11 17:02:59,777 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 17:02:59,782 - signglove - INFO - Request: PUT /gestures/test_session_123
+2025-08-11 17:02:59,804 - signglove - ERROR - Error b588d7c0-d7fc-4a59-b2fe-0dac3d8d6c81: RequestValidationError - [{'type': 'missing', 'loc': ('query', 'label'), 'msg': 'Field required', 'input': None, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}]
+2025-08-11 17:02:59,812 - signglove - INFO - Response: PUT /gestures/test_session_123 - 500
+2025-08-11 17:02:59,825 - httpx - INFO - HTTP Request: PUT http://test/gestures/test_session_123 "HTTP/1.1 500 Internal Server Error"
+2025-08-11 17:02:59,863 - signglove - INFO - Request: POST /gestures/
+2025-08-11 17:02:59,938 - signglove - INFO - [trace=none] Sensor data inserted: session=test_session_123
+2025-08-11 17:02:59,943 - signglove - INFO - Response: POST /gestures/ - 200
+2025-08-11 17:02:59,958 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 17:02:59,961 - signglove - INFO - Request: DELETE /gestures/test_session_123
+2025-08-11 17:03:00,020 - signglove - INFO - [trace=none] Deleted session: test_session_123
+2025-08-11 17:03:00,032 - signglove - INFO - Response: DELETE /gestures/test_session_123 - 200
+2025-08-11 17:03:00,052 - httpx - INFO - HTTP Request: DELETE http://test/gestures/test_session_123 "HTTP/1.1 200 OK"
+2025-08-11 17:03:00,063 - signglove - INFO - Request: POST /predict/
+2025-08-11 17:03:00,084 - signglove - INFO - Response: POST /predict/ - 200
+2025-08-11 17:03:00,099 - httpx - INFO - HTTP Request: POST http://test/predict/ "HTTP/1.1 200 OK"
+2025-08-11 17:03:00,111 - signglove - INFO - Request: POST /predict/
+2025-08-11 17:03:00,127 - signglove - ERROR - Error 0360d5ac-4b73-42d3-8e15-df4068fc8fa8: HTTPException - 
+2025-08-11 17:03:00,134 - signglove - INFO - Response: POST /predict/ - 422
+2025-08-11 17:03:00,147 - httpx - INFO - HTTP Request: POST http://test/predict/ "HTTP/1.1 422 Unprocessable Entity"
+2025-08-11 17:03:00,157 - signglove - INFO - Request: GET /predict/live
+2025-08-11 17:03:00,217 - signglove - ERROR - Error 2098b55f-7df6-47dc-8bc8-6127ca07c001: HTTPException - 
+2025-08-11 17:03:00,223 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-11 17:03:00,235 - httpx - INFO - HTTP Request: GET http://test/predict/live "HTTP/1.1 404 Not Found"
+2025-08-11 17:03:00,269 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 17:03:00,559 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-11 17:03:00,573 - httpx - INFO - HTTP Request: GET http://test/dashboard/ "HTTP/1.1 200 OK"
+2025-08-11 17:03:00,583 - signglove - INFO - Request: GET /training/
+2025-08-11 17:03:00,646 - root - INFO - Fetched 0 training results
+2025-08-11 17:03:00,653 - signglove - INFO - Response: GET /training/ - 200
+2025-08-11 17:03:00,665 - httpx - INFO - HTTP Request: GET http://test/training/ "HTTP/1.1 200 OK"
+2025-08-11 17:03:00,673 - signglove - INFO - Request: GET /training/latest
+2025-08-11 17:03:00,731 - root - ERROR - Error fetching training result: 
+2025-08-11 17:03:00,739 - signglove - ERROR - Error a1673931-15ca-467b-9bf8-2495a3e4857e: HTTPException - 
+2025-08-11 17:03:00,744 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-11 17:03:00,760 - httpx - INFO - HTTP Request: GET http://test/training/latest "HTTP/1.1 500 Internal Server Error"
+2025-08-11 17:03:00,792 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-11 17:03:00,814 - signglove - ERROR - Error fb2db17a-f9eb-4804-a35b-ec4dfcae728a: ValueError - Out of range float values are not JSON compliant
+2025-08-11 17:03:00,819 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-11 17:03:00,831 - httpx - INFO - HTTP Request: GET http://test/training/metrics/latest "HTTP/1.1 500 Internal Server Error"
+2025-08-11 17:03:00,867 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-11 17:03:00,928 - root - INFO - Deleted 3 sensor documents
+2025-08-11 17:03:00,934 - signglove - INFO - Response: DELETE /admin/sensor-data - 200
+2025-08-11 17:03:00,946 - httpx - INFO - HTTP Request: DELETE http://test/admin/sensor-data "HTTP/1.1 200 OK"
+2025-08-11 17:03:00,958 - signglove - INFO - Request: DELETE /admin/training-results
+2025-08-11 17:03:01,014 - root - INFO - Deleted 0 training results
+2025-08-11 17:03:01,021 - signglove - INFO - Response: DELETE /admin/training-results - 200
+2025-08-11 17:03:01,033 - httpx - INFO - HTTP Request: DELETE http://test/admin/training-results "HTTP/1.1 200 OK"
+2025-08-11 17:03:01,042 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-11 17:03:01,065 - signglove - ERROR - Error 71db2174-f6f8-4507-ab1b-24b270684092: HTTPException - 
+2025-08-11 17:03:01,071 - signglove - INFO - Response: DELETE /admin/sensor-data - 403
+2025-08-11 17:03:01,085 - httpx - INFO - HTTP Request: DELETE http://test/admin/sensor-data "HTTP/1.1 403 Forbidden"
+2025-08-11 17:03:01,093 - signglove - INFO - Request: POST /sensor-data/
+2025-08-11 17:03:01,108 - signglove - ERROR - Error 2e1ba596-1356-4eef-b40a-e8c38c123a88: RequestValidationError - [{'type': 'missing', 'loc': ('body', 'timestamp'), 'msg': 'Field required', 'input': {'flex_sensors': [0.1, 0.2, 0.3, 0.4, 0.5], 'imu_data': [0.6, 0.7, 0.8, 0.9, 1.0, 1.1], 'gesture_label': 'hello', 'session_id': 'test_session_123'}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('body', 'sensor_values'), 'msg': 'Field required', 'input': {'flex_sensors': [0.1, 0.2, 0.3, 0.4, 0.5], 'imu_data': [0.6, 0.7, 0.8, 0.9, 1.0, 1.1], 'gesture_label': 'hello', 'session_id': 'test_session_123'}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('body', 'device_info'), 'msg': 'Field required', 'input': {'flex_sensors': [0.1, 0.2, 0.3, 0.4, 0.5], 'imu_data': [0.6, 0.7, 0.8, 0.9, 1.0, 1.1], 'gesture_label': 'hello', 'session_id': 'test_session_123'}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}]
+2025-08-11 17:03:01,113 - signglove - INFO - Response: POST /sensor-data/ - 500
+2025-08-11 17:03:01,125 - httpx - INFO - HTTP Request: POST http://test/sensor-data/ "HTTP/1.1 500 Internal Server Error"
+2025-08-11 17:03:01,167 - signglove - INFO - Request: GET /sensor-data/
+2025-08-11 17:03:01,233 - signglove - INFO - Response: GET /sensor-data/ - 200
+2025-08-11 17:03:01,244 - httpx - INFO - HTTP Request: GET http://test/sensor-data/ "HTTP/1.1 200 OK"
+2025-08-11 17:03:01,254 - signglove - INFO - Request: GET /nonexistent-endpoint
+2025-08-11 17:03:01,263 - signglove - INFO - Response: GET /nonexistent-endpoint - 404
+2025-08-11 17:03:01,275 - httpx - INFO - HTTP Request: GET http://test/nonexistent-endpoint "HTTP/1.1 404 Not Found"
+2025-08-11 17:03:01,285 - signglove - INFO - Request: POST /gestures/
+2025-08-11 17:03:01,298 - signglove - ERROR - Error 370b2f4f-3a1c-4b03-b4ae-a1a4ba47d1bb: RequestValidationError - [{'type': 'missing', 'loc': ('body', 'session_id'), 'msg': 'Field required', 'input': {'invalid': 'data'}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('body', 'timestamp'), 'msg': 'Field required', 'input': {'invalid': 'data'}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('body', 'sensor_values'), 'msg': 'Field required', 'input': {'invalid': 'data'}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}, {'type': 'missing', 'loc': ('body', 'device_info'), 'msg': 'Field required', 'input': {'invalid': 'data'}, 'url': 'https://errors.pydantic.dev/2.11/v/missing'}]
+2025-08-11 17:03:01,305 - signglove - INFO - Response: POST /gestures/ - 500
+2025-08-11 17:03:01,318 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 500 Internal Server Error"
+2025-08-11 17:03:01,356 - signglove - INFO - Request: POST /auth/login
+2025-08-11 17:03:01,793 - routes.auth_routes - INFO - User admin logged in successfully
+2025-08-11 17:03:01,801 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-11 17:03:01,820 - httpx - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 200 OK"
+2025-08-11 17:03:01,827 - signglove - INFO - Request: POST /auth/login
+2025-08-11 17:03:02,244 - signglove - ERROR - Error cfc33852-a3df-4e91-af7f-a470655273ac: HTTPException - 
+2025-08-11 17:03:02,252 - signglove - INFO - Response: POST /auth/login - 401
+2025-08-11 17:03:02,264 - httpx - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 401 Unauthorized"
+2025-08-11 17:03:02,274 - signglove - INFO - Request: POST /auth/login
+2025-08-11 17:03:02,285 - signglove - ERROR - Error b97b3a0d-e9a8-4db4-a3a2-1c50f32f645e: HTTPException - 
+2025-08-11 17:03:02,290 - signglove - INFO - Response: POST /auth/login - 401
+2025-08-11 17:03:02,304 - httpx - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 401 Unauthorized"
+2025-08-11 17:03:02,311 - signglove - INFO - Request: POST /auth/login
+2025-08-11 17:03:02,740 - routes.auth_routes - INFO - User user logged in successfully
+2025-08-11 17:03:02,744 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-11 17:03:02,759 - httpx - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 200 OK"
+2025-08-11 17:03:02,762 - signglove - INFO - Request: POST /auth/refresh
+2025-08-11 17:03:02,770 - routes.auth_routes - INFO - Token refreshed for user user
+2025-08-11 17:03:02,775 - signglove - INFO - Response: POST /auth/refresh - 200
+2025-08-11 17:03:02,789 - httpx - INFO - HTTP Request: POST http://test/auth/refresh "HTTP/1.1 200 OK"
+2025-08-11 17:03:02,797 - signglove - INFO - Request: POST /auth/refresh
+2025-08-11 17:03:02,817 - signglove - ERROR - Error 09b93e9b-53b3-4ac1-a9df-f151fb168ffe: HTTPException - 
+2025-08-11 17:03:02,821 - signglove - INFO - Response: POST /auth/refresh - 401
+2025-08-11 17:03:02,834 - httpx - INFO - HTTP Request: POST http://test/auth/refresh "HTTP/1.1 401 Unauthorized"
+2025-08-11 17:03:02,842 - signglove - INFO - Request: GET /auth/me
+2025-08-11 17:03:02,852 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-11 17:03:02,863 - httpx - INFO - HTTP Request: GET http://test/auth/me "HTTP/1.1 200 OK"
+2025-08-11 17:03:02,871 - signglove - INFO - Request: POST /auth/logout
+2025-08-11 17:03:02,874 - routes.auth_routes - INFO - User user logged out
+2025-08-11 17:03:02,880 - signglove - INFO - Response: POST /auth/logout - 200
+2025-08-11 17:03:02,894 - httpx - INFO - HTTP Request: POST http://test/auth/logout "HTTP/1.1 200 OK"
+2025-08-11 17:03:02,902 - signglove - INFO - Request: GET /auth/health
+2025-08-11 17:03:02,910 - signglove - INFO - Response: GET /auth/health - 200
+2025-08-11 17:03:02,923 - httpx - INFO - HTTP Request: GET http://test/auth/health "HTTP/1.1 200 OK"
+2025-08-11 17:03:02,932 - signglove - INFO - Request: GET /admin/
+2025-08-11 17:03:02,943 - signglove - INFO - Response: GET /admin/ - 200
+2025-08-11 17:03:02,956 - httpx - INFO - HTTP Request: GET http://test/admin/ "HTTP/1.1 200 OK"
+2025-08-11 17:03:02,965 - signglove - INFO - Request: GET /gestures/
+2025-08-11 17:03:03,022 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-11 17:03:03,027 - signglove - INFO - Response: GET /gestures/ - 200
+2025-08-11 17:03:03,039 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 17:03:03,050 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 17:03:03,062 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-11 17:03:03,083 - httpx - INFO - HTTP Request: GET http://test/dashboard/ "HTTP/1.1 200 OK"
+2025-08-11 17:03:03,097 - signglove - INFO - Request: GET /admin/
+2025-08-11 17:03:03,106 - signglove - ERROR - Error 02d07974-3f00-48f7-ae7f-8a1e7d6b1699: HTTPException - 
+2025-08-11 17:03:03,112 - signglove - INFO - Response: GET /admin/ - 403
+2025-08-11 17:03:03,126 - httpx - INFO - HTTP Request: GET http://test/admin/ "HTTP/1.1 403 Forbidden"
+2025-08-11 17:03:03,135 - signglove - INFO - Request: GET /gestures/
+2025-08-11 17:03:03,194 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-11 17:03:03,201 - signglove - INFO - Response: GET /gestures/ - 200
+2025-08-11 17:03:03,212 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 200 OK"
+2025-08-11 17:03:03,254 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 17:03:03,259 - signglove - ERROR - Error 23d4a8bd-ceef-45cd-a4fb-d887b78e29d8: HTTPException - 
+2025-08-11 17:03:03,266 - signglove - INFO - Response: GET /dashboard/ - 401
+2025-08-11 17:03:03,277 - httpx - INFO - HTTP Request: GET http://test/dashboard/ "HTTP/1.1 401 Unauthorized"
+2025-08-11 17:03:06,236 - signglove - INFO - Request: GET /gestures/
+2025-08-11 17:03:06,249 - signglove - ERROR - Error 40b0fdbd-fd35-4796-804d-9bc2fd476abd: HTTPException - 
+2025-08-11 17:03:06,262 - signglove - INFO - Response: GET /gestures/ - 401
+2025-08-11 17:03:06,291 - httpx - INFO - HTTP Request: GET http://test/gestures/ "HTTP/1.1 401 Unauthorized"
+2025-08-11 17:03:06,333 - signglove - INFO - Request: POST /gestures/
+2025-08-11 17:03:06,369 - signglove - ERROR - Error 0efb1dfe-694a-4df2-9b80-cd11b67f3a6a: HTTPException - 
+2025-08-11 17:03:06,384 - signglove - INFO - Response: POST /gestures/ - 401
+2025-08-11 17:03:06,421 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 401 Unauthorized"
+2025-08-11 17:03:06,471 - signglove - INFO - Request: DELETE /gestures/test_session
+2025-08-11 17:03:06,483 - signglove - ERROR - Error c84419ca-e662-40e4-a0ab-245c030b2038: HTTPException - 
+2025-08-11 17:03:06,496 - signglove - INFO - Response: DELETE /gestures/test_session - 401
+2025-08-11 17:03:06,534 - httpx - INFO - HTTP Request: DELETE http://test/gestures/test_session "HTTP/1.1 401 Unauthorized"
+2025-08-11 17:03:15,291 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:03:15,513 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:04:36,040 - signglove - INFO - Request: GET /gestures
+2025-08-11 17:04:36,056 - signglove - ERROR - Error fefa96f7-9ef7-4496-902a-e385732f33d8: HTTPException - 
+2025-08-11 17:04:36,075 - signglove - INFO - Response: GET /gestures - 401
+2025-08-11 17:04:36,170 - signglove - INFO - Request: GET /gestures
+2025-08-11 17:04:36,244 - signglove - ERROR - Error 87436171-49d5-488c-a6c4-c7ac5595d0f9: HTTPException - 
+2025-08-11 17:04:36,272 - signglove - INFO - Response: GET /gestures - 401
+2025-08-11 17:04:46,352 - signglove - INFO - Request: GET /audio-files/
+2025-08-11 17:04:46,414 - signglove - ERROR - Error d4cc2f89-621c-41c3-b86a-483887d87b7d: HTTPException - 
+2025-08-11 17:04:46,427 - signglove - INFO - Response: GET /audio-files/ - 401
+2025-08-11 17:04:46,466 - signglove - INFO - Request: GET /audio-files/
+2025-08-11 17:04:46,482 - signglove - ERROR - Error 48b737bc-7426-43e8-94c8-9109480520ed: HTTPException - 
+2025-08-11 17:04:46,705 - signglove - INFO - Response: GET /audio-files/ - 401
+2025-08-11 17:04:55,557 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-11 17:04:55,573 - signglove - ERROR - Error 5887a889-dc33-423e-81e2-e553ace73b21: HTTPException - 
+2025-08-11 17:04:55,577 - signglove - INFO - Response: DELETE /admin/sensor-data - 401
+2025-08-11 17:05:01,553 - signglove - INFO - Request: DELETE /admin/training-results
+2025-08-11 17:05:01,557 - signglove - ERROR - Error a28535e1-2211-49a6-998c-42551be7f4ff: HTTPException - 
+2025-08-11 17:05:01,562 - signglove - INFO - Response: DELETE /admin/training-results - 401
+2025-08-11 17:08:15,367 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:08:15,525 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:13:15,523 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:13:15,396 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:18:00,808 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 17:18:00,814 - signglove - ERROR - Error f19ac000-b901-43df-9fd2-e935292e03cf: HTTPException - 
+2025-08-11 17:18:00,818 - signglove - INFO - Response: GET /dashboard/ - 401
+2025-08-11 17:18:00,832 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 17:18:00,839 - signglove - ERROR - Error bca50d60-54ae-4a11-8fb3-40b6b690cb7d: HTTPException - 
+2025-08-11 17:18:00,847 - signglove - INFO - Response: GET /dashboard/ - 401
+2025-08-11 17:18:08,625 - signglove - INFO - Request: GET /gestures
+2025-08-11 17:18:09,061 - signglove - ERROR - Error 29c70a61-1565-4f1f-9b6e-c4902dedc2e0: HTTPException - 
+2025-08-11 17:18:09,064 - signglove - INFO - Response: GET /gestures - 401
+2025-08-11 17:18:09,085 - signglove - INFO - Request: GET /gestures
+2025-08-11 17:18:09,091 - signglove - ERROR - Error dc1e9198-e050-43cf-a295-5a0735ca0417: HTTPException - 
+2025-08-11 17:18:09,100 - signglove - INFO - Response: GET /gestures - 401
+2025-08-11 17:18:15,522 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:18:15,731 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:23:15,524 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:23:15,727 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:28:15,522 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:28:15,729 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:33:15,539 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:33:15,726 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:38:15,542 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:38:15,744 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:43:15,560 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:43:15,815 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:48:15,578 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:48:16,080 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-11 17:49:36,057 - signglove - INFO - Request: GET /gestures
+2025-08-11 17:49:36,130 - signglove - ERROR - Error 7babc9bb-a788-48e4-9f1d-ad4c8ab1dbec: HTTPException - 
+2025-08-11 17:49:36,134 - signglove - INFO - Response: GET /gestures - 401
+2025-08-11 17:49:36,151 - signglove - INFO - Request: GET /gestures
+2025-08-11 17:49:36,168 - signglove - ERROR - Error a1f91499-1c88-46d7-a2e7-7cf3f67d91d0: HTTPException - 
+2025-08-11 17:49:36,173 - signglove - INFO - Response: GET /gestures - 401
+2025-08-11 17:49:38,220 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 17:49:38,283 - signglove - ERROR - Error 2b11641e-23ac-4c67-83ba-5e8f05ffce54: HTTPException - 
+2025-08-11 17:49:38,288 - signglove - INFO - Response: GET /dashboard/ - 401
+2025-08-11 17:49:38,317 - signglove - INFO - Request: GET /dashboard/
+2025-08-11 17:49:38,323 - signglove - ERROR - Error bac139d3-40e1-4c19-abcc-8bf08f41fdd2: HTTPException - 
+2025-08-11 17:49:38,334 - signglove - INFO - Response: GET /dashboard/ - 401
+2025-08-11 17:53:16,085 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.

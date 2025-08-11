@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, classification_report, roc_curve, auc
 from sklearn.preprocessing import label_binarize
+from sklearn.preprocessing import LabelEncoder
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense   
 from tensorflow.keras.utils import to_categorical
@@ -53,7 +54,6 @@ y = df['label'].values          # label column
 print(f"Feature columns: {feature_columns}")
 print(f"Label values: {np.unique(y)}")
 
-from sklearn.preprocessing import LabelEncoder
 label_encoder = LabelEncoder()
 y_encoded = label_encoder.fit_transform(y)
 print(f"Encoded labels: {label_encoder.classes_} -> {np.unique(y_encoded)}")
@@ -182,4 +182,4 @@ converter.optimizations = [tf.lite.Optimize.DEFAULT]
 tflite_model = converter.convert()
 with open(model_output_path, "wb") as f:
     f.write(tflite_model)
-print(f" Đã lưu model thành {model_output_path}")
+print(f" Model saved to {model_output_path}")

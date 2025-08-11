@@ -1,10 +1,14 @@
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from fastapi.testclient import TestClient
 from main import app
 
-client = TestClient(app)
+try:
+    from fastapi.testclient import TestClient
+    client = TestClient(app)
+except ImportError:
+    from httpx import Client
+    client = Client(app=app, base_url="http://test")
 
 def test_delete_sensor_data():
     response = client.delete("/admin/sensor-data")

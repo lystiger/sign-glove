@@ -25,6 +25,7 @@ def convert_id(doc):
     return doc
 
 @router.post("/sensor-data")
+@router.post("/sensor-data/")
 async def create_sensor_data(data: SensorData):
     """
     Insert new sensor data into the database.
@@ -36,6 +37,7 @@ async def create_sensor_data(data: SensorData):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/sensor-data", response_model=List[SensorData])
+@router.get("/sensor-data/", response_model=List[SensorData])
 async def get_sensor_data(label: str = Query(None)):
     """
     List all sensor data, optionally filtered by label.
