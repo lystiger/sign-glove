@@ -25,6 +25,6 @@ async def test_connection():
     """
     try:
         await client.admin.command("ping")
-        logger.info("✅ Connected to MongoDB!")
+        logger.info("Connected to MongoDB!")
     except Exception as e:
-        logger.error("❌ MongoDB connection failed:", exc_info=e)
+        logger.error("MongoDB connection failed:", exc_info=e)

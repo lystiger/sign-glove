@@ -160,12 +160,12 @@ async def websocket_predict(websocket: WebSocket):
                     try:
                         response = requests.post("http://localhost:8080/training")
                         if response.status_code == 200:
-                            print("✅ Auto-training triggered after 50 new samples.")
+                            print("Auto-training triggered after 50 new samples.")
                             LAST_TRAIN_COUNT = current_count
                         else:
-                            print("❌ Training failed:", response.status_code, response.text)
+                            print("Training failed:", response.status_code, response.text)
                     except Exception as e:
-                        print("🚨 Error triggering auto-training:", e)
+                        print("Error triggering auto-training:", e)
 
                 prediction_counts[label] = 0  # Reset counter
 
