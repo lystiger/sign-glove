@@ -4,7 +4,7 @@ Loads all configuration from environment variables or defaults.
 """
 from pydantic_settings import BaseSettings
 from pydantic import Field
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 import os
 
 class Settings(BaseSettings):
@@ -54,6 +54,16 @@ class Settings(BaseSettings):
         'apply_outlier': True,
         'apply_median': False
     }
+
+    # Auth/JWT settings
+    SECRET_KEY: str = Field("change-me-in-prod", env="SECRET_KEY")
+    JWT_ALGORITHM: str = Field("HS256", env="JWT_ALGORITHM")
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = Field(60, env="ACCESS_TOKEN_EXPIRE_MINUTES")
+    COOKIE_SECURE: bool = Field(False, env="COOKIE_SECURE")
+
+    # Optional default editor seed
+    DEFAULT_EDITOR_EMAIL: Optional[str] = Field(None, env="DEFAULT_EDITOR_EMAIL")
+    DEFAULT_EDITOR_PASSWORD: Optional[str] = Field(None, env="DEFAULT_EDITOR_PASSWORD")
 
     class Config:
         env_file = ".env"

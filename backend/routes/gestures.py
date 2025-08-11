@@ -9,7 +9,7 @@ Endpoints:
 - PUT /{session_id}: Update gesture label for a session.
 - DELETE /{session_id}: Delete session data.
 """
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, HTTPException, Request, Depends
 from fastapi.responses import StreamingResponse
 from models.sensor_models import SensorData
 from core.database import sensor_collection
@@ -19,6 +19,7 @@ import csv
 import io
 from utils.cache import cacheable, get_or_set_cache
 from typing import List, Dict, Any
+from routes.auth_routes import role_required_dep
 
 logger = logging.getLogger("signglove")
 
@@ -132,7 +133,7 @@ async def get_sensor_data(session_id: str, request: Request) -> Dict[str, Any]:
     summary="Insert new sensor data",
     description="Insert a new batch of sensor data into the database."
 )
-async def create_sensor_data(data: SensorData, request: Request) -> Dict[str, Any]:
+async def create_sensor_data(data: SensorData, request: Request, _user=Depends(role_required_dep("editor"))) -> Dict[str, Any]:
     """
     Example response:
     {
@@ -159,7 +160,7 @@ async def create_sensor_data(data: SensorData, request: Request) -> Dict[str, An
     summary="Update gesture label for a session",
     description="Update the gesture label for a specific session by session_id."
 )
-async def update_label(session_id: str, label: str, request: Request) -> Dict[str, Any]:
+async def update_label(session_id: str, label: str, request: Request, _user=Depends(role_required_dep("editor"))) -> Dict[str, Any]:
     """
     Example response:
     {
@@ -190,7 +191,7 @@ async def update_label(session_id: str, label: str, request: Request) -> Dict[st
     summary="Delete sensor data for a session",
     description="Delete all sensor data for a specific session by session_id."
 )
-async def delete_sensor_data(session_id: str, request: Request) -> Dict[str, Any]:
+async def delete_sensor_data(session_id: str, request: Request, _user=Depends(role_required_dep("editor"))) -> Dict[str, Any]:
     """
     Example response:
     {

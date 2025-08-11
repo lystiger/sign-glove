@@ -6,6 +6,7 @@ from fastapi.exception_handlers import RequestValidationError
 from routes import training_trigger, training_routes, sensor_routes, predict_routes, admin_routes, dashboard_routes
 from routes import gestures, liveWS, utils_routes
 from routes import audio_files_routes
+from routes import auth_routes
 from core.indexes import create_indexes 
 from core.database import client, test_connection
 from core.settings import settings
@@ -15,6 +16,7 @@ import os
 import asyncio
 import subprocess
 import uuid
+from routes.auth_routes import ensure_default_editor
 
 # Improved logging configuration
 logging.basicConfig(
@@ -63,7 +65,10 @@ async def automated_pipeline_loop():
                     logging.info("[AUTO] Triggering model training...")
                     import requests
                     try:
-                        resp = requests.post("http://localhost:8080/training/trigger")
+                        resp = requests.post(
+                            "http://localhost:8080/training/trigger",
+                            headers={"X-API-KEY": settings.SECRET_KEY}
+                        )
                         if resp.status_code == 200:
                             logging.info(f"[AUTO] Training triggered successfully: {resp.json()}")
                         else:
@@ -80,6 +85,7 @@ async def automated_pipeline_loop():
 async def lifespan(app: FastAPI):
     await test_connection() 
     await create_indexes()
+    await ensure_default_editor()
     logging.info("✅ Indexes created. App is starting...")
     loop = asyncio.get_event_loop()
     loop.create_task(automated_pipeline_loop())
@@ -142,6 +148,7 @@ app.add_middleware(
 )
 
 # Mount routers
+app.include_router(auth_routes.router)
 app.include_router(gestures.router)
 app.include_router(training_trigger.router)
 app.include_router(training_routes.router)

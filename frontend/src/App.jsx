@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './pages/Dashboard';
 import UploadCSV from './pages/UploadCSV';
@@ -13,6 +13,8 @@ import UploadTrainingCSV from './pages/UploadTrainingCSV';
 import PredictionHistory from './pages/PredictionHistory';
 import AudioManager from './pages/AudioManager';
 import { MdDarkMode, MdMenu, MdClose } from 'react-icons/md';
+import Login from './pages/Login';
+import { apiRequest } from './api';
 
 function useDarkMode() {
   const [dark, setDark] = useState(() => {
@@ -34,18 +36,41 @@ function useDarkMode() {
 const App = () => {
   const [dark, setDark] = useDarkMode();
   const [navOpen, setNavOpen] = useState(false);
+  const [user, setUser] = useState(null);
 
-  // Navigation links
+  useEffect(() => {
+    // Try to fetch current user
+    apiRequest('get', '/auth/me')
+      .then(setUser)
+      .catch(() => setUser(null));
+  }, []);
+
+  const signOut = async () => {
+    try {
+      await apiRequest('post', '/auth/logout');
+      localStorage.removeItem('access_token');
+      setUser(null);
+      toast.success('Signed out');
+    } catch (e) {
+      toast.error('Failed to sign out');
+    }
+  };
+
+  const isEditor = user?.role === 'editor' || user?.role === 'admin';
+
   const navLinks = [
     { to: '/', label: 'Dashboard' },
     { to: '/gestures', label: 'Manage Gestures' },
     { to: '/training-results', label: 'Training Results' },
     { to: '/predict', label: 'Manual Prediction' },
     { to: '/live-predict', label: 'Live Predict' },
-    { to: '/upload-csv', label: 'Upload CSV' },
-    { to: '/upload-training-csv', label: 'Upload Training CSV' },
-    { to: '/admin', label: 'Admin Tools' },
-    { to: '/audio-manager', label: 'Audio Manager' },
+    // editor-only routes
+    ...(isEditor ? [
+      { to: '/upload-csv', label: 'Upload CSV' },
+      { to: '/upload-training-csv', label: 'Upload Training CSV' },
+      { to: '/admin', label: 'Admin Tools' },
+      { to: '/audio-manager', label: 'Audio Manager' },
+    ] : []),
   ];
 
   return (
@@ -55,6 +80,14 @@ const App = () => {
           <div className="header-row header-top">
             <div className="header-title">Sign Glove</div>
             <div className="header-actions">
+              {user ? (
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <span style={{ fontSize: 14 }}>Signed in as {user.email} ({user.role})</span>
+                  <button className="btn btn-secondary" onClick={signOut}>Sign Out</button>
+                </div>
+              ) : (
+                <Link to="/login" className="btn btn-secondary">Sign In</Link>
+              )}
               {/* Hamburger menu for mobile */}
               <button
                 className="header-hamburger"
@@ -92,15 +125,16 @@ const App = () => {
         <main className="p-4" style={{ position: 'relative', zIndex: 1 }}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/upload-csv" element={<UploadCSV />} />
-            <Route path="/upload-training-csv" element={<UploadTrainingCSV />} />
+            <Route path="/upload-csv" element={isEditor ? <UploadCSV /> : <Dashboard />} />
+            <Route path="/upload-training-csv" element={isEditor ? <UploadTrainingCSV /> : <Dashboard />} />
             <Route path="/gestures" element={<ManageGestures />} />
             <Route path="/training-results" element={<TrainingResults />} />
             <Route path="/predict" element={<Predict />} />
             <Route path="/live-predict" element={<LivePredict />} />
             <Route path="/history" element={<PredictionHistory />} />
-            <Route path="/admin" element={<AdminTools />} />
-            <Route path="/audio-manager" element={<AudioManager />} />
+            <Route path="/admin" element={isEditor ? <AdminTools /> : <Dashboard />} />
+            <Route path="/audio-manager" element={isEditor ? <AudioManager /> : <Dashboard />} />
+            <Route path="/login" element={<Login onLogin={setUser} />} />
           </Routes>
         </main>
 
