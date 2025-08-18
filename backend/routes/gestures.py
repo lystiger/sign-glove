@@ -138,16 +138,7 @@ async def get_sensor_data(session_id: str, request: Request) -> Dict[str, Any]:
     summary="Insert new sensor data",
     description="Insert a new batch of sensor data into the database."
 )
-<<<<<<< HEAD
-@router.post(
-    "/",
-    summary="Insert new sensor data (alias with trailing slash)",
-    description="Insert a new batch of sensor data into the database."
-)
-async def create_sensor_data(data: SensorData, request: Request) -> Dict[str, Any]:
-=======
 async def create_sensor_data(data: SensorData, request: Request, _user=Depends(role_required_dep("editor"))) -> Dict[str, Any]:
->>>>>>> 9de1e983acf572c97ba2cb123b7d2f0bd6cc1985
     """
     Example response:
     {

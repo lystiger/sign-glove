@@ -3,11 +3,7 @@ Centralized settings for the sign glove system.
 Loads all configuration from environment variables or defaults.
 """
 from pydantic_settings import BaseSettings
-<<<<<<< HEAD
 from pydantic import Field, validator
-=======
-from pydantic import Field
->>>>>>> 9de1e983acf572c97ba2cb123b7d2f0bd6cc1985
 from typing import List, Dict, Any, Optional
 import os
 from pathlib import Path
@@ -105,35 +101,6 @@ class Settings(BaseSettings):
             raise ValueError("JWT_SECRET_KEY must be set in production")
         return v
 
-<<<<<<< HEAD
-    @validator("DB_NAME", pre=True)
-    def pick_db_name(cls, v):
-        # Support both DB_NAME and DATABASE_NAME
-        if v and isinstance(v, str) and v.strip():
-            return v
-        alt = os.getenv("DATABASE_NAME")
-        return alt or "sign_glove"
-    
-    def is_production(self) -> bool:
-        """Check if running in production environment."""
-        return self.ENVIRONMENT.lower() == "production"
-    
-    def is_development(self) -> bool:
-        """Check if running in development environment."""
-        return self.ENVIRONMENT.lower() == "development"
-    
-    def is_testing(self) -> bool:
-        """Check if running in testing environment."""
-        return self.ENVIRONMENT.lower() == "testing"
-    
-    # pydantic v2 settings configuration
-    model_config = SettingsConfigDict(
-        env_file=str(Path(__file__).resolve().parent.parent / ".env"),
-        env_file_encoding='utf-8',
-        case_sensitive=True,
-        extra='ignore',  # ignore unknown env keys like DATABASE_NAME
-    )
-=======
     # Auth/JWT settings
     SECRET_KEY: str = Field("change-me-in-prod", env="SECRET_KEY")
     JWT_ALGORITHM: str = Field("HS256", env="JWT_ALGORITHM")
@@ -144,10 +111,16 @@ class Settings(BaseSettings):
     DEFAULT_EDITOR_EMAIL: Optional[str] = Field(None, env="DEFAULT_EDITOR_EMAIL")
     DEFAULT_EDITOR_PASSWORD: Optional[str] = Field(None, env="DEFAULT_EDITOR_PASSWORD")
 
+    def is_testing(self) -> bool:
+        """Return True when running in tests or CI to disable background loops."""
+        env_value = (self.ENVIRONMENT or "").lower()
+        if env_value in ("test", "testing", "ci"):
+            return True
+        return bool(os.getenv("PYTEST_CURRENT_TEST") or os.getenv("CI") or os.getenv("UNITTEST_RUNNING"))
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
->>>>>>> 9de1e983acf572c97ba2cb123b7d2f0bd6cc1985
 
 # Create settings instance
 settings = Settings()

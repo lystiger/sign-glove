@@ -88,12 +88,8 @@ async def automated_pipeline_loop():
 async def lifespan(app: FastAPI):
     await test_connection() 
     await create_indexes()
-<<<<<<< HEAD
-    logging.info("Indexes created. App is starting...")
-=======
     await ensure_default_editor()
-    logging.info("✅ Indexes created. App is starting...")
->>>>>>> 9de1e983acf572c97ba2cb123b7d2f0bd6cc1985
+    logging.info("Indexes created. App is starting...")
     loop = asyncio.get_event_loop()
     # Disable automated pipeline during testing to avoid event loop issues
     if not settings.is_testing():
@@ -129,22 +125,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-<<<<<<< HEAD
-# Mount routers with authentication
-app.include_router(auth_routes.router)  # No auth required for login
-
-# Protected routes - require authentication
-app.include_router(gestures.router, dependencies=[Depends(require_user)])
-app.include_router(training_trigger.router, dependencies=[Depends(require_admin)])
-app.include_router(training_routes.router, dependencies=[Depends(require_admin)])
-app.include_router(sensor_routes.router, dependencies=[Depends(require_user)])
-app.include_router(predict_routes.router, dependencies=[Depends(require_user)])
-app.include_router(admin_routes.router, dependencies=[Depends(require_admin)])
-app.include_router(dashboard_routes.router, dependencies=[Depends(require_viewer)])
-app.include_router(liveWS.router, dependencies=[Depends(require_viewer)])
-app.include_router(utils_routes.router, dependencies=[Depends(require_viewer)])
-app.include_router(audio_files_routes.router, dependencies=[Depends(require_user)])
-=======
 # Mount routers
 app.include_router(auth_routes.router)
 app.include_router(gestures.router)
@@ -157,7 +137,6 @@ app.include_router(dashboard_routes.router)
 app.include_router(liveWS.router)
 app.include_router(utils_routes.router)
 app.include_router(audio_files_routes.router)
->>>>>>> 9de1e983acf572c97ba2cb123b7d2f0bd6cc1985
 
 # Mount models directory for static files if needed
 app.mount("/models", StaticFiles(directory=settings.DATA_DIR), name="models")

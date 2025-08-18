@@ -15,9 +15,15 @@ import websockets
 import json
 import requests
 from datetime import datetime
-
 # Backend imports
-sys.path.append('.')
+backend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if backend_path not in sys.path:
+    sys.path.insert(0, backend_path)
+
+# Keep current working directory as well
+if '.' not in sys.path:
+    sys.path.append('.')
+
 from core.database import sensor_collection  # MongoDB collection
 
 # ========= CONFIG =========
