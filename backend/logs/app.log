@@ -1112,3 +1112,141 @@ Total rows in gesture_data.csv: 0
 2025-08-18 14:57:58,253 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
 2025-08-18 15:02:58,268 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
 2025-08-18 15:07:58,266 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-18 15:12:58,274 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-18 16:36:43,625 - core.database - INFO - Connected to MongoDB!
+2025-08-18 16:36:43,661 - root - INFO - Indexes created. App is starting...
+2025-08-18 16:36:43,706 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-18 16:41:43,708 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-18 16:46:43,701 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 13:25:41,278 - core.database - INFO - Connected to MongoDB!
+2025-08-19 13:25:41,300 - root - INFO - Indexes created. App is starting...
+2025-08-19 13:25:41,320 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 13:30:41,332 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 13:35:41,338 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 13:40:41,338 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 13:45:41,363 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 13:50:41,353 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 13:55:41,357 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 14:00:41,374 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 14:56:09,564 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:01:09,572 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:06:09,573 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:11:09,578 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:16:09,583 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:21:09,600 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:26:09,605 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:31:09,600 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:36:09,605 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:37:22,709 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-19 15:38:47,343 - core.database - INFO - Connected to MongoDB!
+2025-08-19 15:38:47,375 - root - INFO - Indexes created. App is starting...
+2025-08-19 15:38:47,378 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:39:30,022 - core.database - INFO - Connected to MongoDB!
+2025-08-19 15:39:30,097 - root - INFO - Indexes created. App is starting...
+2025-08-19 15:39:30,111 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:39:52,805 - core.database - INFO - Connected to MongoDB!
+2025-08-19 15:39:52,818 - root - INFO - Indexes created. App is starting...
+2025-08-19 15:39:52,819 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:44:52,812 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:49:52,807 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:54:52,817 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 15:59:52,826 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 16:04:52,841 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 16:09:52,863 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 16:14:52,877 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 16:19:52,892 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 16:24:52,912 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 16:29:52,904 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 16:34:52,903 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 16:39:53,275 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-19 16:44:49,897 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-20 09:28:55,653 - core.database - ERROR - MongoDB connection failed:
+Traceback (most recent call last):
+  File "F:\testing\sign-glove\backend\core\database.py", line 28, in test_connection
+    await client.admin.command("ping")
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\database.py", line 926, in command
+    with self._client._conn_for_reads(read_preference, session, operation=command_name) as (
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1864, in _conn_for_reads
+    server = self._select_server(read_preference, session, operation)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1812, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 409, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 387, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 294, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\topology.py", line 344, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: SSL handshake failed: ac-wkzvwis-shard-00-01.2fgsv8h.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1006) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: ac-wkzvwis-shard-00-00.2fgsv8h.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1006) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: ac-wkzvwis-shard-00-02.2fgsv8h.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1006) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 68a532a476432660e8a1d37e, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-wkzvwis-shard-00-00.2fgsv8h.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: ac-wkzvwis-shard-00-00.2fgsv8h.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1006) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-wkzvwis-shard-00-01.2fgsv8h.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: ac-wkzvwis-shard-00-01.2fgsv8h.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1006) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-wkzvwis-shard-00-02.2fgsv8h.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: ac-wkzvwis-shard-00-02.2fgsv8h.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1006) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-20 09:30:17,340 - core.database - ERROR - MongoDB connection failed:
+Traceback (most recent call last):
+  File "F:\testing\sign-glove\backend\core\database.py", line 28, in test_connection
+    await client.admin.command("ping")
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\database.py", line 926, in command
+    with self._client._conn_for_reads(read_preference, session, operation=command_name) as (
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1846, in _conn_from_server
+    with self._checkout(server, session) as conn:
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1756, in _checkout
+    with server.checkout(handler=err_handler) as conn:
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\pool.py", line 1119, in checkout
+    conn = self._get_conn(checkout_started_time, handler=handler)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\pool.py", line 1281, in _get_conn
+    conn = self.connect(handler=handler)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\pool.py", line 1073, in connect
+    conn.authenticate()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\pool.py", line 526, in authenticate
+    auth.authenticate(creds, self, reauthenticate=reauthenticate)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\auth.py", line 450, in authenticate
+    auth_func(credentials, conn)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\auth.py", line 355, in _authenticate_default
+    return _authenticate_scram(credentials, conn, "SCRAM-SHA-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\auth.py", line 135, in _authenticate_scram
+    res = conn.command(source, cmd)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\helpers.py", line 47, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\pool.py", line 414, in command
+    return command(
+           ^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\network.py", line 212, in command
+    helpers_shared._check_command_response(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\helpers_shared.py", line 250, in _check_command_response
+    raise OperationFailure(errmsg, code, response, max_wire_version)
+pymongo.errors.OperationFailure: bad auth : authentication failed, full error: {'ok': 0, 'errmsg': 'bad auth : authentication failed', 'code': 8000, 'codeName': 'AtlasError'}
+2025-08-20 09:31:54,679 - core.database - INFO - Connected to MongoDB!
+2025-08-20 09:35:08,505 - core.database - INFO - Connected to MongoDB!
+2025-08-20 09:35:09,199 - root - INFO - Indexes created. App is starting...
+2025-08-20 09:35:09,217 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-20 09:35:17,367 - root - INFO - MongoDB connection closed. App is shutting down...

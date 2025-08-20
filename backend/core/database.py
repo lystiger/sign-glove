@@ -10,7 +10,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-client = AsyncIOMotorClient(settings.MONGO_URI)
+client = AsyncIOMotorClient(settings.MONGO_URI, w=1)
 db = client[settings.DB_NAME]
 prediction_collection = db["predictions"]
 sensor_collection = db["sensor_data"]

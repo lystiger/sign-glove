@@ -13,17 +13,32 @@
   The serial output is captured by a Python script for further processing and AI training.
 */
 
+/*
+  Sign-Glove Arduino Sketch
+  ------------------------
+  This code reads 5 flex sensors (one for each finger) and an MPU6050 IMU (accelerometer + gyroscope)
+  using an ESP32. It outputs the sensor values in CSV format over serial for use with the sign-glove project.
+
+  Output format:
+    flex1,flex2,flex3,flex4,flex5,accX,accY,accZ,gyroX,gyroY,gyroZ
+  - flex1..flex5: Analog values from each flex sensor (fingers)
+  - accX,accY,accZ: Accelerometer readings from MPU6050
+  - gyroX,gyroY,gyroZ: Gyroscope readings from MPU6050
+
+  The serial output is captured by a Python script for further processing and AI training.
+*/
+
 #include <Wire.h>
 #include <MPU6050.h>
 
 MPU6050 mpu;
 
 // Flex sensor pins (ESP32 ADC pins)
-const int FLEX_PIN_1 = 36;
-const int FLEX_PIN_2 = 39;
-const int FLEX_PIN_3 = 34;
-const int FLEX_PIN_4 = 35;
-const int FLEX_PIN_5 = 32;
+const int FLEX_PIN_1 = 36; // ut
+const int FLEX_PIN_2 = 34; // ap ut
+const int FLEX_PIN_3 = 35; // giua 
+const int FLEX_PIN_4 = 32; // tro 
+const int FLEX_PIN_5 = 33; // cai
 
 void setup() {
   Serial.begin(115200); // Start serial communication at 115200 baud
