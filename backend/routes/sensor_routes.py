@@ -26,12 +26,7 @@ def convert_id(doc):
     return doc
 
 @router.post("/sensor-data")
-<<<<<<< HEAD
-@router.post("/sensor-data/")
-async def create_sensor_data(data: SensorData):
-=======
 async def create_sensor_data(data: SensorData, _user=Depends(role_required_dep("editor"))):
->>>>>>> 9de1e983acf572c97ba2cb123b7d2f0bd6cc1985
     """
     Insert new sensor data into the database.
     """

@@ -3,15 +3,15 @@ Centralized settings for the sign glove system.
 Loads all configuration from environment variables or defaults.
 """
 from pydantic_settings import BaseSettings
-<<<<<<< HEAD
 from pydantic import Field, validator
-=======
-from pydantic import Field
->>>>>>> 9de1e983acf572c97ba2cb123b7d2f0bd6cc1985
 from typing import List, Dict, Any, Optional
 import os
 from pathlib import Path
 from pydantic_settings import SettingsConfigDict
+
+# backend/
+BASE_DIR = Path(__file__).resolve().parent.parent
+ENV_FILE = BASE_DIR / ".env"
 
 class Settings(BaseSettings):
     # Environment
@@ -27,6 +27,12 @@ class Settings(BaseSettings):
     # Database
     MONGO_URI: str = Field("mongodb://localhost:27017", env="MONGO_URI")
     DB_NAME: str = Field("sign_glove", env="DB_NAME")
+    TEST_DB_NAME: str = "test_signglove"
+    ENVIRONMENT: str = "development"
+    SECRET_KEY: str = "supersecret"
+    ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
+
     
     # Model/data paths
     BASE_DIR: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -105,35 +111,6 @@ class Settings(BaseSettings):
             raise ValueError("JWT_SECRET_KEY must be set in production")
         return v
 
-<<<<<<< HEAD
-    @validator("DB_NAME", pre=True)
-    def pick_db_name(cls, v):
-        # Support both DB_NAME and DATABASE_NAME
-        if v and isinstance(v, str) and v.strip():
-            return v
-        alt = os.getenv("DATABASE_NAME")
-        return alt or "sign_glove"
-    
-    def is_production(self) -> bool:
-        """Check if running in production environment."""
-        return self.ENVIRONMENT.lower() == "production"
-    
-    def is_development(self) -> bool:
-        """Check if running in development environment."""
-        return self.ENVIRONMENT.lower() == "development"
-    
-    def is_testing(self) -> bool:
-        """Check if running in testing environment."""
-        return self.ENVIRONMENT.lower() == "testing"
-    
-    # pydantic v2 settings configuration
-    model_config = SettingsConfigDict(
-        env_file=str(Path(__file__).resolve().parent.parent / ".env"),
-        env_file_encoding='utf-8',
-        case_sensitive=True,
-        extra='ignore',  # ignore unknown env keys like DATABASE_NAME
-    )
-=======
     # Auth/JWT settings
     SECRET_KEY: str = Field("change-me-in-prod", env="SECRET_KEY")
     JWT_ALGORITHM: str = Field("HS256", env="JWT_ALGORITHM")
@@ -147,7 +124,6 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
->>>>>>> 9de1e983acf572c97ba2cb123b7d2f0bd6cc1985
 
 # Create settings instance
 settings = Settings()
@@ -169,3 +145,4 @@ def ensure_directories():
 
 # Initialize directories
 ensure_directories()
+

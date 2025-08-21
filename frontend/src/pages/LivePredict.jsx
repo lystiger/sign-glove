@@ -11,7 +11,7 @@ const LivePredict = () => {
 
   const connectWebSocket = () => {
     if (wsRef.current) wsRef.current.close();
-    const ws = new window.WebSocket('ws://localhost:8080/ws/predict');
+    const ws = new window.WebSocket('ws://localhost:8000/ws/predict');
     wsRef.current = ws;
     ws.onopen = () => {
       setConnected(true);

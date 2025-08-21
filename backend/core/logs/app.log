@@ -1,0 +1,10 @@
+2025-08-21 10:27:56,517 - signglove - INFO - Request: POST /auth/login
+2025-08-21 10:28:26,941 - signglove - ERROR - Error 304f0504-3b5d-4caf-b33d-a8485d2c4bd1: ServerSelectionTimeoutError - localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 68a69239a7e359af98769f45, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-21 10:28:26,949 - signglove - WARNING - Slow request: POST /auth/login took 30.43s
+2025-08-21 10:28:26,949 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-21 10:28:26,951 - httpx - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-21 10:29:13,289 - signglove - INFO - Request: POST /auth/login
+2025-08-21 10:29:43,735 - signglove - ERROR - Error f27503dd-dd83-4d02-9abc-0f8dc3ad5d3f: ServerSelectionTimeoutError - localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 68a69286b6ca006522628952, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-21 10:29:43,735 - signglove - WARNING - Slow request: POST /auth/login took 30.45s
+2025-08-21 10:29:43,736 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-21 10:29:43,737 - httpx - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 500 Internal Server Error"

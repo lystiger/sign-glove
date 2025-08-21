@@ -6,11 +6,13 @@ from fastapi.exception_handlers import RequestValidationError
 from routes import training_trigger, training_routes, sensor_routes, predict_routes, admin_routes, dashboard_routes
 from routes import gestures, liveWS, utils_routes, auth_routes
 from routes import audio_files_routes
-from routes import auth_routes
 from core.indexes import create_indexes 
 from core.database import client, test_connection
 from core.settings import settings
-from core.auth import get_required_role_for_path, require_admin, require_user, require_viewer
+from routes.auth_routes import (
+    role_required_dep as role_required,
+    role_or_internal_dep as role_or_internal,
+)
 from core.middleware import setup_middleware
 from core.error_handler import create_error_response, error_tracker, performance_monitor
 from contextlib import asynccontextmanager
@@ -69,7 +71,7 @@ async def automated_pipeline_loop():
                     import requests
                     try:
                         resp = requests.post(
-                            "http://localhost:8080/training/trigger",
+                            "http://localhost:8000/training/trigger",
                             headers={"X-API-KEY": settings.SECRET_KEY}
                         )
                         if resp.status_code == 200:
@@ -88,19 +90,17 @@ async def automated_pipeline_loop():
 async def lifespan(app: FastAPI):
     await test_connection() 
     await create_indexes()
-<<<<<<< HEAD
-    logging.info("Indexes created. App is starting...")
-=======
     await ensure_default_editor()
-    logging.info("✅ Indexes created. App is starting...")
->>>>>>> 9de1e983acf572c97ba2cb123b7d2f0bd6cc1985
+    logging.info("Indexes created. App is starting...")
+
+    # Start automated pipeline unconditionally
     loop = asyncio.get_event_loop()
-    # Disable automated pipeline during testing to avoid event loop issues
-    if not settings.is_testing():
-        loop.create_task(automated_pipeline_loop())
+    loop.create_task(automated_pipeline_loop())
+
     yield
     client.close()
     logging.info("MongoDB connection closed. App is shutting down...")
+
 
 app = FastAPI(title="Sign Glove API", lifespan=lifespan)
 
@@ -129,35 +129,21 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-<<<<<<< HEAD
 # Mount routers with authentication
 app.include_router(auth_routes.router)  # No auth required for login
 
-# Protected routes - require authentication
-app.include_router(gestures.router, dependencies=[Depends(require_user)])
-app.include_router(training_trigger.router, dependencies=[Depends(require_admin)])
-app.include_router(training_routes.router, dependencies=[Depends(require_admin)])
-app.include_router(sensor_routes.router, dependencies=[Depends(require_user)])
-app.include_router(predict_routes.router, dependencies=[Depends(require_user)])
-app.include_router(admin_routes.router, dependencies=[Depends(require_admin)])
-app.include_router(dashboard_routes.router, dependencies=[Depends(require_viewer)])
-app.include_router(liveWS.router, dependencies=[Depends(require_viewer)])
-app.include_router(utils_routes.router, dependencies=[Depends(require_viewer)])
-app.include_router(audio_files_routes.router, dependencies=[Depends(require_user)])
-=======
-# Mount routers
-app.include_router(auth_routes.router)
-app.include_router(gestures.router)
-app.include_router(training_trigger.router)
-app.include_router(training_routes.router)
-app.include_router(sensor_routes.router)
-app.include_router(predict_routes.router)
-app.include_router(admin_routes.router)
-app.include_router(dashboard_routes.router)
-app.include_router(liveWS.router)
-app.include_router(utils_routes.router)
-app.include_router(audio_files_routes.router)
->>>>>>> 9de1e983acf572c97ba2cb123b7d2f0bd6cc1985
+# Protected routes - require authentication (unified with auth_routes JWT)
+# Role levels: "guest" < "editor" < "admin"
+app.include_router(gestures.router, dependencies=[Depends(role_required("editor"))])
+app.include_router(training_trigger.router, dependencies=[Depends(role_or_internal("admin"))])
+app.include_router(training_routes.router, dependencies=[Depends(role_required("admin"))])
+app.include_router(sensor_routes.router, dependencies=[Depends(role_required("editor"))])
+app.include_router(predict_routes.router, dependencies=[Depends(role_required("guest"))])
+app.include_router(admin_routes.router, dependencies=[Depends(role_required("admin"))])
+app.include_router(dashboard_routes.router, dependencies=[Depends(role_required("guest"))])
+app.include_router(liveWS.router, dependencies=[Depends(role_required("guest"))])
+app.include_router(utils_routes.router, dependencies=[Depends(role_required("guest"))])
+app.include_router(audio_files_routes.router, dependencies=[Depends(role_required("editor"))])
 
 # Mount models directory for static files if needed
 app.mount("/models", StaticFiles(directory=settings.DATA_DIR), name="models")

@@ -1,28 +1,6 @@
 version: '3.8'
 
 services:
-  # MongoDB Database
-  mongodb:
-    image: mongo:7.0
-    container_name: signglove-mongodb
-    restart: unless-stopped
-    ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: signglove123
-      MONGO_INITDB_DATABASE: signglove
-    volumes:
-      - mongodb_data:/data/db
-      - ./mongo-init:/docker-entrypoint-initdb.d
-    networks:
-      - signnet
-    healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-
   # FastAPI Backend
   backend:
     build:
@@ -33,8 +11,8 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - MONGO_URI=mongodb://admin:signglove123@mongodb:27017/signglove?authSource=admin
-      - DB_NAME=signglove
+      - MONGO_URI=${MONGO_URI}
+      - DB_NAME=${DB_NAME}
       - ESP32_IP=192.168.1.100
       - TTS_ENABLED=true
       - TTS_PROVIDER=gtts
@@ -44,9 +22,6 @@ services:
       - backend_data:/app/data
       - backend_models:/app/models
       - backend_cache:/app/tts_cache
-    depends_on:
-      mongodb:
-        condition: service_healthy
     networks:
       - signnet
     healthcheck:
@@ -88,8 +63,6 @@ services:
   #     - signnet
 
 volumes:
-  mongodb_data:
-    driver: local
   backend_data:
     driver: local
   backend_models:

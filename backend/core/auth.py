@@ -52,6 +52,43 @@ class User(BaseModel):
 class UserInDB(User):
     hashed_password: str
 
+ROUTE_PERMISSIONS = {
+    # Admin routes
+    "/admin": UserRole.ADMIN,
+    "/training/trigger": UserRole.ADMIN,
+    "/training/": UserRole.ADMIN,
+    "/api/admin": UserRole.ADMIN,
+    "/api/training/trigger": UserRole.ADMIN,
+    "/api/training/": UserRole.ADMIN,
+
+    # User routes (can read/write data)
+    "/gestures": UserRole.USER,
+    "/predict": UserRole.USER,
+    "/sensor-data": UserRole.USER,
+    "/upload": UserRole.USER,
+    "/api/gestures": UserRole.USER,
+    "/api/predict": UserRole.USER,
+    "/api/sensor-data": UserRole.USER,
+    "/api/upload": UserRole.USER,
+
+    # Viewer routes (read-only)
+    "/dashboard": UserRole.VIEWER,
+    "/training-results": UserRole.VIEWER,
+    "/history": UserRole.VIEWER,
+    "/live-predict": UserRole.VIEWER,
+    "/api/dashboard": UserRole.VIEWER,
+    "/api/training-results": UserRole.VIEWER,
+    "/api/history": UserRole.VIEWER,
+    "/api/live-predict": UserRole.VIEWER,
+}
+
+def get_required_role_for_path(path: str) -> str:
+    """Get required role for a given API path."""
+    for route, role in ROUTE_PERMISSIONS.items():
+        if path.startswith(route):
+            return role
+    return UserRole.VIEWER  # Default to viewer for unknown routes
+
 # Default users (in production, these should be in database)
 DEFAULT_USERS = {
     "admin": {
@@ -182,29 +219,3 @@ require_admin = require_role(UserRole.ADMIN)
 require_user = require_role(UserRole.USER)
 require_viewer = require_role(UserRole.VIEWER)
 
-# Route permissions mapping
-ROUTE_PERMISSIONS = {
-    # Admin routes
-    "/admin": UserRole.ADMIN,
-    "/training/trigger": UserRole.ADMIN,
-    "/training/": UserRole.ADMIN,
-    
-    # User routes (can read/write data)
-    "/gestures": UserRole.USER,
-    "/predict": UserRole.USER,
-    "/sensor-data": UserRole.USER,
-    "/upload": UserRole.USER,
-    
-    # Viewer routes (read-only)
-    "/dashboard": UserRole.VIEWER,
-    "/training-results": UserRole.VIEWER,
-    "/history": UserRole.VIEWER,
-    "/live-predict": UserRole.VIEWER,
-}
-
-def get_required_role_for_path(path: str) -> str:
-    """Get required role for a given API path."""
-    for route, role in ROUTE_PERMISSIONS.items():
-        if path.startswith(route):
-            return role
-    return UserRole.VIEWER  # Default to viewer for unknown routes 

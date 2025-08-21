@@ -1,0 +1,145 @@
+2025-08-20 22:59:11,334 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-20 22:59:11,336 - signglove - ERROR - Error af4036f2-7d39-4478-8a4e-93744cefef14: HTTPException - 
+2025-08-20 22:59:11,337 - signglove - INFO - Response: DELETE /admin/sensor-data - 401
+2025-08-20 22:59:11,339 - httpx - INFO - HTTP Request: DELETE http://testserver/admin/sensor-data "HTTP/1.1 401 Unauthorized"
+2025-08-20 22:59:11,669 - signglove - INFO - Request: DELETE /admin/training-results
+2025-08-20 22:59:11,670 - signglove - ERROR - Error 0fe1a24a-5a30-4954-8152-92b27b9731b7: HTTPException - 
+2025-08-20 22:59:11,671 - signglove - INFO - Response: DELETE /admin/training-results - 401
+2025-08-20 22:59:11,674 - httpx - INFO - HTTP Request: DELETE http://testserver/admin/training-results "HTTP/1.1 401 Unauthorized"
+2025-08-20 23:00:11,694 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:00:11,696 - signglove - ERROR - Error 3ca0907a-1b7e-4a5e-9052-5b4077318184: RequestValidationError - [{'type': 'missing', 'loc': ('body', 'email'), 'msg': 'Field required', 'input': {'username': 'admin', 'password': 'admin123'}, 'url': 'https://errors.pydantic.dev/2.7/v/missing'}]
+2025-08-20 23:00:11,697 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:00:11,699 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:00:12,011 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:00:12,012 - signglove - ERROR - Error ac6c36b5-0517-4f33-875a-8def06b00450: RequestValidationError - [{'type': 'missing', 'loc': ('body', 'email'), 'msg': 'Field required', 'input': {'username': 'admin', 'password': 'admin123'}, 'url': 'https://errors.pydantic.dev/2.7/v/missing'}]
+2025-08-20 23:00:12,013 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:00:12,014 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:02:30,449 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:03:00,924 - signglove - ERROR - Error 02baafe3-53c6-42d8-a0d7-24fb306493b3: ServerSelectionTimeoutError - localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 68a5f192e5f979444b4de2ff, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-20 23:03:00,925 - signglove - WARNING - Slow request: POST /auth/login took 30.48s
+2025-08-20 23:03:00,925 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:03:00,928 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:03:01,260 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:03:01,283 - signglove - ERROR - Error ddf8f5e3-8e94-44c6-b2de-01e4c13a4ec2: RuntimeError - Event loop is closed
+2025-08-20 23:03:01,283 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:03:01,285 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:06:58,385 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:07:28,464 - signglove - ERROR - Error c9a81fc1-7d11-4938-b8cb-f92f29623797: ServerSelectionTimeoutError - localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 68a5f29e1a9fa47d910d20cb, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-20 23:07:28,465 - signglove - WARNING - Slow request: POST /auth/login took 30.08s
+2025-08-20 23:07:28,465 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:07:28,468 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:07:28,778 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:07:28,781 - signglove - ERROR - Error daede136-8213-48ab-a465-0675526f1f03: RuntimeError - Event loop is closed
+2025-08-20 23:07:28,781 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:07:28,783 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:09:58,715 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:10:28,744 - signglove - ERROR - Error 9530e17a-e0d0-41a5-a860-8236f6929689: ServerSelectionTimeoutError - localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 68a5f35338ad53d22345ed65, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-20 23:10:28,744 - signglove - WARNING - Slow request: POST /auth/login took 30.03s
+2025-08-20 23:10:28,745 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:10:28,747 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:10:29,050 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:10:29,052 - signglove - ERROR - Error 342f3a1f-3d74-4c49-8bce-ffc33c3f41df: RuntimeError - Event loop is closed
+2025-08-20 23:10:29,052 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:10:29,054 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:17:28,106 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:17:58,153 - signglove - ERROR - Error b577381e-2538-48e6-9f72-9836ee565b65: ServerSelectionTimeoutError - localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 68a5f51401b877362c7407bf, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-20 23:17:58,154 - signglove - WARNING - Slow request: POST /auth/login took 30.05s
+2025-08-20 23:17:58,154 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:17:58,157 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:17:58,463 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:17:58,465 - signglove - ERROR - Error 5819c358-dd21-4e2a-8fb3-679fa1618a2e: RuntimeError - Event loop is closed
+2025-08-20 23:17:58,466 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:17:58,467 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:18:56,006 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:19:26,413 - signglove - ERROR - Error 26444412-2f52-4283-b248-1d790ae6b06f: ServerSelectionTimeoutError - localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 68a5f56c2057c1b0e32fab0c, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-20 23:19:26,414 - signglove - WARNING - Slow request: POST /auth/login took 30.41s
+2025-08-20 23:19:26,414 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:19:26,417 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:19:26,759 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:19:26,762 - signglove - ERROR - Error 613ed0a3-9651-4e29-9582-3ccc96c03454: RuntimeError - Event loop is closed
+2025-08-20 23:19:26,762 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:19:26,764 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:25:40,839 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:26:10,932 - signglove - ERROR - Error e549e7b8-9bf5-4500-9e4f-66cf595d78af: ServerSelectionTimeoutError - localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 68a5f7016ddca6258e76fd49, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-20 23:26:10,932 - signglove - WARNING - Slow request: POST /auth/login took 30.09s
+2025-08-20 23:26:10,933 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:26:10,935 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:26:11,270 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:26:11,273 - signglove - ERROR - Error 27c7ef06-d8a4-4604-a1ca-0526ce76c29a: RuntimeError - Event loop is closed
+2025-08-20 23:26:11,273 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:26:11,275 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:36:47,735 - signglove - INFO - Request: GET /gestures
+2025-08-20 23:36:47,738 - signglove - ERROR - Error 9be160e2-1494-4dd0-ab23-2703c9b5b910: HTTPException - 
+2025-08-20 23:36:47,739 - signglove - INFO - Response: GET /gestures - 401
+2025-08-20 23:36:47,741 - httpx - INFO - HTTP Request: GET http://testserver/gestures "HTTP/1.1 401 Unauthorized"
+2025-08-20 23:36:48,065 - signglove - INFO - Request: GET /training/results
+2025-08-20 23:36:48,066 - signglove - ERROR - Error f1930be3-0ebc-440f-b341-150c59bdc1a4: HTTPException - 
+2025-08-20 23:36:48,067 - signglove - INFO - Response: GET /training/results - 401
+2025-08-20 23:36:48,068 - httpx - INFO - HTTP Request: GET http://testserver/training/results "HTTP/1.1 401 Unauthorized"
+2025-08-20 23:36:48,075 - signglove - INFO - Request: GET /predict/history
+2025-08-20 23:36:48,076 - signglove - INFO - Response: GET /predict/history - 404
+2025-08-20 23:36:48,078 - httpx - INFO - HTTP Request: GET http://testserver/predict/history "HTTP/1.1 404 Not Found"
+2025-08-20 23:36:48,085 - signglove - INFO - Request: GET /dashboard/stats
+2025-08-20 23:36:48,086 - signglove - INFO - Response: GET /dashboard/stats - 404
+2025-08-20 23:36:48,088 - httpx - INFO - HTTP Request: GET http://testserver/dashboard/stats "HTTP/1.1 404 Not Found"
+2025-08-20 23:36:48,095 - signglove - INFO - Request: GET /utils/info
+2025-08-20 23:36:48,096 - signglove - INFO - Response: GET /utils/info - 404
+2025-08-20 23:36:48,098 - httpx - INFO - HTTP Request: GET http://testserver/utils/info "HTTP/1.1 404 Not Found"
+2025-08-20 23:36:48,103 - signglove - INFO - Request: GET /admin/info
+2025-08-20 23:36:48,103 - signglove - INFO - Response: GET /admin/info - 404
+2025-08-20 23:36:48,103 - httpx - INFO - HTTP Request: GET http://testserver/admin/info "HTTP/1.1 404 Not Found"
+2025-08-20 23:36:48,113 - signglove - INFO - Request: GET /audio-files
+2025-08-20 23:36:48,114 - signglove - INFO - Response: GET /audio-files - 307
+2025-08-20 23:36:48,116 - httpx - INFO - HTTP Request: GET http://testserver/audio-files "HTTP/1.1 307 Temporary Redirect"
+2025-08-20 23:36:48,116 - signglove - INFO - Request: GET /audio-files/
+2025-08-20 23:36:48,116 - signglove - ERROR - Error 86aa95ce-da85-4f08-bb99-7e134846c09a: HTTPException - 
+2025-08-20 23:36:48,116 - signglove - INFO - Response: GET /audio-files/ - 401
+2025-08-20 23:36:48,116 - httpx - INFO - HTTP Request: GET http://testserver/audio-files/ "HTTP/1.1 401 Unauthorized"
+2025-08-20 23:36:48,128 - signglove - INFO - Request: GET /sensor/data
+2025-08-20 23:36:48,129 - signglove - INFO - Response: GET /sensor/data - 404
+2025-08-20 23:36:48,131 - httpx - INFO - HTTP Request: GET http://testserver/sensor/data "HTTP/1.1 404 Not Found"
+2025-08-20 23:36:48,137 - signglove - INFO - Request: GET /live-predict
+2025-08-20 23:36:48,138 - signglove - INFO - Response: GET /live-predict - 404
+2025-08-20 23:36:48,140 - httpx - INFO - HTTP Request: GET http://testserver/live-predict "HTTP/1.1 404 Not Found"
+2025-08-20 23:36:48,147 - signglove - INFO - Request: GET /training/trigger
+2025-08-20 23:36:48,148 - signglove - ERROR - Error fe2d2199-f55c-4294-86c1-65dca65fd2ae: HTTPException - 
+2025-08-20 23:36:48,148 - signglove - INFO - Response: GET /training/trigger - 401
+2025-08-20 23:36:48,150 - httpx - INFO - HTTP Request: GET http://testserver/training/trigger "HTTP/1.1 401 Unauthorized"
+2025-08-20 23:36:48,156 - signglove - INFO - Request: GET /data/info
+2025-08-20 23:36:48,157 - signglove - INFO - Response: GET /data/info - 404
+2025-08-20 23:36:48,159 - httpx - INFO - HTTP Request: GET http://testserver/data/info "HTTP/1.1 404 Not Found"
+2025-08-20 23:37:21,612 - signglove - INFO - Request: GET /dashboard/stats
+2025-08-20 23:37:21,614 - signglove - INFO - Response: GET /dashboard/stats - 404
+2025-08-20 23:37:21,616 - httpx - INFO - HTTP Request: GET http://testserver/dashboard/stats "HTTP/1.1 404 Not Found"
+2025-08-20 23:37:50,787 - signglove - INFO - Request: POST /gestures/
+2025-08-20 23:37:50,790 - signglove - INFO - Response: POST /gestures/ - 405
+2025-08-20 23:37:50,791 - httpx - INFO - HTTP Request: POST http://test/gestures/ "HTTP/1.1 405 Method Not Allowed"
+2025-08-20 23:37:50,796 - signglove - INFO - Request: DELETE /gestures/test_session
+2025-08-20 23:37:50,798 - signglove - ERROR - Error a5e8cd3f-ed39-4520-9221-548b8b12be65: HTTPException - 
+2025-08-20 23:37:50,799 - signglove - INFO - Response: DELETE /gestures/test_session - 401
+2025-08-20 23:37:50,800 - httpx - INFO - HTTP Request: DELETE http://test/gestures/test_session "HTTP/1.1 401 Unauthorized"
+2025-08-20 23:38:06,150 - signglove - INFO - Request: GET /utils/health
+2025-08-20 23:38:06,152 - signglove - ERROR - Error fce5a4a4-b1ef-4282-a5b0-4ca67df8b938: HTTPException - 
+2025-08-20 23:38:06,153 - signglove - INFO - Response: GET /utils/health - 401
+2025-08-20 23:38:06,156 - httpx - INFO - HTTP Request: GET http://testserver/utils/health "HTTP/1.1 401 Unauthorized"
+2025-08-20 23:38:06,472 - signglove - INFO - Request: POST /predict/
+2025-08-20 23:38:06,474 - signglove - ERROR - Error 300a960d-51c8-43b8-a62c-949e0eed07d4: HTTPException - 
+2025-08-20 23:38:06,475 - signglove - INFO - Response: POST /predict/ - 401
+2025-08-20 23:38:06,477 - httpx - INFO - HTTP Request: POST http://testserver/predict/ "HTTP/1.1 401 Unauthorized"
+2025-08-20 23:38:06,483 - signglove - INFO - Request: POST /predict/
+2025-08-20 23:38:06,485 - signglove - ERROR - Error 0a61b366-5e2e-4c8f-8c5a-7535e4d5e3f8: HTTPException - 
+2025-08-20 23:38:06,485 - signglove - INFO - Response: POST /predict/ - 401
+2025-08-20 23:38:06,488 - httpx - INFO - HTTP Request: POST http://testserver/predict/ "HTTP/1.1 401 Unauthorized"
+2025-08-20 23:38:06,495 - signglove - INFO - Request: POST /training/
+2025-08-20 23:38:06,497 - signglove - ERROR - Error 3ace3099-0778-476c-9310-8c970c96e54d: HTTPException - 
+2025-08-20 23:38:06,497 - signglove - INFO - Response: POST /training/ - 401
+2025-08-20 23:38:06,499 - httpx - INFO - HTTP Request: POST http://testserver/training/ "HTTP/1.1 401 Unauthorized"
+2025-08-20 23:48:18,906 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:48:49,357 - signglove - ERROR - Error f0ef1102-918e-48ed-b44a-ff9c9b7f514c: ServerSelectionTimeoutError - localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 68a5fc4f80634db6ef301a84, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-08-20 23:48:49,357 - signglove - WARNING - Slow request: POST /auth/login took 30.45s
+2025-08-20 23:48:49,357 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:48:49,363 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"
+2025-08-20 23:48:49,671 - signglove - INFO - Request: POST /auth/login
+2025-08-20 23:48:49,674 - signglove - ERROR - Error 3ec82d53-fb09-4745-a21c-f225bfc092d0: RuntimeError - Event loop is closed
+2025-08-20 23:48:49,674 - signglove - INFO - Response: POST /auth/login - 500
+2025-08-20 23:48:49,676 - httpx - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 500 Internal Server Error"

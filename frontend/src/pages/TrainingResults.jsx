@@ -10,7 +10,7 @@ import {
 } from 'recharts';
 import './styling/TrainingResult.css';
 
-const TrainingResults = () => {
+const TrainingResults = ({ user }) => {
   const [result, setResult] = useState(null);
   const [metrics, setMetrics] = useState(null);
   const [training, setTraining] = useState(false);
@@ -23,6 +23,12 @@ const TrainingResults = () => {
   const [noResults, setNoResults] = useState(false);
 
   useEffect(() => {
+    if (!user) {
+      setResult(null);
+      setMetrics(null);
+      return;
+    }
+    
     setLoading(true);
     apiRequest('get', '/training/latest')
       .then((res) => {
@@ -40,7 +46,7 @@ const TrainingResults = () => {
         }
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [user]); // Re-fetch when user changes
 
   const fetchLatestResults = async () => {
     setLoading(true);
@@ -255,7 +261,7 @@ const TrainingResults = () => {
               <div className="viz-card">
                 <h3>Confusion Matrix Heatmap</h3>
                 <img
-                  src="http://localhost:8080/training/visualizations/confusion_matrix"
+                  src="http://localhost:8000/training/visualizations/confusion_matrix"
                   alt="Confusion Matrix"
                   className="viz-image"
                   onError={(e) => {
@@ -268,7 +274,7 @@ const TrainingResults = () => {
               <div className="viz-card">
                 <h3>ROC Curves</h3>
                 <img
-                  src="http://localhost:8080/training/visualizations/roc_curves"
+                  src="http://localhost:8000/training/visualizations/roc_curves"
                   alt="ROC Curves"
                   className="viz-image"
                   onError={(e) => {
@@ -281,7 +287,7 @@ const TrainingResults = () => {
               <div className="viz-card">
                 <h3>Training History</h3>
                 <img
-                  src="http://localhost:8080/training/visualizations/training_history"
+                  src="http://localhost:8000/training/visualizations/training_history"
                   alt="Training History"
                   className="viz-image"
                   onError={(e) => {

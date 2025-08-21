@@ -20,10 +20,10 @@ MPU6050 mpu;
 
 // Flex sensor pins (ESP32 ADC pins)
 const int FLEX_PIN_1 = 36;
-const int FLEX_PIN_2 = 39;
-const int FLEX_PIN_3 = 34;
-const int FLEX_PIN_4 = 35;
-const int FLEX_PIN_5 = 32;
+const int FLEX_PIN_2 = 34;
+const int FLEX_PIN_3 = 35;
+const int FLEX_PIN_4 = 32;
+const int FLEX_PIN_5 = 33;
 
 void setup() {
   Serial.begin(115200); // Start serial communication at 115200 baud
