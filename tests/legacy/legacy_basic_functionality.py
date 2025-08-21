@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-Basic functionality test for the Sign Glove backend.
-This script tests the core components without starting the full server.
+LEGACY ARCHIVED TEST
+
+This script has been moved from `backend/test_basic_functionality.py`.
+It is retained for reference and should not be collected by pytest.
 """
 
 import asyncio
@@ -10,7 +12,7 @@ import os
 from pathlib import Path
 
 # Add the backend directory to the Python path
-backend_dir = Path(__file__).parent
+backend_dir = Path(__file__).resolve().parents[2] / "backend"
 sys.path.insert(0, str(backend_dir))
 
 async def test_imports():
@@ -164,3 +166,5 @@ async def main():
 if __name__ == "__main__":
     success = asyncio.run(main())
     sys.exit(0 if success else 1)
+
+

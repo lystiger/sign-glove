@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-System Test Script for Sign Glove
-Tests the backend functionality without hardware
+LEGACY ARCHIVED TEST
+
+Moved from `backend/test_system.py`. Kept for manual runs/reference.
 """
 
 import requests
@@ -130,4 +131,6 @@ def main():
         return 1
 
 if __name__ == "__main__":
-    sys.exit(main()) 
+    sys.exit(main())
+
+

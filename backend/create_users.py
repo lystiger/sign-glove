@@ -34,7 +34,7 @@ async def create_default_users():
         {
             "email": "user@signglove.com",
             "password": "user123", 
-            "role": "user",
+            "role": "guest",
             "description": "Default user"
         }
     ]

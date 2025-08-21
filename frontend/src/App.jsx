@@ -42,25 +42,25 @@ const App = () => {
   useEffect(() => {
     // Try to fetch current user
     const checkAuth = async () => {
-      console.log('checkAuth started');
+      if (import.meta.env.DEV) console.debug('checkAuth started');
       try {
         const token = localStorage.getItem('access_token');
-        console.log('Token from localStorage:', token ? 'exists' : 'not found');
+        if (import.meta.env.DEV) console.debug('Token from localStorage:', token ? 'exists' : 'not found');
         if (token) {
           const userData = await apiRequest('get', '/auth/me');
-          console.log('User data received:', userData);
+          if (import.meta.env.DEV) console.debug('User data received:', userData);
           setUser(userData);
         } else {
-          console.log('No token found, setting user to null');
+          if (import.meta.env.DEV) console.debug('No token found, setting user to null');
           setUser(null);
         }
       } catch (error) {
-        console.log('Auth error:', error);
+        if (import.meta.env.DEV) console.error('Auth error:', error);
         // Token is invalid, remove it
         localStorage.removeItem('access_token');
         setUser(null);
       } finally {
-        console.log('Setting loading to false');
+        if (import.meta.env.DEV) console.debug('Setting loading to false');
         setLoading(false);
       }
     };

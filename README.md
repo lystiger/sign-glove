@@ -241,3 +241,86 @@ Key configuration files:
 You can run `tts.ino` and `lcd_display.ino` on separate ESP32 devices for audio and LCD display, or use only the one you need for your application.
 
 
+
+---
+
+## 🔐 Default Accounts
+
+- Admin: admin@signglove.com / admin123
+- Editor: editor@signglove.com / editor123
+- User (guest role): user@signglove.com / user123
+
+Roles are ordered as: guest < editor < admin.
+
+---
+
+## 🐳 Run with Docker (Recommended)
+
+Prereqs: Docker Desktop installed and running.
+
+1) Optional: copy env file
+```
+cp env.example .env
+```
+2) Start services
+```
+docker compose up -d --build
+```
+3) Open the apps
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8080
+
+The compose file starts MongoDB and wires the backend with `MONGO_URI=mongodb://mongo:27017`.
+
+---
+
+## 🧑‍💻 Run Locally (Dev)
+
+Prereqs: Python 3.11+, Node 20+, MongoDB (local or Atlas).
+
+1) Backend (port 8000 in dev)
+```
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --host 0.0.0.0 --port 8000
+```
+2) Frontend (Vite proxies /api -> http://localhost:8000)
+```
+cd frontend
+npm install
+npm run dev
+```
+Optional: set `frontend/.env.local` with `VITE_API_URL=http://localhost:8000` to bypass the dev proxy.
+
+---
+
+## 🧪 Quick Test Checklist
+
+Backend only
+- GET /health is healthy (8000 dev, 8080 Docker)
+- /docs loads
+
+Auth
+- Login admin (admin@signglove.com / admin123)
+- Login editor (editor@signglove.com / editor123)
+- Login user (user@signglove.com / user123, role guest)
+
+Core
+- GET /gestures (requires editor)
+- POST /gestures/ create
+- POST /training/trigger (admin)
+- GET /training/latest and /training/metrics/latest
+- Training visuals render in UI
+
+Frontend
+- Dev: http://localhost:5173 loads, login works, protected pages render
+- Docker: http://localhost:3000 loads; API reachable via /api
+
+---
+
+## 🛠️ Troubleshooting
+
+- 404 from http://localhost:5173/api/...: restart `npm run dev` so Vite picks up `vite.config.js` proxy
+- 500 on /auth/login: ensure Mongo is reachable; check backend logs; verify user roles are guest/editor/admin. Use `python backend/scripts/audit_users.py --migrate-user-to-guest`.
+- CORS errors: include your frontend origin in `CORS_ORIGINS`.
+- TensorFlow runtime: if slim image misses libs, try base `python:3.11-bullseye`.

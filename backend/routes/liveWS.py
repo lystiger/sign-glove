@@ -5,6 +5,7 @@ Endpoint:
 - WebSocket /ws/predict: Receives sensor data, returns predictions, and speaks the result.
 """
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
+import logging
 import numpy as np
 import asyncio
 import pyttsx3
@@ -13,6 +14,7 @@ from core.settings import settings
 
 router = APIRouter(prefix="/ws", tags=["WebSocket"])
 tts_engine = pyttsx3.init()
+logger = logging.getLogger("signglove")
 
 @router.websocket("/predict")
 async def websocket_predict(websocket: WebSocket):
@@ -61,4 +63,4 @@ async def websocket_predict(websocket: WebSocket):
             loop.run_in_executor(None, tts_engine.runAndWait)
 
     except WebSocketDisconnect:
-        print("Client disconnected")
+        logger.info("Client disconnected")

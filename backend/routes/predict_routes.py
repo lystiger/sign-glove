@@ -21,11 +21,12 @@ try:
     import tensorflow as tf  # type: ignore
 except Exception as _tf_exc:  # pragma: no cover
     tf = None  # type: ignore
-import requests
+import httpx
 import asyncio
 from utils.cache import cacheable
 
 router = APIRouter(prefix="/predict", tags=["Prediction"])
+logger = logging.getLogger("signglove")
 prediction_counts: Dict[str, int] = {}
 LAST_TRAIN_COUNT: Optional[int] = None
 
@@ -176,23 +177,24 @@ async def websocket_predict(websocket: WebSocket):
                     LAST_TRAIN_COUNT = 0
                 if current_count - LAST_TRAIN_COUNT >= 50:
                     try:
-                        response = requests.post(
-                            "http://localhost:8080/training",
-                            headers={"X-API-KEY": settings.SECRET_KEY}
-                        )
-                        if response.status_code == 200:
-                            print("Auto-training triggered after 50 new samples.")
-                            LAST_TRAIN_COUNT = current_count
-                        else:
-                            print("Training failed:", response.status_code, response.text)
+                        async with httpx.AsyncClient(timeout=30.0) as client:
+                            response = await client.post(
+                                "http://localhost:8080/training/trigger",
+                                headers={"X-API-KEY": settings.SECRET_KEY}
+                            )
+                            if response.status_code == 200:
+                                logger.info("Auto-training triggered after 50 new samples.")
+                                LAST_TRAIN_COUNT = current_count
+                            else:
+                                logger.warning("Training failed: %s %s", response.status_code, response.text)
                     except Exception as e:
-                        print("Error triggering auto-training:", e)
+                        logger.error("Error triggering auto-training: %s", e)
 
                 prediction_counts[label] = 0  # Reset counter
 
             await websocket.send_json(prediction)
     except WebSocketDisconnect:
-        print("Client disconnected")
+        logger.info("Client disconnected")
 
 @router.get(
     "/predictions",

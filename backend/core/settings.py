@@ -26,12 +26,9 @@ class Settings(BaseSettings):
     
     # Database
     MONGO_URI: str = Field("mongodb://localhost:27017", env="MONGO_URI")
-    DB_NAME: str = Field("sign_glove", env="DB_NAME")
+    DB_NAME: str = Field("signglove", env="DB_NAME")
     TEST_DB_NAME: str = "test_signglove"
-    ENVIRONMENT: str = "development"
-    SECRET_KEY: str = "supersecret"
-    ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
+    # Legacy duplicates removed (ENVIRONMENT/SECRET_KEY/ALGORITHM/ACCESS_TOKEN_EXPIRE_MINUTES)
 
     
     # Model/data paths

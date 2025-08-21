@@ -11,12 +11,12 @@ const Dashboard = ({ user }) => {
   const [loading, setLoading] = useState(false);
 
   // Debug logging
-  console.log('Dashboard render - user:', user);
+  if (import.meta.env.DEV) console.debug('Dashboard render - user:', user);
 
   const fetchStats = async () => {
-    console.log('fetchStats called - user:', user);
+    if (import.meta.env.DEV) console.debug('fetchStats called - user:', user);
     if (!user) {
-      console.log('No user, skipping API call');
+      if (import.meta.env.DEV) console.debug('No user, skipping API call');
       setStats(null);
       return;
     }
@@ -33,7 +33,7 @@ const Dashboard = ({ user }) => {
   };
 
   useEffect(() => {
-    console.log('Dashboard useEffect - user:', user);
+    if (import.meta.env.DEV) console.debug('Dashboard useEffect - user:', user);
     fetchStats();
   }, [user]); // Re-fetch when user changes
 

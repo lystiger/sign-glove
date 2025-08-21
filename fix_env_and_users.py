@@ -88,7 +88,7 @@ def setup_users():
             default_users = [
                 {"email": "admin@signglove.com", "password": "admin123", "role": "admin"},
                 {"email": "editor@signglove.com", "password": "editor123", "role": "editor"},
-                {"email": "user@signglove.com", "password": "user123", "role": "user"}
+                {"email": "user@signglove.com", "password": "user123", "role": "guest"}
             ]
             
             created_count = 0
