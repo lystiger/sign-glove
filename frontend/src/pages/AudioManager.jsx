@@ -7,7 +7,7 @@ const API_BASE = '/audio-files';
 const MAX_SIZE_MB = 5;
 const ESP32_BASE_URL = 'http://<ESP32_IP>'; // TODO: Replace with your ESP32's IP address
 
-const AudioManager = () => {
+const AudioManager = ({ user }) => {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -18,6 +18,11 @@ const AudioManager = () => {
 
   // Fetch audio file list
   const fetchFiles = async () => {
+    if (!user) {
+      setFiles([]);
+      return;
+    }
+    
     setLoading(true);
     try {
       const res = await apiRequest('get', API_BASE + '/');
@@ -30,7 +35,7 @@ const AudioManager = () => {
 
   useEffect(() => {
     fetchFiles();
-  }, []);
+  }, [user]); // Re-fetch when user changes
 
   // Upload audio file
   const handleUpload = async (e) => {
@@ -114,79 +119,89 @@ const AudioManager = () => {
 
   return (
     <div className="audio-manager-card fade-in">
-      <h2>Audio File Manager</h2>
-      {/* Speaker on/off buttons */}
-      <div style={{ marginBottom: 16 }}>
-        <button
-          className="audio-manager-btn audio-manager-btn-primary"
-          onClick={() => handleSpeaker(true)}
-          style={{ marginRight: 8 }}
-        >
-          Turn On Speaker
-        </button>
-        <button
-          className="audio-manager-btn audio-manager-btn-danger"
-          onClick={() => handleSpeaker(false)}
-        >
-          Turn Off Speaker
-        </button>
-      </div>
-      <form onSubmit={handleUpload} style={{ marginBottom: 24 }}>
-        <input
-          type="file"
-          accept="audio/*"
-          ref={fileInput}
-          onChange={e => setSelectedFile(e.target.files[0])}
-          aria-label="Select audio file"
-          className="audio-manager-file-input"
-        />
-        <button className="audio-manager-btn audio-manager-btn-primary" type="submit" disabled={uploading}>
-          {uploading ? 'Uploading...' : 'Upload'}
-        </button>
-        <span style={{ marginLeft: 16, color: '#888' }}>
-          Max size: {MAX_SIZE_MB}MB
-        </span>
-      </form>
-      <h3>Files</h3>
-      {loading ? <div>Loading...</div> : (
-        <table className="audio-manager-table">
-          <thead>
-            <tr>
-              <th>Filename</th>
-              <th>Uploaded</th>
-              <th>Uploader</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {files.map(f => (
-              <tr key={f.filename}>
-                <td>{f.filename}</td>
-                <td>{new Date(f.upload_time).toLocaleString()}</td>
-                <td>{f.uploader}</td>
-                <td>
-                  <button className="audio-manager-btn audio-manager-btn-primary" onClick={() => handlePlay(f.filename)}>
-                    Play
-                  </button>
-                  <button className="audio-manager-btn audio-manager-btn-secondary" onClick={() => handleDownload(f.filename)}>
-                    Download
-                  </button>
-                  <button className="audio-manager-btn audio-manager-btn-danger" onClick={() => handleDelete(f.filename)}>
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      {!user ? (
+        <div>
+          <h2>Audio File Manager</h2>
+          <p>Please sign in to manage audio files and access the application features.</p>
+          <a href="/login" className="btn btn-primary">Sign In</a>
+        </div>
+      ) : (
+        <>
+          <h2>Audio File Manager</h2>
+          {/* Speaker on/off buttons */}
+          <div style={{ marginBottom: 16 }}>
+            <button
+              className="audio-manager-btn audio-manager-btn-primary"
+              onClick={() => handleSpeaker(true)}
+              style={{ marginRight: 8 }}
+            >
+              Turn On Speaker
+            </button>
+            <button
+              className="audio-manager-btn audio-manager-btn-danger"
+              onClick={() => handleSpeaker(false)}
+            >
+              Turn Off Speaker
+            </button>
+          </div>
+          <form onSubmit={handleUpload} style={{ marginBottom: 24 }}>
+            <input
+              type="file"
+              accept="audio/*"
+              ref={fileInput}
+              onChange={e => setSelectedFile(e.target.files[0])}
+              aria-label="Select audio file"
+              className="audio-manager-file-input"
+            />
+            <button className="audio-manager-btn audio-manager-btn-primary" type="submit" disabled={uploading}>
+              {uploading ? 'Uploading...' : 'Upload'}
+            </button>
+            <span style={{ marginLeft: 16, color: '#888' }}>
+              Max size: {MAX_SIZE_MB}MB
+            </span>
+          </form>
+          <h3>Files</h3>
+          {loading ? <div>Loading...</div> : (
+            <table className="audio-manager-table">
+              <thead>
+                <tr>
+                  <th>Filename</th>
+                  <th>Uploaded</th>
+                  <th>Uploader</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {files.map(f => (
+                  <tr key={f.filename}>
+                    <td>{f.filename}</td>
+                    <td>{new Date(f.upload_time).toLocaleString()}</td>
+                    <td>{f.uploader}</td>
+                    <td>
+                      <button className="audio-manager-btn audio-manager-btn-primary" onClick={() => handlePlay(f.filename)}>
+                        Play
+                      </button>
+                      <button className="audio-manager-btn audio-manager-btn-secondary" onClick={() => handleDownload(f.filename)}>
+                        Download
+                      </button>
+                      <button className="audio-manager-btn audio-manager-btn-danger" onClick={() => handleDelete(f.filename)}>
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+          <h3>ESP32 Error Log</h3>
+          <button className="audio-manager-btn audio-manager-btn-secondary" onClick={fetchErrorLog} disabled={logLoading} style={{ marginBottom: 8 }}>
+            {logLoading ? 'Loading...' : 'Fetch Log'}
+          </button>
+          <pre className="audio-manager-log">
+            {errorLog}
+          </pre>
+        </>
       )}
-      <h3>ESP32 Error Log</h3>
-      <button className="audio-manager-btn audio-manager-btn-secondary" onClick={fetchErrorLog} disabled={logLoading} style={{ marginBottom: 8 }}>
-        {logLoading ? 'Loading...' : 'Fetch Log'}
-      </button>
-      <pre className="audio-manager-log">
-        {errorLog}
-      </pre>
     </div>
   );
 };

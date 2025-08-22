@@ -6,11 +6,13 @@ from fastapi.exception_handlers import RequestValidationError
 from routes import training_trigger, training_routes, sensor_routes, predict_routes, admin_routes, dashboard_routes
 from routes import gestures, liveWS, utils_routes, auth_routes
 from routes import audio_files_routes
-from routes import auth_routes
 from core.indexes import create_indexes 
 from core.database import client, test_connection
 from core.settings import settings
-from core.auth import get_required_role_for_path, require_admin, require_user, require_viewer
+from routes.auth_routes import (
+    role_required_dep as role_required,
+    role_or_internal_dep as role_or_internal,
+)
 from core.middleware import setup_middleware
 from core.error_handler import create_error_response, error_tracker, performance_monitor
 from contextlib import asynccontextmanager
@@ -91,12 +93,12 @@ async def lifespan(app: FastAPI):
     await ensure_default_editor()
     logging.info("Indexes created. App is starting...")
     loop = asyncio.get_event_loop()
-    # Disable automated pipeline during testing to avoid event loop issues
-    if not settings.is_testing():
-        loop.create_task(automated_pipeline_loop())
+    loop.create_task(automated_pipeline_loop())
+
     yield
     client.close()
     logging.info("MongoDB connection closed. App is shutting down...")
+
 
 app = FastAPI(title="Sign Glove API", lifespan=lifespan)
 

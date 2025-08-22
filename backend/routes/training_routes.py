@@ -10,7 +10,7 @@ Endpoints:
 """
 from fastapi import APIRouter, HTTPException, UploadFile, File, Depends
 from models.model_result import ModelResult
-from core.database import model_collection
+from core.database import model_collection, sensor_collection
 from fastapi.responses import JSONResponse, FileResponse
 from datetime import datetime, timezone
 from uuid import uuid4
@@ -22,6 +22,7 @@ import os
 import json
 from utils.cache import cacheable
 from typing import Dict, Any, List
+import csv
 from routes.auth_routes import role_required_dep, role_or_internal_dep
 
 router = APIRouter(prefix="/training", tags=["Training"])
@@ -233,6 +234,35 @@ async def trigger_training_run(_user=Depends(role_or_internal_dep("editor"))):
     Trigger the model training job (same as POST /training/run but without upload).
     """
     try:
+        # Export latest sensor data from MongoDB to CSV so training uses fresh data
+        export_path = settings.GESTURE_DATA_PATH
+        os.makedirs(os.path.dirname(export_path), exist_ok=True)
+        cursor = sensor_collection.find().sort("timestamp", 1)
+        rows: List[Dict[str, Any]] = []
+        async for doc in cursor:
+            values = doc.get("values", [])
+            if isinstance(values, list) and len(values) == 11:
+                rows.append({
+                    "session_id": doc.get("session_id", "auto"),
+                    "label": doc.get("label", "unknown"),
+                    "values": values
+                })
+        if not rows:
+            logging.warning("No sensor data found to export for training. Using existing CSV if present.")
+        else:
+            header = [
+                "session_id", "label",
+                "flex1", "flex2", "flex3", "flex4", "flex5",
+                "accel_x", "accel_y", "accel_z",
+                "gyro_x", "gyro_y", "gyro_z"
+            ]
+            with open(export_path, "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(header)
+                for r in rows:
+                    writer.writerow([r["session_id"], r["label"], *r["values"]])
+            logging.info(f"Exported {len(rows)} sensor rows to {export_path} for training.")
+
         # Assumes gesture_data.csv already exists
         script_path = os.path.join(os.path.dirname(__file__), '..', 'AI', 'model.py')
         result = subprocess.run(

@@ -37,12 +37,35 @@ const App = () => {
   const [dark, setDark] = useDarkMode();
   const [navOpen, setNavOpen] = useState(false);
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Try to fetch current user
-    apiRequest('get', '/auth/me')
-      .then(setUser)
-      .catch(() => setUser(null));
+    const checkAuth = async () => {
+      if (import.meta.env.DEV) console.debug('checkAuth started');
+      try {
+        const token = localStorage.getItem('access_token');
+        if (import.meta.env.DEV) console.debug('Token from localStorage:', token ? 'exists' : 'not found');
+        if (token) {
+          const userData = await apiRequest('get', '/auth/me');
+          if (import.meta.env.DEV) console.debug('User data received:', userData);
+          setUser(userData);
+        } else {
+          if (import.meta.env.DEV) console.debug('No token found, setting user to null');
+          setUser(null);
+        }
+      } catch (error) {
+        if (import.meta.env.DEV) console.error('Auth error:', error);
+        // Token is invalid, remove it
+        localStorage.removeItem('access_token');
+        setUser(null);
+      } finally {
+        if (import.meta.env.DEV) console.debug('Setting loading to false');
+        setLoading(false);
+      }
+    };
+    
+    checkAuth();
   }, []);
 
   const signOut = async () => {
@@ -72,6 +95,18 @@ const App = () => {
       { to: '/audio-manager', label: 'Audio Manager' },
     ] : []),
   ];
+
+  // Show loading spinner while checking authentication
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="spinner" style={{ margin: '0 auto 1rem' }}></div>
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <Router>
@@ -124,16 +159,16 @@ const App = () => {
 
         <main className="p-4" style={{ position: 'relative', zIndex: 1 }}>
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/upload-csv" element={isEditor ? <UploadCSV /> : <Dashboard />} />
-            <Route path="/upload-training-csv" element={isEditor ? <UploadTrainingCSV /> : <Dashboard />} />
-            <Route path="/gestures" element={<ManageGestures />} />
-            <Route path="/training-results" element={<TrainingResults />} />
-            <Route path="/predict" element={<Predict />} />
-            <Route path="/live-predict" element={<LivePredict />} />
-            <Route path="/history" element={<PredictionHistory />} />
-            <Route path="/admin" element={isEditor ? <AdminTools /> : <Dashboard />} />
-            <Route path="/audio-manager" element={isEditor ? <AudioManager /> : <Dashboard />} />
+            <Route path="/" element={<Dashboard user={user} />} />
+            <Route path="/upload-csv" element={isEditor ? <UploadCSV user={user} /> : <Dashboard user={user} />} />
+            <Route path="/upload-training-csv" element={isEditor ? <UploadTrainingCSV user={user} /> : <Dashboard user={user} />} />
+            <Route path="/gestures" element={<ManageGestures user={user} />} />
+            <Route path="/training-results" element={<TrainingResults user={user} />} />
+            <Route path="/predict" element={<Predict user={user} />} />
+            <Route path="/live-predict" element={<LivePredict user={user} />} />
+            <Route path="/history" element={<PredictionHistory user={user} />} />
+            <Route path="/admin" element={isEditor ? <AdminTools user={user} /> : <Dashboard user={user} />} />
+            <Route path="/audio-manager" element={isEditor ? <AudioManager user={user} /> : <Dashboard user={user} />} />
             <Route path="/login" element={<Login onLogin={setUser} />} />
           </Routes>
         </main>

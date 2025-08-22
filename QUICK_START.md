@@ -24,7 +24,7 @@ cp ../env.example .env
 ```bash
 python main.py
 # Or with uvicorn
-uvicorn main:app --host 0.0.0.0 --port 8080 --reload
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 ## 2. Frontend Setup
@@ -119,7 +119,7 @@ python ingestion/collect_data.py
 ## 8. Docker Deployment (Optional)
 
 ```bash
-docker-compose up -d
+docker compose up -d --build
 ```
 
 ## Troubleshooting

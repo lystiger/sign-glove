@@ -6,11 +6,21 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { apiRequest } from '../api';
 
-const Dashboard = () => {
+const Dashboard = ({ user }) => {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  // Debug logging
+  if (import.meta.env.DEV) console.debug('Dashboard render - user:', user);
+
   const fetchStats = async () => {
+    if (import.meta.env.DEV) console.debug('fetchStats called - user:', user);
+    if (!user) {
+      if (import.meta.env.DEV) console.debug('No user, skipping API call');
+      setStats(null);
+      return;
+    }
+    
     setLoading(true);
     try {
       const res = await apiRequest('get', '/dashboard/');
@@ -23,8 +33,9 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
+    if (import.meta.env.DEV) console.debug('Dashboard useEffect - user:', user);
     fetchStats();
-  }, []);
+  }, [user]); // Re-fetch when user changes
 
   return (
     <div role="main" aria-label="Dashboard Page">
@@ -35,24 +46,32 @@ const Dashboard = () => {
         </p>
       </div>
 
-      <div className="card" style={{ marginBottom: '2rem' }}>
-        <h3>Project Statistics</h3>
-        {loading ? (
-          <ul aria-busy="true" aria-live="polite">
-            <li><Skeleton width={200} /></li>
-            <li><Skeleton width={200} /></li>
-            <li><Skeleton width={200} /></li>
-            <li><Skeleton width={200} /></li>
-          </ul>
-        ) : stats && (
-          <ul aria-label="Dashboard statistics">
-            <li>Total Sessions: {stats.total_sessions || stats.totalSessions}</li>
-            <li>Total Models: {stats.total_models || stats.totalModels}</li>
-            <li>Average Accuracy: {stats.average_accuracy || stats.averageAccuracy}</li>
-            <li>Last Activity: {stats.last_activity || stats.lastActivity}</li>
-          </ul>
-        )}
-      </div>
+      {!user ? (
+        <div className="card" style={{ marginBottom: '2rem' }}>
+          <h3>Welcome to Sign Glove</h3>
+          <p>Please sign in to view dashboard statistics and access the application features.</p>
+          <a href="/login" className="btn btn-primary">Sign In</a>
+        </div>
+      ) : (
+        <div className="card" style={{ marginBottom: '2rem' }}>
+          <h3>Project Statistics</h3>
+          {loading ? (
+            <ul aria-busy="true" aria-live="polite">
+              <li><Skeleton width={200} /></li>
+              <li><Skeleton width={200} /></li>
+              <li><Skeleton width={200} /></li>
+              <li><Skeleton width={200} /></li>
+            </ul>
+          ) : stats && (
+            <ul aria-label="Dashboard statistics">
+              <li>Total Sessions: {stats.total_sessions || stats.totalSessions}</li>
+              <li>Total Models: {stats.total_models || stats.totalModels}</li>
+              <li>Average Accuracy: {stats.average_accuracy || stats.averageAccuracy}</li>
+              <li>Last Activity: {stats.last_activity || stats.lastActivity}</li>
+            </ul>
+          )}
+        </div>
+      )}
     </div>
   );
 };

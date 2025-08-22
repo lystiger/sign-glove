@@ -9,6 +9,10 @@ import os
 from pathlib import Path
 from pydantic_settings import SettingsConfigDict
 
+# backend/
+BASE_DIR = Path(__file__).resolve().parent.parent
+ENV_FILE = BASE_DIR / ".env"
+
 class Settings(BaseSettings):
     # Environment
     ENVIRONMENT: str = Field("development", env="ENVIRONMENT")
@@ -22,7 +26,10 @@ class Settings(BaseSettings):
     
     # Database
     MONGO_URI: str = Field("mongodb://localhost:27017", env="MONGO_URI")
-    DB_NAME: str = Field("sign_glove", env="DB_NAME")
+    DB_NAME: str = Field("signglove", env="DB_NAME")
+    TEST_DB_NAME: str = "test_signglove"
+    # Legacy duplicates removed (ENVIRONMENT/SECRET_KEY/ALGORITHM/ACCESS_TOKEN_EXPIRE_MINUTES)
+
     
     # Model/data paths
     BASE_DIR: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -142,3 +149,4 @@ def ensure_directories():
 
 # Initialize directories
 ensure_directories()
+

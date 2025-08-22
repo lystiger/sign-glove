@@ -1,28 +1,6 @@
 version: '3.8'
 
 services:
-  # MongoDB Database
-  mongodb:
-    image: mongo:7.0
-    container_name: signglove-mongodb
-    restart: unless-stopped
-    ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: signglove123
-      MONGO_INITDB_DATABASE: signglove
-    volumes:
-      - mongodb_data:/data/db
-      - ./mongo-init:/docker-entrypoint-initdb.d
-    networks:
-      - signnet
-    healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-
   # FastAPI Backend
   backend:
     build:
@@ -33,20 +11,19 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - MONGO_URI=mongodb://admin:signglove123@mongodb:27017/signglove?authSource=admin
+      - MONGO_URI=mongodb://mongo:27017
       - DB_NAME=signglove
       - ESP32_IP=192.168.1.100
       - TTS_ENABLED=true
       - TTS_PROVIDER=gtts
-      - CORS_ORIGINS=["http://localhost:3000","http://localhost:5173","http://frontend:80"]
+      - CORS_ORIGINS=http://localhost:3000,http://localhost:5173,http://frontend:80
     volumes:
       - ./backend:/app
       - backend_data:/app/data
       - backend_models:/app/models
       - backend_cache:/app/tts_cache
     depends_on:
-      mongodb:
-        condition: service_healthy
+      - mongo
     networks:
       - signnet
     healthcheck:
@@ -54,7 +31,21 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-    command: uvicorn main:app --host 0.0.0.0 --port 8080 --reload
+    command: uvicorn main:app --host 0.0.0.0 --port 8080
+
+  mongo:
+    image: mongo:7
+    container_name: signglove-mongo
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_DATABASE=signglove
+    volumes:
+      - mongo_data:/data/db
+      - ./mongo-init/init.js:/docker-entrypoint-initdb.d/init.js:ro
+    ports:
+      - "27017:27017"
+    networks:
+      - signnet
 
   # React Frontend
   frontend:
@@ -67,6 +58,7 @@ services:
       - "3000:80"
     depends_on:
       - backend
+      - mongo
     networks:
       - signnet
     healthcheck:
@@ -88,13 +80,13 @@ services:
   #     - signnet
 
 volumes:
-  mongodb_data:
-    driver: local
   backend_data:
     driver: local
   backend_models:
     driver: local
   backend_cache:
+    driver: local
+  mongo_data:
     driver: local
   # redis_data:
   #   driver: local

@@ -11,7 +11,12 @@ import logging
 logger = logging.getLogger(__name__)
 
 client = AsyncIOMotorClient(settings.MONGO_URI, w=1)
-db = client[settings.DB_NAME]
+
+if settings.ENVIRONMENT == "testing":
+    db = client[settings.TEST_DB_NAME]
+else:
+    db = client[settings.DB_NAME]
+
 prediction_collection = db["predictions"]
 sensor_collection = db["sensor_data"]
 model_collection = db["model_results"]
@@ -19,13 +24,14 @@ gesture_collection = db["gestures"]
 training_collection = db["training_sessions"]
 users_collection = db["users"]
 
-async def test_connection():
-    """
+"""
     Test the MongoDB connection by sending a ping command.
     Logs success or failure.
     """
+
+async def test_connection():
     try:
         await client.admin.command("ping")
-        logger.info("Connected to MongoDB!")
+        logger.info("Connected to MongoDB Atlas!")
     except Exception as e:
         logger.error("MongoDB connection failed:", exc_info=e)
