@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { getGestures, createGesture, deleteGesture, updateGesture } from '../api';
+import { getGestures, createGesture, deleteGesture, updateGesture, convertGestureToDualHand, checkConversionStatus } from '../api';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import './styling/Gestures.css';
-import { MdSave, MdEdit, MdDeleteForever } from 'react-icons/md';
+import { MdSave, MdEdit, MdDeleteForever, MdSwapHoriz } from 'react-icons/md';
 
 const ManageGestures = ({ user }) => {
   const [gestures, setGestures] = useState([]);
   const [editSession, setEditSession] = useState(null);
   const [editedLabel, setEditedLabel] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
-  const [setConfirmDeleteId] = useState(null);
+  const [confirmDeleteId, setConfirmDeleteId] = useState(null);
   const [loading, setLoading] = useState(false);
   const [actionLoading, setActionLoading] = useState(false);
   const [showCheckmark, setShowCheckmark] = useState(false);
+  const [convertingGestures, setConvertingGestures] = useState(new Set());
+  const [conversionStatus, setConversionStatus] = useState({});
+  const [debugMode, setDebugMode] = useState(false);
 
   // New gesture form state
   const [newGesture, setNewGesture] = useState({
@@ -61,7 +64,7 @@ const ManageGestures = ({ user }) => {
 
   const handleEdit = (session_id, label) => {
     setEditSession(session_id);
-    setEditedLabel(label);
+    setEditedLabel(label || ''); // Ensure label is never undefined
   };
 
   const handleUpdate = async () => {
@@ -108,6 +111,85 @@ const ManageGestures = ({ user }) => {
     }
   };
 
+  const handleConvertToDualHand = async (session_id) => {
+    setConvertingGestures(prev => new Set([...prev, session_id]));
+    try {
+      const result = await convertGestureToDualHand(session_id);
+      toast.success(`Gesture converted to dual-hand! New session: ${result.data.new_session_id}`);
+      fetchGestures(); // Refresh to show new dual-hand gesture
+      // Update conversion status
+      setConversionStatus(prev => ({
+        ...prev,
+        [session_id]: { hasDualHand: true, dualHandSessionId: result.data.new_session_id }
+      }));
+    } catch (err) {
+      if (err.status === 409) {
+        toast.warning('Dual-hand version already exists!');
+      } else {
+        toast.error(`Conversion failed: ${err.detail}${err.traceId ? ` (trace: ${err.traceId})` : ''}`);
+      }
+    } finally {
+      setConvertingGestures(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(session_id);
+        return newSet;
+      });
+    }
+  };
+
+  const checkGestureConversionStatus = async (session_id) => {
+    try {
+      const result = await checkConversionStatus(session_id);
+      setConversionStatus(prev => ({
+        ...prev,
+        [session_id]: {
+          hasDualHand: result.data.has_dual_hand_version,
+          dualHandSessionId: result.data.dual_hand_session_id
+        }
+      }));
+    } catch (err) {
+      // Silently handle errors for status checks
+      console.warn('Failed to check conversion status:', err);
+    }
+  };
+
+  // Check conversion status for all gestures when they load
+  useEffect(() => {
+    if (gestures.length > 0) {
+      gestures.forEach(gesture => {
+        const values = gesture.sensor_values || gesture.values || [];
+        if (values && values.length === 11) {
+          checkGestureConversionStatus(gesture.session_id);
+        }
+      });
+    }
+  }, [gestures]);
+
+  const isSingleHandGesture = (gesture) => {
+    // Check both possible field names for sensor data
+    const values = gesture.sensor_values || gesture.values || [];
+    return values && values.length === 11;
+  };
+
+  const isDualHandGesture = (gesture) => {
+    // Check both possible field names for sensor data
+    const values = gesture.sensor_values || gesture.values || [];
+    return values && values.length === 22;
+  };
+
+  // Debug function to log gesture structure
+  const logGestureStructure = (gesture) => {
+    console.log('Gesture structure:', {
+      session_id: gesture.session_id,
+      label: gesture.gesture_label,
+      sensor_values: gesture.sensor_values,
+      values: gesture.values,
+      sensor_values_length: gesture.sensor_values?.length,
+      values_length: gesture.values?.length,
+      all_keys: Object.keys(gesture)
+    });
+  };
+
   return (
     <div className="manage-container" role="main" aria-label="Manage Gestures Page">
       {!user ? (
@@ -120,16 +202,26 @@ const ManageGestures = ({ user }) => {
         <>
           <div className="card fade-in" style={{ marginBottom: '2rem' }}>
             <h2 className="manage-title">Manage Gestures</h2>
-            <label htmlFor="search-input" className="visually-hidden">Search by label or session ID</label>
-            <input
-              id="search-input"
-              type="text"
-              placeholder="Search by label or session ID"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="search-input"
-              aria-label="Search gestures by label or session ID"
-            />
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1rem' }}>
+              <label htmlFor="search-input" className="visually-hidden">Search by label or session ID</label>
+              <input
+                id="search-input"
+                type="text"
+                placeholder="Search by label or session ID"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-input"
+                aria-label="Search gestures by label or session ID"
+                style={{ flex: 1 }}
+              />
+              <button
+                onClick={() => setDebugMode(!debugMode)}
+                className={`btn ${debugMode ? 'btn-warning' : 'btn-outline-secondary'}`}
+                style={{ fontSize: '0.8em' }}
+              >
+                {debugMode ? '🐛 Debug ON' : '🔍 Debug OFF'}
+              </button>
+            </div>
           </div>
           <div className="card fade-in" style={{ marginBottom: '2rem' }}>
             <form className="gesture-form" aria-label="Add New Gesture" onSubmit={e => { e.preventDefault(); handleNewGestureSubmit(); }}>
@@ -200,7 +292,7 @@ const ManageGestures = ({ user }) => {
             ) : (
               <ul className="gesture-list" aria-label="Gesture List">
                 {gestures.map((g, index) => (
-                  <li key={g.session_id || index} className="gesture-item" tabIndex={0} aria-label={`Gesture for session ${g.session_id}`}>
+                  <li key={`${g.session_id}-${index}`} className="gesture-item" tabIndex={0} aria-label={`Gesture for session ${g.session_id}`}>
                     <div>
                       <span className="session-id">Session: {g.session_id}</span>
                       <div className="label-line">
@@ -208,13 +300,31 @@ const ManageGestures = ({ user }) => {
                         {editSession === g.session_id ? (
                           <input
                             aria-label="Edit gesture label"
-                            value={editedLabel}
+                            value={editedLabel || ''}
                             onChange={(e) => setEditedLabel(e.target.value)}
                             className="edit-input"
                             disabled={actionLoading}
                           />
                         ) : (
                           <span className="label">{g.gesture_label}</span>
+                        )}
+                      </div>
+                      <div className="gesture-info">
+                        <span className={`gesture-type ${isSingleHandGesture(g) ? 'single-hand' : isDualHandGesture(g) ? 'dual-hand' : 'unknown'}`}>
+                          {(() => {
+                            const values = g.sensor_values || g.values || [];
+                            const count = values.length;
+                            logGestureStructure(g); // Debug log
+                            
+                            if (count === 11) return '🖐️ Single Hand (11 values)';
+                            if (count === 22) return '🙌 Dual Hand (22 values)';
+                            return `❓ Unknown (${count} values) - Debug: sensor_values=${g.sensor_values?.length}, values=${g.values?.length}`;
+                          })()} 
+                        </span>
+                        {isSingleHandGesture(g) && conversionStatus[g.session_id]?.hasDualHand && (
+                          <span className="conversion-info" style={{ marginLeft: '10px', fontSize: '0.8em', color: '#28a745' }}>
+                            ✓ Dual-hand version exists: {conversionStatus[g.session_id]?.dualHandSessionId}
+                          </span>
                         )}
                       </div>
                     </div>
@@ -241,8 +351,20 @@ const ManageGestures = ({ user }) => {
                           Edit
                         </button>
                       )}
+                      {(debugMode || (isSingleHandGesture(g) && !conversionStatus[g.session_id]?.hasDualHand)) && (
+                        <button
+                          onClick={() => handleConvertToDualHand(g.session_id)}
+                          className="btn btn-info"
+                          disabled={actionLoading || convertingGestures.has(g.session_id)}
+                          aria-label={`Convert gesture ${g.session_id} to dual-hand`}
+                          title={debugMode ? `Debug: isSingle=${isSingleHandGesture(g)}, hasConversion=${!!conversionStatus[g.session_id]?.hasDualHand}` : ''}
+                        >
+                          <MdSwapHoriz style={{ verticalAlign: 'middle', marginRight: 4 }} />
+                          {convertingGestures.has(g.session_id) ? 'Converting...' : 'To Dual-Hand'}
+                        </button>
+                      )}
                       <button
-                        onClick={() => setConfirmDeleteId(g.session_id)}
+                        onClick={() => handleDelete(g.session_id)}
                         className="btn btn-danger"
                         disabled={actionLoading}
                         aria-label={`Delete gesture for session ${g.session_id}`}

@@ -71,7 +71,7 @@ async def automated_pipeline_loop():
                     import requests
                     try:
                         resp = requests.post(
-                            "http://localhost:8080/training/trigger",
+                            f"{settings.BACKEND_BASE_URL}/training/trigger",
                             headers={"X-API-KEY": settings.SECRET_KEY}
                         )
                         if resp.status_code == 200:

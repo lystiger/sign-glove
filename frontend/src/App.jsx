@@ -12,6 +12,8 @@ import AdminTools from './pages/AdminTools';
 import UploadTrainingCSV from './pages/UploadTrainingCSV';
 import PredictionHistory from './pages/PredictionHistory';
 import AudioManager from './pages/AudioManager';
+import TTSManager from './pages/TTSManager';
+import CSVManager from './pages/CSVManager';
 import { MdDarkMode, MdMenu, MdClose } from 'react-icons/md';
 import Login from './pages/Login';
 import { apiRequest } from './api';
@@ -89,10 +91,10 @@ const App = () => {
     { to: '/live-predict', label: 'Live Predict' },
     // editor-only routes
     ...(isEditor ? [
-      { to: '/upload-csv', label: 'Upload CSV' },
-      { to: '/upload-training-csv', label: 'Upload Training CSV' },
+      { to: '/csv-manager', label: 'CSV & Training Manager' },
       { to: '/admin', label: 'Admin Tools' },
       { to: '/audio-manager', label: 'Audio Manager' },
+      { to: '/tts-manager', label: 'TTS Manager' },
     ] : []),
   ];
 
@@ -162,6 +164,7 @@ const App = () => {
             <Route path="/" element={<Dashboard user={user} />} />
             <Route path="/upload-csv" element={isEditor ? <UploadCSV user={user} /> : <Dashboard user={user} />} />
             <Route path="/upload-training-csv" element={isEditor ? <UploadTrainingCSV user={user} /> : <Dashboard user={user} />} />
+            <Route path="/csv-manager" element={isEditor ? <CSVManager user={user} /> : <Dashboard user={user} />} />
             <Route path="/gestures" element={<ManageGestures user={user} />} />
             <Route path="/training-results" element={<TrainingResults user={user} />} />
             <Route path="/predict" element={<Predict user={user} />} />
@@ -169,6 +172,7 @@ const App = () => {
             <Route path="/history" element={<PredictionHistory user={user} />} />
             <Route path="/admin" element={isEditor ? <AdminTools user={user} /> : <Dashboard user={user} />} />
             <Route path="/audio-manager" element={isEditor ? <AudioManager user={user} /> : <Dashboard user={user} />} />
+            <Route path="/tts-manager" element={isEditor ? <TTSManager user={user} /> : <Dashboard user={user} />} />
             <Route path="/login" element={<Login onLogin={setUser} />} />
           </Routes>
         </main>

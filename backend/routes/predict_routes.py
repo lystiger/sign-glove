@@ -179,7 +179,7 @@ async def websocket_predict(websocket: WebSocket):
                     try:
                         async with httpx.AsyncClient(timeout=30.0) as client:
                             response = await client.post(
-                                "http://localhost:8080/training/trigger",
+                                f"{settings.BACKEND_BASE_URL}/training/trigger",
                                 headers={"X-API-KEY": settings.SECRET_KEY}
                             )
                             if response.status_code == 200:

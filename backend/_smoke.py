@@ -4,7 +4,8 @@ import time
 import json
 import requests
 
-BASE = os.environ.get("SMOKE_BASE", "http://localhost:8080")
+from core.settings import settings
+BASE = os.environ.get("SMOKE_BASE", settings.BACKEND_BASE_URL)
 
 def jprint(title, resp):
     try:

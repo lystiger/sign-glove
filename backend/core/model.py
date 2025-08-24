@@ -32,8 +32,16 @@ def predict_from_dual_hand_data(data: dict) -> dict:
         # Combine left + right data
         combined = np.array([left + right], dtype=np.float32)  # shape: [1, 22]
 
-        # Load TFLite model (dual-hand version, trained on 22 inputs)
-        interpreter = tf.lite.Interpreter(model_path=settings.MODEL_DUAL_PATH)
+        # Check if dual-hand model exists, fallback to single model if not
+        model_path = settings.MODEL_DUAL_PATH
+        if not os.path.exists(model_path):
+            logger.warning(f"Dual-hand model not found at {model_path}, using single model")
+            model_path = settings.MODEL_PATH
+            # For single model, use only left hand data
+            combined = np.array([left], dtype=np.float32)  # shape: [1, 11]
+
+        # Load TFLite model
+        interpreter = tf.lite.Interpreter(model_path=model_path)
         interpreter.allocate_tensors()
 
         input_details = interpreter.get_input_details()
@@ -51,10 +59,11 @@ def predict_from_dual_hand_data(data: dict) -> dict:
 
         return {
             "status": "success",
-            "left_prediction": label,       # Or split if you use 2 models
-            "right_prediction": label,      # Same as left for now unless you run 2 heads
+            "left_prediction": label,
+            "right_prediction": label,
             "confidence": confidence,
-            "timestamp": timestamp
+            "timestamp": timestamp,
+            "model_type": "dual_hand" if model_path == settings.MODEL_DUAL_PATH else "single_hand"
         }
 
     except Exception as e:

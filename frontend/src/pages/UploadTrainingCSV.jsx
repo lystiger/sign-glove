@@ -28,7 +28,7 @@ const UploadTrainingCSV = () => {
       await apiRequest('post', '/training/run', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
-      toast.success('CSV uploaded and training started!');
+      toast.success('CSV uploaded and AI training started!');
       setShowCheckmark(true);
       setTimeout(() => setShowCheckmark(false), 1200);
     } catch (err) {
@@ -52,7 +52,7 @@ const UploadTrainingCSV = () => {
             <label htmlFor="training-csv-file-input" style={{ display: 'block', marginBottom: 8 }}>Select CSV file</label>
             <input id="training-csv-file-input" type="file" accept=".csv" onChange={handleFileChange} aria-required="true" style={{ marginBottom: 16 }} />
             <div style={{ marginTop: 20 }}>
-              <button type="submit" className="btn btn-primary" onClick={handleUpload} disabled={loading} aria-busy={loading} aria-label="Upload Training CSV">
+              <button type="submit" className="btn btn-primary" disabled={loading} aria-busy={loading} aria-label="Upload Training CSV">
                 <MdUpload style={{ verticalAlign: 'middle', marginRight: 4 }} /> Upload
               </button>
               {showCheckmark && (

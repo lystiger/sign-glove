@@ -38,6 +38,8 @@ class Settings(BaseSettings):
     RAW_DATA_PATH: str = os.path.join(DATA_DIR, 'raw_data.csv')
     CLEAN_DATA_PATH: str = os.path.join(DATA_DIR, 'clean_data.csv')
     GESTURE_DATA_PATH: str = os.path.join(DATA_DIR, 'gesture_data.csv')
+    RAW_DUALHAND_DATA_PATH: str = os.path.join(DATA_DIR, 'raw_dualhand_data.csv')
+    GESTURE_DUALHAND_DATA_PATH: str = os.path.join(DATA_DIR, 'gesture_dualhand.csv')
     MODEL_PATH: str = os.path.join(AI_DIR, 'gesture_model.tflite')
     MODEL_DUAL_PATH: str = os.path.join(AI_DIR, 'gesture_model_dual.tflite')
     METRICS_PATH: str = os.path.join(AI_DIR, 'training_metrics.json')
@@ -45,6 +47,12 @@ class Settings(BaseSettings):
     
     # CORS
     CORS_ORIGINS: List[str] = Field(["http://localhost:5173"], env="CORS_ORIGINS")
+
+    # Backend base URL for internal calls and clients
+    BACKEND_BASE_URL: str = Field("http://localhost:8000", env="BACKEND_BASE_URL")
+
+    # Training logs
+    TRAINING_LOG_PATH: str = Field(os.path.join("logs", "training.log"), env="TRAINING_LOG_PATH")
     
     # TTS config
     TTS_ENABLED: bool = Field(True, env="TTS_ENABLED")
@@ -54,6 +62,7 @@ class Settings(BaseSettings):
     TTS_VOLUME: float = Field(2.0, env="TTS_VOLUME")
     TTS_CACHE_ENABLED: bool = Field(True, env="TTS_CACHE_ENABLED")
     TTS_CACHE_DIR: str = Field("tts_cache", env="TTS_CACHE_DIR")
+    TTS_FILTER_IDLE_GESTURES: bool = Field(True, env="TTS_FILTER_IDLE_GESTURES")
     
     # ESP32 config
     ESP32_IP: str = Field("192.168.1.123", env="ESP32_IP")

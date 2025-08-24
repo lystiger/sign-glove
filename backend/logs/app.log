@@ -1250,3 +1250,2015 @@ pymongo.errors.OperationFailure: bad auth : authentication failed, full error: {
 2025-08-20 09:35:09,199 - root - INFO - Indexes created. App is starting...
 2025-08-20 09:35:09,217 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
 2025-08-20 09:35:17,367 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-22 13:08:15,522 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-22 13:08:16,285 - root - INFO - Indexes created. App is starting...
+2025-08-22 13:08:16,393 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 13:13:16,403 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 13:18:16,426 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 13:18:18,267 - signglove - INFO - Request: POST /auth/login
+2025-08-22 13:18:18,829 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-22 13:18:18,865 - signglove - INFO - Request: GET /auth/me
+2025-08-22 13:18:18,934 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-22 13:18:28,010 - signglove - INFO - Request: GET /gestures
+2025-08-22 13:18:28,077 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-22 13:18:28,083 - signglove - INFO - Response: GET /gestures - 200
+2025-08-22 13:18:28,100 - signglove - INFO - Request: GET /gestures
+2025-08-22 13:18:28,161 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-22 13:18:28,167 - signglove - INFO - Response: GET /gestures - 200
+2025-08-22 13:18:33,440 - signglove - INFO - Request: GET /training/latest
+2025-08-22 13:18:33,507 - root - ERROR - Error fetching training result: 
+2025-08-22 13:18:33,728 - signglove - ERROR - Error 27a15e24-9cdd-4d47-8aab-aa45f19d1c2e: HTTPException - 
+2025-08-22 13:18:33,731 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-22 13:18:33,749 - signglove - INFO - Request: GET /training/latest
+2025-08-22 13:18:33,810 - root - ERROR - Error fetching training result: 
+2025-08-22 13:18:33,812 - signglove - ERROR - Error 00e7df3a-c475-48b0-802f-1feb0531c76a: HTTPException - 
+2025-08-22 13:18:33,815 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-22 13:18:55,094 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-22 13:18:55,214 - root - INFO - Deleted 0 sensor documents
+2025-08-22 13:18:55,218 - signglove - INFO - Response: DELETE /admin/sensor-data - 200
+2025-08-22 13:18:56,847 - signglove - INFO - Request: DELETE /admin/training-results
+2025-08-22 13:18:57,219 - root - INFO - Deleted 0 training results
+2025-08-22 13:18:57,225 - signglove - INFO - Response: DELETE /admin/training-results - 200
+2025-08-22 13:19:06,021 - signglove - INFO - Request: GET /audio-files/
+2025-08-22 13:19:06,090 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-22 13:19:06,118 - signglove - INFO - Request: GET /audio-files/
+2025-08-22 13:19:06,187 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-22 13:20:04,150 - signglove - INFO - Request: GET /audio-files/
+2025-08-22 13:20:04,220 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-22 13:20:04,256 - signglove - INFO - Request: GET /audio-files/
+2025-08-22 13:20:04,323 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-22 13:23:16,429 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 13:27:53,957 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=RuntimeError('run loop already started')>
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pyttsx3\engine.py", line 219, in runAndWait
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-08-22 13:27:55,303 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=RuntimeError('run loop already started')>
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pyttsx3\engine.py", line 219, in runAndWait
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-08-22 13:28:01,130 - signglove - INFO - Request: GET /gestures
+2025-08-22 13:28:01,208 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-22 13:28:01,221 - signglove - INFO - Response: GET /gestures - 200
+2025-08-22 13:28:01,266 - signglove - INFO - Request: GET /gestures
+2025-08-22 13:28:01,337 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-22 13:28:01,341 - signglove - INFO - Response: GET /gestures - 200
+2025-08-22 13:28:16,450 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 13:28:45,752 - signglove - INFO - Client disconnected
+2025-08-22 13:28:45,757 - signglove - INFO - Client disconnected
+2025-08-22 13:33:16,453 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 13:38:16,448 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 13:43:16,471 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 13:46:51,670 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-22 13:50:15,054 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-22 13:50:15,713 - root - INFO - Indexes created. App is starting...
+2025-08-22 13:50:15,715 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 13:50:50,525 - signglove - INFO - Request: GET /auth/me
+2025-08-22 13:50:50,616 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-22 13:50:50,650 - signglove - INFO - Request: GET /dashboard/
+2025-08-22 13:50:51,266 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-22 13:51:35,904 - signglove - INFO - Request: POST /auth/login
+2025-08-22 13:51:36,376 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-22 13:51:36,404 - signglove - INFO - Request: GET /auth/me
+2025-08-22 13:51:36,470 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-22 13:55:15,722 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 14:00:15,730 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 14:05:14,296 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-22 14:07:00,945 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-22 14:07:05,206 - root - INFO - Indexes created. App is starting...
+2025-08-22 14:07:05,256 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 14:08:38,795 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-22 14:08:40,173 - root - INFO - Indexes created. App is starting...
+2025-08-22 14:08:40,175 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 14:12:19,227 - signglove - INFO - Request: POST /training/trigger
+2025-08-22 14:12:20,050 - root - WARNING - No sensor data found to export for training. Using existing CSV if present.
+2025-08-22 14:12:50,924 - root - ERROR - Training script error: 2025-08-22 14:12:26.601542: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-08-22 14:12:31.456794: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Traceback (most recent call last):
+  File "F:\testing\sign-glove\backend\routes\..\AI\model.py", line 62, in <module>
+    X = scaler.fit_transform(X)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\utils\_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\base.py", line 892, in fit_transform
+    return self.fit(X, **fit_params).transform(X)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\preprocessing\_data.py", line 907, in fit
+    return self.partial_fit(X, y, sample_weight)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\base.py", line 1363, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\preprocessing\_data.py", line 943, in partial_fit
+    X = validate_data(
+        ^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\utils\validation.py", line 2954, in validate_data
+    out = check_array(X, input_name="X", **check_params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\utils\validation.py", line 1128, in check_array
+    raise ValueError(
+ValueError: Found array with 0 sample(s) (shape=(0, 11)) while a minimum of 1 is required by StandardScaler.
+
+2025-08-22 14:12:50,945 - root - ERROR - Triggered training failed: 
+2025-08-22 14:12:51,024 - signglove - ERROR - Error 54c63875-a1fe-48fd-80a6-7b8c65c15a78: HTTPException - 
+2025-08-22 14:12:51,029 - signglove - WARNING - Slow request: POST /training/trigger took 31.80s
+2025-08-22 14:12:51,031 - signglove - INFO - Response: POST /training/trigger - 500
+2025-08-22 14:12:51,776 - signglove - INFO - Client disconnected
+2025-08-22 14:13:40,174 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 14:18:40,178 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 14:23:40,173 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 14:28:40,166 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 14:32:51,615 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-22 14:33:34,190 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-22 14:33:34,889 - root - INFO - Indexes created. App is starting...
+2025-08-22 14:33:34,891 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 14:38:34,911 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 14:40:15,817 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-22 14:40:50,623 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-22 14:40:52,008 - root - INFO - Indexes created. App is starting...
+2025-08-22 14:40:52,010 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-22 14:45:52,025 - root - INFO - [AUTO] No raw_data.csv found, skipping this cycle.
+2025-08-22 14:48:09,314 - signglove - INFO - Request: GET /auth/me
+2025-08-22 14:48:09,433 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-22 14:48:09,446 - signglove - INFO - Request: GET /auth/me
+2025-08-22 14:48:09,509 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-22 14:48:09,609 - signglove - INFO - Request: GET /dashboard/
+2025-08-22 14:48:09,914 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-22 14:48:09,943 - signglove - INFO - Request: GET /dashboard/
+2025-08-22 14:48:09,950 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-22 14:48:09,964 - signglove - INFO - Request: GET /dashboard/
+2025-08-22 14:48:09,975 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-22 14:48:35,615 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-22 14:48:35,732 - root - INFO - Deleted 0 sensor documents
+2025-08-22 14:48:35,736 - signglove - INFO - Response: DELETE /admin/sensor-data - 200
+2025-08-22 14:48:37,396 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-22 14:48:37,509 - root - INFO - Deleted 0 sensor documents
+2025-08-22 14:48:37,514 - signglove - INFO - Response: DELETE /admin/sensor-data - 200
+2025-08-22 14:50:52,023 - root - INFO - [AUTO] No raw_data.csv found, skipping this cycle.
+2025-08-22 14:55:43,586 - signglove - INFO - Client disconnected
+2025-08-22 14:55:52,031 - root - INFO - [AUTO] New data detected in raw_data.csv. Running noise reduction and training...
+2025-08-22 14:55:53,766 - root - INFO - [AUTO] Noise reduction complete: Noise-reduced data written to F:\testing\sign-glove\backend\processors\../data/gesture_data.csv
+Total rows in gesture_data.csv: 610
+2025-08-22 14:55:53,769 - root - INFO - [AUTO] Triggering model training...
+2025-08-22 15:04:04,215 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-22 15:04:04,859 - root - INFO - Indexes created. App is starting...
+2025-08-22 15:04:04,861 - root - INFO - [AUTO] No raw_data.csv found, skipping this cycle.
+2025-08-22 15:06:59,134 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-22 15:07:21,284 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-22 15:07:21,983 - root - INFO - Indexes created. App is starting...
+2025-08-22 15:07:21,985 - root - INFO - [AUTO] No raw_data.csv found, skipping this cycle.
+2025-08-22 15:12:22,006 - root - INFO - [AUTO] No raw_data.csv found, skipping this cycle.
+2025-08-22 15:16:06,883 - signglove - INFO - Client disconnected
+2025-08-22 15:16:52,344 - signglove - INFO - Request: POST /training/trigger
+2025-08-22 15:16:52,437 - root - WARNING - No sensor data found to export for training. Using existing CSV if present.
+2025-08-22 15:16:52,454 - signglove - INFO - Response: POST /training/trigger - 200
+2025-08-22 15:17:21,344 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-22 15:18:00,190 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-22 15:18:02,644 - root - INFO - Indexes created. App is starting...
+2025-08-22 15:18:02,646 - root - INFO - [AUTO] New data detected in raw_data.csv. Running noise reduction and training...
+2025-08-22 15:18:03,150 - root - INFO - [AUTO] Noise reduction complete: Noise-reduced data written to F:\testing\sign-glove\backend\processors\../data/gesture_data.csv
+Total rows in gesture_data.csv: 936
+2025-08-22 15:18:03,151 - root - INFO - [AUTO] Triggering model training...
+2025-08-23 10:42:01,333 - core.database - ERROR - MongoDB connection failed:
+Traceback (most recent call last):
+  File "F:\testing\sign-glove\backend\core\database.py", line 34, in test_connection
+    await client.admin.command("ping")
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\database.py", line 926, in command
+    with self._client._conn_for_reads(read_preference, session, operation=command_name) as (
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1864, in _conn_for_reads
+    server = self._select_server(read_preference, session, operation)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1799, in _select_server
+    topology = self._get_topology()
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1737, in _get_topology
+    self._resolve_srv()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 903, in _resolve_srv
+    res = uri_parser._parse_srv(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\uri_parser.py", line 163, in _parse_srv
+    nodes = dns_resolver.get_hosts()
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 157, in get_hosts
+    _, nodes = self._get_srv_response_and_hosts(True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 131, in _get_srv_response_and_hosts
+    results = self._resolve_uri(encapsulate_errors)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 125, in _resolve_uri
+    raise ConfigurationError(str(exc)) from None
+pymongo.errors.ConfigurationError: The resolution lifetime expired after 20.012 seconds: Server Do53:8.8.8.8@53 answered The DNS operation timed out.; Server Do53:8.8.4.4@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out.; Server Do53:8.8.8.8@53 answered The DNS operation timed out.; Server Do53:8.8.4.4@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out.; Server Do53:8.8.8.8@53 answered The DNS operation timed out.; Server Do53:8.8.4.4@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out.; Server Do53:8.8.8.8@53 answered The DNS operation timed out.
+2025-08-23 10:43:43,734 - core.database - ERROR - MongoDB connection failed:
+Traceback (most recent call last):
+  File "F:\testing\sign-glove\backend\core\database.py", line 34, in test_connection
+    await client.admin.command("ping")
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\database.py", line 926, in command
+    with self._client._conn_for_reads(read_preference, session, operation=command_name) as (
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1864, in _conn_for_reads
+    server = self._select_server(read_preference, session, operation)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1799, in _select_server
+    topology = self._get_topology()
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1737, in _get_topology
+    self._resolve_srv()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 903, in _resolve_srv
+    res = uri_parser._parse_srv(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\uri_parser.py", line 163, in _parse_srv
+    nodes = dns_resolver.get_hosts()
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 157, in get_hosts
+    _, nodes = self._get_srv_response_and_hosts(True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 131, in _get_srv_response_and_hosts
+    results = self._resolve_uri(encapsulate_errors)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 125, in _resolve_uri
+    raise ConfigurationError(str(exc)) from None
+pymongo.errors.ConfigurationError: The resolution lifetime expired after 20.002 seconds: Server Do53:8.8.8.8@53 answered The DNS operation timed out.; Server Do53:8.8.4.4@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out.; Server Do53:8.8.8.8@53 answered The DNS operation timed out.; Server Do53:8.8.4.4@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out.; Server Do53:8.8.8.8@53 answered The DNS operation timed out.; Server Do53:8.8.4.4@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out.; Server Do53:8.8.8.8@53 answered The DNS operation timed out.
+2025-08-23 10:51:48,898 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-23 10:51:54,526 - root - INFO - Indexes created. App is starting...
+2025-08-23 10:51:54,545 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 10:51:59,486 - signglove - INFO - Request: POST /auth/login
+2025-08-23 10:52:00,082 - signglove - ERROR - Error b657fab2-dd91-458f-a26f-5bc46a7b64d7: HTTPException - 
+2025-08-23 10:52:00,088 - signglove - INFO - Response: POST /auth/login - 401
+2025-08-23 10:52:10,441 - signglove - INFO - Request: POST /auth/login
+2025-08-23 10:52:10,570 - signglove - ERROR - Error 523a2eda-d200-4d30-b3dc-19851317d4c7: HTTPException - 
+2025-08-23 10:52:10,573 - signglove - INFO - Response: POST /auth/login - 401
+2025-08-23 10:52:39,966 - signglove - INFO - Request: POST /auth/login
+2025-08-23 10:52:40,505 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-23 10:52:40,521 - signglove - INFO - Request: GET /auth/me
+2025-08-23 10:52:40,917 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 10:53:14,105 - signglove - INFO - Request: POST /auth/login
+2025-08-23 10:53:14,499 - signglove - ERROR - Error 46923347-7865-49cc-a2da-a68dc8222364: HTTPException - 
+2025-08-23 10:53:14,503 - signglove - INFO - Response: POST /auth/login - 401
+2025-08-23 10:53:18,884 - signglove - INFO - Request: POST /auth/logout
+2025-08-23 10:53:18,889 - signglove - INFO - Response: POST /auth/logout - 200
+2025-08-23 10:56:54,565 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 10:59:37,723 - signglove - INFO - Request: POST /auth/login
+2025-08-23 10:59:40,483 - signglove - WARNING - Slow request: POST /auth/login took 2.76s
+2025-08-23 10:59:40,484 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-23 10:59:40,501 - signglove - INFO - Request: GET /auth/me
+2025-08-23 10:59:41,231 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 10:59:46,468 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 10:59:49,409 - signglove - WARNING - Slow request: GET /dashboard/ took 2.94s
+2025-08-23 10:59:49,412 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 10:59:49,432 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 10:59:49,444 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 10:59:53,099 - signglove - INFO - Request: GET /gestures
+2025-08-23 11:00:08,867 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 11:00:08,871 - signglove - WARNING - Slow request: GET /gestures took 15.77s
+2025-08-23 11:00:08,875 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 11:00:08,896 - signglove - INFO - Request: GET /gestures
+2025-08-23 11:00:09,084 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 11:00:09,088 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 11:00:27,203 - signglove - INFO - Request: DELETE /admin/training-results
+2025-08-23 11:00:28,117 - root - INFO - Deleted 0 training results
+2025-08-23 11:00:28,120 - signglove - INFO - Response: DELETE /admin/training-results - 200
+2025-08-23 11:00:28,510 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-23 11:00:28,966 - root - INFO - Deleted 0 sensor documents
+2025-08-23 11:00:28,971 - signglove - INFO - Response: DELETE /admin/sensor-data - 200
+2025-08-23 11:00:34,089 - signglove - INFO - Request: GET /audio-files/
+2025-08-23 11:00:34,261 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-23 11:00:34,321 - signglove - INFO - Request: GET /audio-files/
+2025-08-23 11:00:35,422 - signglove - WARNING - Slow request: GET /audio-files/ took 1.10s
+2025-08-23 11:00:35,426 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-23 11:01:01,089 - signglove - INFO - Request: GET /training/latest
+2025-08-23 11:01:02,319 - root - ERROR - Error fetching training result: 
+2025-08-23 11:01:02,659 - signglove - ERROR - Error b37c756b-2edc-4c5d-983e-120ac74775a1: HTTPException - 
+2025-08-23 11:01:02,660 - signglove - WARNING - Slow request: GET /training/latest took 1.57s
+2025-08-23 11:01:02,662 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 11:01:02,677 - signglove - INFO - Request: GET /training/latest
+2025-08-23 11:01:02,843 - root - ERROR - Error fetching training result: 
+2025-08-23 11:01:02,846 - signglove - ERROR - Error 74e5528b-7f4a-474f-8994-824e52c45c18: HTTPException - 
+2025-08-23 11:01:02,849 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 11:01:54,567 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 11:02:16,591 - signglove - INFO - Request: GET /training/latest
+2025-08-23 11:02:16,784 - root - ERROR - Error fetching training result: 
+2025-08-23 11:02:16,787 - signglove - ERROR - Error ee830a0d-4f37-4057-aa38-44a6d9663a24: HTTPException - 
+2025-08-23 11:02:16,791 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 11:02:16,816 - signglove - INFO - Request: GET /training/latest
+2025-08-23 11:02:18,313 - root - ERROR - Error fetching training result: 
+2025-08-23 11:02:18,316 - signglove - ERROR - Error 2043db50-ab8e-4009-89ef-40b25c92a2da: HTTPException - 
+2025-08-23 11:02:18,318 - signglove - WARNING - Slow request: GET /training/latest took 1.50s
+2025-08-23 11:02:18,321 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 11:03:44,057 - signglove - INFO - Request: GET /gestures
+2025-08-23 11:03:44,590 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 11:03:44,599 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 11:03:44,619 - signglove - INFO - Request: GET /gestures
+2025-08-23 11:03:45,051 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 11:03:45,056 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 11:04:30,188 - signglove - INFO - Request: POST /gestures/
+2025-08-23 11:04:30,193 - signglove - INFO - Response: POST /gestures/ - 405
+2025-08-23 11:04:50,593 - signglove - INFO - Request: GET /gestures/
+2025-08-23 11:04:51,311 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 11:04:51,315 - signglove - INFO - Response: GET /gestures/ - 200
+2025-08-23 11:06:54,575 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 11:07:36,742 - signglove - INFO - Request: GET /audio-files/
+2025-08-23 11:07:36,854 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-23 11:07:36,885 - signglove - INFO - Request: GET /audio-files/
+2025-08-23 11:07:37,062 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-23 11:07:43,765 - signglove - INFO - Request: DELETE /admin/training-results
+2025-08-23 11:07:44,151 - root - INFO - Deleted 0 training results
+2025-08-23 11:07:44,154 - signglove - INFO - Response: DELETE /admin/training-results - 200
+2025-08-23 11:07:44,800 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-23 11:07:45,253 - root - INFO - Deleted 0 sensor documents
+2025-08-23 11:07:45,257 - signglove - INFO - Response: DELETE /admin/sensor-data - 200
+2025-08-23 11:09:40,342 - signglove - INFO - Request: GET /gestures
+2025-08-23 11:09:49,431 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 11:09:49,434 - signglove - WARNING - Slow request: GET /gestures took 9.09s
+2025-08-23 11:09:49,437 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 11:09:49,458 - signglove - INFO - Request: GET /gestures
+2025-08-23 11:09:56,018 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 11:09:56,022 - signglove - WARNING - Slow request: GET /gestures took 6.56s
+2025-08-23 11:09:56,025 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 11:11:16,945 - signglove - INFO - Client disconnected
+2025-08-23 11:11:16,948 - signglove - INFO - Client disconnected
+2025-08-23 11:11:17,448 - signglove - INFO - Request: GET /auth/me
+2025-08-23 11:11:31,108 - signglove - INFO - Request: GET /auth/me
+2025-08-23 11:11:54,587 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 11:11:58,651 - signglove - INFO - Request: POST /auth/login
+2025-08-23 11:11:59,716 - signglove - ERROR - Error 0d871587-92b7-4368-ac15-fb85d04e7bbc: NetworkTimeout - ac-wkzvwis-shard-00-01.2fgsv8h.mongodb.net:27017: timed out (configured timeouts: connectTimeoutMS: 20000.0ms)
+2025-08-23 11:11:59,717 - signglove - WARNING - Slow request: GET /auth/me took 42.27s
+2025-08-23 11:11:59,723 - signglove - INFO - Response: GET /auth/me - 500
+2025-08-23 11:12:35,952 - signglove - WARNING - Slow request: POST /auth/login took 37.30s
+2025-08-23 11:12:35,954 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-23 11:12:40,471 - signglove - INFO - Request: POST /auth/login
+2025-08-23 11:12:44,852 - signglove - WARNING - Slow request: POST /auth/login took 4.38s
+2025-08-23 11:12:44,855 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-23 11:12:44,881 - signglove - INFO - Request: GET /auth/me
+2025-08-23 11:12:55,262 - signglove - ERROR - Error 8391db40-5b1c-4575-b5d3-d04c9e6a9c8a: NetworkTimeout - SSL handshake failed: ac-wkzvwis-shard-00-01.2fgsv8h.mongodb.net:27017: _ssl.c:989: The handshake operation timed out (configured timeouts: connectTimeoutMS: 20000.0ms)
+2025-08-23 11:12:55,264 - signglove - WARNING - Slow request: GET /auth/me took 84.15s
+2025-08-23 11:12:55,265 - signglove - INFO - Response: GET /auth/me - 500
+2025-08-23 11:12:56,311 - signglove - WARNING - Slow request: GET /auth/me took 11.43s
+2025-08-23 11:12:56,313 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 11:14:44,360 - signglove - INFO - Request: GET /auth/me
+2025-08-23 11:14:46,432 - signglove - INFO - Request: GET /auth/me
+2025-08-23 11:14:46,641 - signglove - INFO - Request: GET /auth/me
+2025-08-23 11:14:47,062 - signglove - INFO - Request: GET /auth/me
+2025-08-23 11:14:47,270 - signglove - INFO - Request: GET /auth/me
+2025-08-23 11:14:47,532 - signglove - INFO - Request: GET /auth/me
+2025-08-23 11:15:01,342 - signglove - WARNING - Slow request: GET /auth/me took 14.91s
+2025-08-23 11:15:01,344 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 11:15:06,394 - signglove - WARNING - Slow request: GET /auth/me took 19.33s
+2025-08-23 11:15:06,398 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 11:15:07,532 - signglove - INFO - Request: GET /auth/me
+2025-08-23 11:15:08,701 - signglove - WARNING - Slow request: GET /auth/me took 21.17s
+2025-08-23 11:15:08,703 - signglove - WARNING - Slow request: GET /auth/me took 24.34s
+2025-08-23 11:15:08,705 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 11:15:08,707 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 11:15:09,955 - signglove - WARNING - Slow request: GET /auth/me took 2.42s
+2025-08-23 11:15:09,957 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 11:15:11,930 - signglove - WARNING - Slow request: GET /auth/me took 24.66s
+2025-08-23 11:15:11,933 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 11:15:13,964 - signglove - WARNING - Slow request: GET /auth/me took 27.32s
+2025-08-23 11:15:13,968 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 11:16:44,381 - signglove - INFO - Request: POST /training/run
+2025-08-23 11:16:45,564 - signglove - WARNING - Slow request: POST /training/run took 1.18s
+2025-08-23 11:16:45,567 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 11:16:53,173 - signglove - INFO - Request: GET /training/latest
+2025-08-23 11:16:54,321 - root - ERROR - Error fetching training result: 
+2025-08-23 11:16:54,324 - signglove - ERROR - Error bbe059c4-9eea-4522-acb4-0ff7e0ddb767: HTTPException - 
+2025-08-23 11:16:54,326 - signglove - WARNING - Slow request: GET /training/latest took 1.15s
+2025-08-23 11:16:54,593 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 11:16:54,595 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 11:16:54,613 - signglove - INFO - Request: GET /training/latest
+2025-08-23 11:16:54,707 - root - ERROR - Error fetching training result: 
+2025-08-23 11:16:54,710 - signglove - ERROR - Error b820fbe3-b613-4097-9973-b6a2846ebe8b: HTTPException - 
+2025-08-23 11:16:54,714 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 11:18:11,911 - signglove - INFO - Request: POST /training/run
+2025-08-23 11:18:12,092 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 11:19:03,723 - signglove - INFO - Request: GET /training/latest
+2025-08-23 11:19:04,265 - root - ERROR - Error fetching training result: 
+2025-08-23 11:19:04,267 - signglove - ERROR - Error a468d506-b78e-416d-b136-7c7f914182b0: HTTPException - 
+2025-08-23 11:19:04,271 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 11:19:04,284 - signglove - INFO - Request: GET /training/latest
+2025-08-23 11:19:04,428 - root - ERROR - Error fetching training result: 
+2025-08-23 11:19:04,431 - signglove - ERROR - Error 29a0c1f6-0845-40cc-b9f2-1a770c792f35: HTTPException - 
+2025-08-23 11:19:04,434 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 11:19:41,026 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 11:19:47,547 - signglove - WARNING - Slow request: GET /dashboard/ took 6.52s
+2025-08-23 11:19:47,550 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 11:19:47,564 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 11:19:47,570 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 11:21:54,605 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 11:24:04,093 - signglove - INFO - Request: POST /training/run
+2025-08-23 11:24:04,710 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 11:24:19,839 - signglove - INFO - Request: POST /training/run
+2025-08-23 11:24:20,280 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 11:24:59,378 - signglove - INFO - Request: GET /audio-files/
+2025-08-23 11:25:00,210 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-23 11:25:00,229 - signglove - INFO - Request: GET /audio-files/
+2025-08-23 11:25:00,403 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-23 11:25:14,900 - signglove - INFO - Request: GET /gestures
+2025-08-23 11:25:15,412 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 11:25:15,415 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 11:25:15,439 - signglove - INFO - Request: GET /gestures
+2025-08-23 11:25:15,510 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 11:25:15,515 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 11:26:54,595 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 11:31:54,595 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 11:32:14,621 - signglove - INFO - Request: POST /training/run
+2025-08-23 11:32:14,769 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 11:32:28,277 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=RuntimeError('run loop already started')>
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\site-packages\pyttsx3\engine.py", line 219, in runAndWait
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-08-23 11:32:32,480 - signglove - INFO - Request: GET /training/latest
+2025-08-23 11:32:34,127 - root - ERROR - Error fetching training result: 
+2025-08-23 11:32:34,133 - signglove - ERROR - Error 6f036f3b-7289-413d-9dcd-32dbd390e20c: HTTPException - 
+2025-08-23 11:32:34,136 - signglove - WARNING - Slow request: GET /training/latest took 1.65s
+2025-08-23 11:32:34,141 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 11:32:34,192 - signglove - INFO - Request: GET /training/latest
+2025-08-23 11:32:37,359 - root - ERROR - Error fetching training result: 
+2025-08-23 11:32:37,366 - signglove - ERROR - Error f67c5ce7-cc94-4c99-b1dc-62a4546ffb3d: HTTPException - 
+2025-08-23 11:32:37,381 - signglove - WARNING - Slow request: GET /training/latest took 3.19s
+2025-08-23 11:32:37,406 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 11:32:37,452 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 11:32:45,425 - signglove - WARNING - Slow request: GET /dashboard/ took 7.97s
+2025-08-23 11:32:45,430 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 11:32:45,449 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 11:32:45,458 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 11:33:43,578 - signglove - INFO - Request: POST /training/run
+2025-08-23 11:33:43,873 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 11:33:52,180 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 11:33:52,770 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 11:33:52,786 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 11:33:52,794 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 11:33:56,061 - signglove - INFO - Request: GET /gestures
+2025-08-23 11:33:56,183 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 11:33:56,189 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 11:33:56,251 - signglove - INFO - Request: GET /gestures
+2025-08-23 11:33:56,533 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 11:33:56,536 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 11:34:02,328 - signglove - INFO - Request: POST /predict/
+2025-08-23 11:34:02,363 - signglove - INFO - Response: POST /predict/ - 200
+2025-08-23 11:34:10,546 - signglove - INFO - Request: POST /predict/
+2025-08-23 11:34:10,559 - signglove - INFO - Response: POST /predict/ - 200
+2025-08-23 11:34:22,604 - signglove - INFO - Request: POST /predict/
+2025-08-23 11:34:22,616 - signglove - INFO - Response: POST /predict/ - 200
+2025-08-23 11:34:31,128 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-23 11:34:31,991 - root - INFO - Deleted 0 sensor documents
+2025-08-23 11:34:32,009 - signglove - INFO - Response: DELETE /admin/sensor-data - 200
+2025-08-23 11:34:33,006 - signglove - INFO - Request: DELETE /admin/training-results
+2025-08-23 11:34:42,220 - root - INFO - Deleted 0 training results
+2025-08-23 11:34:42,222 - signglove - WARNING - Slow request: DELETE /admin/training-results took 9.21s
+2025-08-23 11:34:42,225 - signglove - INFO - Response: DELETE /admin/training-results - 200
+2025-08-23 11:36:54,606 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 11:37:17,473 - signglove - INFO - Request: POST /training/run
+2025-08-23 11:37:17,609 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 11:37:38,510 - signglove - INFO - Request: POST /training/run
+2025-08-23 11:37:38,669 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 11:37:50,956 - signglove - INFO - Request: GET /gestures
+2025-08-23 11:37:51,053 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 11:37:51,060 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 11:37:51,095 - signglove - INFO - Request: GET /gestures
+2025-08-23 11:37:51,261 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 11:37:51,275 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 11:38:01,074 - signglove - INFO - Request: POST /predict/
+2025-08-23 11:38:01,114 - signglove - INFO - Response: POST /predict/ - 200
+2025-08-23 11:39:26,768 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 11:39:27,803 - signglove - WARNING - Slow request: GET /dashboard/ took 1.03s
+2025-08-23 11:39:27,806 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 11:39:27,825 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 11:39:27,837 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 11:39:53,818 - signglove - INFO - Request: POST /training/run
+2025-08-23 11:39:53,939 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 11:40:11,728 - signglove - INFO - Request: POST /training/run
+2025-08-23 11:40:11,910 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 11:40:22,517 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-23 11:40:23,698 - root - INFO - Deleted 0 sensor documents
+2025-08-23 11:40:23,701 - signglove - WARNING - Slow request: DELETE /admin/sensor-data took 1.18s
+2025-08-23 11:40:23,704 - signglove - INFO - Response: DELETE /admin/sensor-data - 200
+2025-08-23 11:40:23,996 - signglove - INFO - Request: DELETE /admin/training-results
+2025-08-23 11:40:24,235 - root - INFO - Deleted 0 training results
+2025-08-23 11:40:24,242 - signglove - INFO - Response: DELETE /admin/training-results - 200
+2025-08-23 11:41:54,610 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 11:46:54,615 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 11:51:54,604 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 11:52:06,779 - signglove - INFO - Request: POST /training/run
+2025-08-23 11:52:07,186 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 11:52:24,857 - signglove - INFO - Request: POST /training/run
+2025-08-23 11:52:25,519 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 11:56:54,590 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 12:01:54,598 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 12:04:28,187 - signglove - INFO - Client disconnected
+2025-08-23 12:04:28,625 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-23 12:07:59,136 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-23 12:08:00,890 - root - INFO - Indexes created. App is starting...
+2025-08-23 12:08:00,892 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 12:13:00,902 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 12:16:19,691 - signglove - INFO - Request: POST /auth/login
+2025-08-23 12:16:20,223 - signglove - ERROR - Error 28127bd8-177c-48de-a70c-8483371f6d79: HTTPException - 
+2025-08-23 12:16:20,225 - signglove - INFO - Response: POST /auth/login - 401
+2025-08-23 12:16:22,757 - signglove - INFO - Request: POST /auth/login
+2025-08-23 12:16:23,199 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-23 12:16:23,217 - signglove - INFO - Request: GET /auth/me
+2025-08-23 12:16:23,340 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 12:16:49,604 - signglove - INFO - Request: GET /training/latest
+2025-08-23 12:16:49,670 - root - ERROR - Error fetching training result: 
+2025-08-23 12:16:49,675 - signglove - ERROR - Error 201aee69-4d62-40f6-8948-862b6ab69787: HTTPException - 
+2025-08-23 12:16:49,679 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 12:16:49,708 - signglove - INFO - Request: GET /training/latest
+2025-08-23 12:16:49,801 - root - ERROR - Error fetching training result: 
+2025-08-23 12:16:49,805 - signglove - ERROR - Error 3acd159b-4178-4464-8eaa-189e9a228f67: HTTPException - 
+2025-08-23 12:16:49,810 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 12:17:27,464 - signglove - INFO - Request: POST /training/run
+2025-08-23 12:17:27,882 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 12:18:00,901 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 12:19:00,866 - signglove - INFO - Request: DELETE /admin/training-results
+2025-08-23 12:19:01,062 - root - INFO - Deleted 1 training results
+2025-08-23 12:19:01,065 - signglove - INFO - Response: DELETE /admin/training-results - 200
+2025-08-23 12:19:31,112 - signglove - INFO - Request: POST /training/run
+2025-08-23 12:19:31,575 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 12:23:00,909 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 12:28:00,906 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 12:33:00,903 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 13:25:45,132 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-23 13:25:46,956 - root - INFO - Indexes created. App is starting...
+2025-08-23 13:25:46,968 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 13:26:08,724 - signglove - INFO - Request: GET /auth/me
+2025-08-23 13:26:09,074 - signglove - ERROR - Error 3da15b22-ef3b-4e25-9524-d07cf5b50b6b: HTTPException - 
+2025-08-23 13:26:09,078 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-23 13:26:09,102 - signglove - INFO - Request: GET /auth/me
+2025-08-23 13:26:09,111 - signglove - ERROR - Error 0bda4eba-66e4-401e-9ec2-0f24af4718f8: HTTPException - 
+2025-08-23 13:26:09,120 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-23 13:26:19,397 - signglove - INFO - Request: POST /auth/login
+2025-08-23 13:26:19,903 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-23 13:26:19,924 - signglove - INFO - Request: GET /auth/me
+2025-08-23 13:26:20,020 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 13:28:01,783 - signglove - INFO - Request: GET /docs
+2025-08-23 13:28:01,793 - signglove - INFO - Response: GET /docs - 200
+2025-08-23 13:28:16,473 - signglove - INFO - Request: GET /openapi.json
+2025-08-23 13:28:16,591 - signglove - INFO - Response: GET /openapi.json - 200
+2025-08-23 15:42:57,206 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 15:43:42,849 - signglove - INFO - Request: GET /auth/me
+2025-08-23 15:43:42,857 - signglove - ERROR - Error 152c9f55-663e-4e58-99bd-84a7a589beaf: HTTPException - 
+2025-08-23 15:43:42,861 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-23 15:43:42,896 - signglove - INFO - Request: GET /auth/me
+2025-08-23 15:43:42,907 - signglove - ERROR - Error 21deaa27-8f66-4338-9dce-b15a07492d83: HTTPException - 
+2025-08-23 15:43:42,919 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-23 15:44:10,489 - signglove - INFO - Request: POST /auth/login
+2025-08-23 15:44:22,119 - signglove - WARNING - Slow request: POST /auth/login took 11.63s
+2025-08-23 15:44:22,120 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-23 15:44:22,139 - signglove - INFO - Request: GET /auth/me
+2025-08-23 15:44:25,800 - signglove - WARNING - Slow request: GET /auth/me took 3.66s
+2025-08-23 15:44:25,803 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 15:44:42,299 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 15:44:43,759 - signglove - WARNING - Slow request: GET /dashboard/ took 1.46s
+2025-08-23 15:44:43,762 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 15:44:43,782 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 15:44:43,790 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 15:44:59,410 - signglove - INFO - Request: GET /training/latest
+2025-08-23 15:44:59,496 - root - ERROR - Error fetching training result: 
+2025-08-23 15:44:59,589 - signglove - ERROR - Error 9c9bb521-c23b-4c90-8e71-87f46e6b5cf1: HTTPException - 
+2025-08-23 15:44:59,596 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 15:44:59,628 - signglove - INFO - Request: GET /training/latest
+2025-08-23 15:44:59,706 - root - ERROR - Error fetching training result: 
+2025-08-23 15:44:59,710 - signglove - ERROR - Error bed0f223-d642-49d1-bd84-f050df6f91d9: HTTPException - 
+2025-08-23 15:44:59,714 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 15:45:10,983 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 15:45:10,992 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 15:45:11,020 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 15:45:11,031 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 15:45:42,292 - signglove - INFO - Request: POST /auth/logout
+2025-08-23 15:45:42,297 - signglove - INFO - Response: POST /auth/logout - 200
+2025-08-23 15:45:54,284 - signglove - INFO - Request: POST /auth/login
+2025-08-23 15:45:54,734 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-23 15:45:54,749 - signglove - INFO - Request: GET /auth/me
+2025-08-23 15:45:54,821 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 15:45:59,219 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 15:45:59,690 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 15:45:59,705 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 15:45:59,715 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 15:46:54,380 - signglove - INFO - Request: POST /predict/
+2025-08-23 15:46:54,389 - signglove - INFO - Response: POST /predict/ - 200
+2025-08-23 15:47:03,605 - signglove - INFO - Request: POST /predict/
+2025-08-23 15:47:03,613 - signglove - INFO - Response: POST /predict/ - 200
+2025-08-23 15:47:09,935 - signglove - INFO - Request: GET /gestures
+2025-08-23 15:47:10,000 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 15:47:10,007 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 15:47:10,065 - signglove - INFO - Request: GET /gestures
+2025-08-23 15:47:10,126 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 15:47:10,137 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 15:47:33,011 - signglove - INFO - Request: POST /gestures/
+2025-08-23 15:47:33,017 - signglove - INFO - Response: POST /gestures/ - 405
+2025-08-23 15:47:43,422 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 15:47:43,922 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 15:47:43,936 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 15:47:43,945 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 15:47:57,263 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 15:51:10,212 - signglove - INFO - Request: GET /training/latest
+2025-08-23 15:51:12,051 - root - ERROR - Error fetching training result: 
+2025-08-23 15:51:12,056 - signglove - ERROR - Error 573d33e2-1664-42a7-8df9-fd54febc09eb: HTTPException - 
+2025-08-23 15:51:12,059 - signglove - WARNING - Slow request: GET /training/latest took 1.84s
+2025-08-23 15:51:12,063 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 15:51:12,102 - signglove - INFO - Request: GET /training/latest
+2025-08-23 15:51:12,166 - root - ERROR - Error fetching training result: 
+2025-08-23 15:51:12,168 - signglove - ERROR - Error 9399dd30-3205-4f6d-8e22-715c8e14b62d: HTTPException - 
+2025-08-23 15:51:12,171 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 15:51:14,867 - signglove - INFO - Client disconnected
+2025-08-23 15:51:15,312 - signglove - INFO - Request: GET /auth/me
+2025-08-23 15:51:15,379 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 15:51:15,396 - signglove - INFO - Request: GET /auth/me
+2025-08-23 15:51:15,470 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 15:51:58,423 - signglove - INFO - Request: GET /training/latest
+2025-08-23 15:51:58,836 - root - ERROR - Error fetching training result: 
+2025-08-23 15:51:58,838 - signglove - ERROR - Error c1830311-7d11-43ce-af35-d499fd33f5dd: HTTPException - 
+2025-08-23 15:51:58,842 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 15:51:58,862 - signglove - INFO - Request: GET /training/latest
+2025-08-23 15:51:58,936 - root - ERROR - Error fetching training result: 
+2025-08-23 15:51:58,939 - signglove - ERROR - Error 587e5c3d-aa41-466e-bcae-c9ea5609aef1: HTTPException - 
+2025-08-23 15:51:58,941 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 15:52:00,860 - signglove - INFO - Request: GET /gestures
+2025-08-23 15:52:01,010 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 15:52:01,022 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 15:52:01,103 - signglove - INFO - Request: GET /gestures
+2025-08-23 15:52:01,491 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-08-23 15:52:01,497 - signglove - INFO - Response: GET /gestures - 200
+2025-08-23 15:52:03,576 - signglove - INFO - Request: GET /audio-files/
+2025-08-23 15:52:03,862 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-23 15:52:03,876 - signglove - INFO - Request: GET /audio-files/
+2025-08-23 15:52:04,568 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-23 15:52:51,111 - signglove - INFO - Request: GET /auth/me
+2025-08-23 15:52:51,231 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 15:52:51,243 - signglove - INFO - Request: GET /auth/me
+2025-08-23 15:52:51,317 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 15:52:57,284 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 15:54:26,247 - signglove - INFO - Request: POST /training/run
+2025-08-23 15:54:26,623 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 15:57:57,286 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 16:00:09,891 - signglove - INFO - Request: GET /auth/me
+2025-08-23 16:00:10,040 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 16:00:10,051 - signglove - INFO - Request: GET /auth/me
+2025-08-23 16:00:10,143 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 16:00:10,169 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 16:00:11,080 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 16:00:11,095 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 16:00:11,102 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 16:00:11,124 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 16:00:11,139 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 16:02:57,276 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 16:07:57,563 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 16:12:57,580 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 16:17:57,594 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 16:22:57,589 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 16:27:57,608 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 16:32:57,591 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 16:37:57,600 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 16:42:57,616 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 16:47:01,007 - signglove - INFO - Request: GET /auth/me
+2025-08-23 16:47:01,016 - signglove - ERROR - Error bd82273b-c19c-4afc-97fc-e49bd54604f3: HTTPException - 
+2025-08-23 16:47:01,024 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-23 16:47:01,069 - signglove - INFO - Request: GET /auth/me
+2025-08-23 16:47:01,078 - signglove - ERROR - Error 71e1020a-ed4e-4288-a3e3-fe0ee6ca4227: HTTPException - 
+2025-08-23 16:47:01,084 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-23 16:47:16,815 - signglove - INFO - Request: POST /auth/login
+2025-08-23 16:47:17,282 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-23 16:47:17,298 - signglove - INFO - Request: GET /auth/me
+2025-08-23 16:47:17,411 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 16:47:23,406 - signglove - INFO - Request: GET /training/latest
+2025-08-23 16:47:23,487 - root - ERROR - Error fetching training result: 
+2025-08-23 16:47:23,492 - signglove - ERROR - Error 68653977-680c-4420-9036-3ed65da5187b: HTTPException - 
+2025-08-23 16:47:23,507 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 16:47:23,547 - signglove - INFO - Request: GET /training/latest
+2025-08-23 16:47:23,651 - root - ERROR - Error fetching training result: 
+2025-08-23 16:47:23,656 - signglove - ERROR - Error f263139d-d634-4559-9b8d-f140bb1e6ab9: HTTPException - 
+2025-08-23 16:47:23,663 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-23 16:47:57,629 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 16:51:20,388 - signglove - INFO - Request: POST /training/run
+2025-08-23 16:51:20,715 - signglove - INFO - Response: POST /training/run - 200
+2025-08-23 16:52:30,410 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 16:52:30,967 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 16:52:30,980 - signglove - INFO - Request: GET /dashboard/
+2025-08-23 16:52:30,987 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-23 16:52:57,644 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 16:53:48,993 - signglove - INFO - Request: GET /auth/me
+2025-08-23 16:53:49,061 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 16:53:49,073 - signglove - INFO - Request: GET /auth/me
+2025-08-23 16:53:49,161 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 16:56:08,357 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-23 16:59:52,878 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-23 16:59:53,572 - root - INFO - Indexes created. App is starting...
+2025-08-23 16:59:53,574 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 17:02:46,600 - signglove - INFO - Request: POST /auth/login
+2025-08-23 17:02:47,059 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-23 17:02:47,079 - signglove - INFO - Request: GET /auth/me
+2025-08-23 17:02:47,155 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 17:02:52,490 - signglove - INFO - Request: GET /audio-files/
+2025-08-23 17:02:52,570 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-23 17:02:52,599 - signglove - INFO - Request: GET /audio-files/
+2025-08-23 17:02:52,675 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-23 17:02:58,221 - signglove - INFO - Request: POST /audio-files/
+2025-08-23 17:02:58,367 - signglove - INFO - Response: POST /audio-files/ - 201
+2025-08-23 17:02:58,386 - signglove - INFO - Request: GET /audio-files/
+2025-08-23 17:02:58,456 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-23 17:03:15,159 - signglove - INFO - Request: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play
+2025-08-23 17:03:20,569 - signglove - ERROR - Error ae713432-9c0d-4ea5-9cb9-48dfa63d9fdd: HTTPException - 
+2025-08-23 17:03:20,570 - signglove - WARNING - Slow request: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play took 5.41s
+2025-08-23 17:03:20,574 - signglove - INFO - Response: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play - 502
+2025-08-23 17:03:27,714 - signglove - INFO - Request: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play
+2025-08-23 17:03:32,739 - signglove - ERROR - Error c588fda9-3fb8-485c-bd85-d546bb47ef45: HTTPException - 
+2025-08-23 17:03:32,742 - signglove - WARNING - Slow request: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play took 5.03s
+2025-08-23 17:03:32,744 - signglove - INFO - Request: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play
+2025-08-23 17:03:32,745 - signglove - INFO - Request: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play
+2025-08-23 17:03:32,747 - signglove - INFO - Request: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play
+2025-08-23 17:03:37,773 - signglove - ERROR - Error a37e0bac-49db-420a-b003-4e407ed1cdc4: HTTPException - 
+2025-08-23 17:03:42,786 - signglove - ERROR - Error f1cf9850-f78a-4058-a6ff-2dbcf1e3bae5: HTTPException - 
+2025-08-23 17:03:47,795 - signglove - ERROR - Error 676d9c7f-00b7-4c18-91e6-65be831ade3f: HTTPException - 
+2025-08-23 17:03:47,799 - signglove - INFO - Response: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play - 502
+2025-08-23 17:03:47,801 - signglove - WARNING - Slow request: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play took 15.05s
+2025-08-23 17:03:47,803 - signglove - WARNING - Slow request: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play took 15.05s
+2025-08-23 17:03:47,805 - signglove - WARNING - Slow request: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play took 15.05s
+2025-08-23 17:03:47,806 - signglove - INFO - Request: GET /audio-files/esp32/error-log
+2025-08-23 17:03:47,815 - signglove - ERROR - Error fa28dae5-795b-4b1a-87f7-ea69c76ac291: HTTPException - 
+2025-08-23 17:03:47,822 - signglove - INFO - Response: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play - 502
+2025-08-23 17:03:47,825 - signglove - INFO - Response: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play - 502
+2025-08-23 17:03:47,827 - signglove - INFO - Response: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play - 502
+2025-08-23 17:03:47,853 - signglove - INFO - Response: GET /audio-files/esp32/error-log - 404
+2025-08-23 19:24:41,612 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 19:24:46,453 - signglove - INFO - Request: GET /auth/me
+2025-08-23 19:24:46,471 - signglove - ERROR - Error 22397e5d-ada4-4b9f-9202-0a42d28fc753: HTTPException - 
+2025-08-23 19:24:46,479 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-23 19:24:46,499 - signglove - INFO - Request: GET /auth/me
+2025-08-23 19:24:46,506 - signglove - ERROR - Error ea99f94b-faee-4fe0-968c-c018aff1eb4a: HTTPException - 
+2025-08-23 19:24:46,529 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-23 19:29:41,603 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 19:31:15,765 - signglove - INFO - Request: POST /auth/login
+2025-08-23 19:31:16,651 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-23 19:31:16,669 - signglove - INFO - Request: GET /auth/me
+2025-08-23 19:31:16,737 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-23 19:34:41,603 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 19:39:41,628 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 19:44:41,639 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 19:49:41,649 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 19:54:41,666 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 20:18:32,472 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 20:23:32,490 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 20:28:32,486 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 20:33:32,502 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 20:38:32,526 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 20:43:32,514 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 20:48:32,517 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 20:53:32,524 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 20:58:32,527 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 21:03:32,523 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 21:08:32,531 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 21:13:32,544 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 21:18:32,552 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-23 21:19:26,440 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 00:07:23,155 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 00:07:23,924 - root - INFO - Indexes created. App is starting...
+2025-08-24 00:07:23,926 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 00:12:23,944 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 00:13:14,761 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 00:13:52,733 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 00:13:53,638 - root - INFO - Indexes created. App is starting...
+2025-08-24 00:13:53,639 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 00:18:53,660 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 00:19:26,730 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:19:28,138 - signglove - ERROR - Error 53e0da45-4743-48f5-97d7-00e81f279363: HTTPException - 
+2025-08-24 00:19:28,140 - signglove - WARNING - Slow request: GET /auth/me took 1.41s
+2025-08-24 00:19:28,143 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-24 00:19:28,187 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:19:28,275 - signglove - ERROR - Error 262b7900-faf2-4ac1-8eee-e573e56f967a: HTTPException - 
+2025-08-24 00:19:28,335 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-24 00:19:45,448 - signglove - INFO - Request: POST /auth/login
+2025-08-24 00:19:45,935 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-24 00:19:46,026 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:19:46,108 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 00:20:26,932 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 00:20:27,020 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 00:20:27,068 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 00:20:27,178 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 00:23:53,657 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 00:28:53,653 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 00:31:24,120 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:31:24,203 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 00:31:24,216 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:31:24,308 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 00:33:53,667 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 00:38:53,666 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 00:43:53,676 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 00:48:25,422 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 00:48:25,496 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 00:48:25,534 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 00:48:25,606 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 00:48:53,701 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 00:49:34,701 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:49:34,920 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 00:49:34,937 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:49:35,030 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 00:51:18,117 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:51:18,185 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 00:51:18,199 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:51:18,306 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 00:51:27,432 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:51:27,502 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 00:51:27,515 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:51:27,584 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 00:51:28,676 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:51:28,747 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 00:51:28,762 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:51:28,828 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 00:53:53,713 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 00:53:55,654 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:53:55,725 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 00:53:55,738 - signglove - INFO - Request: GET /auth/me
+2025-08-24 00:53:55,805 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 00:58:53,730 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 01:03:53,728 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 01:08:53,737 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 01:13:53,737 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 01:18:53,733 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 01:23:53,742 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 01:28:53,756 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 01:33:53,765 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 01:36:15,480 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 01:36:16,581 - signglove - WARNING - Slow request: GET /audio-files/ took 1.04s
+2025-08-24 01:36:16,584 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 01:36:16,602 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 01:36:17,658 - signglove - WARNING - Slow request: GET /audio-files/ took 1.05s
+2025-08-24 01:36:17,660 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 01:38:53,775 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 01:43:53,778 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 01:47:18,182 - signglove - INFO - Request: GET /auth/me
+2025-08-24 01:47:18,277 - signglove - ERROR - Error 15525320-f9eb-4882-9e87-8e7edd051caa: HTTPException - 
+2025-08-24 01:47:18,284 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-24 01:47:18,312 - signglove - INFO - Request: GET /auth/me
+2025-08-24 01:47:18,329 - signglove - ERROR - Error 616e3b0d-a52d-4073-a8e9-e6f6df8190c7: HTTPException - 
+2025-08-24 01:47:18,343 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-24 01:48:53,796 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 01:49:05,054 - signglove - INFO - Request: POST /auth/login
+2025-08-24 01:49:05,534 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-24 01:49:05,554 - signglove - INFO - Request: GET /auth/me
+2025-08-24 01:49:05,638 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 01:51:26,801 - signglove - INFO - Request: GET /auth/me
+2025-08-24 01:51:26,887 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 01:51:26,900 - signglove - INFO - Request: GET /auth/me
+2025-08-24 01:51:26,993 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 01:53:53,817 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 01:58:53,810 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 02:03:53,832 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 02:08:53,822 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 02:13:54,099 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 02:18:54,103 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 02:23:54,115 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 02:28:54,103 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 02:29:00,650 - signglove - INFO - Request: GET /auth/me
+2025-08-24 02:29:00,747 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 02:29:00,762 - signglove - INFO - Request: GET /auth/me
+2025-08-24 02:29:00,842 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 02:32:57,410 - signglove - INFO - Request: GET /auth/me
+2025-08-24 02:32:57,493 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 02:32:57,584 - signglove - INFO - Request: GET /auth/me
+2025-08-24 02:32:57,666 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 02:33:31,300 - signglove - INFO - Request: GET /auth/me
+2025-08-24 02:33:31,386 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 02:33:31,398 - signglove - INFO - Request: GET /auth/me
+2025-08-24 02:33:31,485 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 02:33:54,122 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 02:34:40,923 - signglove - INFO - Request: GET /auth/me
+2025-08-24 02:34:41,005 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 02:34:41,023 - signglove - INFO - Request: GET /auth/me
+2025-08-24 02:34:41,106 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 10:25:13,144 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 10:25:13,863 - root - INFO - Indexes created. App is starting...
+2025-08-24 10:25:13,875 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 10:25:30,773 - signglove - INFO - Request: GET /auth/me
+2025-08-24 10:25:31,284 - signglove - ERROR - Error c5b3c5dc-e7b2-45b9-95d3-c33aba303216: HTTPException - 
+2025-08-24 10:25:31,288 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-24 10:25:31,307 - signglove - INFO - Request: GET /auth/me
+2025-08-24 10:25:31,313 - signglove - ERROR - Error c4e6ea04-3b46-4878-a5c7-c0ec5d3ad179: HTTPException - 
+2025-08-24 10:25:31,320 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-24 10:26:11,257 - signglove - INFO - Request: POST /auth/login
+2025-08-24 10:26:11,716 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-24 10:26:11,732 - signglove - INFO - Request: GET /auth/me
+2025-08-24 10:26:11,797 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 10:30:13,883 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 10:35:13,910 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 10:40:13,906 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 10:45:13,907 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 10:50:13,894 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 10:55:13,897 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 11:12:53,351 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 11:12:54,106 - root - INFO - Indexes created. App is starting...
+2025-08-24 11:12:54,108 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 11:13:11,526 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:13:11,676 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:13:11,721 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:13:11,842 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:13:11,871 - signglove - INFO - Request: GET /dashboard/
+2025-08-24 11:13:12,226 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-24 11:13:12,243 - signglove - INFO - Request: GET /dashboard/
+2025-08-24 11:13:12,257 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-24 11:13:12,305 - signglove - INFO - Request: GET /dashboard/
+2025-08-24 11:13:12,321 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-24 11:16:01,009 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:16:01,124 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:16:01,200 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:16:01,291 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:17:54,113 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 11:22:54,105 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 11:23:31,087 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:23:31,167 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:23:31,238 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:23:31,408 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:27:28,913 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 11:27:29,019 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 11:27:29,083 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 11:27:29,249 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 11:27:30,732 - signglove - INFO - Request: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play
+2025-08-24 11:27:39,794 - signglove - ERROR - Error 99401f24-6b94-47af-a23c-fc4ffe1088d9: HTTPException - 
+2025-08-24 11:27:39,941 - signglove - WARNING - Slow request: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play took 9.19s
+2025-08-24 11:27:40,076 - signglove - INFO - Request: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play
+2025-08-24 11:27:45,159 - signglove - ERROR - Error cab27535-1af7-4398-b94a-16ab03111683: HTTPException - 
+2025-08-24 11:27:45,179 - signglove - INFO - Response: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play - 502
+2025-08-24 11:27:45,211 - signglove - WARNING - Slow request: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play took 5.10s
+2025-08-24 11:27:45,272 - signglove - INFO - Response: POST /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3/play - 502
+2025-08-24 11:27:54,105 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 11:30:23,414 - signglove - INFO - Request: DELETE /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3
+2025-08-24 11:30:23,824 - signglove - ERROR - Error d278f919-0f88-4b4e-a65c-8f0f64267dc2: HTTPException - 
+2025-08-24 11:30:23,845 - signglove - INFO - Response: DELETE /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3 - 401
+2025-08-24 11:32:54,133 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 11:33:33,260 - signglove - INFO - Client disconnected
+2025-08-24 11:33:36,243 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:33:36,275 - signglove - ERROR - Error a751d810-3e82-4370-81a8-7fcc6efcff6e: HTTPException - 
+2025-08-24 11:33:36,313 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-24 11:33:36,369 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:33:36,472 - signglove - ERROR - Error 3a840ab7-74ac-4864-84b3-bf906e057368: HTTPException - 
+2025-08-24 11:33:36,613 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-24 11:34:29,317 - signglove - INFO - Request: POST /auth/login
+2025-08-24 11:34:31,170 - signglove - WARNING - Slow request: POST /auth/login took 1.85s
+2025-08-24 11:34:31,178 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-24 11:34:31,327 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:34:31,404 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:35:03,054 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 11:35:03,153 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 11:35:03,318 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 11:35:03,405 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 11:35:06,211 - signglove - INFO - Request: DELETE /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3
+2025-08-24 11:35:06,556 - signglove - INFO - Response: DELETE /audio-files/6ab86ce83a9ddda4c4bff3ed2ca3115f.mp3 - 200
+2025-08-24 11:35:06,584 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 11:35:06,692 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 11:37:54,187 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 11:42:54,209 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 11:42:58,152 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 11:43:22,555 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 11:43:23,377 - root - INFO - Indexes created. App is starting...
+2025-08-24 11:43:23,379 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 11:43:38,031 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 11:44:06,110 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 11:44:06,795 - root - INFO - Indexes created. App is starting...
+2025-08-24 11:44:06,797 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 11:45:15,244 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:45:15,345 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:45:15,360 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:45:15,431 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 11:45:15,439 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:45:15,505 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 11:45:15,555 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 11:45:15,685 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 11:45:15,712 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 11:45:15,786 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 11:49:06,801 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 11:51:48,978 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:51:49,057 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:51:49,072 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:51:49,146 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:51:49,165 - signglove - INFO - Request: GET /training/
+2025-08-24 11:51:49,166 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 11:51:49,383 - signglove - ERROR - Error 4fb79ed3-43f9-4d39-a6db-2ed8dce38319: ValueError - Out of range float values are not JSON compliant
+2025-08-24 11:51:49,387 - signglove - INFO - Request: GET /predict/live
+2025-08-24 11:51:49,388 - root - INFO - Fetched 1 training results
+2025-08-24 11:51:49,400 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 11:51:49,404 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 11:51:49,439 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 11:51:49,463 - signglove - ERROR - Error 1b3cb51a-beb2-4b97-864f-b8efd6eef11f: ValueError - Out of range float values are not JSON compliant
+2025-08-24 11:51:49,473 - signglove - ERROR - Error e955ecf9-ad55-4b35-9f35-ccfe516c01fe: HTTPException - 
+2025-08-24 11:51:49,475 - signglove - INFO - Request: GET /training/
+2025-08-24 11:51:49,495 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 11:51:49,506 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 11:51:49,517 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 11:51:49,596 - signglove - INFO - Request: GET /predict/live
+2025-08-24 11:51:49,667 - signglove - ERROR - Error 964bf6fa-a8ec-4177-a95f-a7512bd61368: HTTPException - 
+2025-08-24 11:51:49,675 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 11:52:01,350 - signglove - INFO - Request: POST /gestures/upload
+2025-08-24 11:52:04,730 - signglove - INFO - [trace=none] Uploaded 936 sensor data rows from CSV: raw_data.csv
+2025-08-24 11:52:04,734 - signglove - WARNING - Slow request: POST /gestures/upload took 3.38s
+2025-08-24 11:52:04,737 - signglove - INFO - Response: POST /gestures/upload - 200
+2025-08-24 11:52:11,911 - signglove - INFO - Request: POST /training/run
+2025-08-24 11:52:11,951 - signglove - INFO - Request: GET /training/
+2025-08-24 11:52:11,971 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 11:52:12,001 - signglove - INFO - Request: GET /predict/live
+2025-08-24 11:52:12,010 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 11:52:12,040 - signglove - ERROR - Error f826c713-4904-4d44-ad38-7b6ec6938b1d: ValueError - Out of range float values are not JSON compliant
+2025-08-24 11:52:12,050 - signglove - INFO - Response: POST /training/run - 200
+2025-08-24 11:52:12,063 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 11:52:12,274 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 11:52:12,276 - signglove - INFO - Request: GET /training/
+2025-08-24 11:52:12,299 - signglove - ERROR - Error c6f48721-7714-476c-b346-8911924f1e3a: ValueError - Out of range float values are not JSON compliant
+2025-08-24 11:52:12,315 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 11:52:12,325 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 11:52:12,333 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 11:52:12,400 - signglove - INFO - Request: GET /predict/live
+2025-08-24 11:52:12,495 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 11:54:06,801 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 11:54:15,428 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:54:15,508 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:54:15,524 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:54:15,592 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:54:15,605 - signglove - INFO - Request: GET /training/
+2025-08-24 11:54:15,619 - signglove - INFO - Request: GET /predict/live
+2025-08-24 11:54:15,625 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 11:54:15,658 - signglove - ERROR - Error b011297f-ecc6-4746-834a-7680d8a69b21: ValueError - Out of range float values are not JSON compliant
+2025-08-24 11:54:15,675 - root - INFO - Fetched 1 training results
+2025-08-24 11:54:15,676 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 11:54:15,693 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 11:54:15,762 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 11:54:15,786 - signglove - ERROR - Error 9b9cb475-9917-4d43-a7e8-d0829c0a5ae9: ValueError - Out of range float values are not JSON compliant
+2025-08-24 11:54:15,788 - signglove - INFO - Request: GET /training/
+2025-08-24 11:54:15,792 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 11:54:15,807 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 11:54:16,138 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 11:54:16,157 - signglove - INFO - Request: GET /predict/live
+2025-08-24 11:54:16,224 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 11:54:20,714 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:54:20,788 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:54:20,806 - signglove - INFO - Request: GET /auth/me
+2025-08-24 11:54:20,862 - signglove - INFO - Request: GET /training/
+2025-08-24 11:54:20,871 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 11:54:20,884 - signglove - ERROR - Error ab67ef69-cb20-4123-b0c9-f2c18de83d79: ValueError - Out of range float values are not JSON compliant
+2025-08-24 11:54:20,889 - signglove - INFO - Request: GET /predict/live
+2025-08-24 11:54:20,918 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 11:54:20,921 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 11:54:20,930 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 11:54:20,972 - signglove - INFO - Request: GET /training/
+2025-08-24 11:54:21,017 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 11:54:21,040 - signglove - ERROR - Error 9d4358af-8e67-43dc-b661-56209c7f3b28: ValueError - Out of range float values are not JSON compliant
+2025-08-24 11:54:21,049 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 11:54:21,051 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 11:54:21,052 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 11:54:21,119 - signglove - INFO - Request: GET /predict/live
+2025-08-24 11:54:21,193 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 11:54:30,116 - signglove - INFO - Request: POST /training/run
+2025-08-24 11:54:30,143 - signglove - INFO - Request: GET /training/
+2025-08-24 11:54:30,205 - signglove - INFO - Request: GET /predict/live
+2025-08-24 11:54:30,209 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 11:54:30,237 - signglove - ERROR - Error 8e2dc1ce-aa63-427c-9799-34a75db2c0e3: ValueError - Out of range float values are not JSON compliant
+2025-08-24 11:54:30,246 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 11:54:30,253 - signglove - INFO - Response: POST /training/run - 200
+2025-08-24 11:54:30,256 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 11:54:30,313 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 11:54:30,344 - signglove - INFO - Request: GET /training/
+2025-08-24 11:54:30,358 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 11:54:30,395 - signglove - ERROR - Error 74f3a770-0d3d-4e9b-8879-3e9000d60cd2: ValueError - Out of range float values are not JSON compliant
+2025-08-24 11:54:30,426 - signglove - INFO - Request: GET /predict/live
+2025-08-24 11:54:30,449 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 11:54:30,456 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 11:54:30,528 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 11:58:19,234 - signglove - INFO - Request: POST /training/trigger
+2025-08-24 11:58:19,262 - signglove - INFO - Request: GET /training/
+2025-08-24 11:58:19,292 - signglove - INFO - Request: GET /predict/live
+2025-08-24 11:58:19,293 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 11:58:19,305 - signglove - ERROR - Error 82675159-5469-4452-8379-fcecad6261d0: ValueError - Out of range float values are not JSON compliant
+2025-08-24 11:58:19,312 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 11:58:19,358 - root - INFO - Fetched 1 training results
+2025-08-24 11:58:19,363 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 11:58:19,674 - root - INFO - Exported 936 sensor rows to F:\testing\sign-glove\backend\data\gesture_data.csv for training.
+2025-08-24 11:58:19,685 - signglove - INFO - Response: POST /training/trigger - 200
+2025-08-24 11:58:19,790 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 11:58:21,274 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 11:58:21,295 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 11:58:23,279 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 11:58:23,287 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 11:58:25,271 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 11:58:25,280 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 11:58:27,277 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 11:58:27,282 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 11:58:29,279 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 11:58:29,284 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 11:58:31,285 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 11:58:31,291 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 11:58:33,275 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 11:58:33,295 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 11:58:33,313 - signglove - INFO - Request: GET /training/
+2025-08-24 11:58:33,321 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 11:58:33,348 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 11:58:33,365 - signglove - ERROR - Error 8ae6322d-b774-4640-92b1-622a82f262d7: ValueError - Out of range float values are not JSON compliant
+2025-08-24 11:58:33,370 - signglove - INFO - Request: GET /training/
+2025-08-24 11:58:33,375 - signglove - INFO - Request: GET /predict/live
+2025-08-24 11:58:33,377 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 11:58:33,395 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 11:58:33,479 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 11:58:33,500 - signglove - ERROR - Error 22b74907-bae8-4ffa-bcd0-004c2b08f57a: ValueError - Out of range float values are not JSON compliant
+2025-08-24 11:58:33,511 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 11:58:33,516 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 11:58:33,627 - signglove - INFO - Request: GET /predict/live
+2025-08-24 11:58:33,717 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 11:59:06,816 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:00:07,392 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 12:00:33,850 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 12:00:34,435 - root - INFO - Indexes created. App is starting...
+2025-08-24 12:00:34,438 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:01:01,106 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 12:01:29,658 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 12:01:30,352 - root - INFO - Indexes created. App is starting...
+2025-08-24 12:01:30,354 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:01:38,426 - signglove - INFO - Request: POST /training/trigger
+2025-08-24 12:01:38,448 - signglove - INFO - Request: GET /training/
+2025-08-24 12:01:38,477 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 12:01:38,528 - signglove - ERROR - Error cbfce832-bf8f-4521-8222-89dd429ab35c: ValueError - Out of range float values are not JSON compliant
+2025-08-24 12:01:38,533 - signglove - INFO - Request: GET /predict/live
+2025-08-24 12:01:38,544 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 12:01:38,877 - root - INFO - Exported 936 sensor rows to F:\testing\sign-glove\backend\data\gesture_data.csv for training.
+2025-08-24 12:01:38,893 - signglove - INFO - Response: POST /training/trigger - 200
+2025-08-24 12:01:38,961 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 12:01:39,011 - root - INFO - Fetched 1 training results
+2025-08-24 12:01:39,015 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 12:01:40,457 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:01:40,464 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:01:42,468 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:01:42,474 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:01:44,462 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:01:44,467 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:01:46,457 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:01:46,462 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:01:46,496 - signglove - INFO - Request: GET /predict/live
+2025-08-24 12:01:46,575 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 12:01:47,148 - signglove - INFO - Request: GET /predict/live
+2025-08-24 12:01:47,224 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 12:01:48,466 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:01:48,472 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:01:50,460 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:01:50,466 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:01:52,459 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:01:52,464 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:01:54,457 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:01:54,465 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:01:56,465 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:01:56,472 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:01:58,460 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:01:58,466 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:00,456 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:00,462 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:02,468 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:02,475 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:04,488 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:04,502 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:07,179 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:07,209 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:09,183 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:09,189 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:10,456 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:10,482 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:12,459 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:12,468 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:14,453 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:14,459 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:16,464 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:16,491 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:18,459 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:18,468 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:20,454 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:20,460 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:22,455 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:22,484 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:24,460 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:24,467 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:26,455 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:26,478 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:28,458 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:28,465 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:30,462 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:30,469 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:32,456 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:32,745 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:34,458 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:34,468 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:36,463 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:36,469 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:38,457 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:38,463 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:41,179 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 12:02:41,206 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 12:02:41,227 - signglove - INFO - Request: GET /training/
+2025-08-24 12:02:41,265 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 12:02:41,278 - signglove - ERROR - Error 8b2ea43e-5451-42e9-adf4-2f95c2e2c42e: ValueError - Out of range float values are not JSON compliant
+2025-08-24 12:02:41,282 - signglove - INFO - Request: GET /predict/live
+2025-08-24 12:02:41,287 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 12:02:41,299 - root - INFO - Fetched 2 training results
+2025-08-24 12:02:41,306 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 12:02:41,323 - signglove - INFO - Request: GET /training/
+2025-08-24 12:02:41,329 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 12:02:41,359 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 12:02:41,394 - signglove - ERROR - Error 2ffb18c2-6932-478d-846b-60f6e1656d92: ValueError - Out of range float values are not JSON compliant
+2025-08-24 12:02:41,402 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 12:02:41,406 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 12:02:41,439 - signglove - INFO - Request: GET /predict/live
+2025-08-24 12:02:41,526 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 12:02:58,595 - signglove - INFO - Request: GET /dashboard/
+2025-08-24 12:02:58,969 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-24 12:02:58,983 - signglove - INFO - Request: GET /dashboard/
+2025-08-24 12:02:59,003 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-24 12:06:30,376 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:06:58,591 - signglove - INFO - Request: GET /auth/me
+2025-08-24 12:06:58,697 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 12:06:58,715 - signglove - INFO - Request: GET /auth/me
+2025-08-24 12:06:58,800 - signglove - INFO - Request: GET /dashboard/
+2025-08-24 12:06:58,811 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 12:06:59,177 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-24 12:06:59,191 - signglove - INFO - Request: GET /dashboard/
+2025-08-24 12:06:59,196 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-24 12:06:59,214 - signglove - INFO - Request: GET /dashboard/
+2025-08-24 12:06:59,223 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-24 12:07:02,236 - signglove - INFO - Request: GET /training/
+2025-08-24 12:07:02,244 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 12:07:02,258 - signglove - ERROR - Error d76972b4-cc32-48e4-9e6b-7292ddcdda1e: ValueError - Out of range float values are not JSON compliant
+2025-08-24 12:07:02,264 - signglove - INFO - Request: GET /predict/live
+2025-08-24 12:07:02,276 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 12:07:02,311 - root - INFO - Fetched 2 training results
+2025-08-24 12:07:02,327 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 12:07:02,366 - signglove - ERROR - Error 33c26d7c-f93a-42dd-ae75-84c5f07ffd1b: ValueError - Out of range float values are not JSON compliant
+2025-08-24 12:07:02,378 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 12:07:02,397 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 12:07:02,421 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 12:07:02,552 - signglove - INFO - Request: GET /training/
+2025-08-24 12:07:02,570 - signglove - INFO - Request: GET /predict/live
+2025-08-24 12:07:02,597 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 12:07:02,664 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 12:07:07,126 - signglove - INFO - Request: GET /gestures/export
+2025-08-24 12:07:07,561 - signglove - INFO - [trace=none] Exported 936 gesture rows.
+2025-08-24 12:07:07,569 - signglove - INFO - Response: GET /gestures/export - 200
+2025-08-24 12:07:09,070 - signglove - INFO - Request: GET /gestures/export
+2025-08-24 12:07:09,072 - signglove - INFO - [trace=none] Served cached gesture export CSV.
+2025-08-24 12:07:09,077 - signglove - INFO - Response: GET /gestures/export - 200
+2025-08-24 12:07:09,260 - signglove - INFO - Request: GET /gestures/export
+2025-08-24 12:07:09,273 - signglove - INFO - [trace=none] Served cached gesture export CSV.
+2025-08-24 12:07:09,297 - signglove - INFO - Response: GET /gestures/export - 200
+2025-08-24 12:07:09,454 - signglove - INFO - Request: GET /gestures/export
+2025-08-24 12:07:09,458 - signglove - INFO - [trace=none] Served cached gesture export CSV.
+2025-08-24 12:07:09,488 - signglove - INFO - Response: GET /gestures/export - 200
+2025-08-24 12:11:30,392 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:12:05,568 - signglove - INFO - Request: GET /training/
+2025-08-24 12:12:05,590 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 12:12:05,593 - signglove - INFO - Request: GET /predict/live
+2025-08-24 12:12:05,652 - signglove - ERROR - Error 05353b36-15e9-4100-839a-b85d40d921bb: ValueError - Out of range float values are not JSON compliant
+2025-08-24 12:12:05,661 - root - INFO - Fetched 2 training results
+2025-08-24 12:12:05,670 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 12:12:05,681 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 12:12:05,722 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 12:12:05,763 - signglove - ERROR - Error 5be8a81c-0932-4710-a0f7-6e6b78722333: ValueError - Out of range float values are not JSON compliant
+2025-08-24 12:12:05,799 - signglove - INFO - Request: GET /training/
+2025-08-24 12:12:05,813 - signglove - INFO - Response: GET /training/metrics/latest - 500
+2025-08-24 12:12:05,819 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 12:12:05,898 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 12:12:05,918 - signglove - INFO - Request: GET /predict/live
+2025-08-24 12:12:06,021 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 12:15:20,748 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 12:15:47,561 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 12:15:48,134 - root - INFO - Indexes created. App is starting...
+2025-08-24 12:15:48,136 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:15:52,586 - signglove - INFO - Request: GET /auth/me
+2025-08-24 12:15:52,660 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 12:15:52,677 - signglove - INFO - Request: GET /auth/me
+2025-08-24 12:15:52,748 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 12:15:52,750 - signglove - INFO - Request: GET /training/
+2025-08-24 12:15:52,753 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 12:15:52,759 - signglove - INFO - Request: GET /predict/live
+2025-08-24 12:15:52,778 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 12:15:52,800 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 12:15:52,817 - root - INFO - Fetched 2 training results
+2025-08-24 12:15:52,821 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 12:15:52,830 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 12:15:52,859 - signglove - INFO - Request: GET /training/
+2025-08-24 12:15:52,865 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 12:15:53,164 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 12:15:53,180 - signglove - INFO - Request: GET /predict/live
+2025-08-24 12:15:53,261 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 12:16:01,883 - signglove - INFO - Request: GET /training/visualizations/confusion_matrix
+2025-08-24 12:16:01,886 - root - ERROR - Error fetching visualization confusion_matrix: 
+2025-08-24 12:16:01,893 - signglove - ERROR - Error 3f6aa622-290d-4b7d-9766-b6c07dbaab79: HTTPException - 
+2025-08-24 12:16:01,898 - signglove - INFO - Response: GET /training/visualizations/confusion_matrix - 500
+2025-08-24 12:16:08,835 - signglove - INFO - Request: GET /training/visualizations/roc_curves
+2025-08-24 12:16:08,838 - root - ERROR - Error fetching visualization roc_curves: 
+2025-08-24 12:16:08,841 - signglove - ERROR - Error 633bc67c-b6e5-4cf3-bf3d-97a0042c4235: HTTPException - 
+2025-08-24 12:16:08,847 - signglove - INFO - Response: GET /training/visualizations/roc_curves - 500
+2025-08-24 12:16:12,612 - signglove - INFO - Request: GET /training/visualizations/training_history
+2025-08-24 12:16:12,614 - root - ERROR - Error fetching visualization training_history: 
+2025-08-24 12:16:12,620 - signglove - ERROR - Error 61277998-e079-4249-9fe4-069e462f1f25: HTTPException - 
+2025-08-24 12:16:12,627 - signglove - INFO - Response: GET /training/visualizations/training_history - 500
+2025-08-24 12:17:43,923 - signglove - INFO - Request: GET /training/latest
+2025-08-24 12:17:43,982 - root - ERROR - Error fetching training result: 
+2025-08-24 12:17:43,987 - signglove - ERROR - Error e455e35f-821a-4b2e-9732-e1c80adb0863: HTTPException - 
+2025-08-24 12:17:44,001 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 12:17:44,083 - signglove - INFO - Request: GET /training/latest
+2025-08-24 12:17:44,151 - root - ERROR - Error fetching training result: 
+2025-08-24 12:17:44,155 - signglove - ERROR - Error ee27fe6f-3143-456d-ac2a-d5502e72fb9b: HTTPException - 
+2025-08-24 12:17:44,159 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 12:18:25,404 - signglove - INFO - Client disconnected
+2025-08-24 12:18:25,585 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 12:18:48,578 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 12:18:49,176 - root - INFO - Indexes created. App is starting...
+2025-08-24 12:18:49,178 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:19:17,591 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 12:19:18,247 - root - INFO - Indexes created. App is starting...
+2025-08-24 12:19:18,248 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:20:25,132 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 12:20:52,166 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 12:20:52,798 - root - INFO - Indexes created. App is starting...
+2025-08-24 12:20:52,800 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:22:08,235 - signglove - INFO - Request: GET /auth/me
+2025-08-24 12:22:08,381 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 12:22:08,406 - signglove - INFO - Request: GET /auth/me
+2025-08-24 12:22:08,498 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 12:22:08,540 - signglove - INFO - Request: GET /training/latest
+2025-08-24 12:22:08,636 - root - ERROR - Error fetching training result: 
+2025-08-24 12:22:08,662 - signglove - ERROR - Error 02699e72-898e-48f4-b771-6e3144dcf0a8: HTTPException - 
+2025-08-24 12:22:08,675 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 12:22:08,707 - signglove - INFO - Request: GET /training/latest
+2025-08-24 12:22:08,770 - root - ERROR - Error fetching training result: 
+2025-08-24 12:22:08,777 - signglove - ERROR - Error 8efab603-cba3-464e-bd8d-8581ca3b442b: HTTPException - 
+2025-08-24 12:22:08,792 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 12:22:08,832 - signglove - INFO - Request: GET /training/latest
+2025-08-24 12:22:08,889 - root - ERROR - Error fetching training result: 
+2025-08-24 12:22:08,893 - signglove - ERROR - Error ef72c6d1-1ef9-4082-8c5f-00ec94a86ca9: HTTPException - 
+2025-08-24 12:22:08,906 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 12:25:52,811 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:30:52,813 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:35:52,819 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:40:52,820 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:45:52,835 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:50:52,830 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 12:55:52,826 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 13:00:52,840 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 13:05:52,848 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 13:10:52,841 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 13:15:52,839 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 14:59:35,610 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 14:59:53,377 - signglove - INFO - Request: GET /auth/me
+2025-08-24 14:59:53,505 - signglove - ERROR - Error 30da04cc-e342-4f7d-b0fe-f180849beb7f: HTTPException - 
+2025-08-24 14:59:53,516 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-24 14:59:53,537 - signglove - INFO - Request: GET /auth/me
+2025-08-24 14:59:53,550 - signglove - ERROR - Error 4e0c4545-e003-45ad-88bc-296a2562b14e: HTTPException - 
+2025-08-24 14:59:53,556 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-24 15:01:05,458 - signglove - INFO - Request: POST /auth/login
+2025-08-24 15:01:06,402 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-24 15:01:06,419 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:01:06,495 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:01:13,033 - signglove - INFO - Request: GET /training/
+2025-08-24 15:01:13,042 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:01:13,048 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:01:13,091 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:01:13,112 - root - INFO - Fetched 2 training results
+2025-08-24 15:01:13,120 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:01:13,136 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:01:13,147 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:01:13,162 - signglove - INFO - Request: GET /training/
+2025-08-24 15:01:13,188 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:01:13,658 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:01:13,676 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:01:13,757 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:01:20,434 - signglove - INFO - Request: GET /training/visualizations/confusion_matrix
+2025-08-24 15:01:20,439 - root - ERROR - Error fetching visualization confusion_matrix: 
+2025-08-24 15:01:20,443 - signglove - ERROR - Error b64ebb93-0b08-4a78-be03-73ede7aa6430: HTTPException - 
+2025-08-24 15:01:20,449 - signglove - INFO - Response: GET /training/visualizations/confusion_matrix - 500
+2025-08-24 15:02:07,553 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 15:02:56,840 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 15:02:57,919 - root - INFO - Indexes created. App is starting...
+2025-08-24 15:02:57,932 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:03:14,883 - signglove - INFO - Request: GET /training/visualizations/confusion_matrix
+2025-08-24 15:03:14,894 - signglove - INFO - Response: GET /training/visualizations/confusion_matrix - 200
+2025-08-24 15:03:18,467 - signglove - INFO - Request: GET /training/visualizations/roc_curves
+2025-08-24 15:03:18,477 - signglove - INFO - Response: GET /training/visualizations/roc_curves - 200
+2025-08-24 15:03:20,913 - signglove - INFO - Request: GET /training/visualizations/training_history
+2025-08-24 15:03:20,925 - signglove - INFO - Response: GET /training/visualizations/training_history - 200
+2025-08-24 15:03:28,669 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:03:28,752 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:03:29,219 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:03:29,298 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:03:29,461 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:03:29,542 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:03:35,241 - signglove - INFO - Request: POST /training/run
+2025-08-24 15:03:35,282 - signglove - INFO - Request: GET /training/
+2025-08-24 15:03:35,295 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:03:35,313 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:03:35,324 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:03:35,407 - signglove - INFO - Response: POST /training/run - 200
+2025-08-24 15:03:35,462 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:03:35,479 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:03:36,766 - root - INFO - Fetched 2 training results
+2025-08-24 15:03:36,768 - signglove - WARNING - Slow request: GET /training/ took 1.48s
+2025-08-24 15:03:36,771 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:03:36,782 - signglove - WARNING - Slow request: GET /predict/live took 1.47s
+2025-08-24 15:03:36,792 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:03:36,808 - signglove - INFO - Request: GET /training/
+2025-08-24 15:03:36,836 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:03:36,841 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:03:36,918 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:05:10,260 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:05:10,600 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:05:10,614 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:05:10,684 - signglove - INFO - Request: GET /training/
+2025-08-24 15:05:10,690 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:05:10,710 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:05:10,726 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:05:10,733 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:05:10,758 - root - INFO - Fetched 3 training results
+2025-08-24 15:05:10,914 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:05:10,923 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:05:10,926 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:05:10,948 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:05:10,981 - signglove - INFO - Request: GET /training/
+2025-08-24 15:05:10,983 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:05:11,019 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:05:11,077 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:05:37,096 - signglove - INFO - Request: POST /training/run
+2025-08-24 15:05:37,122 - signglove - INFO - Request: GET /training/
+2025-08-24 15:05:37,135 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:05:37,137 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:05:37,151 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:05:37,159 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:05:37,206 - signglove - INFO - Response: POST /training/run - 200
+2025-08-24 15:05:37,250 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:05:39,116 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:05:39,144 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:05:41,129 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:05:41,139 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:05:43,118 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:05:43,124 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:05:45,121 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:05:45,126 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:05:47,125 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:05:47,132 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:05:49,118 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:05:49,122 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:05:51,124 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:05:51,130 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:05:53,127 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:05:53,134 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:05:55,119 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:05:55,124 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:05:57,122 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:05:57,127 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:05:59,127 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:05:59,133 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:01,116 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:01,142 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:03,127 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:03,134 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:05,129 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:05,136 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:07,131 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:07,165 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:09,122 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:09,132 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:11,177 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:11,208 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:13,122 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:13,130 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:15,117 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:15,124 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:17,129 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:17,152 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:19,117 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:19,122 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:21,120 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:21,148 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:23,121 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:23,131 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:25,125 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:25,131 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:27,120 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:27,127 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:29,120 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:29,147 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:31,116 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:31,123 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:33,117 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:06:33,141 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:06:33,158 - signglove - INFO - Request: GET /training/
+2025-08-24 15:06:33,184 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:06:33,191 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:06:33,205 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:06:33,239 - root - INFO - Fetched 4 training results
+2025-08-24 15:06:33,249 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:06:33,290 - signglove - INFO - Request: GET /training/
+2025-08-24 15:06:33,290 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:06:33,303 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:06:33,309 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:06:33,310 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:06:33,359 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:06:33,426 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:07:57,946 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:08:25,707 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:08:25,765 - root - ERROR - Error fetching training result: 
+2025-08-24 15:08:25,996 - signglove - ERROR - Error a60356d6-af86-4744-afb7-2ed0e662a07d: HTTPException - 
+2025-08-24 15:08:26,003 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 15:08:26,037 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:08:26,096 - root - ERROR - Error fetching training result: 
+2025-08-24 15:08:26,102 - signglove - ERROR - Error f235fc05-7df5-47ec-9d5c-b94b9de7e310: HTTPException - 
+2025-08-24 15:08:26,106 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 15:09:35,656 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 15:10:07,052 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 15:10:07,751 - root - INFO - Indexes created. App is starting...
+2025-08-24 15:10:07,753 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:10:27,947 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 15:10:28,579 - root - INFO - Indexes created. App is starting...
+2025-08-24 15:10:28,581 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:10:32,912 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:10:33,013 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:10:33,046 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:10:33,104 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:10:33,123 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:10:33,586 - root - ERROR - Error fetching training result: 
+2025-08-24 15:10:33,597 - signglove - ERROR - Error e6c21cd3-83f4-4bb1-8408-95ee30916112: HTTPException - 
+2025-08-24 15:10:33,604 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 15:10:33,626 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:10:33,703 - root - ERROR - Error fetching training result: 
+2025-08-24 15:10:33,706 - signglove - ERROR - Error 3cbf2d35-c546-4e5a-a600-2945064495ae: HTTPException - 
+2025-08-24 15:10:33,709 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 15:10:33,726 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:10:33,799 - root - ERROR - Error fetching training result: 
+2025-08-24 15:10:33,802 - signglove - ERROR - Error 718b08a1-dc86-422c-86c6-65e9607a143c: HTTPException - 
+2025-08-24 15:10:33,806 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 15:11:03,907 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:11:03,982 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:11:03,998 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:11:04,045 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:11:04,073 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:11:04,108 - root - ERROR - Error fetching training result: 
+2025-08-24 15:11:04,114 - signglove - ERROR - Error c70e354a-1af2-4862-8d24-efe63535ddbe: HTTPException - 
+2025-08-24 15:11:04,132 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 15:11:04,154 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:11:04,214 - root - ERROR - Error fetching training result: 
+2025-08-24 15:11:04,217 - signglove - ERROR - Error 83afbcd3-4b96-4aea-82b0-c2f25ed7c456: HTTPException - 
+2025-08-24 15:11:04,221 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 15:11:04,241 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:11:04,309 - root - ERROR - Error fetching training result: 
+2025-08-24 15:11:04,312 - signglove - ERROR - Error b00566c5-c17b-4078-bb90-6443311f8cd1: HTTPException - 
+2025-08-24 15:11:04,317 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 15:11:40,584 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 15:12:09,786 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 15:12:10,511 - root - INFO - Indexes created. App is starting...
+2025-08-24 15:12:10,513 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:12:29,983 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 15:12:30,642 - root - INFO - Indexes created. App is starting...
+2025-08-24 15:12:30,644 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:12:34,222 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:12:34,319 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:12:34,332 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:12:34,404 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:12:34,412 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:12:34,465 - root - ERROR - Error fetching training result: 
+2025-08-24 15:12:34,482 - signglove - ERROR - Error e1d03f87-94d1-4665-8a79-f61d1c575a8e: HTTPException - 
+2025-08-24 15:12:34,494 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 15:12:34,560 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:12:34,624 - root - ERROR - Error fetching training result: 
+2025-08-24 15:12:34,627 - signglove - ERROR - Error 5187c177-4589-4a5f-b739-ab63725ea60d: HTTPException - 
+2025-08-24 15:12:34,631 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 15:12:34,649 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:12:34,712 - root - ERROR - Error fetching training result: 
+2025-08-24 15:12:34,717 - signglove - ERROR - Error 79fcc980-170e-4ce1-a345-891fd501f1cb: HTTPException - 
+2025-08-24 15:12:34,731 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 15:13:56,752 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 15:14:19,749 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 15:14:20,403 - root - INFO - Indexes created. App is starting...
+2025-08-24 15:14:20,404 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:14:24,717 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:14:24,819 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:14:24,841 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:14:24,914 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:14:24,936 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:14:25,020 - root - ERROR - Error fetching training result: 
+2025-08-24 15:14:25,029 - signglove - ERROR - Error c061ffb1-92c7-49a9-89ef-03053ea50ccb: HTTPException - 
+2025-08-24 15:14:25,035 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 15:14:25,052 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:14:25,125 - root - ERROR - Error fetching training result: 
+2025-08-24 15:14:25,130 - signglove - ERROR - Error a1cf10ee-bb87-43fe-9be3-3ecb0a32a0d2: HTTPException - 
+2025-08-24 15:14:25,135 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 15:14:25,154 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:14:25,222 - root - ERROR - Error fetching training result: 
+2025-08-24 15:14:25,230 - signglove - ERROR - Error 2da86b73-ee7c-48f0-8d65-342796229ead: HTTPException - 
+2025-08-24 15:14:25,239 - signglove - INFO - Response: GET /training/latest - 500
+2025-08-24 15:18:49,186 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 15:19:13,371 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 15:19:14,063 - root - INFO - Indexes created. App is starting...
+2025-08-24 15:19:14,065 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:19:18,184 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:19:18,285 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:19:18,310 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:19:18,395 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:19:18,590 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:19:18,719 - signglove - INFO - Response: GET /training/latest - 200
+2025-08-24 15:19:18,754 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:19:18,831 - signglove - INFO - Response: GET /training/latest - 200
+2025-08-24 15:19:18,855 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:19:18,929 - signglove - INFO - Response: GET /training/latest - 200
+2025-08-24 15:19:39,894 - signglove - INFO - Request: POST /training/trigger
+2025-08-24 15:19:40,423 - root - INFO - Exported 936 sensor rows to F:\testing\sign-glove\backend\data\gesture_data.csv for training.
+2025-08-24 15:19:40,439 - signglove - INFO - Response: POST /training/trigger - 200
+2025-08-24 15:19:42,498 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:19:42,572 - signglove - INFO - Response: GET /training/latest - 200
+2025-08-24 15:19:42,606 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:19:42,627 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:22:52,982 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 15:22:53,051 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 15:22:53,081 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 15:22:53,238 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 15:22:57,115 - signglove - INFO - Request: DELETE /admin/sensor-data
+2025-08-24 15:22:57,349 - root - INFO - Deleted 936 sensor documents
+2025-08-24 15:22:57,353 - signglove - INFO - Response: DELETE /admin/sensor-data - 200
+2025-08-24 15:22:59,800 - signglove - INFO - Request: DELETE /admin/training-results
+2025-08-24 15:23:00,941 - root - INFO - Deleted 5 training results
+2025-08-24 15:23:00,943 - signglove - WARNING - Slow request: DELETE /admin/training-results took 1.14s
+2025-08-24 15:23:00,945 - signglove - INFO - Response: DELETE /admin/training-results - 200
+2025-08-24 15:23:16,400 - signglove - INFO - Request: GET /training/
+2025-08-24 15:23:16,401 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:23:16,405 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:23:16,428 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:23:16,457 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:23:16,472 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:23:16,489 - root - INFO - Fetched 0 training results
+2025-08-24 15:23:16,500 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:23:16,526 - signglove - INFO - Request: GET /training/
+2025-08-24 15:23:16,539 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:23:17,137 - signglove - ERROR - Error c247eaf4-95b8-457b-8686-4d4640541c34: HTTPException - 
+2025-08-24 15:23:17,139 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:23:17,153 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:23:17,222 - signglove - ERROR - Error e4e84737-51e8-4570-b141-3de3d6763148: HTTPException - 
+2025-08-24 15:23:17,225 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:24:14,073 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:26:44,350 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:26:44,414 - signglove - ERROR - Error e5066ad5-bd41-4440-8301-f307a8678931: HTTPException - 
+2025-08-24 15:26:44,417 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:27:03,358 - signglove - INFO - Request: POST /training/run
+2025-08-24 15:27:03,379 - signglove - INFO - Request: GET /training/
+2025-08-24 15:27:03,393 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:27:03,394 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:27:03,409 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:27:03,441 - signglove - INFO - Response: POST /training/run - 200
+2025-08-24 15:27:03,462 - root - INFO - Fetched 0 training results
+2025-08-24 15:27:03,467 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:27:03,941 - signglove - ERROR - Error a7e5ac0f-ccf1-4e72-8520-a22ea171ed3d: HTTPException - 
+2025-08-24 15:27:03,944 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:27:05,378 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:05,389 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:07,373 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:07,379 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:09,381 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:09,389 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:11,376 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:11,383 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:13,379 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:13,384 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:15,378 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:15,383 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:17,387 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:17,393 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:19,374 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:19,382 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:21,382 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:21,654 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:23,386 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:23,392 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:25,384 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:25,388 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:27,372 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:27,400 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:29,377 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:29,383 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:31,379 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:31,405 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:33,375 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:33,383 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:35,378 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:35,387 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:37,388 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:37,413 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:39,379 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:39,388 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:41,377 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:41,383 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:43,373 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:43,400 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:45,376 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:45,382 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:47,379 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:47,402 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:49,374 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:49,383 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:51,383 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:51,390 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:53,380 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:53,386 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:55,375 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:55,393 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:57,375 - signglove - INFO - Request: GET /utils/training/logs
+2025-08-24 15:27:57,402 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-08-24 15:27:57,420 - signglove - INFO - Request: GET /training/
+2025-08-24 15:27:57,439 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:27:57,447 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:27:57,460 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:27:57,496 - root - INFO - Fetched 1 training results
+2025-08-24 15:27:57,502 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:27:57,522 - signglove - ERROR - Error 45116e5e-0168-4126-aa76-0fb5dfaa53f4: HTTPException - 
+2025-08-24 15:27:57,525 - signglove - INFO - Request: GET /training/
+2025-08-24 15:27:57,532 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:27:57,543 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:27:57,551 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:27:57,559 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:27:57,596 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:27:57,672 - signglove - ERROR - Error 5e9e6cba-85d3-4564-a0e3-75d5af1bebe9: HTTPException - 
+2025-08-24 15:27:57,678 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:28:03,102 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:28:03,184 - signglove - ERROR - Error 79db0bfc-dae7-4fed-9c70-e5844cc63d61: HTTPException - 
+2025-08-24 15:28:03,187 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:28:03,877 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:28:03,952 - signglove - ERROR - Error bd277ddf-eb9c-4256-8405-d3f303fdc90c: HTTPException - 
+2025-08-24 15:28:03,954 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:28:04,096 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:28:04,171 - signglove - ERROR - Error 15fefaf1-d91c-4f68-a4e9-8496dee11823: HTTPException - 
+2025-08-24 15:28:04,174 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:28:04,267 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:28:04,341 - signglove - ERROR - Error 4b79931e-3d1d-471c-9445-53d95695240e: HTTPException - 
+2025-08-24 15:28:04,345 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:28:04,427 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:28:04,505 - signglove - ERROR - Error d340ccbc-b4b9-4d2e-b188-112dc88ed7e1: HTTPException - 
+2025-08-24 15:28:04,508 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:28:04,594 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:28:04,677 - signglove - ERROR - Error 1d95d48a-1e6f-4899-b295-92ab58b8f413: HTTPException - 
+2025-08-24 15:28:04,680 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:28:04,790 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:28:04,867 - signglove - ERROR - Error de51846d-b613-4194-a466-980aae1a77b0: HTTPException - 
+2025-08-24 15:28:04,870 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:28:13,764 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:28:13,844 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:28:13,855 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:28:13,907 - signglove - INFO - Request: GET /training/
+2025-08-24 15:28:13,915 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:28:13,916 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:28:13,933 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:28:13,937 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:28:13,955 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:28:13,970 - signglove - INFO - Request: GET /training/
+2025-08-24 15:28:13,978 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:28:14,000 - signglove - ERROR - Error fb584517-53a4-42de-8d2f-7d262d785bcc: HTTPException - 
+2025-08-24 15:28:14,012 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:28:14,016 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:28:14,017 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:28:14,050 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:28:14,133 - signglove - ERROR - Error 5715d906-c874-4476-aefa-f8b4dc488d5f: HTTPException - 
+2025-08-24 15:28:14,136 - signglove - INFO - Response: GET /predict/live - 404
+2025-08-24 15:28:23,549 - signglove - INFO - Request: POST /gestures/upload
+2025-08-24 15:28:26,648 - signglove - INFO - [trace=none] Uploaded 936 sensor data rows from CSV: raw_data.csv
+2025-08-24 15:28:26,652 - signglove - WARNING - Slow request: POST /gestures/upload took 3.10s
+2025-08-24 15:28:26,653 - signglove - INFO - Response: POST /gestures/upload - 200
+2025-08-24 15:28:34,783 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:28:34,876 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:28:34,944 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:28:35,036 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:29:14,095 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:34:14,096 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:37:20,517 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 15:37:41,604 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 15:37:42,212 - root - INFO - Indexes created. App is starting...
+2025-08-24 15:37:42,213 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:37:46,117 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 15:38:12,828 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 15:38:13,531 - root - INFO - Indexes created. App is starting...
+2025-08-24 15:38:13,533 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:42:29,265 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 15:43:13,597 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 15:43:14,494 - root - INFO - Indexes created. App is starting...
+2025-08-24 15:43:14,499 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:43:53,763 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 15:43:54,339 - root - INFO - Indexes created. App is starting...
+2025-08-24 15:43:54,343 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:44:21,215 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 15:44:21,965 - root - INFO - Indexes created. App is starting...
+2025-08-24 15:44:21,971 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:44:52,181 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 15:45:25,676 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 15:45:26,325 - root - INFO - Indexes created. App is starting...
+2025-08-24 15:45:26,326 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:47:21,280 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 15:47:22,747 - root - INFO - Indexes created. App is starting...
+2025-08-24 15:47:22,749 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:49:33,349 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:49:33,437 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:49:33,452 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:49:33,508 - signglove - INFO - Request: GET /training/
+2025-08-24 15:49:33,525 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:49:33,531 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:49:33,551 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:49:33,557 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:49:33,591 - root - INFO - Fetched 1 training results
+2025-08-24 15:49:33,624 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:49:33,638 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:49:33,658 - signglove - INFO - Request: GET /training/
+2025-08-24 15:49:33,665 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:49:33,677 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:49:34,042 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:49:34,059 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:49:34,140 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:49:37,218 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:49:37,295 - signglove - INFO - Response: GET /training/latest - 200
+2025-08-24 15:49:37,325 - signglove - INFO - Request: GET /training/latest
+2025-08-24 15:49:37,421 - signglove - INFO - Response: GET /training/latest - 200
+2025-08-24 15:49:39,963 - signglove - INFO - Request: GET /gestures
+2025-08-24 15:49:40,183 - signglove - INFO - [trace=none] Listed 936 gestures.
+2025-08-24 15:49:40,191 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 15:49:40,232 - signglove - INFO - Request: GET /gestures
+2025-08-24 15:49:40,406 - signglove - INFO - [trace=none] Listed 936 gestures.
+2025-08-24 15:49:40,410 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 15:50:26,342 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:51:56,838 - signglove - INFO - Request: GET /gestures
+2025-08-24 15:51:57,248 - signglove - INFO - [trace=none] Listed 936 gestures.
+2025-08-24 15:51:57,278 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 15:53:11,642 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:53:11,737 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:53:11,757 - signglove - INFO - Request: GET /auth/me
+2025-08-24 15:53:11,847 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 15:53:11,947 - signglove - INFO - Request: GET /gestures
+2025-08-24 15:53:12,191 - signglove - INFO - [trace=none] Listed 936 gestures.
+2025-08-24 15:53:12,198 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 15:53:12,217 - signglove - INFO - Request: GET /gestures
+2025-08-24 15:53:12,381 - signglove - INFO - [trace=none] Listed 936 gestures.
+2025-08-24 15:53:12,389 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 15:53:12,409 - signglove - INFO - Request: GET /gestures
+2025-08-24 15:53:12,595 - signglove - INFO - [trace=none] Listed 936 gestures.
+2025-08-24 15:53:12,602 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 15:53:16,294 - signglove - INFO - Request: DELETE /gestures/g1
+2025-08-24 15:53:16,440 - signglove - INFO - [trace=none] Deleted session: g1
+2025-08-24 15:53:16,445 - signglove - INFO - Response: DELETE /gestures/g1 - 200
+2025-08-24 15:55:26,347 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 15:57:16,006 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 15:57:16,109 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 15:57:16,282 - signglove - INFO - Request: GET /audio-files/
+2025-08-24 15:57:16,367 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-24 15:59:33,832 - signglove - INFO - Request: GET /training/
+2025-08-24 15:59:33,881 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:59:33,943 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:59:34,010 - root - INFO - Fetched 1 training results
+2025-08-24 15:59:34,393 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:59:34,395 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:59:34,443 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 15:59:34,452 - signglove - INFO - Request: GET /training/
+2025-08-24 15:59:34,475 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 15:59:34,510 - signglove - INFO - Request: GET /predict/live
+2025-08-24 15:59:34,514 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 15:59:34,525 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 15:59:34,613 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 16:00:26,352 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 16:02:04,545 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-08-24 16:02:42,412 - core.database - INFO - Connected to MongoDB Atlas!
+2025-08-24 16:02:43,343 - root - INFO - Indexes created. App is starting...
+2025-08-24 16:02:43,346 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 16:05:46,594 - signglove - INFO - Request: GET /auth/me
+2025-08-24 16:05:46,635 - signglove - ERROR - Error 99f7c1ae-be15-426c-809a-2f619d079282: HTTPException - 
+2025-08-24 16:05:46,643 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-24 16:05:46,715 - signglove - INFO - Request: GET /auth/me
+2025-08-24 16:05:46,763 - signglove - ERROR - Error 0c5dee7d-d250-4268-a8ba-df496ba36fa3: HTTPException - 
+2025-08-24 16:05:46,792 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-24 16:05:58,840 - signglove - INFO - Request: POST /auth/login
+2025-08-24 16:05:59,326 - signglove - INFO - Response: POST /auth/login - 200
+2025-08-24 16:05:59,342 - signglove - INFO - Request: GET /auth/me
+2025-08-24 16:05:59,411 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 16:06:03,318 - signglove - INFO - Request: GET /gestures
+2025-08-24 16:06:03,566 - signglove - INFO - [trace=none] Listed 935 gestures.
+2025-08-24 16:06:03,571 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 16:06:03,591 - signglove - INFO - Request: GET /gestures
+2025-08-24 16:06:03,760 - signglove - INFO - [trace=none] Listed 935 gestures.
+2025-08-24 16:06:03,770 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 16:06:09,426 - signglove - INFO - Request: DELETE /gestures/g1
+2025-08-24 16:06:09,561 - signglove - INFO - [trace=none] Deleted session: g1
+2025-08-24 16:06:09,568 - signglove - INFO - Response: DELETE /gestures/g1 - 200
+2025-08-24 16:07:33,549 - signglove - INFO - Request: GET /training/
+2025-08-24 16:07:33,608 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 16:07:33,611 - signglove - INFO - Request: GET /predict/live
+2025-08-24 16:07:33,659 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 16:07:33,678 - root - INFO - Fetched 1 training results
+2025-08-24 16:07:33,781 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 16:07:33,810 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-24 16:07:33,879 - signglove - INFO - Request: GET /training/
+2025-08-24 16:07:33,880 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-24 16:07:33,913 - signglove - INFO - Response: GET /training/ - 200
+2025-08-24 16:07:34,103 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 16:07:34,127 - signglove - INFO - Request: GET /predict/live
+2025-08-24 16:07:34,193 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-24 16:07:43,347 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 16:08:57,015 - signglove - INFO - Request: GET /training/latest
+2025-08-24 16:08:57,076 - signglove - INFO - Response: GET /training/latest - 200
+2025-08-24 16:08:57,117 - signglove - INFO - Request: GET /training/latest
+2025-08-24 16:08:57,178 - signglove - INFO - Response: GET /training/latest - 200
+2025-08-24 16:08:59,559 - signglove - INFO - Request: GET /dashboard/
+2025-08-24 16:08:59,829 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-24 16:08:59,866 - signglove - INFO - Request: GET /dashboard/
+2025-08-24 16:08:59,887 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-08-24 16:09:18,999 - signglove - INFO - Request: GET /gestures
+2025-08-24 16:09:19,180 - signglove - INFO - [trace=none] Listed 934 gestures.
+2025-08-24 16:09:19,497 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 16:09:19,510 - signglove - INFO - Request: GET /gestures
+2025-08-24 16:09:19,675 - signglove - INFO - [trace=none] Listed 934 gestures.
+2025-08-24 16:09:19,685 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 16:10:49,745 - signglove - INFO - Request: GET /auth/me
+2025-08-24 16:10:49,808 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 16:10:49,827 - signglove - INFO - Request: GET /auth/me
+2025-08-24 16:10:49,891 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 16:10:49,919 - signglove - INFO - Request: GET /gestures
+2025-08-24 16:10:50,149 - signglove - INFO - [trace=none] Listed 934 gestures.
+2025-08-24 16:10:50,154 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 16:10:50,171 - signglove - INFO - Request: GET /gestures
+2025-08-24 16:10:50,301 - signglove - INFO - [trace=none] Listed 934 gestures.
+2025-08-24 16:10:50,310 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 16:10:50,347 - signglove - INFO - Request: GET /gestures
+2025-08-24 16:10:50,474 - signglove - INFO - [trace=none] Listed 934 gestures.
+2025-08-24 16:10:50,481 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 16:12:43,342 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 16:13:13,716 - signglove - INFO - Request: GET /auth/me
+2025-08-24 16:13:13,786 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 16:13:13,804 - signglove - INFO - Request: GET /auth/me
+2025-08-24 16:13:13,870 - signglove - INFO - Response: GET /auth/me - 200
+2025-08-24 16:13:13,899 - signglove - INFO - Request: GET /gestures
+2025-08-24 16:13:14,089 - signglove - INFO - [trace=none] Listed 934 gestures.
+2025-08-24 16:13:14,093 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 16:13:14,113 - signglove - INFO - Request: GET /gestures
+2025-08-24 16:13:14,242 - signglove - INFO - [trace=none] Listed 934 gestures.
+2025-08-24 16:13:14,247 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 16:13:14,274 - signglove - INFO - Request: GET /gestures
+2025-08-24 16:13:14,409 - signglove - INFO - [trace=none] Listed 934 gestures.
+2025-08-24 16:13:14,417 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 16:13:39,417 - signglove - INFO - Request: PUT /gestures/g1
+2025-08-24 16:13:39,541 - signglove - INFO - [trace=none] Label updated for session g1 to 'rest'
+2025-08-24 16:13:39,545 - signglove - INFO - Response: PUT /gestures/g1 - 200
+2025-08-24 16:13:43,782 - signglove - INFO - Request: GET /gestures
+2025-08-24 16:13:43,978 - signglove - INFO - [trace=none] Listed 934 gestures.
+2025-08-24 16:13:44,095 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 16:17:43,348 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 16:22:43,356 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 16:27:43,363 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 16:32:43,367 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 16:37:17,973 - signglove - INFO - Request: GET /gestures
+2025-08-24 16:37:18,386 - signglove - INFO - [trace=none] Listed 934 gestures.
+2025-08-24 16:37:18,674 - signglove - INFO - Response: GET /gestures - 200
+2025-08-24 16:37:43,372 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 16:42:43,534 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 16:47:43,539 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 16:52:43,557 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 16:57:43,578 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 17:02:43,582 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 17:07:43,578 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 17:12:43,573 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 17:17:43,597 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 17:22:43,606 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 17:27:43,612 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 17:28:19,634 - signglove - INFO - Request: POST /training/convert-to-dual-hand/g1
+2025-08-24 17:28:19,645 - signglove - ERROR - Error 6d562d4c-5027-4077-b3f5-7a3ba9212af3: HTTPException - 
+2025-08-24 17:28:19,649 - signglove - INFO - Response: POST /training/convert-to-dual-hand/g1 - 401
+2025-08-24 17:32:09,779 - signglove - INFO - Request: POST /training/convert-to-dual-hand/g1
+2025-08-24 17:32:09,787 - signglove - ERROR - Error 483638b0-e364-4703-a632-9df9de45ffc1: HTTPException - 
+2025-08-24 17:32:09,793 - signglove - INFO - Response: POST /training/convert-to-dual-hand/g1 - 401
+2025-08-24 17:32:43,609 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 17:37:43,610 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 17:42:43,603 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 17:45:30,907 - signglove - INFO - Request: GET /auth/me
+2025-08-24 17:45:30,915 - signglove - ERROR - Error 0038abf6-86c1-48c5-be36-df0741a12df2: HTTPException - 
+2025-08-24 17:45:30,922 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-24 17:45:30,941 - signglove - INFO - Request: GET /auth/me
+2025-08-24 17:45:30,952 - signglove - ERROR - Error abc02075-137f-4da8-851a-5d74a4ae50ea: HTTPException - 
+2025-08-24 17:45:30,959 - signglove - INFO - Response: GET /auth/me - 401
+2025-08-24 17:47:43,605 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 17:52:43,604 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 17:57:43,623 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-24 18:02:43,646 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.

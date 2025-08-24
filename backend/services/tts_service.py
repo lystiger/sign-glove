@@ -26,19 +26,79 @@ try:
 except ImportError:
     HAS_EDGE_TTS = False
 
-# Gesture mapping
-GESTURE_MAPPING = {
-    "Class 0": "",
-    "Class 1": "", 
-    "Class 2": "",
-    "Class 3": "",
-    "Class 4": "",
-    "Class 5": "",
-    "Class 6": "",
-    "Class 7": "",
-    "Class 8": "",
-    "Class 9": "",
-    "Class 10": "",
+# Multi-language gesture mapping for ESP32 + SD card system
+LANGUAGE_MAPPINGS = {
+    "en": {
+        "Class 0": "Hello",
+        "Class 1": "Yes", 
+        "Class 2": "No",
+        "Class 3": "Thank you",
+        "Class 4": "Please",
+        "Class 5": "Sorry",
+        "Class 6": "Goodbye",
+        "Class 7": "Help",
+        "Class 8": "Water",
+        "Class 9": "Food",
+        "Class 10": "Emergency",
+    },
+    "vn": {
+        "Class 0": "Xin chào",
+        "Class 1": "Có", 
+        "Class 2": "Không",
+        "Class 3": "Cảm ơn",
+        "Class 4": "Làm ơn",
+        "Class 5": "Xin lỗi",
+        "Class 6": "Tạm biệt",
+        "Class 7": "Giúp đỡ",
+        "Class 8": "Nước",
+        "Class 9": "Thức ăn",
+        "Class 10": "Khẩn cấp",
+    },
+    "fr": {
+        "Class 0": "Bonjour",
+        "Class 1": "Oui", 
+        "Class 2": "Non",
+        "Class 3": "Merci",
+        "Class 4": "S'il vous plaît",
+        "Class 5": "Désolé",
+        "Class 6": "Au revoir",
+        "Class 7": "Aide",
+        "Class 8": "Eau",
+        "Class 9": "Nourriture",
+        "Class 10": "Urgence",
+    }
+}
+
+# ESP32 SD Card TTS file paths
+ESP32_TTS_PATHS = {
+    "en": "/sd/tts/en/",
+    "vn": "/sd/tts/vn/", 
+    "fr": "/sd/tts/fr/"
+}
+
+# ESP32 TTS file naming convention
+ESP32_TTS_FILENAMES = {
+    "Class 0": "hello.mp3",
+    "Class 1": "yes.mp3",
+    "Class 2": "no.mp3", 
+    "Class 3": "thankyou.mp3",
+    "Class 4": "please.mp3",
+    "Class 5": "sorry.mp3",
+    "Class 6": "goodbye.mp3",
+    "Class 7": "help.mp3",
+    "Class 8": "water.mp3",
+    "Class 9": "food.mp3",
+    "Class 10": "emergency.mp3"
+}
+
+# Default language
+DEFAULT_LANGUAGE = "en"
+
+# Basic/idle gestures that should NOT trigger TTS
+IDLE_GESTURES = {
+    "hand_resting": ["rest", "idle", "neutral", "relaxed"],
+    "basic_movement": ["movement", "wave", "point", "gesture"],
+    "no_meaning": ["", "none", "unknown", "undefined"]
 }
 
 class TTSService:
@@ -46,6 +106,7 @@ class TTSService:
         self.executor = ThreadPoolExecutor(max_workers=2)
         self.cache = {}
         self.pyttsx3_engine = None
+        self.current_language = DEFAULT_LANGUAGE
         # Ensure cache dir exists
         if settings.TTS_CACHE_ENABLED and not os.path.exists(settings.TTS_CACHE_DIR):
             os.makedirs(settings.TTS_CACHE_DIR)
@@ -64,6 +125,57 @@ class TTSService:
         text_hash = hashlib.md5(f"{text}_{voice}".encode()).hexdigest()
         return os.path.join(settings.TTS_CACHE_DIR, f"{text_hash}.mp3")
 
+    def set_language(self, language: str):
+        """Set the current language for TTS."""
+        if language in LANGUAGE_MAPPINGS:
+            self.current_language = language
+            return True
+        return False
+
+    def get_available_languages(self):
+        """Get list of available languages."""
+        return list(LANGUAGE_MAPPINGS.keys())
+
+    def get_gesture_text(self, label: str, language: str = None):
+        """Get gesture text in specified language or current language."""
+        lang = language or self.current_language
+        return LANGUAGE_MAPPINGS.get(lang, {}).get(label, "")
+
+    def get_esp32_tts_path(self, gesture_label: str, language: str = None):
+        """Get the ESP32 SD card path for TTS audio file."""
+        lang = language or self.current_language
+        if lang not in ESP32_TTS_PATHS:
+            return None
+            
+        filename = ESP32_TTS_FILENAMES.get(gesture_label, f"{gesture_label.lower()}.mp3")
+        return f"{ESP32_TTS_PATHS[lang]}{filename}"
+
+    def should_speak_gesture(self, label: str) -> bool:
+        """
+        Determines if a gesture should trigger TTS.
+        Returns False for basic/idle gestures that don't convey meaning.
+        """
+        if not label or label.strip() == "":
+            return False
+            
+        # If filtering is disabled, speak for all gestures
+        if not settings.TTS_FILTER_IDLE_GESTURES:
+            return True
+            
+        # Check if it's a meaningful gesture in any language
+        for lang, mappings in LANGUAGE_MAPPINGS.items():
+            if label in mappings and mappings[label].strip():
+                return True
+            
+        # Check if it's an idle gesture that shouldn't speak
+        label_lower = label.lower()
+        for idle_types in IDLE_GESTURES.values():
+            if any(idle_type in label_lower for idle_type in idle_types):
+                return False
+                
+        # Default: only speak if it's a recognized meaningful gesture
+        return any(label in mappings for mappings in LANGUAGE_MAPPINGS.values())
+
     async def speak(self, text: str, voice: str = None):
         if not settings.TTS_ENABLED:
             return {"status": "disabled"}
@@ -80,6 +192,45 @@ class TTSService:
         except Exception as e:
             logging.error(f"TTS error: {e}")
             return {"status": "error", "message": str(e)}
+
+    async def speak_gesture(self, gesture_label: str, language: str = None, voice: str = None):
+        """
+        Speaks a gesture only if it's meaningful and should trigger TTS.
+        Supports multiple languages and ESP32 SD card integration.
+        """
+        if not self.should_speak_gesture(gesture_label):
+            return {"status": "skipped", "reason": "Gesture is idle/basic - no TTS needed"}
+            
+        # Get the meaningful text for the gesture in specified language
+        text_to_speak = self.get_gesture_text(gesture_label, language)
+        if not text_to_speak:
+            return {"status": "skipped", "reason": "No meaningful text for gesture"}
+            
+        return await self.speak(text_to_speak, voice)
+
+    async def get_esp32_tts_info(self, gesture_label: str, language: str = None):
+        """
+        Get ESP32 TTS file information for a gesture.
+        This helps the ESP32 know which audio file to play from SD card.
+        """
+        if not self.should_speak_gesture(gesture_label):
+            return {"status": "skipped", "reason": "Gesture is idle/basic - no TTS needed"}
+            
+        lang = language or self.current_language
+        esp32_path = self.get_esp32_tts_path(gesture_label, lang)
+        gesture_text = self.get_gesture_text(gesture_label, lang)
+        
+        if not esp32_path:
+            return {"status": "error", "message": "Language not supported"}
+            
+        return {
+            "status": "success",
+            "gesture_label": gesture_label,
+            "language": lang,
+            "text": gesture_text,
+            "esp32_file_path": esp32_path,
+            "filename": esp32_path.split('/')[-1]
+        }
 
     async def _speak_edge(self, text, voice: str = None):
         voice = voice or settings.TTS_VOICE
@@ -113,9 +264,6 @@ class TTSService:
         except:
             return False
 
-    def get_gesture_text(self, label):
-        return GESTURE_MAPPING.get(label, label)
-
     def get_config(self):
         return {
             "config": {
@@ -131,7 +279,7 @@ class TTSService:
                 "gtts": HAS_GTTS,
                 "edge_tts": HAS_EDGE_TTS
             },
-            "gesture_mapping": GESTURE_MAPPING
+            "gesture_mapping": LANGUAGE_MAPPINGS
         }
 
     def update_config(self, config: dict):

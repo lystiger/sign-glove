@@ -25,6 +25,7 @@ if '.' not in sys.path:
     sys.path.append('.')
 
 from core.database import sensor_collection  # MongoDB collection
+from core.settings import settings as app_settings
 
 # ========= CONFIG =========
 SERIAL_PORT = 'COM5'  # 👈 Change to your port (e.g., /dev/ttyUSB0)
@@ -33,11 +34,11 @@ FLEX_SENSORS = 5
 ACCEL_SENSORS = 3
 GYRO_SENSORS = 3
 TOTAL_SENSORS = FLEX_SENSORS + ACCEL_SENSORS + GYRO_SENSORS
-LABEL = 'U'  # 👈 Set this before collecting (rest gesture)
-SESSION_ID = 'l21'  # Use a simple, human-readable session id for this data collection
-CSV_DIR = 'data'
-RAW_DATA_PATH = f"{CSV_DIR}/raw_data.csv"
-FILE_PATH = f"{CSV_DIR}/{LABEL}_{SESSION_ID}.csv"
+LABEL = 'Rest'  # 👈 Set this before collecting (rest gesture)
+SESSION_ID = 'g1'  # Use a simple, human-readable session id for this data collection
+CSV_DIR = app_settings.DATA_DIR
+RAW_DATA_PATH = os.path.join(CSV_DIR, 'raw_data.csv')
+FILE_PATH = os.path.join(CSV_DIR, f"{LABEL}_{SESSION_ID}.csv")
 LOG_FILE = 'data_collection.log'
 
 # ========= Logging setup =========
@@ -99,8 +100,9 @@ def initialize_csv():
 
 async def send_to_backend(data_queue):
     try:
-        async with websockets.connect("ws://localhost:8080/ws/predict") as ws:
-            logger.info("WebSocket connected.")
+        ws_url = app_settings.BACKEND_BASE_URL.replace("http://", "ws://").replace("https://", "wss://") + "/ws/predict"
+        async with websockets.connect(ws_url) as ws:
+            logger.info(f"WebSocket connected to {ws_url}.")
             while True:
                 if not data_queue:
                     await asyncio.sleep(0.05)
@@ -113,6 +115,7 @@ async def send_to_backend(data_queue):
 
 def main():
     print("=============== Starting Data Collection ===============")
+    logger.info(f"Writing CSV to: {os.path.abspath(RAW_DATA_PATH)}")
 
     if not initialize_csv():
         return
@@ -176,9 +179,8 @@ def main():
         try:
             logger.info("Triggering model training...")
             # Include internal API key to bypass auth
-            from core.settings import settings as app_settings
             response = requests.post(
-                "http://localhost:8080/training/trigger",
+                f"{app_settings.BACKEND_BASE_URL}/training/trigger",
                 headers={"X-API-KEY": app_settings.SECRET_KEY}
             )
             if response.status_code == 200:

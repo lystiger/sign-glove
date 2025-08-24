@@ -28,7 +28,7 @@ const UploadCSV = () => {
       await apiRequest('post', '/training/run', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
-      toast.success('CSV uploaded and training started!');
+      toast.success('CSV uploaded and raw data processing started!');
       setShowCheckmark(true);
       setTimeout(() => setShowCheckmark(false), 1200);
     } catch (err) {
@@ -39,9 +39,9 @@ const UploadCSV = () => {
   };
 
   return (
-    <div role="main" aria-label="Upload Training CSV Page">
+    <div role="main" aria-label="Upload Raw CSV Page">
       <div className="card fade-in">
-        <h2 id="upload-csv-title" tabIndex={0}>Upload Training CSV</h2>
+        <h2 id="upload-csv-title" tabIndex={0}>Upload Raw CSV</h2>
         {loading ? (
           <>
             <Skeleton width={200} height={32} style={{ marginBottom: 8 }} />
@@ -52,7 +52,7 @@ const UploadCSV = () => {
             <label htmlFor="csv-file-input" style={{ display: 'block', marginBottom: 8 }}>Select CSV file</label>
             <input id="csv-file-input" type="file" accept=".csv" onChange={handleFileChange} aria-required="true" style={{ marginBottom: 16 }} />
             <div style={{ marginTop: 20 }}>
-              <button type="submit" className="btn btn-primary" onClick={handleUpload} disabled={loading} aria-busy={loading} aria-label="Upload CSV">
+              <button type="submit" className="btn btn-primary" disabled={loading} aria-busy={loading} aria-label="Upload CSV">
                 <MdUpload style={{ verticalAlign: 'middle', marginRight: 4 }} /> Upload
               </button>
               {showCheckmark && (

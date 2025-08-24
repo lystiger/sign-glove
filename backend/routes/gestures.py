@@ -3,13 +3,14 @@ API routes for managing gesture sensor data in the sign glove system.
 
 Endpoints:
 - GET /export: Export all gesture data as CSV.
+- POST /upload: Upload raw sensor data CSV file.
 - GET /gestures: List all gesture sessions.
 - GET /gestures/{session_id}: Get data for a specific session.
 - POST /: Insert new sensor data.
 - PUT /{session_id}: Update gesture label for a session.
 - DELETE /{session_id}: Delete session data.
 """
-from fastapi import APIRouter, HTTPException, Request, Depends
+from fastapi import APIRouter, HTTPException, Request, Depends, UploadFile, File
 from fastapi.responses import StreamingResponse
 from models.sensor_models import SensorData
 from core.database import sensor_collection
@@ -17,6 +18,7 @@ from datetime import datetime, timezone
 import logging
 import csv
 import io
+import pandas as pd
 from utils.cache import cacheable, get_or_set_cache
 from typing import List, Dict, Any
 from routes.auth_routes import role_required_dep
@@ -160,6 +162,91 @@ async def create_sensor_data(data: SensorData, request: Request, _user=Depends(r
         "message": "Sensor data inserted",
         "trace_id": trace_id
     }
+
+@router.post(
+    "/upload",
+    summary="Upload raw sensor data CSV file",
+    description="Upload a CSV file containing raw sensor data to be stored in the database."
+)
+async def upload_raw_csv(file: UploadFile = File(...), request: Request = None, _user=Depends(role_required_dep("editor"))) -> Dict[str, Any]:
+    """
+    Upload and process a raw sensor data CSV file.
+    Expected CSV format: session_id,label,flex1,flex2,flex3,flex4,flex5,accel_x,accel_y,accel_z,gyro_x,gyro_y,gyro_z
+    """
+    trace_id = get_trace_id(request) if request else "upload"
+    
+    if not file.filename.endswith('.csv'):
+        raise HTTPException(status_code=400, detail="File must be a CSV file")
+    
+    try:
+        # Read CSV content
+        content = await file.read()
+        df = pd.read_csv(io.StringIO(content.decode('utf-8')))
+        
+        # Validate CSV structure
+        required_columns = ['session_id', 'label']
+        sensor_columns = [f'flex{i}' for i in range(1, 6)] + ['accel_x', 'accel_y', 'accel_z', 'gyro_x', 'gyro_y', 'gyro_z']
+        
+        # Check if we have either the new format or old format
+        if all(col in df.columns for col in required_columns + sensor_columns):
+            # New format with separate sensor columns
+            pass
+        elif 'values' in df.columns and len(required_columns) <= len([col for col in required_columns if col in df.columns]):
+            # Old format with values array
+            sensor_columns = ['values']
+        else:
+            raise HTTPException(
+                status_code=400, 
+                detail=f"CSV must contain columns: {required_columns + sensor_columns} or {required_columns + ['values']}"
+            )
+        
+        # Process and insert data
+        documents = []
+        for _, row in df.iterrows():
+            if 'values' in df.columns:
+                # Handle old format
+                values = eval(row['values']) if isinstance(row['values'], str) else row['values']
+                if not isinstance(values, list) or len(values) != 11:
+                    continue  # Skip invalid rows
+            else:
+                # Handle new format
+                values = [row[col] for col in sensor_columns]
+                if len(values) != 11:
+                    continue  # Skip invalid rows
+            
+            doc = {
+                "session_id": str(row.get('session_id', f"upload_{trace_id}_{len(documents)}")),
+                "label": str(row.get('label', 'unknown')),
+                "values": values,
+                "source": "csv_upload",
+                "timestamp": datetime.now(timezone.utc),
+                "_timestamp": datetime.now(timezone.utc)
+            }
+            documents.append(doc)
+        
+        if not documents:
+            raise HTTPException(status_code=400, detail="No valid sensor data found in CSV")
+        
+        # Insert into database
+        result = await sensor_collection.insert_many(documents)
+        
+        logger.info(f"[trace={trace_id}] Uploaded {len(documents)} sensor data rows from CSV: {file.filename}")
+        
+        return {
+            "status": "success",
+            "message": f"Successfully uploaded {len(documents)} sensor data rows",
+            "rows_processed": len(documents),
+            "inserted_ids": [str(id) for id in result.inserted_ids],
+            "trace_id": trace_id
+        }
+        
+    except pd.errors.EmptyDataError:
+        raise HTTPException(status_code=400, detail="CSV file is empty")
+    except pd.errors.ParserError as e:
+        raise HTTPException(status_code=400, detail=f"CSV parsing error: {str(e)}")
+    except Exception as e:
+        logger.error(f"[trace={trace_id}] CSV upload failed: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to process CSV file: {str(e)}")
 
 @router.put(
     "/{session_id}",

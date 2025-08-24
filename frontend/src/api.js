@@ -26,8 +26,61 @@ export async function apiRequest(method, url, data = null, config = {}) {
   }
 }
 
-// Example API functions for gestures
+// Gesture API functions
 export const getGestures = () => apiRequest('get', '/gestures');
 export const createGesture = (payload) => apiRequest('post', '/gestures/', payload);
 export const deleteGesture = (sessionId) => apiRequest('delete', `/gestures/${sessionId}`);
-export const updateGesture = (sessionId, label) => apiRequest('put', `/gestures/${sessionId}?label=${label}`); 
+export const updateGesture = (sessionId, label) => apiRequest('put', `/gestures/${sessionId}?label=${label}`);
+
+// Training API functions
+export const getTrainingResults = () => apiRequest('get', '/training/');
+export const getLatestTrainingResult = () => apiRequest('get', '/training/latest');
+export const getTrainingMetrics = () => apiRequest('get', '/training/metrics/latest');
+export const triggerTraining = (dualHand = false) => apiRequest('post', `/training/trigger?dual_hand=${dualHand}`);
+export const runTraining = (file, dualHand = false) => {
+  const formData = new FormData();
+  formData.append('file', file);
+  return apiRequest('post', `/training/run?dual_hand=${dualHand}`, formData, {
+    headers: { 'Content-Type': 'multipart/form-data' }
+  });
+};
+
+// Dual-hand specific training functions
+export const triggerDualHandTraining = () => apiRequest('post', '/training/dual-hand/trigger');
+export const runDualHandTraining = (file) => {
+  const formData = new FormData();
+  formData.append('file', file);
+  return apiRequest('post', '/training/dual-hand/run', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' }
+  });
+};
+export const getDualHandData = () => apiRequest('get', '/training/dual-hand/data');
+export const getDataInfo = () => apiRequest('get', '/training/data/info');
+
+// Gesture conversion functions
+export const convertGestureToDualHand = (sessionId) => apiRequest('post', `/training/convert-to-dual-hand/${sessionId}`);
+export const checkConversionStatus = (sessionId) => apiRequest('get', `/training/conversion-status/${sessionId}`); 
+
+export const api = {
+  // Gestures
+  getGestures,
+  createGesture,
+  deleteGesture,
+  updateGesture,
+  // Training
+  getTrainingResults,
+  getLatestTrainingResult,
+  getTrainingMetrics,
+  triggerTraining,
+  runTraining,
+  // Dual-hand training
+  triggerDualHandTraining,
+  runDualHandTraining,
+  getDualHandData,
+  getDataInfo,
+  // Gesture conversion
+  convertGestureToDualHand,
+  checkConversionStatus,
+  // Core
+  request: apiRequest,
+};

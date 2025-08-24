@@ -15,9 +15,20 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from itertools import cycle
 import sys
+from datetime import datetime
+from uuid import uuid4
+import asyncio
 
 # Add the parent directory to Python path so we can import core
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+try:
+    from core.database import model_collection
+    from models.model_result import ModelResult
+except ImportError as e:
+    print(f"Warning: Could not import database modules: {e}")
+    model_collection = None
+    ModelResult = None
 
 try:
     from core.settings import settings
@@ -32,7 +43,8 @@ except ImportError:
     settings = Settings()
 
 # Use centralized settings for all paths
-gesture_data_path = settings.GESTURE_DATA_PATH
+# Check if a specific data file is specified via environment variable
+gesture_data_path = os.environ.get('GESTURE_DATA_FILE', settings.GESTURE_DATA_PATH)
 model_output_path = settings.MODEL_PATH
 metrics_output_path = settings.METRICS_PATH
 results_dir = settings.RESULTS_DIR
@@ -54,6 +66,17 @@ y = df['label'].values          # label column
 print(f"Feature columns: {feature_columns}")
 print(f"Label values: {np.unique(y)}")
 
+# Detect if this is single-hand (11 features) or dual-hand (22 features) data
+num_features = X.shape[1]
+if num_features == 11:
+    print("Detected single-hand configuration (11 features)")
+    hand_config = "single"
+elif num_features == 22:
+    print("Detected dual-hand configuration (22 features)")
+    hand_config = "dual"
+else:
+    raise ValueError(f"Unsupported feature count: {num_features}. Expected 11 (single-hand) or 22 (dual-hand)")
+
 label_encoder = LabelEncoder()
 y_encoded = label_encoder.fit_transform(y)
 print(f"Encoded labels: {label_encoder.classes_} -> {np.unique(y_encoded)}")
@@ -64,23 +87,36 @@ X = scaler.fit_transform(X)
 num_classes = len(np.unique(y_encoded))
 y_cat = to_categorical(y_encoded, num_classes=num_classes)
 
-num_features = X.shape[1]
-print(f"Number of features: {num_features}")
+print(f"Number of features: {num_features} ({hand_config}-hand)")
 print(f"Number of classes: {num_classes}")
 
 X_train, X_test, y_train, y_test = train_test_split(X, y_cat, test_size=0.2, random_state=42)
 
-model = Sequential([
-    Dense(256, activation='relu', input_shape=(num_features,)),
-    Dense(128, activation='relu'),
-    Dense(64, activation='relu'),
-    Dense(num_classes, activation='softmax')
-])
+# Adjust model architecture based on input size
+if hand_config == "single":
+    # Optimized for single-hand (11 features)
+    model = Sequential([
+        Dense(128, activation='relu', input_shape=(num_features,)),
+        Dense(64, activation='relu'),
+        Dense(32, activation='relu'),
+        Dense(num_classes, activation='softmax')
+    ])
+else:
+    # Larger architecture for dual-hand (22 features)
+    model = Sequential([
+        Dense(512, activation='relu', input_shape=(num_features,)),
+        Dense(256, activation='relu'),
+        Dense(128, activation='relu'),
+        Dense(64, activation='relu'),
+        Dense(num_classes, activation='softmax')
+    ])
+
+print(f"Model architecture optimized for {hand_config}-hand configuration")
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 model.summary()
 
-history = model.fit(X_train, y_train, epochs=50, batch_size=16, validation_split=0.1)
+history = model.fit(X_train, y_train, epochs=100, batch_size=16, validation_split=0.1)
 
 loss, acc = model.evaluate(X_test, y_test)
 print(f"\n Test accuracy: {acc:.3f}")
@@ -101,15 +137,25 @@ for i in range(num_classes):
 fpr["micro"], tpr["micro"], _ = roc_curve(y_test_bin.ravel(), y_pred_proba.ravel())
 roc_auc["micro"] = auc(fpr["micro"], tpr["micro"])
 
+def safe_float(value):
+    """Convert value to float, handling NaN and infinity values"""
+    if np.isnan(value) or np.isinf(value):
+        return None
+    return float(value)
+
+def safe_list(arr):
+    """Convert array to list, handling NaN values"""
+    return [safe_float(x) if isinstance(x, (int, float, np.number)) else x for x in arr]
+
 metrics_data = {
     "accuracy": float(acc),
     "loss": float(loss),
     "confusion_matrix": cm.tolist(),
     "classification_report": class_report,
     "roc_curves": {
-        "fpr": {str(k): v.tolist() for k, v in fpr.items()},
-        "tpr": {str(k): v.tolist() for k, v in tpr.items()},
-        "auc": {str(k): float(v) for k, v in roc_auc.items()}
+        "fpr": {str(k): safe_list(v) for k, v in fpr.items()},
+        "tpr": {str(k): safe_list(v) for k, v in tpr.items()},
+        "auc": {str(k): safe_float(v) for k, v in roc_auc.items()}
     },
     "labels": label_encoder.classes_.tolist(),
     "training_history": {
@@ -183,3 +229,29 @@ tflite_model = converter.convert()
 with open(model_output_path, "wb") as f:
     f.write(tflite_model)
 print(f" Model saved to {model_output_path}")
+
+try:
+    # Only try to save to database if imports were successful
+    if model_collection is not None and ModelResult is not None:
+        # Create a ModelResult instance
+        result = ModelResult(
+            session_id=str(uuid4()),
+            timestamp=datetime.utcnow(),
+            accuracy=float(acc),            # test accuracy from model evaluation
+            model_name="SignGloveModel",    # optional, you can use a meaningful name
+            notes="Training completed successfully"
+        )
+
+        # Insert into MongoDB asynchronously
+        async def insert_result():
+            res = await model_collection.insert_one(result.model_dump())
+            print(f"Inserted training result into MongoDB: {res.inserted_id}")
+
+        asyncio.run(insert_result())
+    else:
+        print("Database modules not available - skipping result storage")
+
+except Exception as e:
+    print(f"Failed to insert training result into MongoDB: {e}")
+
+print("Training completed successfully!")
