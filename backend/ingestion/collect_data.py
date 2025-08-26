@@ -28,14 +28,14 @@ from core.database import sensor_collection  # MongoDB collection
 from core.settings import settings as app_settings
 
 # ========= CONFIG =========
-SERIAL_PORT = 'COM5'  # 👈 Change to your port (e.g., /dev/ttyUSB0)
+SERIAL_PORT = 'COM6'  # 👈 Change to your port (e.g., /dev/ttyUSB0)
 BAUD_RATE = 115200
 FLEX_SENSORS = 5
 ACCEL_SENSORS = 3
 GYRO_SENSORS = 3
 TOTAL_SENSORS = FLEX_SENSORS + ACCEL_SENSORS + GYRO_SENSORS
-LABEL = 'Rest'  # 👈 Set this before collecting (rest gesture)
-SESSION_ID = 'g1'  # Use a simple, human-readable session id for this data collection
+LABEL = 'J'  # 👈 Set this before collecting (rest gesture)
+SESSION_ID = 'alpha9'  # Use a simple, human-readable session id for this data collection
 CSV_DIR = app_settings.DATA_DIR
 RAW_DATA_PATH = os.path.join(CSV_DIR, 'raw_data.csv')
 FILE_PATH = os.path.join(CSV_DIR, f"{LABEL}_{SESSION_ID}.csv")

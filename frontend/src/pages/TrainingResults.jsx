@@ -21,6 +21,7 @@ const TrainingResults = ({ user }) => {
   const [showCheckmark, setShowCheckmark] = useState(false);
   const [error, setError] = useState(null);
   const [noResults, setNoResults] = useState(false);
+  const [analyzingMatrix, setAnalyzingMatrix] = useState(false);
 
   useEffect(() => {
     if (!user) {
@@ -79,6 +80,30 @@ const TrainingResults = ({ user }) => {
       toast.error(`Failed to trigger training: ${err.detail}${err.traceId ? ` (trace: ${err.traceId})` : ''}`);
     } finally {
       setActionLoading(false);
+    }
+  };
+
+  const runImprovedConfusionMatrix = async () => {
+    setAnalyzingMatrix(true);
+    try {
+      const response = await apiRequest('post', '/training/analyze-confusion-matrix');
+      
+      if (response.status === 'success') {
+        toast.success('Confusion matrix analysis completed successfully!');
+        // Force reload the improved confusion matrix image
+        const imgElement = document.querySelector('img[alt="Improved Confusion Matrix"]');
+        if (imgElement) {
+          imgElement.src = `${BASE_URL}/training/confusion-matrix/improved?t=${Date.now()}`;
+          imgElement.style.display = 'block';
+          imgElement.nextSibling.style.display = 'none';
+        }
+      } else {
+        toast.error(response.message || 'Analysis failed - insufficient data or single label dataset');
+      }
+    } catch (err) {
+      toast.error(`Analysis failed: ${err.detail || err.message}`);
+    } finally {
+      setAnalyzingMatrix(false);
     }
   };
 
@@ -296,6 +321,30 @@ const TrainingResults = ({ user }) => {
                   }}
                 />
                 <p style={{ display: 'none', color: '#666' }}>Training history not available. Run training first.</p>
+              </div>
+              <div className="viz-card">
+                <h3>Improved Confusion Matrix</h3>
+                <div className="text-center mb-4">
+                  <button
+                    onClick={runImprovedConfusionMatrix}
+                    disabled={analyzingMatrix}
+                    className="btn btn-primary"
+                    aria-busy={analyzingMatrix}
+                    aria-label="Run improved confusion matrix analysis"
+                  >
+                    {analyzingMatrix ? 'Analyzing...' : 'Run Analysis & View Matrix'}
+                  </button>
+                </div>
+                <img
+                  src={`${BASE_URL}/training/confusion-matrix/improved`}
+                  alt="Improved Confusion Matrix"
+                  className="viz-image"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'block';
+                  }}
+                />
+                <p style={{ display: 'none', color: '#666' }}>Improved confusion matrix not available. Run analysis first.</p>
               </div>
             </div>
             {rocData.length > 0 && (

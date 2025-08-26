@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.exception_handlers import RequestValidationError
 from routes import training_trigger, training_routes, sensor_routes, predict_routes, admin_routes, dashboard_routes
-from routes import gestures, liveWS, utils_routes, auth_routes
+from routes import gestures, liveWS, utils_routes, auth_routes, voice_routes
 from routes import audio_files_routes
 from core.indexes import create_indexes 
 from core.database import client, test_connection
@@ -139,6 +139,7 @@ app.include_router(dashboard_routes.router)
 app.include_router(liveWS.router)
 app.include_router(utils_routes.router)
 app.include_router(audio_files_routes.router)
+app.include_router(voice_routes.router)
 
 # Mount models directory for static files if needed
 app.mount("/models", StaticFiles(directory=settings.DATA_DIR), name="models")
@@ -169,4 +170,3 @@ async def get_metrics():
         "performance": performance_monitor.get_performance_stats(),
         "errors": len(error_tracker.error_log)
     }
-

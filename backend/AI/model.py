@@ -130,12 +130,26 @@ class_report = classification_report(y_true_classes, y_pred_classes, output_dict
 fpr = dict()
 tpr = dict()
 roc_auc = dict()
-y_test_bin = label_binarize(y_true_classes, classes=range(num_classes))
-for i in range(num_classes):
-    fpr[i], tpr[i], _ = roc_curve(y_test_bin[:, i], y_pred_proba[:, i])
-    roc_auc[i] = auc(fpr[i], tpr[i])
-fpr["micro"], tpr["micro"], _ = roc_curve(y_test_bin.ravel(), y_pred_proba.ravel())
-roc_auc["micro"] = auc(fpr["micro"], tpr["micro"])
+
+# Handle binary classification case where label_binarize returns 1D array
+if num_classes == 2:
+    # For binary classification, use the probability of the positive class
+    fpr[1], tpr[1], _ = roc_curve(y_true_classes, y_pred_proba[:, 1])
+    roc_auc[1] = auc(fpr[1], tpr[1])
+    # For class 0, invert the probabilities
+    fpr[0], tpr[0], _ = roc_curve(1 - y_true_classes, y_pred_proba[:, 0])
+    roc_auc[0] = auc(fpr[0], tpr[0])
+    # Micro-average for binary case
+    fpr["micro"], tpr["micro"], _ = roc_curve(y_true_classes, y_pred_proba[:, 1])
+    roc_auc["micro"] = auc(fpr["micro"], tpr["micro"])
+else:
+    # Multi-class case
+    y_test_bin = label_binarize(y_true_classes, classes=range(num_classes))
+    for i in range(num_classes):
+        fpr[i], tpr[i], _ = roc_curve(y_test_bin[:, i], y_pred_proba[:, i])
+        roc_auc[i] = auc(fpr[i], tpr[i])
+    fpr["micro"], tpr["micro"], _ = roc_curve(y_test_bin.ravel(), y_pred_proba.ravel())
+    roc_auc["micro"] = auc(fpr["micro"], tpr["micro"])
 
 def safe_float(value):
     """Convert value to float, handling NaN and infinity values"""

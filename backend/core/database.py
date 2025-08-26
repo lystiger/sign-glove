@@ -17,12 +17,14 @@ if settings.ENVIRONMENT == "testing":
 else:
     db = client[settings.DB_NAME]
 
-prediction_collection = db["predictions"]
-sensor_collection = db["sensor_data"]
-model_collection = db["model_results"]
-gesture_collection = db["gestures"]
-training_collection = db["training_sessions"]
-users_collection = db["users"]
+# Collections
+sensor_collection = db.sensor_data
+prediction_collection = db.predictions
+model_collection = db.model_results
+gesture_collection = db.gestures
+training_collection = db.training_sessions
+users_collection = db.users
+voice_collection = db.voice_data
 
 """
     Test the MongoDB connection by sending a ping command.

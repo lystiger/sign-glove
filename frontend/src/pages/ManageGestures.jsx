@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { getGestures, createGesture, deleteGesture, updateGesture, convertGestureToDualHand, checkConversionStatus } from '../api';
+import { getGestures, createGesture, deleteGesture, updateGesture, convertGestureToDualHand, checkConversionStatus, playAudioOnLaptop } from '../api';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import './styling/Gestures.css';
-import { MdSave, MdEdit, MdDeleteForever, MdSwapHoriz } from 'react-icons/md';
+import { MdSave, MdEdit, MdDeleteForever, MdSwapHoriz, MdVolumeUp } from 'react-icons/md';
+import AudioManager from '../components/AudioManager';
 
 const ManageGestures = ({ user }) => {
   const [gestures, setGestures] = useState([]);
@@ -19,6 +20,8 @@ const ManageGestures = ({ user }) => {
   const [convertingGestures, setConvertingGestures] = useState(new Set());
   const [conversionStatus, setConversionStatus] = useState({});
   const [debugMode, setDebugMode] = useState(false);
+  const [activeTab, setActiveTab] = useState('gestures');
+  const [testingAudio, setTestingAudio] = useState(new Set());
 
   // New gesture form state
   const [newGesture, setNewGesture] = useState({
@@ -190,6 +193,36 @@ const ManageGestures = ({ user }) => {
     });
   };
 
+  const handleTestAudio = async (gestureLabel) => {
+    setTestingAudio(prev => new Set([...prev, gestureLabel]));
+    try {
+      // Create a simple TTS for the gesture label and play on laptop
+      const utterance = new SpeechSynthesisUtterance(gestureLabel);
+      utterance.rate = 0.8;
+      utterance.volume = 0.8;
+      speechSynthesis.speak(utterance);
+      
+      toast.success(`Playing "${gestureLabel}" on laptop`);
+      
+      // Remove from testing set after speech
+      utterance.onend = () => {
+        setTestingAudio(prev => {
+          const newSet = new Set(prev);
+          newSet.delete(gestureLabel);
+          return newSet;
+        });
+      };
+      
+    } catch (err) {
+      toast.error(`Audio test failed: ${err.message}`);
+      setTestingAudio(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(gestureLabel);
+        return newSet;
+      });
+    }
+  };
+
   return (
     <div className="manage-container" role="main" aria-label="Manage Gestures Page">
       {!user ? (
@@ -201,31 +234,54 @@ const ManageGestures = ({ user }) => {
       ) : (
         <>
           <div className="card fade-in" style={{ marginBottom: '2rem' }}>
-            <h2 className="manage-title">Manage Gestures</h2>
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1rem' }}>
-              <label htmlFor="search-input" className="visually-hidden">Search by label or session ID</label>
-              <input
-                id="search-input"
-                type="text"
-                placeholder="Search by label or session ID"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="search-input"
-                aria-label="Search gestures by label or session ID"
-                style={{ flex: 1 }}
-              />
+            <h2 className="manage-title">Manage Gestures & Audio</h2>
+            
+            {/* Tab Navigation */}
+            <div className="tab-navigation" style={{ marginBottom: '1rem' }}>
               <button
-                onClick={() => setDebugMode(!debugMode)}
-                className={`btn ${debugMode ? 'btn-warning' : 'btn-outline-secondary'}`}
-                style={{ fontSize: '0.8em' }}
+                onClick={() => setActiveTab('gestures')}
+                className={`tab-button ${activeTab === 'gestures' ? 'active' : ''}`}
               >
-                {debugMode ? '🐛 Debug ON' : '🔍 Debug OFF'}
+                Gestures
+              </button>
+              <button
+                onClick={() => setActiveTab('audio')}
+                className={`tab-button ${activeTab === 'audio' ? 'active' : ''}`}
+              >
+                Audio Manager
               </button>
             </div>
+
+            {activeTab === 'gestures' && (
+              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1rem' }}>
+                <label htmlFor="search-input" className="visually-hidden">Search by label or session ID</label>
+                <input
+                  id="search-input"
+                  type="text"
+                  placeholder="Search by label or session ID"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="search-input"
+                  aria-label="Search gestures by label or session ID"
+                  style={{ flex: 1 }}
+                />
+                <button
+                  onClick={() => setDebugMode(!debugMode)}
+                  className={`btn ${debugMode ? 'btn-warning' : 'btn-outline-secondary'}`}
+                  style={{ fontSize: '0.8em' }}
+                >
+                  {debugMode ? '🐛 Debug ON' : '🔍 Debug OFF'}
+                </button>
+              </div>
+            )}
           </div>
-          <div className="card fade-in" style={{ marginBottom: '2rem' }}>
-            <form className="gesture-form" aria-label="Add New Gesture" onSubmit={e => { e.preventDefault(); handleNewGestureSubmit(); }}>
-              <h3 className="form-title">Add New Gesture</h3>
+          
+          {/* Gestures Tab Content */}
+          {activeTab === 'gestures' && (
+            <>
+              <div className="card fade-in" style={{ marginBottom: '2rem' }}>
+                <form className="gesture-form" aria-label="Add New Gesture" onSubmit={e => { e.preventDefault(); handleNewGestureSubmit(); }}>
+                  <h3 className="form-title">Add New Gesture</h3>
               {loading ? (
                 <Skeleton height={32} count={4} style={{ marginBottom: 8 }} />
               ) : (
@@ -351,6 +407,16 @@ const ManageGestures = ({ user }) => {
                           Edit
                         </button>
                       )}
+                      <button
+                        onClick={() => handleTestAudio(g.gesture_label)}
+                        className="btn btn-success"
+                        disabled={testingAudio.has(g.gesture_label)}
+                        aria-label={`Test audio for ${g.gesture_label}`}
+                        title="Test audio playback on laptop"
+                      >
+                        <MdVolumeUp style={{ verticalAlign: 'middle', marginRight: 4 }} />
+                        {testingAudio.has(g.gesture_label) ? 'Playing...' : 'Test Audio'}
+                      </button>
                       {(debugMode || (isSingleHandGesture(g) && !conversionStatus[g.session_id]?.hasDualHand)) && (
                         <button
                           onClick={() => handleConvertToDualHand(g.session_id)}
@@ -378,6 +444,13 @@ const ManageGestures = ({ user }) => {
               </ul>
             )}
           </div>
+            </>
+          )}
+          
+          {/* Audio Tab Content */}
+          {activeTab === 'audio' && (
+            <AudioManager user={user} />
+          )}
         </>
       )}
     </div>

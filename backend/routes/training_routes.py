@@ -20,6 +20,7 @@ import subprocess
 import shutil
 import os
 import json
+import sys
 from utils.cache import cacheable
 from typing import Dict, Any, List
 import csv
@@ -479,3 +480,97 @@ async def check_conversion_status(session_id: str):
     except Exception as e:
         logging.error(f"Error checking conversion status: {e}")
         raise HTTPException(status_code=500, detail="Failed to check conversion status")
+
+@router.post("/analyze-confusion-matrix")
+async def analyze_confusion_matrix(_user=Depends(role_or_internal_dep("editor"))):
+    """
+    Run improved confusion matrix analysis on the current gesture data.
+    """
+    try:
+        import subprocess
+        import json
+        
+        # Path to the improved confusion matrix script
+        script_path = os.path.join(os.path.dirname(__file__), '..', 'AI', 'improved_confusion_matrix.py')
+        
+        if not os.path.exists(script_path):
+            raise HTTPException(status_code=500, detail="Improved confusion matrix script not found")
+        
+        # Run the script
+        result = subprocess.run([sys.executable, script_path], 
+                              capture_output=True, text=True, cwd=os.path.dirname(script_path))
+        
+        if result.returncode != 0:
+            logging.error(f"Script execution failed: {result.stderr}")
+            raise HTTPException(status_code=500, detail=f"Analysis failed: {result.stderr}")
+        
+        # Check if results file was created
+        results_path = os.path.join(os.path.dirname(__file__), '..', 'AI', 'results', 'confusion_matrix_results.json')
+        
+        if not os.path.exists(results_path):
+            raise HTTPException(status_code=500, detail="Results file not created")
+        
+        # Read and return results
+        with open(results_path, 'r') as f:
+            results = json.load(f)
+        
+        if results.get('status') == 'success':
+            return {
+                "status": "success",
+                "message": "Confusion matrix analysis completed successfully",
+                "data": results
+            }
+        elif results.get('status') == 'insufficient_data':
+            return {
+                "status": "error",
+                "message": results.get('message', 'Insufficient data for analysis'),
+                "data": results
+            }
+        else:
+            return {
+                "status": "error", 
+                "message": results.get('message', 'Analysis failed'),
+                "data": results
+            }
+            
+    except Exception as e:
+        logging.error(f"Error running confusion matrix analysis: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to run confusion matrix analysis: {str(e)}")
+
+@router.get("/confusion-matrix/improved")
+async def get_improved_confusion_matrix():
+    """
+    Get the improved confusion matrix visualization.
+    """
+    try:
+        plot_path = os.path.join(os.path.dirname(__file__), '..', 'AI', 'results', 'improved_confusion_matrix.png')
+        
+        if not os.path.exists(plot_path):
+            raise HTTPException(status_code=404, detail="Improved confusion matrix not found. Run analysis first.")
+        
+        return FileResponse(plot_path, media_type="image/png")
+    except Exception as e:
+        logging.error(f"Error fetching improved confusion matrix: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch improved confusion matrix")
+
+@router.get("/confusion-matrix/results")
+async def get_confusion_matrix_results():
+    """
+    Get detailed confusion matrix analysis results.
+    """
+    try:
+        results_path = os.path.join(os.path.dirname(__file__), '..', 'AI', 'results', 'confusion_matrix_results.json')
+        
+        if not os.path.exists(results_path):
+            raise HTTPException(status_code=404, detail="Confusion matrix results not found. Run analysis first.")
+        
+        with open(results_path, 'r') as f:
+            results = json.load(f)
+        
+        return {
+            "status": "success",
+            "data": results
+        }
+    except Exception as e:
+        logging.error(f"Error fetching confusion matrix results: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch confusion matrix results")

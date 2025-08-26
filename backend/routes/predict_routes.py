@@ -13,7 +13,7 @@ from fastapi import APIRouter, HTTPException, WebSocket, WebSocketDisconnect, Qu
 from pydantic import BaseModel, Field
 from typing import List, Dict, Any, Optional
 from core.database import sensor_collection, prediction_collection
-from core.model import predict_from_dual_hand_data
+from core.model import predict_gesture
 from core.settings import settings
 import numpy as np
 import logging
@@ -149,7 +149,7 @@ async def websocket_predict(websocket: WebSocket):
                 continue
 
             input_vector = data["flex"] + data["accel"] + data["gyro"]
-            prediction = predict_from_dual_hand_data(np.array(input_vector).reshape(1, -1))
+            prediction = predict_gesture(np.array(input_vector).reshape(1, -1))
 
             # Save prediction
             await prediction_collection.insert_one({

@@ -172,10 +172,15 @@ if __name__ == "__main__":
         writer.writerow(header)
         row_count = 0
         for row in reader:
+            # Skip empty rows
+            if not row or all(cell.strip() == '' for cell in row):
+                continue
+
             session_id, label, *sensor_values = row
             sensor_values = list(map(float, sensor_values[:11]))
             filtered = reducer.apply_filters(sensor_values)
             writer.writerow([session_id, label] + [round(val, 3) for val in filtered])
             row_count += 1
+
     print(f"Noise-reduced data written to {GESTURE_DATA_PATH}")
     print(f"Total rows in gesture_data.csv: {row_count}")

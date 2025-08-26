@@ -1,76 +1,18 @@
 """
-Model inference logic for dual-hand gesture prediction in the sign glove system.
+Model inference logic for single-hand gesture prediction in the sign glove system.
 
-- predict_from_dual_hand_data: Loads a TFLite model and predicts gesture from left and right hand sensor data.
+- predict_gesture: Loads a TFLite model and predicts gesture from single hand sensor data.
 """
 # core/model.py
 
 import numpy as np
 import tensorflow as tf  # or tflite_runtime.interpreter if used on embedded
 import os
+import logging
 from core.settings import settings
 
-def predict_from_dual_hand_data(data: dict) -> dict:
-    """
-    Predicts gesture from dual-hand sensor data using a TFLite model.
-    Args:
-        data (dict): Dictionary with 'left', 'right', and 'timestamp' keys.
-    Returns:
-        dict: Prediction result with status, predictions, confidence, and timestamp.
-    """
-    try:
-        left = data.get("left", [])
-        right = data.get("right", [])
-        timestamp = data.get("timestamp")
-
-        if len(left) != 11 or len(right) != 11:
-            return {
-                "status": "error",
-                "message": "Invalid sensor input (expected 11 values per hand)"
-            }
-
-        # Combine left + right data
-        combined = np.array([left + right], dtype=np.float32)  # shape: [1, 22]
-
-        # Check if dual-hand model exists, fallback to single model if not
-        model_path = settings.MODEL_DUAL_PATH
-        if not os.path.exists(model_path):
-            logger.warning(f"Dual-hand model not found at {model_path}, using single model")
-            model_path = settings.MODEL_PATH
-            # For single model, use only left hand data
-            combined = np.array([left], dtype=np.float32)  # shape: [1, 11]
-
-        # Load TFLite model
-        interpreter = tf.lite.Interpreter(model_path=model_path)
-        interpreter.allocate_tensors()
-
-        input_details = interpreter.get_input_details()
-        output_details = interpreter.get_output_details()
-
-        interpreter.set_tensor(input_details[0]['index'], combined)
-        interpreter.invoke()
-
-        output = interpreter.get_tensor(output_details[0]['index'])
-        predicted_index = int(np.argmax(output))
-        confidence = float(np.max(output))
-
-        label_map = {0: "Hello", 1: "Yes", 2: "No", 3: "Thanks"}
-        label = label_map.get(predicted_index, f"Class {predicted_index}")
-
-        return {
-            "status": "success",
-            "left_prediction": label,
-            "right_prediction": label,
-            "confidence": confidence,
-            "timestamp": timestamp,
-            "model_type": "dual_hand" if model_path == settings.MODEL_DUAL_PATH else "single_hand"
-        }
-
-    except Exception as e:
-        return {
-            "status": "error",
-            "message": str(e)
-        }
+# Initialize logger
+logger = logging.getLogger("signglove")
 
 def predict_gesture(values: list) -> dict:
     """

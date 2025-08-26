@@ -59,7 +59,21 @@ export const getDataInfo = () => apiRequest('get', '/training/data/info');
 
 // Gesture conversion functions
 export const convertGestureToDualHand = (sessionId) => apiRequest('post', `/training/convert-to-dual-hand/${sessionId}`);
-export const checkConversionStatus = (sessionId) => apiRequest('get', `/training/conversion-status/${sessionId}`); 
+export const checkConversionStatus = (sessionId) => apiRequest('get', `/training/conversion-status/${sessionId}`);
+
+// Audio API functions
+export const getAudioFiles = () => apiRequest('get', '/audio-files/');
+export const uploadAudioFile = (file, uploader = 'unknown') => {
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('uploader', uploader);
+  return apiRequest('post', '/audio-files/', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' }
+  });
+};
+export const deleteAudioFile = (filename) => apiRequest('delete', `/audio-files/${filename}`);
+export const playAudioOnESP32 = (filename) => apiRequest('post', `/audio-files/${filename}/play`);
+export const playAudioOnLaptop = (filename) => apiRequest('post', `/audio-files/${filename}/play-laptop`); 
 
 export const api = {
   // Gestures
@@ -81,6 +95,12 @@ export const api = {
   // Gesture conversion
   convertGestureToDualHand,
   checkConversionStatus,
+  // Audio
+  getAudioFiles,
+  uploadAudioFile,
+  deleteAudioFile,
+  playAudioOnESP32,
+  playAudioOnLaptop,
   // Core
   request: apiRequest,
 };

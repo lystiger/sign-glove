@@ -8,6 +8,11 @@ import hashlib
 from concurrent.futures import ThreadPoolExecutor
 from typing import Dict, Any, Optional
 from core.settings import settings
+import pygame
+import threading
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
 
 # TTS Libraries Import Check
 try:
@@ -112,6 +117,13 @@ class TTSService:
             os.makedirs(settings.TTS_CACHE_DIR)
         if HAS_PYTTSX3:
             self._init_pyttsx3()
+        # Initialize pygame for laptop audio playback
+        try:
+            pygame.mixer.init()
+            self.pygame_available = True
+        except Exception as e:
+            logging.warning(f"pygame not available for audio playback: {e}")
+            self.pygame_available = False
 
     def _init_pyttsx3(self):
         try:
@@ -193,20 +205,105 @@ class TTSService:
             logging.error(f"TTS error: {e}")
             return {"status": "error", "message": str(e)}
 
-    async def speak_gesture(self, gesture_label: str, language: str = None, voice: str = None):
+    async def speak_gesture(self, gesture_label: str, language: str = None, voice: str = None, 
+                     play_on_laptop: bool = True, play_on_esp32: bool = True):
         """
-        Speaks a gesture only if it's meaningful and should trigger TTS.
-        Supports multiple languages and ESP32 SD card integration.
+        Speaks a gesture on both laptop and ESP32 if configured.
+        
+        Args:
+            gesture_label: The gesture label to speak
+            language: Language code (e.g., 'en', 'vn')
+            voice: Voice to use (if supported by TTS engine)
+            play_on_laptop: Whether to play audio on laptop
+            play_on_esp32: Whether to send command to ESP32 to play audio
+            
+        Returns:
+            dict: Status of the operation
         """
         if not self.should_speak_gesture(gesture_label):
-            return {"status": "skipped", "reason": "Gesture is idle/basic - no TTS needed"}
+            return {
+                "status": "skipped",
+                "reason": "Gesture does not require TTS"
+            }
+
+        language = language or self.current_language
+        
+        # Get the text to speak in the specified language
+        text = self.get_gesture_text(gesture_label, language)
+        if not text:
+            return {
+                "status": "error",
+                "message": f"No translation found for gesture '{gesture_label}' in language '{language}'"
+            }
+
+        try:
+            # Play on laptop if enabled
+            laptop_result = None
+            if play_on_laptop and self.pygame_available:
+                try:
+                    # Use the existing speak method which handles caching
+                    tts_result = await self.speak(text, voice)
+                    if tts_result and tts_result.get('status') == 'success' and 'audio_path' in tts_result:
+                        play_result = await self.play_on_laptop(tts_result['audio_path'])
+                        laptop_result = play_result.get('status', 'unknown')
+                    else:
+                        laptop_result = f"error: {tts_result.get('message', 'Unknown error')}"
+                except Exception as e:
+                    error_msg = str(e)
+                    logging.error(f"Error in speak_gesture: {error_msg}")
+                    laptop_result = f"error: {error_msg}"
             
-        # Get the meaningful text for the gesture in specified language
-        text_to_speak = self.get_gesture_text(gesture_label, language)
-        if not text_to_speak:
-            return {"status": "skipped", "reason": "No meaningful text for gesture"}
+            # Get ESP32 info if needed
+            esp32_info = None
+            if play_on_esp32:
+                esp32_info = await self.get_esp32_tts_info(gesture_label, language)
             
-        return await self.speak(text_to_speak, voice)
+            return {
+                "status": "success",
+                "laptop_playback": laptop_result or "skipped",
+                "esp32_info": esp32_info,
+                "language": language,
+                "text": text
+            }
+            
+        except Exception as e:
+            error_msg = f"Error in speak_gesture: {str(e)}"
+            logging.error(error_msg)
+            return {
+                "status": "error",
+                "message": error_msg,
+                "gesture": gesture_label,
+                "language": language
+            }
+
+    async def play_on_laptop(self, audio_path: str):
+        """Play audio file on laptop using pygame"""
+        if not self.pygame_available:
+            return {"status": "error", "message": "pygame not available"}
+            
+        if not os.path.exists(audio_path):
+            return {"status": "error", "message": "Audio file not found"}
+            
+        try:
+            def play_audio():
+                try:
+                    pygame.mixer.music.load(audio_path)
+                    pygame.mixer.music.play()
+                    # Wait for playback to finish
+                    while pygame.mixer.music.get_busy():
+                        pygame.time.wait(100)
+                except Exception as e:
+                    logging.error(f"Error playing audio on laptop: {e}")
+            
+            # Start playback in background thread
+            audio_thread = threading.Thread(target=play_audio)
+            audio_thread.daemon = True
+            audio_thread.start()
+            
+            return {"status": "playing", "location": "laptop"}
+        except Exception as e:
+            logging.error(f"Failed to play audio on laptop: {e}")
+            return {"status": "error", "message": str(e)}
 
     async def get_esp32_tts_info(self, gesture_label: str, language: str = None):
         """

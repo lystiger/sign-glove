@@ -7,6 +7,9 @@ from datetime import datetime
 from typing import List
 import shutil
 import requests
+import pygame
+import threading
+import asyncio
 from routes.auth_routes import role_required_dep
 
 router = APIRouter(prefix="/audio-files", tags=["Audio Files"])
@@ -23,6 +26,14 @@ class AudioFileMeta(BaseModel):
 
 MAX_AUDIO_FILE_SIZE_MB = 5
 MAX_AUDIO_FILE_SIZE = MAX_AUDIO_FILE_SIZE_MB * 1024 * 1024
+
+# Initialize pygame mixer for laptop audio playback
+try:
+    pygame.mixer.init()
+    PYGAME_AVAILABLE = True
+except Exception as e:
+    print(f"Warning: pygame not available for audio playback: {e}")
+    PYGAME_AVAILABLE = False
 
 @router.get("/", response_model=List[AudioFileMeta])
 async def list_audio_files():
@@ -86,6 +97,37 @@ async def play_audio_file(filename: str):
         return {"status": "sent", "esp32_status": resp.status_code, "esp32_response": resp.text}
     except Exception as e:
         raise HTTPException(status_code=502, detail=f"Failed to send audio to ESP32: {e}")
+
+@router.post("/{filename}/play-laptop")
+async def play_audio_on_laptop(filename: str):
+    """Play audio file directly on the laptop using pygame"""
+    if not PYGAME_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Audio playback not available - pygame not installed")
+    
+    save_path = os.path.join(AUDIO_DIR, filename)
+    if not os.path.exists(save_path):
+        raise HTTPException(status_code=404, detail="File not found")
+    
+    try:
+        # Play audio in a separate thread to avoid blocking
+        def play_audio():
+            try:
+                pygame.mixer.music.load(save_path)
+                pygame.mixer.music.play()
+                # Wait for playback to finish
+                while pygame.mixer.music.get_busy():
+                    pygame.time.wait(100)
+            except Exception as e:
+                print(f"Error playing audio: {e}")
+        
+        # Start playback in background thread
+        audio_thread = threading.Thread(target=play_audio)
+        audio_thread.daemon = True
+        audio_thread.start()
+        
+        return {"status": "playing", "filename": filename, "location": "laptop"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to play audio on laptop: {e}")
 
 # ESP32 error log endpoint
 @router.get("/esp32/error-log")

@@ -15,6 +15,8 @@ const CSVManager = () => {
   const [trainingMetrics, setTrainingMetrics] = useState(null);
   const [modelStatus, setModelStatus] = useState({});
   const [loading, setLoading] = useState(true);
+  const [analyzingData, setAnalyzingData] = useState(false);
+  const [confusionMatrixResults, setConfusionMatrixResults] = useState(null);
 
   useEffect(() => {
     loadInitialData();
@@ -233,6 +235,36 @@ const CSVManager = () => {
     return new Date(timestamp).toLocaleString();
   };
 
+  const runConfusionMatrixAnalysis = async () => {
+    try {
+      setAnalyzingData(true);
+      setConfusionMatrixResults(null);
+      
+      const response = await apiRequest('post', '/training/analyze-confusion-matrix');
+      
+      if (response.data.status === 'success') {
+        // data is already parsed JSON
+        const result = response.data;
+      
+        // Fetch detailed results
+        const resultsResponse = await apiRequest('get', '/training/confusion-matrix/results');
+        const detailedResults = resultsResponse.data; // <-- no .json() needed
+        setConfusionMatrixResults(detailedResults);
+      
+        toast.success('Confusion matrix analysis completed successfully!');
+      } else {
+        toast.error(response.data.message || 'Analysis failed - insufficient data or single label dataset');
+        setConfusionMatrixResults(null);
+      }
+    } catch (err) {
+      console.error('Error running confusion matrix analysis:', err);
+      toast.error(`Analysis failed: ${err.detail || err.message}`);
+      setConfusionMatrixResults(null);
+    } finally {
+      setAnalyzingData(false);
+    }
+  };
+
   if (loading) {
     return (
       <div className="csv-container">
@@ -421,6 +453,9 @@ const CSVManager = () => {
               <button onClick={() => window.open('/api/training/visualizations/training_history', '_blank')}>
                 Training History
               </button>
+              <button onClick={runConfusionMatrixAnalysis} disabled={analyzingData}>
+                Run Confusion Matrix Analysis
+              </button>
             </div>
           </div>
         </div>
@@ -459,6 +494,90 @@ const CSVManager = () => {
             <p>No training history found. Start training to see results here.</p>
           </div>
         )}
+      </div>
+
+      {/* Data Analysis Tools */}
+      <div className="bg-white rounded-lg shadow p-6">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">Data Analysis Tools</h3>
+        
+        <div className="space-y-4">
+          {/* Confusion Matrix Analysis */}
+          <div className="border border-gray-200 rounded-lg p-4">
+            <div className="flex items-center justify-between mb-3">
+              <div>
+                <h4 className="text-md font-medium text-gray-900">Confusion Matrix Analysis</h4>
+                <p className="text-sm text-gray-600">
+                  Analyze your dataset with improved confusion matrix visualization
+                </p>
+              </div>
+              <button
+                onClick={runConfusionMatrixAnalysis}
+                disabled={analyzingData}
+                className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
+              >
+                {analyzingData ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                    <span>Analyzing...</span>
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                    <span>Run Confusion Matrix Analysis</span>
+                  </>
+                )}
+              </button>
+            </div>
+            
+            {confusionMatrixResults && (
+              <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-blue-600">
+                      {confusionMatrixResults.unique_labels?.length || 0}
+                    </div>
+                    <div className="text-sm text-gray-600">Labels Found</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-green-600">
+                      {confusionMatrixResults.accuracy ? `${(confusionMatrixResults.accuracy * 100).toFixed(1)}%` : 'N/A'}
+                    </div>
+                    <div className="text-sm text-gray-600">Accuracy</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-purple-600">
+                      {confusionMatrixResults.total_samples || 0}
+                    </div>
+                    <div className="text-sm text-gray-600">Total Samples</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-orange-600">
+                      {confusionMatrixResults.test_samples || 0}
+                    </div>
+                    <div className="text-sm text-gray-600">Test Samples</div>
+                  </div>
+                </div>
+                
+                <div className="flex space-x-3">
+                  <a
+                    href="/api/training/confusion-matrix/improved"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center space-x-2"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    <span>View Confusion Matrix</span>
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

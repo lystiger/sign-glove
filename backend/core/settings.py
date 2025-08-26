@@ -4,7 +4,7 @@ Loads all configuration from environment variables or defaults.
 """
 from pydantic_settings import BaseSettings
 from pydantic import Field, validator
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, ClassVar
 import os
 from pathlib import Path
 from pydantic_settings import SettingsConfigDict
@@ -14,6 +14,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 ENV_FILE = BASE_DIR / ".env"
 
 class Settings(BaseSettings):
+    # Pydantic config
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding='utf-8',
+        extra='ignore',  # This will ignore extra fields instead of raising validation error
+        protected_namespaces=()  # Fix for model_* field conflicts
+    )
+    
     # Environment
     ENVIRONMENT: str = Field("development", env="ENVIRONMENT")
     DEBUG: bool = Field(False, env="DEBUG")
@@ -56,7 +64,7 @@ class Settings(BaseSettings):
     
     # TTS config
     TTS_ENABLED: bool = Field(True, env="TTS_ENABLED")
-    TTS_PROVIDER: str = Field("edge", env="TTS_PROVIDER")
+    TTS_PROVIDER: str = Field("pyttsx3", env="TTS_PROVIDER")
     TTS_VOICE: str = Field("ur-IN-SalmanNeural", env="TTS_VOICE")
     TTS_RATE: int = Field(150, env="TTS_RATE")
     TTS_VOLUME: float = Field(2.0, env="TTS_VOLUME")
@@ -64,6 +72,14 @@ class Settings(BaseSettings):
     TTS_CACHE_DIR: str = Field("tts_cache", env="TTS_CACHE_DIR")
     TTS_FILTER_IDLE_GESTURES: bool = Field(True, env="TTS_FILTER_IDLE_GESTURES")
     
+    # Class variable for TTS configuration
+    TTS_CONFIG: ClassVar[Dict[str, Any]] = {
+        "default_language": "en",
+        "cache_enabled": True,
+        "cache_dir": "tts_cache",
+        "esp32_audio_path": "/audio"  # Path on ESP32 SD card
+    }
+
     # ESP32 config
     ESP32_IP: str = Field("192.168.1.123", env="ESP32_IP")
     
@@ -134,10 +150,6 @@ class Settings(BaseSettings):
             return True
         return bool(os.getenv("PYTEST_CURRENT_TEST") or os.getenv("CI") or os.getenv("UNITTEST_RUNNING"))
 
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
-
 # Create settings instance
 settings = Settings()
 
@@ -158,4 +170,3 @@ def ensure_directories():
 
 # Initialize directories
 ensure_directories()
-
