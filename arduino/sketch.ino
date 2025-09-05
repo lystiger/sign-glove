@@ -34,8 +34,8 @@
 MPU6050 mpu;
 
 // Flex sensor pins (ESP32 ADC pins)
-const int FLEX_PIN_1 = 34;
-const int FLEX_PIN_2 = 36;
+const int FLEX_PIN_1 = 36;
+const int FLEX_PIN_2 = 34;
 const int FLEX_PIN_3 = 35;
 const int FLEX_PIN_4 = 32;
 const int FLEX_PIN_5 = 33;

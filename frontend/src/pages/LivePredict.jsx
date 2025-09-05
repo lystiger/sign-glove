@@ -27,17 +27,17 @@ const LivePredict = () => {
     setIsTtsSupported(ttsSupported);
     
     if (ttsSupported) {
-      console.log('✅ Trình duyệt hỗ trợ speechSynthesis');
+      console.log('Trình duyệt hỗ trợ speechSynthesis');
       
       // Preload voices
       window.speechSynthesis.getVoices();
       
       // Sự kiện khi voices được load
       window.speechSynthesis.onvoiceschanged = () => {
-        console.log('✅ Voices loaded:', window.speechSynthesis.getVoices().length);
+        console.log('Voices loaded:', window.speechSynthesis.getVoices().length);
       };
     } else {
-      console.error('❌ Trình duyệt không hỗ trợ speechSynthesis');
+      console.error('Trình duyệt không hỗ trợ speechSynthesis');
       toast.error('Trình duyệt của bạn không hỗ trợ chức năng đọc văn bản');
     }
   }, []);
@@ -62,17 +62,17 @@ const LivePredict = () => {
       
       // Xử lý sự kiện
       utteranceRef.current.onstart = () => {
-        console.log('✅ Start playing voice:', text);
+        console.log('Start playing voice:', text);
         setIsSpeaking(true);
       };
       
       utteranceRef.current.onend = () => {
-        console.log('✅ End playing voice');
+        console.log('End playing voice');
         setIsSpeaking(false);
       };
       
       utteranceRef.current.onerror = (event) => {
-        console.error('❌ Error:', event.error);
+        console.error('Error:', event.error);
         setIsSpeaking(false);
         toast.error('Can Play Voice Audio: ' + event.error);
       };
@@ -81,7 +81,7 @@ const LivePredict = () => {
       window.speechSynthesis.speak(utteranceRef.current);
       return true;
     } catch (error) {
-      console.error('❌ Lỗi trong speakText:', error);
+      console.error('Error in speakText:', error);
       setIsSpeaking(false);
       return false;
     }
