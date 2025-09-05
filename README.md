@@ -268,7 +268,7 @@ docker compose up -d --build
 ```
 3) Open the apps
 - Frontend: http://localhost:3000
-- Backend API: http://localhost:8080
+- Backend API: http://localhost:8000
 
 The compose file starts MongoDB and wires the backend with `MONGO_URI=mongodb://mongo:27017`.
 

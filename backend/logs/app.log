@@ -12378,1306 +12378,278 @@ uvicorn.protocols.utils.ClientDisconnected
 2025-08-26 07:32:46,796 - signglove - INFO - Request: GET /auth/me
 2025-08-26 07:32:46,886 - signglove - INFO - Response: GET /auth/me - 200
 2025-08-26 07:34:13,658 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-01 20:47:41,964 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-01 20:47:42,589 - root - INFO - Indexes created. App is starting...
-2025-09-01 20:47:42,594 - root - INFO - [AUTO] New data detected in raw_data.csv. Running noise reduction and training...
-2025-09-01 20:47:43,575 - root - INFO - [AUTO] Noise reduction complete: Noise-reduced data written to D:\study\output\sign-glove\backend\processors\../data/gesture_data.csv
-Total rows in gesture_data.csv: 20388
-2025-09-01 20:47:43,575 - root - INFO - [AUTO] Triggering model training...
-2025-09-01 20:47:47,657 - root - ERROR - [AUTO] Error triggering training: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /training/trigger (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029260E07E10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
-2025-09-01 20:49:39,813 - signglove - INFO - Request: GET /auth/me
-2025-09-01 20:49:39,889 - signglove - ERROR - Error 42b6adcb-f3ff-451f-9953-e2d35bc9c76a: HTTPException - 
-2025-09-01 20:49:39,890 - signglove - INFO - Response: GET /auth/me - 401
-2025-09-01 20:49:39,895 - signglove - INFO - Request: GET /auth/me
-2025-09-01 20:49:39,897 - signglove - ERROR - Error e3966a87-07b6-41ac-8c04-8bf81b714469: HTTPException - 
-2025-09-01 20:49:39,898 - signglove - INFO - Response: GET /auth/me - 401
-2025-09-01 20:49:49,353 - signglove - INFO - Request: POST /auth/login
-2025-09-01 20:49:49,637 - signglove - INFO - Response: POST /auth/login - 200
-2025-09-01 20:49:49,644 - signglove - INFO - Request: GET /auth/me
-2025-09-01 20:49:49,705 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-01 20:49:55,434 - signglove - INFO - Request: GET /training/
-2025-09-01 20:49:55,436 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-01 20:49:55,437 - signglove - INFO - Request: GET /predict/live
-2025-09-01 20:49:55,443 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-01 20:49:55,448 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-01 20:49:55,455 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-01 20:49:55,555 - root - INFO - Fetched 4 training results
-2025-09-01 20:49:55,558 - signglove - INFO - Response: GET /training/ - 200
-2025-09-01 20:49:55,563 - signglove - INFO - Request: GET /training/
-2025-09-01 20:49:55,566 - signglove - INFO - Response: GET /training/ - 200
-2025-09-01 20:49:55,933 - signglove - INFO - Response: GET /predict/live - 200
-2025-09-01 20:49:55,939 - signglove - INFO - Request: GET /predict/live
-2025-09-01 20:49:56,002 - signglove - INFO - Response: GET /predict/live - 200
-2025-09-01 20:51:46,253 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-01 20:52:47,648 - root - INFO - [AUTO] New data detected in raw_data.csv. Running noise reduction and training...
-2025-09-01 20:52:48,916 - root - INFO - [AUTO] Noise reduction complete: Noise-reduced data written to D:\study\output\sign-glove\backend\processors\../data/gesture_data.csv
-Total rows in gesture_data.csv: 26622
-2025-09-01 20:52:48,916 - root - INFO - [AUTO] Triggering model training...
-2025-09-01 22:15:23,597 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-01 22:15:24,224 - root - INFO - Indexes created. App is starting...
-2025-09-01 22:15:24,225 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-01 22:15:37,770 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-01 22:16:07,347 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-01 22:16:07,562 - signglove - INFO - Request: GET /auth/me
-2025-09-01 22:16:07,615 - signglove - ERROR - Error a04bef06-d187-410d-9a0a-b9b2cce9ce81: HTTPException - 
-2025-09-01 22:16:07,617 - signglove - INFO - Response: GET /auth/me - 401
-2025-09-01 22:16:07,621 - signglove - INFO - Request: GET /auth/me
-2025-09-01 22:16:07,623 - signglove - ERROR - Error 9a611cac-260a-4e26-addb-b02b49adb4e8: HTTPException - 
-2025-09-01 22:16:07,625 - signglove - INFO - Response: GET /auth/me - 401
-2025-09-01 22:20:24,215 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-01 22:25:24,223 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-01 22:25:36,069 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-01 22:25:43,383 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-01 22:25:44,095 - root - INFO - Indexes created. App is starting...
-2025-09-01 22:25:44,097 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 00:18:53,507 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 00:18:54,110 - root - INFO - Indexes created. App is starting...
-2025-09-03 00:18:54,110 - root - INFO - [AUTO] New data detected in raw_data.csv. Running noise reduction and training...
-2025-09-03 00:18:54,269 - root - INFO - [AUTO] Noise reduction complete: Noise-reduced data written to D:\study\output\sign-glove\backend\processors\../data/gesture_data.csv
-Total rows in gesture_data.csv: 2428
-2025-09-03 00:18:54,269 - root - INFO - [AUTO] Triggering model training...
-2025-09-03 00:18:58,371 - root - ERROR - [AUTO] Error triggering training: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /training/trigger (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000028B872D5450>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
-2025-09-03 00:19:34,751 - signglove - INFO - Request: POST /auth/login
-2025-09-03 00:19:35,097 - signglove - ERROR - Error 74563d7c-05db-4cdd-bfcf-4ccbd013813c: HTTPException - 
-2025-09-03 00:19:35,098 - signglove - INFO - Response: POST /auth/login - 401
-2025-09-03 00:19:42,634 - signglove - INFO - Request: POST /auth/login
-2025-09-03 00:19:42,905 - signglove - INFO - Response: POST /auth/login - 200
-2025-09-03 00:19:42,912 - signglove - INFO - Request: GET /auth/me
-2025-09-03 00:19:42,973 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 00:19:47,846 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:19:47,846 - signglove - INFO - Request: GET /training/
-2025-09-03 00:19:47,847 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:19:47,870 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 00:19:47,874 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:19:47,882 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 00:19:47,987 - root - INFO - Fetched 4 training results
-2025-09-03 00:19:47,991 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:19:47,995 - signglove - INFO - Request: GET /training/
-2025-09-03 00:19:47,997 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:19:48,278 - root - ERROR - Live prediction failed: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 00:19:48,289 - signglove - ERROR - Error 6e2f5073-ae11-460d-b868-5e4e04e40470: HTTPException - 
-2025-09-03 00:19:48,291 - signglove - INFO - Response: GET /predict/live - 500
-2025-09-03 00:19:48,296 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:19:48,354 - root - ERROR - Live prediction failed: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 00:19:48,355 - signglove - ERROR - Error 1b9a3e61-3b9c-490c-b946-33992bc07257: HTTPException - 
-2025-09-03 00:19:48,356 - signglove - INFO - Response: GET /predict/live - 500
-2025-09-03 00:20:24,121 - signglove - INFO - Request: POST /training/trigger
-2025-09-03 00:20:24,128 - signglove - INFO - Request: GET /training/
-2025-09-03 00:20:24,129 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:20:24,130 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:20:24,137 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 00:20:24,250 - root - INFO - Fetched 4 training results
-2025-09-03 00:20:24,252 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:20:25,285 - root - INFO - Exported 20388 single-hand sensor rows to D:\study\output\sign-glove\backend\data\gesture_data.csv for training.
-2025-09-03 00:20:25,296 - signglove - WARNING - Slow request: POST /training/trigger took 1.17s
-2025-09-03 00:20:25,297 - signglove - INFO - Response: POST /training/trigger - 200
-2025-09-03 00:20:26,060 - root - ERROR - Live prediction failed: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 00:20:26,061 - signglove - ERROR - Error 94da6271-4673-449f-b504-59258b39d574: HTTPException - 
-2025-09-03 00:20:26,061 - signglove - WARNING - Slow request: GET /predict/live took 1.93s
-2025-09-03 00:20:26,062 - signglove - INFO - Response: GET /predict/live - 500
-2025-09-03 00:20:26,130 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:20:26,138 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:20:28,129 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:20:28,131 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:20:30,133 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:20:30,135 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:20:32,130 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:20:32,131 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:20:34,129 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:20:34,131 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:20:36,129 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:20:36,131 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:20:38,207 - signglove - INFO - Request: GET /auth/me
-2025-09-03 00:20:38,264 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 00:20:38,268 - signglove - INFO - Request: GET /auth/me
-2025-09-03 00:20:38,287 - signglove - INFO - Request: GET /training/
-2025-09-03 00:20:38,288 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:20:38,295 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:20:38,297 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:20:38,297 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 00:20:38,302 - signglove - INFO - Request: GET /training/
-2025-09-03 00:20:38,305 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:20:38,311 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:20:38,313 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 00:20:38,323 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 00:20:38,351 - root - ERROR - Live prediction failed: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 00:20:38,352 - signglove - ERROR - Error a63372c9-9f7d-422d-b164-7d631aa6e0b2: HTTPException - 
-2025-09-03 00:20:38,353 - signglove - INFO - Response: GET /predict/live - 500
-2025-09-03 00:20:38,358 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:20:38,415 - root - ERROR - Live prediction failed: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 00:20:38,416 - signglove - ERROR - Error 8b450c00-f3dd-42d4-b3cb-f62abc239803: HTTPException - 
-2025-09-03 00:20:38,418 - signglove - INFO - Response: GET /predict/live - 500
-2025-09-03 00:23:10,825 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 00:23:17,846 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 00:23:18,486 - root - INFO - Indexes created. App is starting...
-2025-09-03 00:23:18,486 - root - INFO - [AUTO] New data detected in raw_data.csv. Running noise reduction and training...
-2025-09-03 00:23:18,636 - root - INFO - [AUTO] Noise reduction complete: Noise-reduced data written to D:\study\output\sign-glove\backend\processors\../data/gesture_data.csv
-Total rows in gesture_data.csv: 2428
-2025-09-03 00:23:18,636 - root - INFO - [AUTO] Triggering model training...
-2025-09-03 00:33:23,329 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 00:33:23,971 - root - INFO - Indexes created. App is starting...
-2025-09-03 00:33:23,976 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 00:33:30,973 - signglove - INFO - Request: GET /auth/me
-2025-09-03 00:33:31,043 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 00:33:31,048 - signglove - INFO - Request: GET /auth/me
-2025-09-03 00:33:31,067 - signglove - INFO - Request: GET /training/
-2025-09-03 00:33:31,068 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:33:31,068 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:33:31,087 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 00:33:31,091 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:33:31,099 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 00:33:31,114 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 00:33:31,482 - root - ERROR - Live prediction failed: Cannot set tensor: Dimension mismatch. Got 11 but expected 7 for dimension 1 of input 0.
-2025-09-03 00:33:31,529 - signglove - ERROR - Error b696cff3-8769-4cb9-a892-1d2eb7ba837e: HTTPException - 
-2025-09-03 00:33:31,530 - root - INFO - Fetched 5 training results
-2025-09-03 00:33:31,532 - signglove - INFO - Response: GET /predict/live - 500
-2025-09-03 00:33:31,533 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:33:31,538 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:33:31,539 - signglove - INFO - Request: GET /training/
-2025-09-03 00:33:31,540 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:33:31,598 - root - ERROR - Live prediction failed: Cannot set tensor: Dimension mismatch. Got 11 but expected 7 for dimension 1 of input 0.
-2025-09-03 00:33:31,599 - signglove - ERROR - Error 0b267640-c460-42ec-9453-c10429145c89: HTTPException - 
-2025-09-03 00:33:31,600 - signglove - INFO - Response: GET /predict/live - 500
-2025-09-03 00:33:38,046 - signglove - INFO - Request: POST /training/run
-2025-09-03 00:33:38,054 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:33:38,055 - signglove - INFO - Request: GET /training/
-2025-09-03 00:33:38,055 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:33:38,067 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 00:33:38,067 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:33:38,117 - signglove - INFO - Response: POST /training/run - 200
-2025-09-03 00:33:38,127 - root - ERROR - Live prediction failed: Cannot set tensor: Dimension mismatch. Got 11 but expected 7 for dimension 1 of input 0.
-2025-09-03 00:33:38,128 - signglove - ERROR - Error 72461258-33d2-4074-9c05-b8e5349ba47a: HTTPException - 
-2025-09-03 00:33:38,129 - signglove - INFO - Response: GET /predict/live - 500
-2025-09-03 00:33:40,058 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:33:40,063 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:33:42,058 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:33:42,060 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:33:44,054 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:33:44,063 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:33:44,070 - signglove - INFO - Request: GET /training/
-2025-09-03 00:33:44,072 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:33:44,077 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:33:44,077 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:33:44,078 - signglove - INFO - Request: GET /training/
-2025-09-03 00:33:44,088 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 00:33:44,089 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:33:44,093 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:33:44,101 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 00:33:44,142 - root - ERROR - Live prediction failed: Cannot set tensor: Dimension mismatch. Got 11 but expected 7 for dimension 1 of input 0.
-2025-09-03 00:33:44,144 - signglove - ERROR - Error f12942aa-48d9-4473-959b-0dfec9bd4537: HTTPException - 
-2025-09-03 00:33:44,145 - signglove - INFO - Response: GET /predict/live - 500
-2025-09-03 00:33:44,150 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:33:44,215 - root - ERROR - Live prediction failed: Cannot set tensor: Dimension mismatch. Got 11 but expected 7 for dimension 1 of input 0.
-2025-09-03 00:33:44,216 - signglove - ERROR - Error a78d7002-835f-4f9b-816b-e0edb9e3d684: HTTPException - 
-2025-09-03 00:33:44,217 - signglove - INFO - Response: GET /predict/live - 500
-2025-09-03 00:34:04,123 - signglove - INFO - Request: DELETE /admin/sensor-data
-2025-09-03 00:34:06,601 - signglove - INFO - Request: DELETE /admin/training-results
-2025-09-03 00:34:06,723 - root - INFO - Deleted 20388 sensor documents
-2025-09-03 00:34:06,725 - signglove - WARNING - Slow request: DELETE /admin/sensor-data took 2.60s
-2025-09-03 00:34:06,725 - signglove - INFO - Response: DELETE /admin/sensor-data - 200
-2025-09-03 00:34:06,726 - root - INFO - Deleted 5 training results
-2025-09-03 00:34:06,728 - root - INFO - Deleted training_metrics.json
-2025-09-03 00:34:06,729 - signglove - INFO - Response: DELETE /admin/training-results - 200
-2025-09-03 00:34:11,164 - signglove - INFO - Request: GET /training/
-2025-09-03 00:34:11,165 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:34:11,165 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:34:11,166 - root - ERROR - Error fetching training metrics: 
-2025-09-03 00:34:11,180 - signglove - ERROR - Error 373ddc10-755e-44eb-af25-268085403a48: HTTPException - 
-2025-09-03 00:34:11,182 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 00:34:11,186 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:34:11,187 - root - ERROR - Error fetching training metrics: 
-2025-09-03 00:34:11,188 - signglove - ERROR - Error 966d3383-cee1-4600-a678-94b9e1d90bd7: HTTPException - 
-2025-09-03 00:34:11,188 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 00:34:12,223 - signglove - ERROR - Error 763d9ada-18e0-4fe2-9000-a7ba55d7a1b7: HTTPException - 
-2025-09-03 00:34:12,224 - signglove - WARNING - Slow request: GET /predict/live took 1.06s
-2025-09-03 00:34:12,224 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 00:34:12,229 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:34:13,224 - signglove - ERROR - Error d8cf5640-b19c-4cdb-96d8-10a3a0851045: HTTPException - 
-2025-09-03 00:34:13,225 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 00:34:13,229 - root - INFO - Fetched 0 training results
-2025-09-03 00:34:13,230 - signglove - WARNING - Slow request: GET /training/ took 2.06s
-2025-09-03 00:34:13,230 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:34:13,235 - signglove - INFO - Request: GET /training/
-2025-09-03 00:34:13,236 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:34:19,549 - signglove - INFO - Request: POST /training/run
-2025-09-03 00:34:19,553 - signglove - INFO - Request: GET /training/
-2025-09-03 00:34:19,554 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:34:19,555 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:34:19,555 - root - ERROR - Error fetching training metrics: 
-2025-09-03 00:34:19,556 - signglove - ERROR - Error d1cc5243-f3f7-489f-b589-71844508dcb2: HTTPException - 
-2025-09-03 00:34:19,558 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:34:19,558 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 00:34:19,614 - signglove - INFO - Response: POST /training/run - 200
-2025-09-03 00:34:19,627 - signglove - ERROR - Error 3b63dda4-0ffa-4a97-8141-28eeddece1a5: HTTPException - 
-2025-09-03 00:34:19,629 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 00:34:21,554 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:34:21,556 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:34:23,565 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:34:23,567 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:34:25,557 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:34:25,566 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:34:25,573 - signglove - INFO - Request: GET /training/
-2025-09-03 00:34:25,575 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:34:25,582 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:34:25,583 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:34:25,584 - root - ERROR - Error fetching training metrics: 
-2025-09-03 00:34:25,585 - signglove - ERROR - Error 04b93ace-e13b-472f-99b6-a37e84cc646a: HTTPException - 
-2025-09-03 00:34:25,586 - signglove - INFO - Request: GET /training/
-2025-09-03 00:34:25,587 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 00:34:25,588 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:34:25,592 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:34:25,592 - root - ERROR - Error fetching training metrics: 
-2025-09-03 00:34:25,593 - signglove - ERROR - Error db8d97ca-21ed-4c5d-a417-e9845db5e9d3: HTTPException - 
-2025-09-03 00:34:25,595 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 00:34:25,649 - signglove - ERROR - Error 67e4eeff-afce-4c84-9eee-bf2a1c776629: HTTPException - 
-2025-09-03 00:34:25,650 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 00:34:25,654 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:34:25,720 - signglove - ERROR - Error aff04843-1a24-459d-bb3d-bc6d27f7e1c0: HTTPException - 
-2025-09-03 00:34:25,721 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 00:38:23,991 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 00:42:42,134 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 00:42:49,545 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 00:42:50,287 - root - INFO - Indexes created. App is starting...
-2025-09-03 00:42:50,287 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 00:43:57,896 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 00:44:04,978 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 00:44:05,596 - root - INFO - Indexes created. App is starting...
-2025-09-03 00:44:05,596 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 00:45:10,981 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 00:45:17,932 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 00:45:18,633 - root - INFO - Indexes created. App is starting...
-2025-09-03 00:45:18,634 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 00:46:01,438 - signglove - INFO - Request: POST /training/run
-2025-09-03 00:46:01,440 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:46:01,440 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:46:01,441 - signglove - INFO - Request: GET /training/
-2025-09-03 00:46:01,442 - root - ERROR - Error fetching training metrics: 
-2025-09-03 00:46:01,444 - signglove - ERROR - Error d7136787-a2d1-4514-8cd2-1c7cb9e47017: HTTPException - 
-2025-09-03 00:46:01,448 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 00:46:01,516 - signglove - ERROR - Error 50dad3b7-90ae-4af2-a99d-791632c0f7ee: HTTPException - 
-2025-09-03 00:46:01,517 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 00:46:01,855 - signglove - INFO - Response: POST /training/run - 200
-2025-09-03 00:46:01,911 - root - INFO - Fetched 0 training results
-2025-09-03 00:46:01,912 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:46:03,441 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:46:03,444 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:46:05,446 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:46:05,447 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:46:07,441 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:46:07,452 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:46:07,459 - signglove - INFO - Request: GET /training/
-2025-09-03 00:46:07,461 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:46:07,463 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:46:07,464 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:46:07,465 - root - ERROR - Error fetching training metrics: 
-2025-09-03 00:46:07,466 - signglove - ERROR - Error d03c39f4-a451-49ce-9576-2d241f33e6e6: HTTPException - 
-2025-09-03 00:46:07,467 - signglove - INFO - Request: GET /training/
-2025-09-03 00:46:07,468 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 00:46:07,469 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:46:07,473 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:46:07,474 - root - ERROR - Error fetching training metrics: 
-2025-09-03 00:46:07,475 - signglove - ERROR - Error cd185bfd-9c6c-43e8-ba2a-fcf2eac4db53: HTTPException - 
-2025-09-03 00:46:07,477 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 00:46:07,543 - signglove - ERROR - Error f453527e-41ef-4dab-be50-f909bea56d3a: HTTPException - 
-2025-09-03 00:46:07,544 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 00:46:07,547 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:46:07,623 - signglove - ERROR - Error 77154eaa-ca6c-4e9e-907a-5f8d2572789f: HTTPException - 
-2025-09-03 00:46:07,624 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 00:50:10,484 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 00:50:18,673 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 00:50:19,214 - root - INFO - Indexes created. App is starting...
-2025-09-03 00:50:19,215 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 00:50:25,950 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 00:50:26,506 - root - INFO - Indexes created. App is starting...
-2025-09-03 00:50:26,506 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 00:51:36,800 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 00:51:44,308 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 00:51:44,990 - root - INFO - Indexes created. App is starting...
-2025-09-03 00:51:44,990 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 00:52:07,781 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 00:52:14,660 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 00:52:15,216 - root - INFO - Indexes created. App is starting...
-2025-09-03 00:52:15,216 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 00:52:22,566 - signglove - INFO - Request: POST /training/run
-2025-09-03 00:52:22,569 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:52:22,569 - signglove - INFO - Request: GET /training/
-2025-09-03 00:52:22,569 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:52:22,571 - root - ERROR - Error fetching training metrics: 
-2025-09-03 00:52:22,573 - signglove - ERROR - Error d7dc0eca-bd02-4aeb-aab3-e15b95a58a21: HTTPException - 
-2025-09-03 00:52:22,576 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 00:52:22,627 - root - INFO - Fetched 0 training results
-2025-09-03 00:52:22,628 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:52:22,962 - signglove - INFO - Response: POST /training/run - 200
-2025-09-03 00:52:22,983 - signglove - ERROR - Error 430281de-c34f-419f-8461-7a7453c3bafe: HTTPException - 
-2025-09-03 00:52:22,985 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 00:52:24,569 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:52:24,571 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:52:26,569 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:52:26,570 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:52:28,569 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:52:28,571 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:52:30,569 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:52:30,570 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:52:32,569 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:52:32,570 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:52:34,569 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:52:34,578 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:52:36,568 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:52:36,578 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:52:38,573 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:52:38,576 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:52:40,569 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:52:40,577 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:52:42,569 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:52:42,577 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:52:44,572 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:52:44,574 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:52:46,574 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 00:52:46,583 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 00:52:46,590 - signglove - INFO - Request: GET /training/
-2025-09-03 00:52:46,591 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:52:46,607 - signglove - INFO - Request: GET /training/
-2025-09-03 00:52:46,609 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:52:46,609 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:52:46,621 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 00:52:46,622 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 00:52:46,626 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 00:52:46,629 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 00:52:46,675 - signglove - ERROR - Error 461d7ae5-ed09-473f-9025-d82f1c4883a8: HTTPException - 
-2025-09-03 00:52:46,676 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 00:52:46,679 - signglove - INFO - Request: GET /predict/live
-2025-09-03 00:52:46,747 - signglove - ERROR - Error 9e8eff5b-45a2-43ed-a13e-8526ecdab6ec: HTTPException - 
-2025-09-03 00:52:46,748 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 00:52:54,984 - signglove - INFO - Request: POST /training/analyze-confusion-matrix
-2025-09-03 00:52:57,608 - signglove - WARNING - Slow request: POST /training/analyze-confusion-matrix took 2.62s
-2025-09-03 00:52:57,609 - signglove - INFO - Response: POST /training/analyze-confusion-matrix - 200
-2025-09-03 00:52:57,615 - signglove - INFO - Request: GET /training/confusion-matrix/results
-2025-09-03 00:52:57,617 - signglove - INFO - Response: GET /training/confusion-matrix/results - 200
-2025-09-03 00:53:05,897 - signglove - INFO - Request: POST /training/analyze-confusion-matrix
-2025-09-03 00:53:07,873 - signglove - WARNING - Slow request: POST /training/analyze-confusion-matrix took 1.98s
-2025-09-03 00:53:07,874 - signglove - INFO - Response: POST /training/analyze-confusion-matrix - 200
-2025-09-03 00:53:07,879 - signglove - INFO - Request: GET /training/confusion-matrix/results
-2025-09-03 00:53:07,881 - signglove - INFO - Response: GET /training/confusion-matrix/results - 200
-2025-09-03 00:53:12,663 - signglove - INFO - Request: GET /training/visualizations/training_history
-2025-09-03 00:53:12,666 - signglove - INFO - Response: GET /training/visualizations/training_history - 200
-2025-09-03 00:53:22,444 - signglove - INFO - Request: GET /training/visualizations/confusion_matrix
-2025-09-03 00:53:22,446 - signglove - INFO - Response: GET /training/visualizations/confusion_matrix - 200
-2025-09-03 00:57:15,218 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:02:15,213 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:04:31,572 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:04:31,583 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Cannot set tensor: Dimension mismatch. Got 11 but expected 7 for dimension 1 of input 0.
-2025-09-03 01:06:13,482 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:06:13,567 - signglove - INFO - Request: GET /auth/me
-2025-09-03 01:06:13,642 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 01:06:13,646 - signglove - INFO - Request: GET /auth/me
-2025-09-03 01:06:13,714 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 01:06:15,137 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:06:15,139 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Cannot set tensor: Dimension mismatch. Got 11 but expected 7 for dimension 1 of input 0.
-2025-09-03 01:07:15,219 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:11:46,811 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:11:46,977 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:12:02,580 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:12:03,201 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:12:03,202 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:12:03,380 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:12:03,384 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Cannot set tensor: Dimension mismatch. Got 11 but expected 7 for dimension 1 of input 0.
-2025-09-03 01:16:10,051 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:16:10,214 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:16:17,858 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:16:18,403 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:16:18,403 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:16:18,405 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:16:18,409 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Cannot set tensor: Dimension mismatch. Got 11 but expected 7 for dimension 1 of input 0.
-2025-09-03 01:16:26,948 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:16:27,101 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:16:35,381 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:16:35,997 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:16:35,998 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:16:40,536 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:16:40,539 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Cannot set tensor: Dimension mismatch. Got 11 but expected 7 for dimension 1 of input 0.
-2025-09-03 01:17:03,537 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:17:03,709 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:17:13,676 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:17:14,406 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:17:14,406 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:17:17,527 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:17:17,531 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 01:19:19,206 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:19:19,381 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:19:33,796 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:19:34,439 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:19:34,440 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:19:35,531 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:19:35,535 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 01:24:34,435 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:24:54,118 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:24:54,271 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:25:01,069 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:25:01,684 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:25:01,685 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:25:01,686 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:25:01,690 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 01:25:19,373 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:25:19,554 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:25:26,364 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:25:26,888 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:25:26,888 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:25:26,890 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:25:26,894 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 01:26:43,775 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:26:43,930 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:26:51,450 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:26:52,158 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:26:52,158 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:26:52,160 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:26:52,163 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 01:27:55,046 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:27:55,222 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:28:02,536 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:28:03,241 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:28:03,242 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:28:03,243 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:28:03,247 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 01:28:39,614 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:28:39,786 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:28:47,398 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:28:48,031 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:28:48,031 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:28:48,033 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:28:48,036 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 01:30:31,236 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:30:31,401 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:30:38,156 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:30:38,862 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:30:38,862 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:30:38,864 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:30:38,868 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 01:31:24,685 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:31:24,855 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:31:33,142 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:31:33,737 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:31:33,738 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:31:38,533 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:31:38,537 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 01:32:15,467 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:32:15,479 - signglove - INFO - Request: GET /training/
-2025-09-03 01:32:15,480 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:32:15,481 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:32:15,487 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 01:32:15,492 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:32:15,496 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 01:32:15,540 - root - INFO - Fetched 1 training results
-2025-09-03 01:32:15,541 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:32:15,545 - signglove - INFO - Request: GET /training/
-2025-09-03 01:32:15,546 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:32:16,106 - signglove - ERROR - Error e796d470-4ce9-4a0b-862c-492a2809dcf9: HTTPException - 
-2025-09-03 01:32:16,107 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:32:16,110 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:32:16,184 - signglove - ERROR - Error 07834298-b566-4643-8301-16ee8e37aa76: HTTPException - 
-2025-09-03 01:32:16,184 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:32:16,792 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:32:16,793 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 01:32:24,618 - signglove - INFO - Request: POST /training/run
-2025-09-03 01:32:24,644 - signglove - ERROR - Error 6538e161-c76b-491f-a356-d6203cf3087e: HTTPException - 
-2025-09-03 01:32:24,646 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:32:24,646 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:32:24,646 - signglove - INFO - Request: GET /training/
-2025-09-03 01:32:24,650 - signglove - INFO - Response: POST /training/run - 401
-2025-09-03 01:32:24,651 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 01:32:24,652 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:32:24,664 - signglove - INFO - Request: GET /training/
-2025-09-03 01:32:24,665 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:32:24,669 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:32:24,670 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 01:32:24,725 - signglove - ERROR - Error 1c448d1f-41c1-4598-9388-788ce1185630: HTTPException - 
-2025-09-03 01:32:24,726 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:32:24,730 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:32:24,804 - signglove - ERROR - Error 92219853-46d7-49ad-bfd1-bd48ade8ad2d: HTTPException - 
-2025-09-03 01:32:24,805 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:32:40,834 - signglove - INFO - Request: POST /training/run
-2025-09-03 01:32:40,836 - signglove - ERROR - Error 28e71ae6-bae1-4a69-a43f-746b08b7c26a: HTTPException - 
-2025-09-03 01:32:40,837 - signglove - INFO - Response: POST /training/run - 401
-2025-09-03 01:32:40,846 - signglove - INFO - Request: GET /training/
-2025-09-03 01:32:40,848 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:32:40,852 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:32:40,856 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:32:40,857 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 01:32:40,863 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:32:40,864 - signglove - INFO - Request: GET /training/
-2025-09-03 01:32:40,868 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 01:32:40,869 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:32:40,918 - signglove - ERROR - Error 8e7c06cf-6755-4dbc-b8f1-3fe31b8f2bdb: HTTPException - 
-2025-09-03 01:32:40,919 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:32:40,924 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:32:40,985 - signglove - ERROR - Error f6790857-c55f-40d7-ad83-da5539dbda68: HTTPException - 
-2025-09-03 01:32:40,986 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:33:02,402 - signglove - INFO - Request: DELETE /admin/sensor-data
-2025-09-03 01:33:02,415 - signglove - ERROR - Error 691e3890-c206-473a-8b2e-909a4055a477: HTTPException - 
-2025-09-03 01:33:02,416 - signglove - INFO - Response: DELETE /admin/sensor-data - 401
-2025-09-03 01:33:02,883 - signglove - INFO - Request: DELETE /admin/training-results
-2025-09-03 01:33:02,885 - signglove - ERROR - Error 33a837f8-2f7e-4169-8041-1def77d3aac7: HTTPException - 
-2025-09-03 01:33:02,886 - signglove - INFO - Response: DELETE /admin/training-results - 401
-2025-09-03 01:33:09,402 - signglove - INFO - Request: POST /auth/logout
-2025-09-03 01:33:09,404 - signglove - INFO - Response: POST /auth/logout - 200
-2025-09-03 01:33:19,756 - signglove - INFO - Request: POST /auth/login
-2025-09-03 01:33:20,032 - signglove - INFO - Response: POST /auth/login - 200
-2025-09-03 01:33:20,040 - signglove - INFO - Request: GET /auth/me
-2025-09-03 01:33:20,105 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 01:33:26,156 - signglove - INFO - Request: DELETE /admin/sensor-data
-2025-09-03 01:33:26,278 - root - INFO - Deleted 0 sensor documents
-2025-09-03 01:33:26,279 - signglove - INFO - Response: DELETE /admin/sensor-data - 200
-2025-09-03 01:33:27,041 - signglove - INFO - Request: DELETE /admin/training-results
-2025-09-03 01:33:27,168 - root - INFO - Deleted 1 training results
-2025-09-03 01:33:27,169 - root - INFO - Deleted training_metrics.json
-2025-09-03 01:33:27,170 - signglove - INFO - Response: DELETE /admin/training-results - 200
-2025-09-03 01:33:32,668 - signglove - INFO - Request: GET /training/
-2025-09-03 01:33:32,669 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:33:32,669 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:33:32,670 - root - ERROR - Error fetching training metrics: 
-2025-09-03 01:33:32,672 - signglove - ERROR - Error 6710856b-90c5-46e5-b98b-593513759638: HTTPException - 
-2025-09-03 01:33:32,673 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 01:33:32,678 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:33:32,679 - root - ERROR - Error fetching training metrics: 
-2025-09-03 01:33:32,680 - signglove - ERROR - Error b5b31a28-665e-4c62-904f-352e56d0485c: HTTPException - 
-2025-09-03 01:33:32,680 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 01:33:32,730 - root - INFO - Fetched 0 training results
-2025-09-03 01:33:32,732 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:33:32,733 - signglove - ERROR - Error 5267076b-a99c-4b49-90b6-cceb04bc51ad: HTTPException - 
-2025-09-03 01:33:32,734 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:33:32,740 - signglove - INFO - Request: GET /training/
-2025-09-03 01:33:32,741 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:33:32,743 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:33:32,805 - signglove - ERROR - Error 0d8235e4-3ef1-4b47-b2d4-443e5c81d727: HTTPException - 
-2025-09-03 01:33:32,806 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:33:37,834 - signglove - INFO - Request: POST /training/run
-2025-09-03 01:33:37,843 - signglove - INFO - Request: GET /training/
-2025-09-03 01:33:37,844 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:33:37,845 - root - ERROR - Error fetching training metrics: 
-2025-09-03 01:33:37,846 - signglove - ERROR - Error aa22393b-0e3e-46b7-86bd-b9c8d872dd4e: HTTPException - 
-2025-09-03 01:33:37,846 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:33:37,848 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:33:37,848 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 01:33:37,902 - signglove - INFO - Response: POST /training/run - 200
-2025-09-03 01:33:37,907 - signglove - ERROR - Error 6993bd41-7207-432d-8b52-62654321fd88: HTTPException - 
-2025-09-03 01:33:37,908 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:33:39,855 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 01:33:39,861 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 01:33:41,855 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 01:33:41,857 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 01:33:43,854 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 01:33:43,863 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 01:33:43,871 - signglove - INFO - Request: GET /training/
-2025-09-03 01:33:43,873 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:33:43,879 - signglove - INFO - Request: GET /training/
-2025-09-03 01:33:43,880 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:33:43,881 - root - ERROR - Error fetching training metrics: 
-2025-09-03 01:33:43,882 - signglove - ERROR - Error a3ace930-4801-43db-aa18-d0bc22f300e6: HTTPException - 
-2025-09-03 01:33:43,882 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:33:43,884 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:33:43,885 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 01:33:43,890 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:33:43,891 - root - ERROR - Error fetching training metrics: 
-2025-09-03 01:33:43,891 - signglove - ERROR - Error 49e96dc6-42c4-413b-b15d-5a62cca60b9e: HTTPException - 
-2025-09-03 01:33:43,892 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 01:33:43,949 - signglove - ERROR - Error 17939515-ecab-4bb2-92b8-eda8459f64b4: HTTPException - 
-2025-09-03 01:33:43,950 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:33:43,957 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:33:44,019 - signglove - ERROR - Error 6af05c09-6aea-4ce4-887e-db0c8d0c2be5: HTTPException - 
-2025-09-03 01:33:44,020 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:36:33,731 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:38:53,112 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:38:53,272 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:39:02,074 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:39:02,678 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:39:02,679 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:39:02,681 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:39:02,686 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 01:39:50,442 - signglove - INFO - Request: POST /training/run
-2025-09-03 01:39:50,448 - signglove - INFO - Request: GET /training/
-2025-09-03 01:39:50,449 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:39:50,452 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:39:50,455 - root - ERROR - Error fetching training metrics: 
-2025-09-03 01:39:50,457 - signglove - ERROR - Error 8b58be43-20af-4c21-9958-759ae9a170d0: HTTPException - 
-2025-09-03 01:39:50,460 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 01:39:50,519 - signglove - INFO - Response: POST /training/run - 200
-2025-09-03 01:39:50,825 - signglove - ERROR - Error 40eed896-ca1f-429f-9009-b969a54cb496: HTTPException - 
-2025-09-03 01:39:50,827 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:39:50,933 - root - INFO - Fetched 0 training results
-2025-09-03 01:39:50,934 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:39:52,457 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 01:39:52,460 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 01:39:54,451 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 01:39:54,453 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 01:39:56,451 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 01:39:56,462 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 01:39:56,471 - signglove - INFO - Request: GET /training/
-2025-09-03 01:39:56,473 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:39:56,482 - signglove - INFO - Request: GET /training/
-2025-09-03 01:39:56,485 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:39:56,485 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:39:56,487 - root - ERROR - Error fetching training metrics: 
-2025-09-03 01:39:56,488 - signglove - ERROR - Error a8c25eda-2dc3-4b91-952c-0963e599185f: HTTPException - 
-2025-09-03 01:39:56,488 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:39:56,490 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 01:39:56,495 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:39:56,496 - root - ERROR - Error fetching training metrics: 
-2025-09-03 01:39:56,498 - signglove - ERROR - Error d06e9442-3aff-41e3-a515-6771a49fcb9e: HTTPException - 
-2025-09-03 01:39:56,500 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 01:39:56,561 - signglove - ERROR - Error 298cc1d7-6756-45e6-8c20-8f12746e900b: HTTPException - 
-2025-09-03 01:39:56,562 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:39:56,568 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:39:56,646 - signglove - ERROR - Error 3b352196-6b4f-42e9-bd0d-fbac183ee35f: HTTPException - 
-2025-09-03 01:39:56,648 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:44:02,675 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:49:02,676 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:53:46,335 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:53:46,511 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:53:54,690 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:53:55,334 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:53:55,335 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:53:55,337 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:53:55,341 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 01:54:16,061 - signglove - INFO - Request: POST /training/run
-2025-09-03 01:54:16,069 - signglove - INFO - Request: GET /training/
-2025-09-03 01:54:16,071 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:54:16,074 - root - ERROR - Error fetching training metrics: 
-2025-09-03 01:54:16,076 - signglove - ERROR - Error bc405498-8aa0-4774-9e50-607f07052708: HTTPException - 
-2025-09-03 01:54:16,077 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:54:16,079 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 01:54:16,140 - signglove - INFO - Response: POST /training/run - 200
-2025-09-03 01:54:16,664 - signglove - ERROR - Error 669ffbf3-7d59-4d37-862b-03a2dd1daef1: HTTPException - 
-2025-09-03 01:54:16,666 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:54:16,950 - root - INFO - Fetched 0 training results
-2025-09-03 01:54:16,952 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:54:18,075 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 01:54:18,078 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 01:54:20,085 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 01:54:20,087 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 01:54:22,081 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 01:54:22,093 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 01:54:22,101 - signglove - INFO - Request: GET /training/
-2025-09-03 01:54:22,103 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:54:22,112 - signglove - INFO - Request: GET /training/
-2025-09-03 01:54:22,113 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:54:22,114 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:54:22,114 - root - ERROR - Error fetching training metrics: 
-2025-09-03 01:54:22,115 - signglove - ERROR - Error 618039f8-e2f0-4f43-9b58-c8e04bdc2fb5: HTTPException - 
-2025-09-03 01:54:22,119 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 01:54:22,120 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 01:54:22,126 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 01:54:22,127 - root - ERROR - Error fetching training metrics: 
-2025-09-03 01:54:22,128 - signglove - ERROR - Error af7a3024-70be-4c51-83e3-37cfedcdcdda: HTTPException - 
-2025-09-03 01:54:22,131 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 01:54:22,173 - signglove - ERROR - Error 565992be-aa50-4ab6-b8ee-21be8eebfcd6: HTTPException - 
-2025-09-03 01:54:22,174 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:54:22,180 - signglove - INFO - Request: GET /predict/live
-2025-09-03 01:54:22,237 - signglove - ERROR - Error e9cffd0e-8665-4545-a6ee-40d45c8cd82f: HTTPException - 
-2025-09-03 01:54:22,239 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 01:57:29,275 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 01:57:29,426 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 01:57:38,334 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 01:57:38,942 - root - INFO - Indexes created. App is starting...
-2025-09-03 01:57:38,943 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 01:57:38,946 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 01:57:38,950 - signglove - ERROR - Prediction failed for 127.0.0.1: Error loading model: Model provided must have at least 7 bytes to hold identifier.
-
-2025-09-03 02:01:15,740 - signglove - INFO - Request: POST /training/run
-2025-09-03 02:01:15,748 - signglove - INFO - Request: GET /training/
-2025-09-03 02:01:15,749 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 02:01:15,753 - root - ERROR - Error fetching training metrics: 
-2025-09-03 02:01:15,755 - signglove - ERROR - Error 75ee8375-1675-4c60-bd85-0808c26b62a9: HTTPException - 
-2025-09-03 02:01:15,756 - signglove - INFO - Request: GET /predict/live
-2025-09-03 02:01:15,758 - signglove - INFO - Response: GET /training/metrics/latest - 500
-2025-09-03 02:01:15,831 - signglove - INFO - Response: POST /training/run - 200
-2025-09-03 02:01:16,197 - signglove - ERROR - Error ca4f0f62-4731-4de9-99b9-709f2ab77de9: HTTPException - 
-2025-09-03 02:01:16,199 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 02:01:16,323 - root - INFO - Fetched 0 training results
-2025-09-03 02:01:16,325 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 02:01:17,751 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 02:01:17,754 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 02:01:20,224 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 02:01:20,227 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 02:01:22,225 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 02:01:22,228 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 02:01:24,227 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 02:01:24,230 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 02:01:26,222 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 02:01:26,224 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 02:01:28,232 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 02:01:28,234 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 02:01:30,222 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 02:01:30,236 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 02:01:32,230 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 02:01:32,241 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 02:01:34,220 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 02:01:34,223 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 02:01:36,222 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 02:01:36,232 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 02:01:38,224 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 02:01:38,226 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 02:01:40,232 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 02:01:40,245 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 02:01:42,227 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 02:01:42,229 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 02:01:44,226 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-03 02:01:44,237 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-03 02:01:44,246 - signglove - INFO - Request: GET /training/
-2025-09-03 02:01:44,248 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 02:01:44,255 - signglove - INFO - Request: GET /training/
-2025-09-03 02:01:44,259 - signglove - INFO - Request: GET /predict/live
-2025-09-03 02:01:44,259 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 02:01:44,271 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 02:01:44,274 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 02:01:44,280 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 02:01:44,284 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 02:01:44,333 - signglove - ERROR - Error 464b6f2a-83dc-4a45-9ad9-556341d832f6: HTTPException - 
-2025-09-03 02:01:44,335 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 02:01:44,340 - signglove - INFO - Request: GET /predict/live
-2025-09-03 02:01:44,417 - signglove - ERROR - Error a806d4fa-3bc0-4a2a-a01e-f7b203824442: HTTPException - 
-2025-09-03 02:01:44,418 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 02:02:38,939 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 02:03:19,126 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 02:03:19,303 - signglove - INFO - Request: GET /auth/me
-2025-09-03 02:03:19,381 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 02:03:19,385 - signglove - INFO - Request: GET /auth/me
-2025-09-03 02:03:19,407 - signglove - INFO - Request: GET /training/
-2025-09-03 02:03:19,408 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 02:03:19,409 - signglove - INFO - Request: GET /predict/live
-2025-09-03 02:03:19,414 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 02:03:19,419 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-03 02:03:19,423 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-03 02:03:19,461 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 02:03:19,462 - root - INFO - Fetched 1 training results
-2025-09-03 02:03:19,464 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 02:03:19,470 - signglove - INFO - Request: GET /training/
-2025-09-03 02:03:19,473 - signglove - INFO - Response: GET /training/ - 200
-2025-09-03 02:03:19,476 - signglove - ERROR - Error f70dbe44-e1ba-49d5-9eaa-bd3196450c8d: HTTPException - 
-2025-09-03 02:03:19,479 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 02:03:19,484 - signglove - INFO - Request: GET /predict/live
-2025-09-03 02:03:19,548 - signglove - ERROR - Error d9b3bc79-d837-4cf4-aead-402d3a3e38bd: HTTPException - 
-2025-09-03 02:03:19,549 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-03 02:07:38,935 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 02:12:38,933 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 02:17:38,934 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 02:22:38,937 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 02:27:38,944 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 02:32:38,942 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 02:37:38,938 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 02:42:38,942 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 02:47:38,937 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 02:52:38,936 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 02:57:38,935 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 03:02:38,938 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 03:07:38,941 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 03:12:38,945 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 03:14:27,812 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 03:14:39,946 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 03:14:40,108 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 03:14:50,371 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 03:14:50,988 - root - INFO - Indexes created. App is starting...
-2025-09-03 03:14:50,989 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 03:14:53,910 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 03:17:59,503 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 03:17:59,634 - signglove - INFO - Request: GET /auth/me
-2025-09-03 03:17:59,638 - signglove - ERROR - Error 835df9fa-7e8e-433f-b727-a1b375839fad: HTTPException - 
-2025-09-03 03:17:59,639 - signglove - INFO - Response: GET /auth/me - 401
-2025-09-03 03:17:59,643 - signglove - INFO - Request: GET /auth/me
-2025-09-03 03:17:59,645 - signglove - ERROR - Error a281dfbb-0d73-4599-9dc2-2943cfb708a0: HTTPException - 
-2025-09-03 03:17:59,647 - signglove - INFO - Response: GET /auth/me - 401
-2025-09-03 03:18:15,015 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 03:19:50,991 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 03:19:57,818 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 03:19:59,136 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 03:20:07,091 - signglove - INFO - Request: POST /auth/login
-2025-09-03 03:20:07,372 - signglove - INFO - Response: POST /auth/login - 200
-2025-09-03 03:20:07,380 - signglove - INFO - Request: GET /auth/me
-2025-09-03 03:20:07,444 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 03:20:12,982 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 03:22:58,191 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 03:22:58,192 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 03:22:58,306 - signglove - INFO - Request: GET /auth/me
-2025-09-03 03:22:58,367 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 03:22:58,370 - signglove - INFO - Request: GET /auth/me
-2025-09-03 03:22:58,431 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 03:23:01,006 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 03:24:50,989 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 03:25:08,823 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-03 03:25:09,206 - signglove - ERROR - 192.168.0.8: Invalid sensor data: 1 validation error for SensorData
-values
-  Value error, Must contain exactly 11 sensor values [type=value_error, input_value=[0.0, 0.0, 0.0, 0.0, 0.0,...519, 0.005473, 0.000126], input_type=list]
-    For further information visit https://errors.pydantic.dev/2.9/v/value_error
-2025-09-03 03:25:17,043 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 03:25:17,232 - signglove - INFO - Request: GET /auth/me
-2025-09-03 03:25:17,295 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 03:25:17,299 - signglove - INFO - Request: GET /auth/me
-2025-09-03 03:25:17,360 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-03 03:25:18,491 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 03:26:11,064 - signglove - ERROR - 192.168.0.8: Invalid sensor data: 1 validation error for SensorData
-values
-  Value error, Must contain exactly 11 sensor values [type=value_error, input_value=[0.0, 0.0, 0.0, 0.0, 0.0,...9711, 0.029431, 0.70009], input_type=list]
-    For further information visit https://errors.pydantic.dev/2.9/v/value_error
-2025-09-03 03:27:11,067 - signglove - ERROR - 192.168.0.8: Invalid sensor data: 1 validation error for SensorData
-values
-  Value error, Must contain exactly 11 sensor values [type=value_error, input_value=[0.0, 0.0, 0.0, 0.0, 0.0,...9465, 0.030242, 1.58374], input_type=list]
-    For further information visit https://errors.pydantic.dev/2.9/v/value_error
-2025-09-03 03:28:11,114 - signglove - ERROR - 192.168.0.8: Invalid sensor data: 1 validation error for SensorData
-values
-  Value error, Must contain exactly 11 sensor values [type=value_error, input_value=[0.0, 0.0, 0.0, 0.0, 0.0,...069, 0.030152, 2.372178], input_type=list]
-    For further information visit https://errors.pydantic.dev/2.9/v/value_error
-2025-09-03 03:29:11,096 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-03 03:29:34,264 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-03 03:29:34,456 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-03 03:29:43,710 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-03 03:29:44,235 - root - INFO - Indexes created. App is starting...
-2025-09-03 03:29:44,236 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-03 03:29:47,919 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-03 03:34:44,226 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 21:47:28,353 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-04 21:47:29,018 - root - INFO - Indexes created. App is starting...
-2025-09-04 21:47:29,019 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 21:47:50,369 - signglove - INFO - Request: POST /auth/logout
-2025-09-04 21:47:50,371 - signglove - INFO - Response: POST /auth/logout - 200
-2025-09-04 21:48:01,654 - signglove - INFO - Request: POST /auth/login
-2025-09-04 21:48:01,930 - signglove - INFO - Response: POST /auth/login - 200
-2025-09-04 21:48:01,937 - signglove - INFO - Request: GET /auth/me
-2025-09-04 21:48:02,001 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-04 21:48:20,441 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-04 21:48:56,894 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-04 21:48:56,906 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-04 21:48:56,906 - signglove - INFO - Request: GET /training/
-2025-09-04 21:48:56,907 - signglove - INFO - Request: GET /predict/live
-2025-09-04 21:48:56,912 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-04 21:48:56,917 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-04 21:48:56,920 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-04 21:48:56,970 - root - INFO - Fetched 1 training results
-2025-09-04 21:48:56,974 - signglove - INFO - Response: GET /training/ - 200
-2025-09-04 21:48:56,979 - signglove - INFO - Request: GET /training/
-2025-09-04 21:48:56,981 - signglove - INFO - Response: GET /training/ - 200
-2025-09-04 21:48:57,606 - signglove - ERROR - Error 60c18c55-ec04-43e0-a681-906c78350be5: HTTPException - 
-2025-09-04 21:48:57,607 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-04 21:48:57,613 - signglove - INFO - Request: GET /predict/live
-2025-09-04 21:48:57,676 - signglove - ERROR - Error 5c67568c-9e98-46f8-85ab-6c7542aca456: HTTPException - 
-2025-09-04 21:48:57,677 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-04 21:48:58,221 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-04 21:49:12,824 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-04 21:52:29,024 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 21:57:29,027 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 21:59:51,496 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-04 21:59:51,497 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-04 21:59:52,252 - signglove - INFO - Request: GET /auth/me
-2025-09-04 21:59:52,329 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-04 21:59:52,335 - signglove - INFO - Request: GET /auth/me
-2025-09-04 21:59:52,409 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-04 22:01:13,888 - signglove - INFO - Request: GET /auth/me
-2025-09-04 22:01:13,955 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-04 22:01:13,960 - signglove - INFO - Request: GET /auth/me
-2025-09-04 22:01:14,023 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-04 22:01:23,713 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-04 22:02:29,023 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 22:03:33,868 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-04 22:04:17,469 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-04 22:04:17,652 - signglove - INFO - Request: GET /auth/me
-2025-09-04 22:04:17,717 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-04 22:04:17,721 - signglove - INFO - Request: GET /auth/me
-2025-09-04 22:04:17,788 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-04 22:04:19,481 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-04 22:05:00,905 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-04 22:05:35,084 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-04 22:05:35,085 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-04 22:05:47,683 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-04 22:05:48,308 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-04 22:05:48,510 - signglove - INFO - Request: GET /auth/me
-2025-09-04 22:05:48,585 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-04 22:05:48,589 - signglove - INFO - Request: GET /auth/me
-2025-09-04 22:05:48,660 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-04 22:05:53,302 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-04 22:06:20,178 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-04 22:06:20,178 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-04 22:06:37,300 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-04 22:06:37,301 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-04 22:06:58,293 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-04 22:06:58,293 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-04 22:07:29,022 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 22:10:04,323 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-04 22:10:45,660 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-04 22:10:45,660 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-04 22:12:00,061 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-04 22:12:00,062 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-04 22:12:11,064 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-04 22:12:29,025 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 22:13:06,955 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-04 22:13:11,268 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-04 22:13:11,371 - signglove - ERROR - 192.168.0.8: Invalid message format: 1 validation error for WebSocketMessage
-right
-  Input should be a valid dictionary [type=dict_type, input_value=[0, 0, 0, 0, 0, -0.017145...0.002417303, 0.01293469], input_type=list]
-    For further information visit https://errors.pydantic.dev/2.9/v/dict_type
-2025-09-04 22:13:23,549 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-04 22:13:23,738 - signglove - INFO - Request: GET /auth/me
-2025-09-04 22:13:23,803 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-04 22:13:23,808 - signglove - INFO - Request: GET /auth/me
-2025-09-04 22:13:23,871 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-04 22:13:25,227 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-04 22:13:48,072 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-04 22:13:48,073 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-04 22:13:48,249 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-04 22:14:04,096 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-04 22:14:04,676 - root - INFO - Indexes created. App is starting...
-2025-09-04 22:14:04,677 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 22:14:16,552 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-04 22:14:16,972 - signglove - ERROR - 192.168.0.8: Invalid message format: 1 validation error for WebSocketMessage
-right
-  Input should be a valid dictionary [type=dict_type, input_value=[6.974781e-10, 0.000598, ....001017812, 0.013570823], input_type=list]
-    For further information visit https://errors.pydantic.dev/2.9/v/dict_type
-2025-09-04 22:15:10,973 - signglove - INFO - Request: POST /auth/login
-2025-09-04 22:15:11,239 - signglove - INFO - Response: POST /auth/login - 200
-2025-09-04 22:15:11,248 - signglove - INFO - Request: GET /auth/me
-2025-09-04 22:15:11,304 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-04 22:15:15,730 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-04 22:15:22,238 - signglove - ERROR - 192.168.0.8: Invalid message format: 1 validation error for WebSocketMessage
-right
-  Input should be a valid dictionary [type=dict_type, input_value=[3.773189e-39, 3.234068e-....002417303, 0.011959288], input_type=list]
-    For further information visit https://errors.pydantic.dev/2.9/v/dict_type
-2025-09-04 22:15:47,827 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-04 22:15:47,828 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-04 22:15:47,978 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-04 22:31:29,995 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-04 22:31:30,788 - root - INFO - Indexes created. App is starting...
-2025-09-04 22:31:30,789 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 22:31:32,799 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-04 22:32:06,062 - signglove - INFO - Request: GET /auth/me
-2025-09-04 22:32:06,146 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-04 22:32:06,150 - signglove - INFO - Request: GET /auth/me
-2025-09-04 22:32:06,226 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-04 22:32:07,386 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-04 22:36:30,797 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 22:39:53,919 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-04 22:41:30,798 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 22:46:30,791 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 22:51:30,789 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 22:56:30,791 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 23:01:30,796 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 23:02:58,212 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-04 23:05:03,859 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-04 23:06:30,801 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 23:11:30,787 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 23:16:30,792 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 23:17:12,183 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-04 23:17:12,346 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-04 23:17:31,571 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-04 23:17:32,330 - root - INFO - Indexes created. App is starting...
-2025-09-04 23:17:32,330 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 23:17:37,501 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-04 23:22:32,319 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 23:24:49,540 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-04 23:26:28,951 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-04 23:27:32,322 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 23:32:32,327 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 23:37:32,323 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-04 23:39:41,677 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-04 23:39:41,842 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-05 10:43:35,120 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-05 10:43:35,861 - root - INFO - Indexes created. App is starting...
-2025-09-05 10:43:35,868 - root - INFO - [AUTO] New data detected in raw_data.csv. Running noise reduction and training...
-2025-09-05 10:43:36,251 - root - INFO - [AUTO] Noise reduction complete: Noise-reduced data written to D:\study\output\sign-glove\backend\processors\../data/gesture_data.csv
+2025-08-26 07:36:30,464 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-26 07:37:10,615 - signglove - INFO - WebSocket connection closed for 127.0.0.1
+2025-08-26 07:37:10,723 - signglove - INFO - Request: GET /training/
+2025-08-26 07:37:10,887 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-26 07:37:10,949 - signglove - INFO - Request: GET /predict/live
+2025-08-26 07:37:11,045 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-26 07:37:11,076 - signglove - INFO - Request: GET /training/metrics/latest
+2025-08-26 07:37:11,108 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-08-26 07:37:11,128 - root - INFO - Fetched 7 training results
+2025-08-26 07:37:11,140 - signglove - INFO - Response: GET /training/ - 200
+2025-08-26 07:37:11,164 - signglove - INFO - Request: GET /training/
+2025-08-26 07:37:11,172 - signglove - INFO - Response: GET /training/ - 200
+2025-08-26 07:37:11,746 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-26 07:37:11,764 - signglove - INFO - Request: GET /predict/live
+2025-08-26 07:37:11,843 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-26 07:37:11,946 - signglove - INFO - WebSocket connection established with 127.0.0.1
+2025-08-26 07:37:59,600 - signglove - INFO - Request: GET /predict/live
+2025-08-26 07:37:59,675 - signglove - INFO - Response: GET /predict/live - 200
+2025-08-26 07:38:07,817 - signglove - INFO - Request: GET /audio-files/
+2025-08-26 07:38:07,901 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-26 07:38:07,951 - signglove - INFO - Request: GET /audio-files/
+2025-08-26 07:38:08,054 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-08-26 07:39:45,590 - signglove - INFO - WebSocket connection established with 127.0.0.1
+2025-08-26 07:41:30,475 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-26 07:46:30,477 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-26 07:51:30,480 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-26 07:56:30,482 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-26 08:01:30,480 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-26 08:06:30,495 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-26 08:11:30,502 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-26 08:16:30,501 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-26 08:17:06,634 - signglove - INFO - WebSocket connection closed for 127.0.0.1
+2025-08-26 08:17:06,638 - signglove - INFO - WebSocket connection closed for 127.0.0.1
+2025-08-26 22:41:09,590 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-26 22:41:13,792 - signglove - INFO - WebSocket connection established with 127.0.0.1
+2025-08-26 22:41:13,891 - signglove - INFO - WebSocket connection established with 127.0.0.1
+2025-08-26 22:46:09,859 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-08-26 22:46:57,864 - signglove - INFO - WebSocket connection closed for 127.0.0.1
+2025-08-26 22:46:57,866 - signglove - INFO - WebSocket connection closed for 127.0.0.1
+2025-08-26 22:46:58,628 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-03 13:42:45,933 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-03 13:42:46,920 - root - INFO - Indexes created. App is starting...
+2025-09-03 13:42:46,932 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 13:43:41,300 - signglove - INFO - Request: POST /auth/login
+2025-09-03 13:43:41,941 - signglove - INFO - Response: POST /auth/login - 200
+2025-09-03 13:43:41,975 - signglove - INFO - Request: GET /auth/me
+2025-09-03 13:43:42,082 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-03 13:43:57,054 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-03 13:43:57,224 - signglove - INFO - Request: GET /predict/live
+2025-09-03 13:43:57,226 - signglove - INFO - Request: GET /training/
+2025-09-03 13:43:57,259 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-03 13:43:57,283 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-03 13:43:57,330 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-03 13:43:57,628 - signglove - ERROR - Error 555e28cc-b97b-4db5-9ef2-860f8e107383: HTTPException - 
+2025-09-03 13:43:57,664 - signglove - INFO - Response: GET /predict/live - 404
+2025-09-03 13:43:57,700 - signglove - INFO - Request: GET /predict/live
+2025-09-03 13:43:57,793 - signglove - ERROR - Error ba1e3107-5269-44d8-901d-1b184063661b: HTTPException - 
+2025-09-03 13:43:57,817 - signglove - INFO - Response: GET /predict/live - 404
+2025-09-03 13:43:57,882 - root - INFO - Fetched 1 training results
+2025-09-03 13:43:57,890 - signglove - INFO - Response: GET /training/ - 200
+2025-09-03 13:43:57,909 - signglove - INFO - Request: GET /training/
+2025-09-03 13:43:57,916 - signglove - INFO - Response: GET /training/ - 200
+2025-09-03 13:44:24,268 - signglove - INFO - Request: GET /dashboard/
+2025-09-03 13:44:24,753 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-09-03 13:44:24,781 - signglove - INFO - Request: GET /dashboard/
+2025-09-03 13:44:24,788 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-09-03 13:44:26,243 - signglove - INFO - Request: GET /gestures
+2025-09-03 13:44:26,347 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-09-03 13:44:26,357 - signglove - INFO - Response: GET /gestures - 200
+2025-09-03 13:44:26,394 - signglove - INFO - Request: GET /gestures
+2025-09-03 13:44:26,493 - signglove - INFO - [trace=none] Listed 0 gestures.
+2025-09-03 13:44:26,518 - signglove - INFO - Response: GET /gestures - 200
+2025-09-03 13:44:29,001 - signglove - INFO - Request: GET /training/latest
+2025-09-03 13:44:29,113 - signglove - INFO - Response: GET /training/latest - 200
+2025-09-03 13:44:29,142 - signglove - INFO - Request: GET /training/latest
+2025-09-03 13:44:29,255 - signglove - INFO - Response: GET /training/latest - 200
+2025-09-03 13:44:40,606 - signglove - INFO - Request: GET /training/
+2025-09-03 13:44:40,617 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-03 13:44:40,619 - signglove - INFO - Request: GET /predict/live
+2025-09-03 13:44:40,677 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-03 13:44:40,713 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-03 13:44:40,764 - root - INFO - Fetched 1 training results
+2025-09-03 13:44:40,777 - signglove - ERROR - Error fb21cc34-cdad-4a0c-96fe-0e322a4bcd51: HTTPException - 
+2025-09-03 13:44:40,807 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-03 13:44:40,811 - signglove - INFO - Response: GET /training/ - 200
+2025-09-03 13:44:40,814 - signglove - INFO - Response: GET /predict/live - 404
+2025-09-03 13:44:40,923 - signglove - INFO - Request: GET /training/
+2025-09-03 13:44:40,927 - signglove - INFO - Request: GET /predict/live
+2025-09-03 13:44:40,955 - signglove - INFO - Response: GET /training/ - 200
+2025-09-03 13:44:41,042 - signglove - ERROR - Error 2f6563be-b332-46a8-bbb3-075f6543df34: HTTPException - 
+2025-09-03 13:44:41,046 - signglove - INFO - Response: GET /predict/live - 404
+2025-09-03 13:46:23,537 - signglove - INFO - Request: POST /training/analyze-confusion-matrix
+2025-09-03 13:46:56,626 - signglove - WARNING - Slow request: POST /training/analyze-confusion-matrix took 33.09s
+2025-09-03 13:46:56,628 - signglove - INFO - Response: POST /training/analyze-confusion-matrix - 200
+2025-09-03 13:46:56,648 - signglove - INFO - Request: GET /training/confusion-matrix/results
+2025-09-03 13:46:56,658 - signglove - INFO - Response: GET /training/confusion-matrix/results - 200
+2025-09-03 13:47:10,360 - signglove - INFO - Request: POST /training/analyze-confusion-matrix
+2025-09-03 13:47:23,746 - signglove - WARNING - Slow request: POST /training/analyze-confusion-matrix took 13.38s
+2025-09-03 13:47:23,752 - signglove - INFO - Request: GET /training/visualizations/confusion_matrix
+2025-09-03 13:47:23,755 - signglove - INFO - Request: GET /training/visualizations/roc_curves
+2025-09-03 13:47:23,758 - signglove - INFO - Request: GET /training/visualizations/training_history
+2025-09-03 13:47:23,774 - signglove - INFO - Response: POST /training/analyze-confusion-matrix - 200
+2025-09-03 13:47:23,801 - signglove - INFO - Response: GET /training/visualizations/confusion_matrix - 200
+2025-09-03 13:47:23,802 - signglove - INFO - Response: GET /training/visualizations/roc_curves - 200
+2025-09-03 13:47:23,806 - signglove - INFO - Response: GET /training/visualizations/training_history - 200
+2025-09-03 13:47:23,815 - signglove - INFO - Request: GET /training/confusion-matrix/results
+2025-09-03 13:47:23,835 - signglove - INFO - Response: GET /training/confusion-matrix/results - 200
+2025-09-03 13:47:46,932 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 13:47:56,025 - signglove - INFO - Request: GET /training/confusion-matrix/improved
+2025-09-03 13:47:56,034 - signglove - INFO - Response: GET /training/confusion-matrix/improved - 200
+2025-09-03 13:48:05,610 - signglove - INFO - Request: GET /audio-files/
+2025-09-03 13:48:05,721 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-09-03 13:48:05,745 - signglove - INFO - Request: GET /audio-files/
+2025-09-03 13:48:05,852 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-09-03 13:52:37,995 - signglove - INFO - Request: GET /training/latest
+2025-09-03 13:52:38,100 - signglove - INFO - Response: GET /training/latest - 200
+2025-09-03 13:52:38,128 - signglove - INFO - Request: GET /training/latest
+2025-09-03 13:52:38,232 - signglove - INFO - Response: GET /training/latest - 200
+2025-09-03 13:52:43,716 - signglove - INFO - Request: GET /audio-files/
+2025-09-03 13:52:43,835 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-09-03 13:52:43,857 - signglove - INFO - Request: GET /audio-files/
+2025-09-03 13:52:43,961 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-09-03 13:52:46,939 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 13:52:48,686 - signglove - INFO - Request: GET /audio-files/esp32/error-log
+2025-09-03 13:52:48,843 - signglove - ERROR - Error 809d06a8-9ecd-4013-8e66-a2f41d985e53: HTTPException - 
+2025-09-03 13:52:48,846 - signglove - INFO - Response: GET /audio-files/esp32/error-log - 404
+2025-09-03 13:52:49,638 - signglove - INFO - Request: GET /audio-files/esp32/error-log
+2025-09-03 13:52:49,644 - signglove - ERROR - Error 9a808c3e-bb6f-4350-9675-243878b1a3b1: HTTPException - 
+2025-09-03 13:52:49,648 - signglove - INFO - Response: GET /audio-files/esp32/error-log - 404
+2025-09-03 13:52:50,038 - signglove - INFO - Request: GET /audio-files/esp32/error-log
+2025-09-03 13:52:50,042 - signglove - ERROR - Error f063723b-ef25-414a-b926-53643468c9d8: HTTPException - 
+2025-09-03 13:52:50,046 - signglove - INFO - Response: GET /audio-files/esp32/error-log - 404
+2025-09-03 13:52:50,210 - signglove - INFO - Request: GET /audio-files/esp32/error-log
+2025-09-03 13:52:50,215 - signglove - ERROR - Error c5a0c7f1-ff10-49af-9930-73db9cc47ac0: HTTPException - 
+2025-09-03 13:52:50,217 - signglove - INFO - Response: GET /audio-files/esp32/error-log - 404
+2025-09-03 13:52:50,372 - signglove - INFO - Request: GET /audio-files/esp32/error-log
+2025-09-03 13:52:50,376 - signglove - ERROR - Error 0421add9-f922-4140-9b0a-ae5dd27a0068: HTTPException - 
+2025-09-03 13:52:50,380 - signglove - INFO - Response: GET /audio-files/esp32/error-log - 404
+2025-09-03 13:52:50,534 - signglove - INFO - Request: GET /audio-files/esp32/error-log
+2025-09-03 13:52:50,538 - signglove - ERROR - Error 025ba1e7-7d1f-4c77-877b-02eeee2eeb47: HTTPException - 
+2025-09-03 13:52:50,542 - signglove - INFO - Response: GET /audio-files/esp32/error-log - 404
+2025-09-03 13:53:20,812 - signglove - INFO - Request: POST /audio-files/
+2025-09-03 13:53:21,008 - signglove - INFO - Response: POST /audio-files/ - 201
+2025-09-03 13:53:21,026 - signglove - INFO - Request: GET /audio-files/
+2025-09-03 13:53:21,129 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-09-03 13:53:28,314 - signglove - INFO - Request: POST /audio-files/test_output.mp3/play
+2025-09-03 13:53:33,684 - signglove - ERROR - Error ce0581bb-0fdf-49ed-a7cb-d3558182c2b7: HTTPException - 
+2025-09-03 13:53:33,686 - signglove - WARNING - Slow request: POST /audio-files/test_output.mp3/play took 5.37s
+2025-09-03 13:53:33,688 - signglove - INFO - Response: POST /audio-files/test_output.mp3/play - 502
+2025-09-03 13:53:59,468 - signglove - INFO - Request: GET /training/
+2025-09-03 13:53:59,471 - signglove - INFO - Request: GET /predict/live
+2025-09-03 13:53:59,472 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-03 13:53:59,528 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-03 13:53:59,578 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-03 13:53:59,623 - root - INFO - Fetched 1 training results
+2025-09-03 13:53:59,628 - signglove - ERROR - Error 63ea59fc-991a-458f-b43a-eb75cca0ba1e: HTTPException - 
+2025-09-03 13:53:59,658 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-03 13:53:59,661 - signglove - INFO - Response: GET /training/ - 200
+2025-09-03 13:53:59,664 - signglove - INFO - Response: GET /predict/live - 404
+2025-09-03 13:53:59,762 - signglove - INFO - Request: GET /training/
+2025-09-03 13:53:59,764 - signglove - INFO - Request: GET /predict/live
+2025-09-03 13:53:59,787 - signglove - INFO - Response: GET /training/ - 200
+2025-09-03 13:53:59,872 - signglove - ERROR - Error 76e05c12-d5c7-41a3-856c-a0f9fb1df5a0: HTTPException - 
+2025-09-03 13:53:59,879 - signglove - INFO - Response: GET /predict/live - 404
+2025-09-03 13:57:46,941 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 14:02:46,941 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 14:07:46,936 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 14:12:46,936 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 14:17:46,937 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 14:22:46,944 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 14:27:46,960 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 14:29:23,119 - signglove - INFO - Request: GET /dashboard/
+2025-09-03 14:29:23,587 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-09-03 14:29:23,602 - signglove - INFO - Request: GET /dashboard/
+2025-09-03 14:29:23,621 - signglove - INFO - Response: GET /dashboard/ - 200
+2025-09-03 14:32:46,975 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 14:37:46,985 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 14:42:46,965 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 14:47:46,970 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 14:52:46,965 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 14:57:46,968 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 15:02:47,083 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 15:07:47,083 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 15:12:47,136 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 15:17:47,200 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 15:22:47,188 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 15:27:47,448 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 15:32:47,440 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-03 15:36:10,195 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-05 18:13:19,576 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-05 18:13:20,350 - root - INFO - Indexes created. App is starting...
+2025-09-05 18:13:20,416 - root - INFO - [AUTO] New data detected in raw_data.csv. Running noise reduction and training...
+2025-09-05 18:13:22,088 - root - INFO - [AUTO] Noise reduction complete: Noise-reduced data written to F:\testing\sign-glove\backend\processors\../data/gesture_data.csv
 Total rows in gesture_data.csv: 8053
-2025-09-05 10:43:36,251 - root - INFO - [AUTO] Triggering model training...
-2025-09-05 10:43:40,259 - root - ERROR - [AUTO] Error triggering training: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /training/trigger (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000026D863A32D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
-2025-09-05 10:43:43,808 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-05 10:48:40,255 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 10:53:07,411 - signglove - INFO - Request: GET /training/latest
-2025-09-05 10:53:07,487 - signglove - INFO - Response: GET /training/latest - 200
-2025-09-05 10:53:07,493 - signglove - INFO - Request: GET /training/latest
-2025-09-05 10:53:07,570 - signglove - INFO - Response: GET /training/latest - 200
-2025-09-05 10:53:13,158 - signglove - INFO - Request: GET /training/
-2025-09-05 10:53:13,159 - signglove - INFO - Request: GET /predict/live
-2025-09-05 10:53:13,159 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 10:53:13,178 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 10:53:13,182 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 10:53:13,186 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 10:53:13,234 - root - INFO - Fetched 1 training results
-2025-09-05 10:53:13,250 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 10:53:13,254 - signglove - INFO - Request: GET /training/
-2025-09-05 10:53:13,256 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 10:53:13,705 - signglove - ERROR - Error 0a6bde95-876d-47b3-bfca-b7fe9300be9b: HTTPException - 
-2025-09-05 10:53:13,706 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 10:53:13,710 - signglove - INFO - Request: GET /predict/live
-2025-09-05 10:53:13,787 - signglove - ERROR - Error 91d5b6b9-6c23-43d4-8dd0-dbda57de7700: HTTPException - 
-2025-09-05 10:53:13,788 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 10:53:40,256 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 10:56:32,782 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-05 10:56:35,367 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-05 10:58:40,240 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 11:03:40,244 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 11:08:40,253 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 11:13:40,256 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 11:18:40,266 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 11:23:40,266 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 11:28:40,241 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 11:33:40,253 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 11:36:53,373 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-05 11:36:53,557 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-05 11:37:00,558 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-05 11:37:01,338 - root - INFO - Indexes created. App is starting...
-2025-09-05 11:37:01,339 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 11:37:01,340 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-05 11:40:34,807 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-05 11:40:34,979 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-05 11:40:42,236 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-05 11:40:42,912 - root - INFO - Indexes created. App is starting...
-2025-09-05 11:40:42,913 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 11:40:42,915 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-05 11:45:42,914 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 11:49:41,370 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-05 11:49:42,194 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-05 11:50:42,910 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 11:51:36,264 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-05 11:51:36,422 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-05 12:12:31,970 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-05 12:12:32,640 - root - INFO - Indexes created. App is starting...
-2025-09-05 12:12:32,641 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 12:12:33,389 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-05 12:12:41,696 - signglove - INFO - Request: GET /training/
-2025-09-05 12:12:41,697 - signglove - INFO - Request: GET /predict/live
-2025-09-05 12:12:41,698 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 12:12:41,702 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 12:12:41,708 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 12:12:41,712 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 12:12:41,759 - root - INFO - Fetched 1 training results
-2025-09-05 12:12:41,761 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 12:12:41,765 - signglove - INFO - Request: GET /training/
-2025-09-05 12:12:41,766 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 12:12:42,174 - signglove - ERROR - Error 5c5f6940-8901-4b59-ba78-759f4b6cbfd9: HTTPException - 
-2025-09-05 12:12:42,175 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 12:12:42,180 - signglove - INFO - Request: GET /predict/live
-2025-09-05 12:12:42,255 - signglove - ERROR - Error 799696cd-29e7-4cf7-8716-97b811de3ebf: HTTPException - 
-2025-09-05 12:12:42,256 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 12:12:48,219 - signglove - INFO - Request: POST /training/run
-2025-09-05 12:12:48,225 - signglove - ERROR - Error d07ec111-76d4-40fe-b4f9-ca634b9ee39d: HTTPException - 
-2025-09-05 12:12:48,227 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 12:12:48,228 - signglove - INFO - Request: GET /training/
-2025-09-05 12:12:48,228 - signglove - INFO - Request: GET /predict/live
-2025-09-05 12:12:48,232 - signglove - INFO - Response: POST /training/run - 401
-2025-09-05 12:12:48,234 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 12:12:48,234 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 12:12:48,242 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 12:12:48,243 - signglove - INFO - Request: GET /training/
-2025-09-05 12:12:48,248 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 12:12:48,249 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 12:12:48,309 - signglove - ERROR - Error 999bd242-dc16-4dd3-b96e-0c4fc37b3ee3: HTTPException - 
-2025-09-05 12:12:48,310 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 12:12:48,314 - signglove - INFO - Request: GET /predict/live
-2025-09-05 12:12:48,390 - signglove - ERROR - Error b9b4782b-47a6-45f3-9503-21cc1a29e3d3: HTTPException - 
-2025-09-05 12:12:48,391 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 12:13:07,071 - signglove - INFO - Request: GET /auth/me
-2025-09-05 12:13:07,074 - signglove - ERROR - Error 6b688159-9586-4d11-91d9-c9bd97372544: HTTPException - 
-2025-09-05 12:13:07,075 - signglove - INFO - Response: GET /auth/me - 401
-2025-09-05 12:13:07,080 - signglove - INFO - Request: GET /auth/me
-2025-09-05 12:13:07,082 - signglove - ERROR - Error cec1cb28-6760-4add-8c68-3ae75fe3e15d: HTTPException - 
-2025-09-05 12:13:07,083 - signglove - INFO - Response: GET /auth/me - 401
-2025-09-05 12:13:16,593 - signglove - INFO - Request: POST /auth/login
-2025-09-05 12:13:16,891 - signglove - INFO - Response: POST /auth/login - 200
-2025-09-05 12:13:16,899 - signglove - INFO - Request: GET /auth/me
-2025-09-05 12:13:16,978 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-05 12:13:20,334 - signglove - INFO - Request: GET /training/
-2025-09-05 12:13:20,338 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 12:13:20,339 - signglove - INFO - Request: GET /predict/live
-2025-09-05 12:13:20,347 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 12:13:20,351 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 12:13:20,354 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 12:13:20,405 - signglove - ERROR - Error 0a7f97e1-0024-41a1-8c60-dd07aa09d0f2: HTTPException - 
-2025-09-05 12:13:20,407 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 12:13:20,413 - root - INFO - Fetched 1 training results
-2025-09-05 12:13:20,414 - signglove - INFO - Request: GET /predict/live
-2025-09-05 12:13:20,415 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 12:13:20,419 - signglove - INFO - Request: GET /training/
-2025-09-05 12:13:20,421 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 12:13:20,495 - signglove - ERROR - Error bf92293d-67e1-4743-b5fa-1e76805737a6: HTTPException - 
-2025-09-05 12:13:20,495 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 12:13:27,575 - signglove - INFO - Request: POST /training/run
-2025-09-05 12:13:27,588 - signglove - INFO - Request: GET /training/
-2025-09-05 12:13:27,589 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 12:13:27,590 - signglove - INFO - Request: GET /predict/live
-2025-09-05 12:13:27,594 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 12:13:27,595 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 12:13:27,658 - signglove - ERROR - Error 87722846-560f-4913-be22-531ea5a4349d: HTTPException - 
-2025-09-05 12:13:27,660 - signglove - INFO - Response: POST /training/run - 200
-2025-09-05 12:13:27,660 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 12:13:29,590 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:29,598 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:31,595 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:31,596 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:33,592 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:33,594 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:35,594 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:35,596 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:37,591 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:37,593 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:39,591 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:39,602 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:41,593 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:41,596 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:43,590 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:43,600 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:45,593 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:45,595 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:47,592 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:47,602 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:49,593 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:49,595 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:51,597 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:51,606 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:53,596 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:53,606 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:55,599 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:55,601 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:57,590 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:57,600 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:13:59,590 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:13:59,592 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:14:01,597 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:14:01,611 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:14:03,597 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:14:03,599 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:14:05,594 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:14:05,603 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:14:07,592 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:14:07,594 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:14:09,592 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:14:09,594 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:14:11,592 - signglove - INFO - Request: GET /utils/training/logs
-2025-09-05 12:14:11,602 - signglove - INFO - Response: GET /utils/training/logs - 200
-2025-09-05 12:14:11,610 - signglove - INFO - Request: GET /training/
-2025-09-05 12:14:11,621 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 12:14:11,622 - signglove - INFO - Request: GET /predict/live
-2025-09-05 12:14:11,639 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 12:14:11,674 - root - INFO - Fetched 2 training results
-2025-09-05 12:14:11,675 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 12:14:11,678 - signglove - INFO - Request: GET /training/
-2025-09-05 12:14:11,680 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 12:14:11,682 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 12:14:11,687 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 12:14:11,718 - signglove - ERROR - Error 1b243665-5a81-43a6-8b9e-2eb1ce438d95: HTTPException - 
-2025-09-05 12:14:11,719 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 12:14:11,724 - signglove - INFO - Request: GET /predict/live
-2025-09-05 12:14:11,801 - signglove - ERROR - Error 9740be6d-4e23-4630-b685-88c20b4edbad: HTTPException - 
-2025-09-05 12:14:11,803 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 12:15:22,606 - signglove - INFO - Request: POST /predict/
-2025-09-05 12:15:22,609 - signglove - INFO - Response: POST /predict/ - 200
-2025-09-05 12:16:01,789 - signglove - INFO - Request: POST /predict/
-2025-09-05 12:16:01,792 - signglove - INFO - Response: POST /predict/ - 200
-2025-09-05 12:16:06,103 - signglove - INFO - Request: GET /training/latest
-2025-09-05 12:16:06,183 - signglove - INFO - Response: GET /training/latest - 200
-2025-09-05 12:16:06,187 - signglove - INFO - Request: GET /training/latest
-2025-09-05 12:16:06,264 - signglove - INFO - Response: GET /training/latest - 200
-2025-09-05 12:16:11,338 - signglove - INFO - Request: GET /training/confusion-matrix/improved
-2025-09-05 12:16:11,339 - signglove - INFO - Request: GET /training/visualizations/roc_curves
-2025-09-05 12:16:11,339 - signglove - INFO - Request: GET /training/visualizations/training_history
-2025-09-05 12:16:11,339 - signglove - INFO - Request: GET /training/visualizations/confusion_matrix
-2025-09-05 12:16:11,346 - signglove - INFO - Response: GET /training/confusion-matrix/improved - 200
-2025-09-05 12:16:11,346 - signglove - INFO - Response: GET /training/visualizations/roc_curves - 200
-2025-09-05 12:16:11,347 - signglove - INFO - Response: GET /training/visualizations/training_history - 200
-2025-09-05 12:16:11,347 - signglove - INFO - Response: GET /training/visualizations/confusion_matrix - 200
-2025-09-05 12:16:16,072 - signglove - INFO - Request: GET /training/
-2025-09-05 12:16:16,073 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 12:16:16,074 - signglove - INFO - Request: GET /predict/live
-2025-09-05 12:16:16,079 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 12:16:16,084 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 12:16:16,089 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 12:16:16,141 - signglove - ERROR - Error a12157bc-823d-4140-882e-146ac17c96dc: HTTPException - 
-2025-09-05 12:16:16,142 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 12:16:16,146 - signglove - INFO - Request: GET /predict/live
-2025-09-05 12:16:16,150 - root - INFO - Fetched 2 training results
-2025-09-05 12:16:16,151 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 12:16:16,156 - signglove - INFO - Request: GET /training/
-2025-09-05 12:16:16,158 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 12:16:16,209 - signglove - ERROR - Error 8f086614-6fcf-45a6-8ce1-66c6bf179980: HTTPException - 
-2025-09-05 12:16:16,210 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 12:17:32,632 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 12:22:32,636 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 12:27:32,629 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 12:32:32,638 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 12:37:32,640 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 12:42:32,643 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 12:47:32,606 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 12:52:32,592 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 12:57:32,592 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 13:02:32,588 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 13:05:32,820 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-05 13:05:37,829 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-05 13:07:32,595 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 13:12:32,583 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 13:17:32,593 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 13:22:32,593 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 13:27:32,592 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 13:32:32,587 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 13:37:32,587 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 13:42:32,583 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 13:47:32,781 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 13:52:32,794 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 13:57:32,785 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 14:00:21,812 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-05 14:00:21,976 - root - INFO - MongoDB connection closed. App is shutting down...
-2025-09-05 14:01:03,776 - core.database - INFO - Connected to MongoDB Atlas!
-2025-09-05 14:01:04,436 - root - INFO - Indexes created. App is starting...
-2025-09-05 14:01:04,437 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 14:01:06,930 - signglove - INFO - WebSocket connection established with 192.168.0.8
-2025-09-05 14:01:06,953 - signglove - INFO - Request: GET /auth/me
-2025-09-05 14:01:06,959 - signglove - ERROR - Error 1d27d839-1cdf-41f1-bb8a-8405a3610683: HTTPException - 
-2025-09-05 14:01:06,960 - signglove - INFO - Response: GET /auth/me - 401
-2025-09-05 14:01:06,966 - signglove - INFO - Request: GET /auth/me
-2025-09-05 14:01:06,968 - signglove - ERROR - Error 17ded68a-d4bf-4605-af36-3199789d118d: HTTPException - 
-2025-09-05 14:01:06,970 - signglove - INFO - Response: GET /auth/me - 401
-2025-09-05 14:01:26,370 - signglove - INFO - Request: POST /auth/login
-2025-09-05 14:01:26,646 - signglove - INFO - Response: POST /auth/login - 200
-2025-09-05 14:01:26,653 - signglove - INFO - Request: GET /auth/me
-2025-09-05 14:01:26,713 - signglove - INFO - Response: GET /auth/me - 200
-2025-09-05 14:01:31,839 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-05 14:01:50,351 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-05 14:01:50,359 - signglove - INFO - Request: GET /training/
-2025-09-05 14:01:50,361 - signglove - INFO - Request: GET /predict/live
-2025-09-05 14:01:50,361 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 14:01:50,369 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 14:01:50,376 - signglove - INFO - Request: GET /training/metrics/latest
-2025-09-05 14:01:50,381 - signglove - INFO - Response: GET /training/metrics/latest - 200
-2025-09-05 14:01:50,423 - root - INFO - Fetched 2 training results
-2025-09-05 14:01:50,424 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 14:01:50,429 - signglove - INFO - Request: GET /training/
-2025-09-05 14:01:50,430 - signglove - INFO - Response: GET /training/ - 200
-2025-09-05 14:01:50,812 - signglove - ERROR - Error b2dd0472-ae1b-4852-97ef-700a5bd754f7: HTTPException - 
-2025-09-05 14:01:50,813 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 14:01:50,817 - signglove - INFO - Request: GET /predict/live
-2025-09-05 14:01:50,891 - signglove - ERROR - Error 02351ca7-77ee-4fae-bf4c-5ce39b4c1cf7: HTTPException - 
-2025-09-05 14:01:50,892 - signglove - INFO - Response: GET /predict/live - 404
-2025-09-05 14:01:51,670 - signglove - INFO - WebSocket connection established with 127.0.0.1
-2025-09-05 14:01:53,628 - signglove - INFO - Request: GET /training/visualizations/training_history
-2025-09-05 14:01:53,631 - signglove - INFO - Response: GET /training/visualizations/training_history - 200
-2025-09-05 14:02:01,061 - signglove - INFO - Request: GET /training/visualizations/confusion_matrix
-2025-09-05 14:02:01,062 - signglove - INFO - Response: GET /training/visualizations/confusion_matrix - 200
-2025-09-05 14:06:04,440 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 14:11:04,451 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
-2025-09-05 14:13:15,725 - signglove - INFO - Request: GET /training/visualizations/roc_curves
-2025-09-05 14:13:15,728 - signglove - INFO - Response: GET /training/visualizations/roc_curves - 200
-2025-09-05 14:13:26,939 - signglove - INFO - Request: GET /training/visualizations/training_history
-2025-09-05 14:13:26,941 - signglove - INFO - Response: GET /training/visualizations/training_history - 200
-2025-09-05 14:14:54,571 - signglove - INFO - Request: GET /training/visualizations/confusion_matrix
-2025-09-05 14:14:54,572 - signglove - INFO - Response: GET /training/visualizations/confusion_matrix - 200
-2025-09-05 14:15:41,879 - signglove - INFO - WebSocket connection closed for 127.0.0.1
-2025-09-05 14:15:41,880 - signglove - INFO - WebSocket connection closed for 192.168.0.8
-2025-09-05 14:15:42,055 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-05 18:13:22,090 - root - INFO - [AUTO] Triggering model training...
+2025-09-05 18:13:26,155 - root - ERROR - [AUTO] Error triggering training: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /training/trigger (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000023D003151D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-09-05 18:16:18,882 - signglove - INFO - Request: GET /auth/me
+2025-09-05 18:16:19,110 - signglove - ERROR - Error 540d9823-8367-4405-9fb1-8180649409e2: HTTPException - 
+2025-09-05 18:16:19,117 - signglove - INFO - Response: GET /auth/me - 401
+2025-09-05 18:16:19,143 - signglove - INFO - Request: GET /auth/me
+2025-09-05 18:16:19,155 - signglove - ERROR - Error ec5427ed-baab-46f0-8545-d72b855f510f: HTTPException - 
+2025-09-05 18:16:19,175 - signglove - INFO - Response: GET /auth/me - 401
+2025-09-05 18:16:32,998 - signglove - INFO - Request: POST /auth/login
+2025-09-05 18:16:33,561 - signglove - INFO - Response: POST /auth/login - 200
+2025-09-05 18:16:33,586 - signglove - INFO - Request: GET /auth/me
+2025-09-05 18:16:33,656 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-05 18:16:45,106 - signglove - INFO - WebSocket connection established with 127.0.0.1
+2025-09-05 18:18:26,149 - root - INFO - [AUTO] No new data in raw_data.csv. Skipping noise reduction and training.
+2025-09-05 18:18:40,958 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-05 18:18:41,128 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-05 18:31:12,889 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-05 18:31:13,563 - root - INFO - Indexes created. App is starting...
+2025-09-05 18:32:46,987 - signglove - INFO - Request: GET /auth/me
+2025-09-05 18:32:47,068 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-05 18:32:47,081 - signglove - INFO - Request: GET /auth/me
+2025-09-05 18:32:47,143 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-05 18:32:50,516 - signglove - INFO - Request: GET /gestures
+2025-09-05 18:32:50,947 - signglove - INFO - [trace=none] Listed 1000 gestures.
+2025-09-05 18:32:50,962 - signglove - INFO - Response: GET /gestures - 200
+2025-09-05 18:32:51,033 - signglove - INFO - Request: GET /gestures
+2025-09-05 18:32:51,358 - signglove - INFO - [trace=none] Listed 1000 gestures.
+2025-09-05 18:32:51,368 - signglove - INFO - Response: GET /gestures - 200
+2025-09-05 18:32:55,451 - signglove - INFO - Request: GET /audio-files/
+2025-09-05 18:32:55,513 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-09-05 18:32:55,532 - signglove - INFO - Request: GET /audio-files/
+2025-09-05 18:32:55,591 - signglove - INFO - Response: GET /audio-files/ - 200
+2025-09-05 18:32:59,417 - signglove - INFO - Request: POST /audio-files/test_output.mp3/play-laptop
+2025-09-05 18:32:59,430 - signglove - INFO - Response: POST /audio-files/test_output.mp3/play-laptop - 200
+2025-09-05 19:01:49,295 - signglove - INFO - Request: POST /auth/logout
+2025-09-05 19:01:49,304 - signglove - INFO - Response: POST /auth/logout - 200
+2025-09-05 19:02:05,250 - signglove - INFO - Request: POST /auth/login
+2025-09-05 19:02:05,767 - signglove - INFO - Response: POST /auth/login - 200
+2025-09-05 19:02:05,799 - signglove - INFO - Request: GET /auth/me
+2025-09-05 19:02:05,866 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-05 19:04:45,380 - signglove - INFO - Request: POST /auth/login
+2025-09-05 19:04:45,877 - signglove - INFO - Response: POST /auth/login - 200
+2025-09-05 19:04:45,931 - signglove - INFO - Request: GET /auth/me
+2025-09-05 19:04:46,002 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-05 19:04:51,432 - signglove - INFO - Request: GET /training/
+2025-09-05 19:04:51,436 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-05 19:04:51,441 - signglove - INFO - Request: GET /predict/live
+2025-09-05 19:04:51,549 - root - INFO - Fetched 3 training results
+2025-09-05 19:04:51,566 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-05 19:04:51,568 - signglove - INFO - Response: GET /training/ - 200
+2025-09-05 19:04:51,570 - signglove - INFO - Response: GET /predict/live - 404
+2025-09-05 19:04:51,650 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-05 19:04:51,742 - signglove - INFO - Request: GET /training/
+2025-09-05 19:04:51,745 - signglove - INFO - Request: GET /predict/live
+2025-09-05 19:04:51,775 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-05 19:04:51,784 - signglove - INFO - Response: GET /training/ - 200
+2025-09-05 19:04:51,786 - signglove - INFO - Response: GET /predict/live - 404
+2025-09-05 19:05:10,666 - signglove - INFO - Request: POST /gestures/upload
+2025-09-05 19:05:20,454 - signglove - INFO - [trace=none] Uploaded 8053 sensor data rows from CSV: gesture_data.csv
+2025-09-05 19:05:20,469 - signglove - WARNING - Slow request: POST /gestures/upload took 9.80s
+2025-09-05 19:05:20,472 - signglove - INFO - Response: POST /gestures/upload - 200
+2025-09-05 19:05:25,161 - signglove - INFO - Request: GET /training/visualizations/confusion_matrix
+2025-09-05 19:05:25,176 - signglove - INFO - Response: GET /training/visualizations/confusion_matrix - 200
+2025-09-05 20:31:02,877 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-05 20:32:41,549 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-05 20:32:42,086 - root - INFO - Indexes created. App is starting...
+2025-09-05 20:47:57,214 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-05 20:47:58,009 - root - INFO - Indexes created. App is starting...
+2025-09-05 20:52:12,603 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-05 20:54:00,731 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-05 20:54:01,402 - root - INFO - Indexes created. App is starting...
+2025-09-05 20:55:50,569 - signglove - INFO - Request: GET /auth/me
+2025-09-05 20:55:50,858 - signglove - ERROR - Error bfe1ee54-b828-45e5-8af4-dea26285f91d: HTTPException - 
+2025-09-05 20:55:50,864 - signglove - INFO - Response: GET /auth/me - 401
+2025-09-05 20:55:50,887 - signglove - INFO - Request: GET /auth/me
+2025-09-05 20:55:50,896 - signglove - ERROR - Error 4c6b1b44-eeed-4d82-8400-244d5fe644bd: HTTPException - 
+2025-09-05 20:55:50,902 - signglove - INFO - Response: GET /auth/me - 401
+2025-09-05 21:05:50,506 - signglove - INFO - Request: POST /auth/login
+2025-09-05 21:05:51,051 - signglove - INFO - Response: POST /auth/login - 200
+2025-09-05 21:05:51,103 - signglove - INFO - Request: GET /auth/me
+2025-09-05 21:05:51,173 - signglove - INFO - Response: GET /auth/me - 200
