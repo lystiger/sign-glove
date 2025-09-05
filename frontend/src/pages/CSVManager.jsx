@@ -88,20 +88,14 @@ const CSVManager = () => {
 
   const checkModelStatus = async () => {
     try {
-      // Check if models exist by trying to make a prediction
-      const response = await apiRequest('get', '/predict/live');
+      const response = await apiRequest('get', '/model/status');
       setModelStatus({
-        singleHand: true,
-        dualHand: response.model_type === 'dual_hand',
-        lastUpdated: new Date().toISOString()
+        singleHand: response.data.singleHand,
+        dualHand: response.data.dualHand,
+        labels: response.data.labels,
+        lastUpdated: response.data.lastUpdated
       });
     } catch (err) {
-      // Models might not exist if no training has been run yet - this is expected
-      if (err.status === 404) {
-        console.log('No trained models found yet - upload training data to create models');
-      } else {
-        console.error('Error checking model status:', err);
-      }
       setModelStatus({
         singleHand: false,
         dualHand: false,
@@ -110,7 +104,7 @@ const CSVManager = () => {
       });
     }
   };
-
+  
   const checkTrainingProgress = async () => {
     try {
       const response = await apiRequest('get', '/utils/training/logs');

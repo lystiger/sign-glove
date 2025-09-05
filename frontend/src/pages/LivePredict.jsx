@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const WS_URL = "ws://localhost:8000/ws/predict";
+const WS_URL = "ws://localhost:8000/ws/stream";
 
 const LivePredict = () => {
   const [prediction, setPrediction] = useState(null);

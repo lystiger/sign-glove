@@ -24,6 +24,7 @@ class RegularizationAlgorithms:
         self.window_size = window_size
         self.sensor_states = {}
         self.buffers = {}
+        self.imu_norm = IMUNormalizer() 
 
     def reset_states(self):
         self.sensor_states.clear()
