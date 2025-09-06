@@ -13131,3 +13131,460 @@ Total rows in gesture_data.csv: 8053
 2025-09-06 05:30:25,564 - core.database - INFO - Connected to MongoDB Atlas!
 2025-09-06 05:30:26,526 - root - INFO - Indexes created. App is starting...
 2025-09-06 05:30:27,575 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-06 05:31:36,073 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 05:31:36,888 - root - INFO - Indexes created. App is starting...
+2025-09-06 05:32:12,754 - signglove - INFO - Request: GET /auth/me
+2025-09-06 05:32:12,880 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-06 05:32:12,903 - signglove - INFO - Request: GET /auth/me
+2025-09-06 05:32:12,982 - signglove - INFO - Request: GET /training/
+2025-09-06 05:32:13,002 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-06 05:32:13,003 - signglove - INFO - Request: GET /model/status
+2025-09-06 05:32:13,057 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-06 05:32:13,061 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 05:32:13,064 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-06 05:32:13,156 - signglove - INFO - Request: GET /model/status
+2025-09-06 05:32:13,160 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-06 05:32:13,208 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 05:32:13,214 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-06 05:32:13,658 - root - INFO - Fetched 4 training results
+2025-09-06 05:32:13,665 - signglove - INFO - Response: GET /training/ - 200
+2025-09-06 05:32:13,689 - signglove - INFO - Request: GET /training/
+2025-09-06 05:32:13,700 - signglove - INFO - Response: GET /training/ - 200
+2025-09-06 05:32:16,190 - signglove - INFO - Request: GET /model/status
+2025-09-06 05:32:16,197 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 05:32:16,349 - signglove - INFO - Request: GET /model/status
+2025-09-06 05:32:16,353 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 05:32:19,386 - signglove - INFO - Request: GET /auth/me
+2025-09-06 05:32:19,538 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-06 05:32:19,553 - signglove - INFO - Request: GET /auth/me
+2025-09-06 05:32:19,628 - signglove - INFO - Request: GET /training/
+2025-09-06 05:32:19,634 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-06 05:32:19,656 - signglove - INFO - Request: GET /model/status
+2025-09-06 05:32:19,674 - signglove - INFO - Response: GET /training/ - 200
+2025-09-06 05:32:19,690 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-06 05:32:19,693 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-06 05:32:19,701 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 05:32:19,775 - signglove - INFO - Request: GET /training/
+2025-09-06 05:32:19,805 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-06 05:32:19,841 - signglove - INFO - Request: GET /model/status
+2025-09-06 05:32:19,858 - signglove - INFO - Response: GET /training/ - 200
+2025-09-06 05:32:19,863 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-06 05:32:19,874 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 05:32:27,396 - signglove - INFO - Request: POST /gestures/upload
+2025-09-06 05:32:36,671 - signglove - INFO - [trace=none] Uploaded 8053 sensor data rows from CSV: raw_data.csv
+2025-09-06 05:32:36,682 - signglove - WARNING - Slow request: POST /gestures/upload took 9.28s
+2025-09-06 05:32:36,684 - signglove - INFO - Response: POST /gestures/upload - 200
+2025-09-06 05:32:43,797 - signglove - INFO - Request: GET /training/
+2025-09-06 05:32:43,806 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-06 05:32:43,832 - signglove - INFO - Request: GET /model/status
+2025-09-06 05:32:43,840 - signglove - INFO - Request: POST /training/run
+2025-09-06 05:32:43,852 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-06 05:32:43,865 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 05:32:43,916 - root - INFO - Fetched 4 training results
+2025-09-06 05:32:43,920 - signglove - INFO - Response: GET /training/ - 200
+2025-09-06 05:32:44,023 - signglove - INFO - Response: POST /training/run - 200
+2025-09-06 05:32:45,810 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:32:45,839 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:32:47,806 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:32:47,812 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:32:49,842 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:32:49,851 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:32:51,809 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:32:51,814 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:32:53,809 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:32:53,814 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:32:55,809 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:32:55,815 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:32:57,653 - signglove - INFO - Request: GET /model/status
+2025-09-06 05:32:57,657 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 05:32:57,815 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:32:57,822 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:32:59,809 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:32:59,815 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:01,814 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:01,820 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:03,805 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:03,812 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:05,805 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:05,811 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:07,816 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:07,821 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:09,810 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:09,982 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:11,806 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:11,815 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:13,810 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:13,836 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:15,809 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:15,816 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:17,810 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:17,842 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:19,809 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:19,817 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:21,807 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:21,815 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:23,813 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:23,842 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:25,804 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:25,812 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:27,808 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:27,837 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:29,811 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:29,819 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:31,805 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:31,836 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:33,808 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:33,817 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:35,809 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:35,840 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:37,806 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:37,814 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:39,814 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:39,903 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:41,813 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:41,822 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:43,808 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:43,815 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:45,813 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:45,846 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:47,814 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:47,823 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:49,807 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:49,838 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:51,803 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:51,810 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:53,815 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:53,846 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:55,810 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:55,819 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:57,806 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:57,837 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:33:59,810 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:33:59,819 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:01,813 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:01,841 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:03,807 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:03,816 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:05,807 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:05,835 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:07,810 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:07,820 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:09,809 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:09,817 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:11,803 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:11,833 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:13,812 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:13,822 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:15,809 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:15,841 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:17,803 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:17,810 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:19,812 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:19,853 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:21,810 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:21,819 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:23,806 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:23,841 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:25,814 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:25,824 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:27,811 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:27,840 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:29,806 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:29,814 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:31,807 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:31,816 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:33,812 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:33,842 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:35,818 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:35,828 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:37,818 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:37,866 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:39,812 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:39,820 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:41,812 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:41,841 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:43,816 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:43,825 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:46,180 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:46,207 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:48,170 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:48,178 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:50,172 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:50,198 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:52,170 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:52,181 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:54,174 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:54,194 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:56,188 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:56,199 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:34:58,178 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:34:58,189 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:35:00,179 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:35:00,210 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:35:02,178 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:35:02,189 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:35:03,817 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:35:03,847 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:35:05,804 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:35:05,817 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:35:07,811 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:35:07,866 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:35:09,804 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:35:09,814 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:35:11,806 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:35:11,813 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:35:13,807 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:35:13,814 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:35:15,802 - signglove - INFO - Request: GET /utils/training/logs
+2025-09-06 05:35:15,974 - signglove - INFO - Response: GET /utils/training/logs - 200
+2025-09-06 05:35:15,997 - signglove - INFO - Request: GET /training/
+2025-09-06 05:35:16,089 - root - INFO - Fetched 5 training results
+2025-09-06 05:35:16,096 - signglove - INFO - Response: GET /training/ - 200
+2025-09-06 05:35:16,153 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-06 05:35:16,154 - signglove - INFO - Request: GET /model/status
+2025-09-06 05:35:16,207 - signglove - INFO - Request: GET /training/
+2025-09-06 05:35:16,211 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-06 05:35:16,212 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 05:35:16,223 - signglove - INFO - Response: GET /training/ - 200
+2025-09-06 05:35:16,246 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-06 05:35:16,275 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-06 05:35:16,317 - signglove - INFO - Request: GET /model/status
+2025-09-06 05:35:16,325 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 05:35:30,387 - signglove - INFO - Request: GET /training/visualizations/confusion_matrix
+2025-09-06 05:35:30,397 - signglove - INFO - Response: GET /training/visualizations/confusion_matrix - 200
+2025-09-06 05:37:38,199 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 05:38:03,374 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 05:38:53,369 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 05:38:56,211 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 05:39:12,426 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 05:39:44,623 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 14:28:47,136 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 14:28:48,542 - root - INFO - Indexes created. App is starting...
+2025-09-06 14:39:39,354 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-06 14:40:50,903 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 14:40:51,594 - root - INFO - Indexes created. App is starting...
+2025-09-06 14:48:47,255 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-06 14:49:19,899 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 14:49:20,503 - root - INFO - Indexes created. App is starting...
+2025-09-06 14:59:00,791 - signglove - INFO - Request: GET /auth/me
+2025-09-06 14:59:00,958 - signglove - ERROR - Error 4c5563a1-99d0-43d5-a11d-cf0de4167898: HTTPException - 
+2025-09-06 14:59:00,960 - signglove - INFO - Request: GET /auth/me
+2025-09-06 14:59:00,966 - signglove - ERROR - Error 83b3179e-c3fc-4cbd-83c1-cb34de2af5d8: HTTPException - 
+2025-09-06 14:59:00,971 - signglove - INFO - Response: GET /auth/me - 401
+2025-09-06 14:59:00,975 - signglove - INFO - Response: GET /auth/me - 401
+2025-09-06 14:59:12,070 - signglove - INFO - Request: POST /auth/login
+2025-09-06 14:59:12,630 - signglove - INFO - Response: POST /auth/login - 200
+2025-09-06 14:59:12,651 - signglove - INFO - Request: GET /auth/me
+2025-09-06 14:59:12,714 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-06 14:59:37,723 - signglove - INFO - Request: GET /auth/me
+2025-09-06 14:59:37,732 - signglove - INFO - Request: GET /auth/me
+2025-09-06 14:59:37,793 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-06 14:59:38,187 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-06 14:59:59,591 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:01:06,820 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:01:07,016 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-06 15:02:03,422 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 15:02:04,297 - root - INFO - Indexes created. App is starting...
+2025-09-06 15:02:04,305 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:02:44,104 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:02:44,135 - signglove - INFO - Request: GET /training/
+2025-09-06 15:02:44,227 - root - INFO - Fetched 5 training results
+2025-09-06 15:02:44,255 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-06 15:02:44,392 - signglove - INFO - Response: GET /training/ - 200
+2025-09-06 15:02:44,405 - signglove - INFO - Request: GET /model/status
+2025-09-06 15:02:44,422 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-06 15:02:44,456 - signglove - INFO - Request: GET /training/
+2025-09-06 15:02:44,459 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 15:02:44,511 - signglove - INFO - Request: GET /training/metrics/latest
+2025-09-06 15:02:44,523 - signglove - INFO - Response: GET /training/ - 200
+2025-09-06 15:02:44,563 - signglove - INFO - Request: GET /model/status
+2025-09-06 15:02:44,594 - signglove - INFO - Response: GET /training/metrics/latest - 200
+2025-09-06 15:02:44,635 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 15:02:45,468 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:03:08,535 - signglove - INFO - Request: GET /model/status
+2025-09-06 15:03:08,547 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 15:03:08,702 - signglove - INFO - Request: GET /model/status
+2025-09-06 15:03:08,712 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 15:03:08,944 - signglove - INFO - Request: GET /model/status
+2025-09-06 15:03:08,952 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 15:03:09,085 - signglove - INFO - Request: GET /model/status
+2025-09-06 15:03:09,094 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 15:03:09,226 - signglove - INFO - Request: GET /model/status
+2025-09-06 15:03:09,232 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 15:03:09,503 - signglove - INFO - Request: GET /model/status
+2025-09-06 15:03:09,513 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 15:03:09,657 - signglove - INFO - Request: GET /model/status
+2025-09-06 15:03:09,667 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 15:03:09,834 - signglove - INFO - Request: GET /model/status
+2025-09-06 15:03:09,840 - signglove - INFO - Response: GET /model/status - 200
+2025-09-06 15:03:15,445 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:04:10,686 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:05:00,689 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:05:03,520 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:05:17,300 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:20:03,659 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:20:03,667 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:20:03,807 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-06 15:20:44,034 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 15:20:44,667 - root - INFO - Indexes created. App is starting...
+2025-09-06 15:21:18,236 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 15:21:18,926 - root - INFO - Indexes created. App is starting...
+2025-09-06 15:21:18,931 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:21:18,955 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:21:18,982 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:27:47,686 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:28:37,792 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:28:40,521 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:29:30,516 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:29:33,254 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:30:23,330 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:30:25,991 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:31:15,996 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:31:18,724 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:31:45,556 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:35:50,303 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:35:50,304 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:35:50,306 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:35:50,458 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-06 15:36:41,567 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 15:36:42,230 - root - INFO - Indexes created. App is starting...
+2025-09-06 15:37:19,003 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 15:37:19,806 - root - INFO - Indexes created. App is starting...
+2025-09-06 15:37:19,815 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:37:19,847 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:37:19,865 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:37:19,893 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:38:27,957 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:38:27,967 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:38:27,970 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:38:27,974 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:38:28,110 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-06 15:39:10,040 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 15:39:10,663 - root - INFO - Indexes created. App is starting...
+2025-09-06 15:39:10,669 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:39:10,703 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:39:10,735 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:39:10,766 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:39:33,805 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:40:23,812 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:40:26,537 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:41:16,517 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:41:19,371 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:41:33,795 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:41:33,797 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:41:33,800 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:41:33,803 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:41:33,805 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:41:33,960 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-06 15:42:14,754 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 15:42:15,384 - root - INFO - Indexes created. App is starting...
+2025-09-06 15:42:45,607 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 15:42:46,310 - root - INFO - Indexes created. App is starting...
+2025-09-06 15:43:25,279 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 15:43:25,951 - root - INFO - Indexes created. App is starting...
+2025-09-06 15:43:26,634 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:26,664 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:26,681 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:26,712 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:26,995 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:28,247 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:30,492 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:30,524 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:39,487 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:39,505 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:42,272 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:46,848 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:46,877 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:52,865 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:52,886 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:54,886 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:43:54,904 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:44:32,262 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:44:35,005 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:45:24,994 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:45:27,738 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:46:17,716 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:46:20,472 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:47:10,476 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:47:13,205 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:03,185 - signglove - ERROR - 127.0.0.1: WebSocket error: 
+2025-09-06 15:48:03,254 - signglove - ERROR - WebSocket error (127.0.0.1): 
+2025-09-06 15:48:11,008 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,015 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,017 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,019 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,021 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,023 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,024 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,027 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,030 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,031 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,033 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,035 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,037 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,039 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,041 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,045 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:48:11,164 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-06 15:48:47,834 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 15:48:48,441 - root - INFO - Indexes created. App is starting...
+2025-09-06 15:48:48,449 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,467 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,485 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,508 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,532 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,554 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,577 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,602 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,624 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,649 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,666 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,683 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,701 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,730 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,751 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:48:48,769 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:53:46,901 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:57:37,002 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,005 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,006 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,010 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,011 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,016 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,017 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,018 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,019 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,020 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,024 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,025 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,025 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,027 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,028 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:37,030 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 15:57:38,628 - signglove - INFO - Request: GET /auth/me
+2025-09-06 15:57:38,734 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-06 15:57:38,749 - signglove - INFO - Request: GET /auth/me
+2025-09-06 15:57:38,820 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-06 15:57:42,129 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 15:58:21,592 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 16:02:11,290 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 16:02:11,533 - root - INFO - MongoDB connection closed. App is shutting down...
+2025-09-06 16:02:47,920 - core.database - INFO - Connected to MongoDB Atlas!
+2025-09-06 16:02:48,717 - root - INFO - Indexes created. App is starting...
+2025-09-06 16:02:48,722 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 16:03:05,689 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 16:04:26,120 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 16:04:27,181 - signglove - INFO - Request: GET /auth/me
+2025-09-06 16:04:27,248 - signglove - ERROR - Error 3645a181-de69-48f5-a3fd-03832994643a: HTTPException - 
+2025-09-06 16:04:27,255 - signglove - INFO - Response: GET /auth/me - 401
+2025-09-06 16:04:27,275 - signglove - INFO - Request: GET /auth/me
+2025-09-06 16:04:27,283 - signglove - ERROR - Error 984ce835-2f0b-46e6-bf02-189e0fd3fa72: HTTPException - 
+2025-09-06 16:04:27,291 - signglove - INFO - Response: GET /auth/me - 401
+2025-09-06 16:04:44,762 - signglove - INFO - Request: POST /auth/login
+2025-09-06 16:04:45,384 - signglove - INFO - Response: POST /auth/login - 200
+2025-09-06 16:04:45,506 - signglove - INFO - Request: GET /auth/me
+2025-09-06 16:04:45,992 - signglove - INFO - Response: GET /auth/me - 200
+2025-09-06 16:04:52,235 - signglove - INFO - WebSocket connected: 127.0.0.1
+2025-09-06 16:05:03,288 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 16:06:09,714 - signglove - INFO - WebSocket disconnected: 127.0.0.1
+2025-09-06 16:06:09,950 - root - INFO - MongoDB connection closed. App is shutting down...

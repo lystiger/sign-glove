@@ -12,7 +12,7 @@ from processors import regularization
 from core.settings import settings as app_settings
 
 # ---------------- CONFIG ----------------
-SERIAL_PORT = 'COM13'
+SERIAL_PORT = 'COM14'
 BAUD_RATE = 115200
 TOTAL_SENSORS = 11
 MAX_QUEUE_SIZE = 20  # max frames queued before dropping old ones

@@ -13,20 +13,22 @@ const LivePredict = () => {
   const [isTtsSupported, setIsTtsSupported] = useState(false);
 
   const wsRef = useRef(null);
+  const reconnectAttempts = useRef(0);
+  const reconnectTimeout = useRef(null);
+
   const ttsQueue = useRef([]);
   const utteranceRef = useRef(null);
   const lastSpokenPrediction = useRef(null);
   const resetTimeout = useRef(null);
   const lastTtsTime = useRef(0);
 
-  // Check TTS support
+  // --- TTS Support ---
   useEffect(() => {
     const supported = "speechSynthesis" in window;
     setIsTtsSupported(supported);
     if (supported) window.speechSynthesis.getVoices();
   }, []);
 
-  // Speak next item in queue
   const speakNextInQueue = useCallback(() => {
     if (!ttsEnabled || ttsQueue.current.length === 0) return;
 
@@ -68,9 +70,8 @@ const LivePredict = () => {
     toast.info(!ttsEnabled ? "TTS Enabled" : "TTS Disabled");
   }, [isTtsSupported, ttsEnabled]);
 
-  // WebSocket connection
+  // --- WebSocket connection with auto-reconnect ---
   const connectWebSocket = useCallback(() => {
-    if (wsRef.current) wsRef.current.close();
     if (isConnecting) return;
 
     setIsConnecting(true);
@@ -78,8 +79,10 @@ const LivePredict = () => {
     wsRef.current = ws;
 
     ws.onopen = () => {
+      console.log("Connected to WebSocket:", WS_URL);
       setConnected(true);
       setIsConnecting(false);
+      reconnectAttempts.current = 0; // reset attempts
       toast.success("Connected to live predictions!");
     };
 
@@ -97,18 +100,27 @@ const LivePredict = () => {
           lastSpokenPrediction.current = null;
         }, 2000);
       } catch (err) {
-        console.error("WebSocket parse error:", err);
+        console.error("WebSocket parse error:", err, "Raw:", event.data);
       }
     };
 
-    ws.onclose = () => {
+    const handleCloseOrError = (reason) => {
+      console.warn("WebSocket closed/error:", reason);
       setConnected(false);
       setIsConnecting(false);
+
+      // Exponential backoff for reconnect
+      const attempt = reconnectAttempts.current++;
+      const delay = Math.min(1000 * 2 ** attempt, 30000); // cap at 30s
+      console.log(`Reconnecting in ${delay / 1000}s (attempt ${attempt + 1})...`);
+
+      reconnectTimeout.current = setTimeout(() => {
+        connectWebSocket();
+      }, delay);
     };
-    ws.onerror = () => {
-      setConnected(false);
-      setIsConnecting(false);
-    };
+
+    ws.onclose = () => handleCloseOrError("closed");
+    ws.onerror = () => handleCloseOrError("error");
   }, [isConnecting, ttsEnabled, enqueuePrediction]);
 
   const resetPrediction = useCallback(() => {
@@ -117,12 +129,13 @@ const LivePredict = () => {
     lastSpokenPrediction.current = null;
   }, []);
 
-  // Cleanup on unmount
+  // --- Cleanup ---
   useEffect(() => {
     return () => {
       window.speechSynthesis.cancel();
       if (wsRef.current) wsRef.current.close();
       clearTimeout(resetTimeout.current);
+      clearTimeout(reconnectTimeout.current);
     };
   }, []);
 

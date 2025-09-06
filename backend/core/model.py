@@ -53,7 +53,7 @@ def predict_gesture(values: list) -> dict:
         predicted_index = int(np.argmax(output))
         confidence = float(np.max(output))
 
-        label_map = {0: "Hello", 1: "Yes", 2: "No", 3: "Thanks"}
+        label_map = {0: "Hello", 1: "Yes", 2: "No", 3: "We", 4: "Are", 5: "Students", 6: "Rest"}
         label = label_map.get(predicted_index, f"Class {predicted_index}")
 
         return {
