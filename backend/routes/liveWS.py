@@ -7,6 +7,7 @@ import logging
 import asyncio
 import json
 import time
+import os
 import numpy as np
 from fastapi import FastAPI, APIRouter, WebSocket, WebSocketDisconnect
 import tensorflow as tf
@@ -19,7 +20,9 @@ RATE_LIMIT_SECONDS = 0.5  # ~ messages/sec per client
 rate_limiter = {}
 
 # Load TFLite model
-TFLITE_MODEL_PATH = r"F:\testing\sign-glove\backend\AI\gesture_model.tflite"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TFLITE_MODEL_PATH = os.path.join(BASE_DIR, "AI", "gesture_model.tflite")
+
 interpreter = tf.lite.Interpreter(model_path=TFLITE_MODEL_PATH)
 interpreter.allocate_tensors()
 input_details = interpreter.get_input_details()
